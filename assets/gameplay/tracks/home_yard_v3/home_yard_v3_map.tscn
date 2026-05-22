@@ -1,4 +1,4 @@
-[gd_scene load_steps=1302 format=3]
+[gd_scene load_steps=1355 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenFridge.glb" id="1_dkcm6"]
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenSink.glb" id="2_mgulr"]
@@ -4726,7 +4726,184 @@ roughness = 0.72
 [sub_resource type="BoxMesh" id="BoxMesh_snfrg"]
 size = Vector3(48, 48, 1.4)
 
-[sub_resource type="Environment" id="Environment_3u00i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3u00i"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_an5uf"]
+size = Vector3(26, 0.28, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snxqh"]
+size = Vector3(26, 0.28, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewt6v"]
+albedo_color = Color(0.18, 0.22, 0.24, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_hp4mn"]
+size = Vector3(5, 0.22, 42)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00byf"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_acncn"]
+size = Vector3(70, 0.28, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mafik"]
+size = Vector3(70, 0.28, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i10lh"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_vsyda"]
+size = Vector3(70, 0.28, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7x7e"]
+size = Vector3(70, 0.28, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qxxn"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_nedod"]
+size = Vector3(5, 0.28, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8pir"]
+size = Vector3(5, 0.28, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ph3b"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_4m7xr"]
+size = Vector3(5, 0.28, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odxab"]
+size = Vector3(5, 0.28, 24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp7e4"]
+albedo_color = Color(0.2, 0.18, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_faxgg"]
+size = Vector3(48, 0.35, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvglu"]
+size = Vector3(48, 0.35, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pohe"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_iju2q"]
+size = Vector3(32, 0.25, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j8h6"]
+size = Vector3(32, 0.25, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oml0s"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_1jt8k"]
+size = Vector3(30, 0.25, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yvid7"]
+size = Vector3(30, 0.25, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf1f4"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_hm55f"]
+size = Vector3(5, 0.25, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhyfj"]
+size = Vector3(5, 0.25, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smar"]
+albedo_color = Color(0.14, 0.36, 0.72, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_o77kb"]
+size = Vector3(20, 1, 63.41863)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxkse"]
+size = Vector3(20, 1, 63.41863)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu82p"]
+albedo_color = Color(0.2088, 0.41120002, 0.74240005, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_capdf"]
+size = Vector3(20, 1, 63.955475)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5dcc"]
+size = Vector3(20, 1, 63.955475)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnrqs"]
+albedo_color = Color(0.119, 0.30600002, 0.61200005, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_plrhd"]
+size = Vector3(24, 0.8, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0ryh"]
+size = Vector3(24, 0.8, 18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oohjh"]
+albedo_color = Color(0.1232, 0.3168, 0.6336, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_wy1g0"]
+size = Vector3(24, 0.8, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu1wq"]
+size = Vector3(24, 0.8, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y7fg"]
+albedo_color = Color(0.78, 0.38, 0.12, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_62jty"]
+size = Vector3(20, 1, 37.160496)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga7l8"]
+size = Vector3(20, 1, 37.160496)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkdg6"]
+albedo_color = Color(0.7976, 0.4296, 0.1904, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_e244b"]
+size = Vector3(20, 1, 37.83784)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c20w4"]
+size = Vector3(20, 1, 37.83784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjulv"]
+albedo_color = Color(0.663, 0.323, 0.102, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_1c1ca"]
+size = Vector3(22, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0bx4"]
+size = Vector3(22, 0.8, 22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spya7"]
+albedo_color = Color(0.6864, 0.3344, 0.1056, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqewe"]
+size = Vector3(24, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l6k46"]
+size = Vector3(24, 0.8, 22)
+
+[sub_resource type="Environment" id="Environment_6jjbc"]
 background_mode = 1
 background_color = Color(0.67, 0.8, 0.94, 1)
 ambient_light_source = 2
@@ -4742,7 +4919,8 @@ metadata/floor_plan_contract = {
 "main": 0.0,
 "upper": 52.0
 },
-"free_drive_contract": "Free-drive circulation is laid out through entry, dining/living, stair hall, back deck, and oversized doggie door, but races still start in separate area courses for this pass.",
+"free_drive_contract": "Free-drive circulation uses real authored human-scale floors, garage slab, patio/deck, yard hardscape, doorway thresholds, oversized doggie door access, and named toy ramp links beside stairs; players and AI racers must not need the kitchen race loop or invisible floor proxies to navigate the house.",
+"home_navigation_contract": "Home free roam is a whole-house navigation graph with named drive zones, anchors, threshold links, AI patrol loops, camera-clearance volumes, and toy ramp links that sit beside architectural stairs.",
 "house_footprint": {
 "back_deck": {
 "max": Vector3(75, 18, -130),
@@ -5130,6 +5308,452 @@ metadata/vertical_circulation_contract = {
 },
 "scale_contract_id": "home_yard_v3_human_house_toy_racer_scale_v1",
 "tolerance_units": 1.0
+}
+metadata/home_navigation_contract = {
+"ai_patrol_loops": Array[Dictionary]([{
+"anchor_ids": ["front_foyer", "dining_living_hub", "kitchen_gate", "kitchen_center", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "sandbox_gate", "yard_play_hub", "front_foyer"],
+"closed": true,
+"id": "main_floor_patrol"
+}, {
+"anchor_ids": ["front_foyer", "dining_living_hub", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "front_foyer", "main_ramp_lower", "main_ramp_mid", "upper_hall_landing", "upper_hall_hub", "bedroom_gate", "bedroom_center", "upper_hall_hub", "attic_ramp_lower", "attic_ramp_mid", "attic_hub", "attic_center", "attic_hub", "attic_ramp_mid", "attic_ramp_lower", "upper_hall_hub", "upper_hall_landing", "main_ramp_mid", "main_ramp_lower"],
+"closed": true,
+"id": "whole_house_patrol"
+}]),
+"anchors": Array[Dictionary]([{
+"floor": "site",
+"id": "front_walk_arrival",
+"position": Vector3(-50, 0.7, 162),
+"spawn_index": 1,
+"yaw_degrees": 180.0,
+"zone": "front_walk"
+}, {
+"floor": "main",
+"id": "front_foyer",
+"position": Vector3(62, 0.7, 116),
+"spawn_index": 0,
+"yaw_degrees": 180.0,
+"zone": "front_foyer"
+}, {
+"floor": "main",
+"id": "dining_living_hub",
+"position": Vector3(-50, 0.7, 72),
+"spawn_index": 2,
+"yaw_degrees": -90.0,
+"zone": "dining_living"
+}, {
+"floor": "main",
+"id": "kitchen_gate",
+"position": Vector3(-128, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "kitchen_breakfast"
+}, {
+"floor": "main",
+"id": "kitchen_center",
+"position": Vector3(-128, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "kitchen_breakfast"
+}, {
+"floor": "main",
+"id": "playroom_gate",
+"position": Vector3(12, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "playroom_family"
+}, {
+"floor": "main",
+"id": "playroom_center",
+"position": Vector3(18, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "playroom_family"
+}, {
+"floor": "main",
+"id": "garage_gate",
+"position": Vector3(96, 0.7, 70),
+"spawn_index": 3,
+"yaw_degrees": 90.0,
+"zone": "garage_service"
+}, {
+"floor": "main",
+"id": "garage_center",
+"position": Vector3(154, 0.7, 40),
+"yaw_degrees": 0.0,
+"zone": "garage_service"
+}, {
+"floor": "site",
+"id": "doggie_door",
+"position": Vector3(4, 0.8, -134),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}, {
+"floor": "site",
+"id": "back_deck",
+"position": Vector3(-36, 0.8, -154),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}, {
+"floor": "site",
+"id": "yard_play_hub",
+"position": Vector3(-52, 0.8, -218),
+"yaw_degrees": 0.0,
+"zone": "yard_play"
+}, {
+"floor": "site",
+"id": "garden_gate",
+"position": Vector3(-184, 0.8, -258),
+"yaw_degrees": -90.0,
+"zone": "yard_play"
+}, {
+"floor": "site",
+"id": "sandbox_gate",
+"position": Vector3(150, 0.8, -258),
+"yaw_degrees": 90.0,
+"zone": "yard_play"
+}, {
+"floor": "main",
+"id": "main_ramp_lower",
+"position": Vector3(44, 0.9, 94),
+"spawn_index": 4,
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}, {
+"floor": "main_to_upper",
+"id": "main_ramp_mid",
+"position": Vector3(44, 26.5, 36),
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}, {
+"floor": "upper",
+"id": "upper_hall_landing",
+"position": Vector3(44, 53.2, -22),
+"spawn_index": 5,
+"yaw_degrees": 0.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper",
+"id": "upper_hall_hub",
+"position": Vector3(10, 53.2, 82),
+"yaw_degrees": -90.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper",
+"id": "bedroom_gate",
+"position": Vector3(-118, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "bedroom_suite"
+}, {
+"floor": "upper",
+"id": "bedroom_center",
+"position": Vector3(-98, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "bedroom_suite"
+}, {
+"floor": "upper",
+"id": "glam_gate",
+"position": Vector3(12, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "glam_dressing"
+}, {
+"floor": "upper",
+"id": "glam_center",
+"position": Vector3(36, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "glam_dressing"
+}, {
+"floor": "upper",
+"id": "attic_ramp_lower",
+"position": Vector3(18, 53.2, -86),
+"spawn_index": 6,
+"yaw_degrees": 90.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper_to_attic",
+"id": "attic_ramp_mid",
+"position": Vector3(44, 80, -86),
+"yaw_degrees": 90.0,
+"zone": "upper_to_attic"
+}, {
+"floor": "attic",
+"id": "attic_hub",
+"position": Vector3(72, 105.2, -86),
+"spawn_index": 7,
+"yaw_degrees": 90.0,
+"zone": "attic_toy_course"
+}, {
+"floor": "attic",
+"id": "attic_center",
+"position": Vector3(-50, 105.2, 12),
+"yaw_degrees": 0.0,
+"zone": "attic_toy_course"
+}]),
+"camera_clearance_volumes": Array[Dictionary]([{
+"anchors": ["front_foyer", "dining_living_hub", "kitchen_center", "playroom_center"],
+"height_units": 14.0,
+"id": "main_floor_camera_corridor",
+"width_units": 18.0
+}, {
+"anchors": ["doggie_door", "back_deck", "yard_play_hub", "garden_gate", "sandbox_gate"],
+"height_units": 16.0,
+"id": "yard_camera_corridor",
+"width_units": 20.0
+}, {
+"anchors": ["upper_hall_landing", "upper_hall_hub", "bedroom_center", "glam_center"],
+"height_units": 14.0,
+"id": "upper_floor_camera_corridor",
+"width_units": 18.0
+}, {
+"anchors": ["attic_hub", "attic_center"],
+"height_units": 12.0,
+"id": "attic_camera_corridor",
+"width_units": 16.0
+}]),
+"forbidden_aabbs": Array[Dictionary]([{
+"id": "main_stair_architectural_treads",
+"max": Vector3(90, 53.6, 146),
+"min": Vector3(54, 39.5, 78),
+"reason": "human stair is visual architecture; racers use the adjacent toy ramp"
+}, {
+"id": "attic_architectural_stair",
+"max": Vector3(76, 105, -92),
+"min": Vector3(14, 52, -124),
+"reason": "attic stair remains architecture; racers use the adjacent toy ramp"
+}, {
+"id": "kitchen_appliance_wall",
+"max": Vector3(-166, 30, 10),
+"min": Vector3(-198, 0, -128),
+"reason": "human-scale fixtures are room landmarks, not drive-through space"
+}, {
+"id": "garden_raised_beds",
+"max": Vector3(-194, 12, -234),
+"min": Vector3(-306, 0, -382),
+"reason": "garden beds are Moko landmarks and route boundaries"
+}]),
+"free_roam_track_dependency": "none",
+"id": "home_yard_v3_whole_house_navigation_v1",
+"links": Array[Dictionary]([{
+"from": "front_walk_arrival",
+"id": "front_walk_to_foyer",
+"kind": "arrival_threshold",
+"opening_id": "FrontDoor",
+"to": "front_foyer",
+"width_units": 18.0
+}, {
+"from": "front_foyer",
+"id": "foyer_to_living",
+"kind": "open_floor",
+"opening_id": "LivingEntryDivider",
+"to": "dining_living_hub"
+}, {
+"from": "dining_living_hub",
+"id": "living_to_kitchen",
+"kind": "cased_opening",
+"opening_id": "KitchenDiningCasedOpening",
+"to": "kitchen_gate"
+}, {
+"from": "dining_living_hub",
+"id": "living_to_playroom",
+"kind": "cased_opening",
+"opening_id": "PlayroomLivingCasedOpening",
+"to": "playroom_gate"
+}, {
+"from": "kitchen_center",
+"id": "kitchen_to_playroom",
+"kind": "wide_room_opening",
+"opening_id": "KitchenPlayroomDivider",
+"to": "playroom_center"
+}, {
+"from": "front_foyer",
+"id": "foyer_to_garage",
+"kind": "service_threshold",
+"opening_id": "GarageInteriorBackWall",
+"to": "garage_gate"
+}, {
+"from": "playroom_center",
+"id": "playroom_to_deck",
+"kind": "oversized_doggie_door_threshold",
+"opening_id": "DoggieDoorInteriorThreshold",
+"to": "doggie_door"
+}, {
+"from": "back_deck",
+"id": "deck_to_yard",
+"kind": "deck_to_yard",
+"to": "yard_play_hub"
+}, {
+"from": "yard_play_hub",
+"id": "yard_to_garden",
+"kind": "yard_path",
+"to": "garden_gate"
+}, {
+"from": "yard_play_hub",
+"id": "yard_to_sandbox",
+"kind": "yard_path",
+"to": "sandbox_gate"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_bedroom",
+"kind": "upper_doorway",
+"opening_id": "BedroomDoor",
+"to": "bedroom_gate"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_glam",
+"kind": "upper_doorway",
+"opening_id": "GlamClosetDoor",
+"to": "glam_gate"
+}, {
+"from": "bedroom_center",
+"id": "bedroom_to_glam",
+"kind": "cased_opening",
+"opening_id": "BedroomGlamCasedOpening",
+"to": "glam_center"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_attic_ramp",
+"kind": "open_floor",
+"to": "attic_ramp_lower"
+}]),
+"map_id": "home_yard_v3",
+"movement_model": "open_floor_driving_with_toy_ramp_vertical_links",
+"road_width_units": 16.0,
+"runtime_spawn_anchor_id": "front_foyer",
+"scale_contract_id": "home_yard_v3_human_house_toy_racer_scale_v1",
+"third_person_camera_clearance_height_units": 12.0,
+"toy_racer_swept_width_units": 6.0,
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"vertical_links": Array[Dictionary]([{
+"architectural_link_id": "MainStairEntryToUpperHall",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "main_ramp_lower",
+"id": "MainFloorToUpperToyRamp",
+"kind": "toy_ramp_beside_architectural_stair",
+"lower_floor_datum_y": 0.05,
+"mid": "main_ramp_mid",
+"ramp_nodes": ["HomeNavigation/MainFloorToUpperRampLowerRun", "HomeNavigation/MainFloorToUpperRampUpperRun"],
+"to": "upper_hall_landing",
+"upper_floor_datum_y": 52.6,
+"validation_camera": "ValidationCameras/MainStairContinuityCamera"
+}, {
+"architectural_link_id": "AtticRearStairUpperHallToAttic",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "attic_ramp_lower",
+"id": "UpperHallToAtticToyRamp",
+"kind": "toy_ramp_beside_attic_stair",
+"lower_floor_datum_y": 52.6,
+"mid": "attic_ramp_mid",
+"ramp_nodes": ["HomeNavigation/UpperToAtticRampLowerRun", "HomeNavigation/UpperToAtticRampUpperRun"],
+"to": "attic_hub",
+"upper_floor_datum_y": 104.6,
+"validation_camera": "ValidationCameras/AtticRearStairContinuityCamera"
+}]),
+"zones": Array[Dictionary]([{
+"bounds": {
+"max": Vector3(-10, 16, 185),
+"min": Vector3(-90, -2, 100)
+},
+"floor": "site",
+"floor_datum_y": 0.05,
+"id": "front_walk",
+"surface": "concrete_walk"
+}, {
+"bounds": {
+"max": Vector3(88, 18, 136),
+"min": Vector3(36, -1, 40)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "front_foyer",
+"surface": "hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(30, 18, 136),
+"min": Vector3(-195, -1, 18)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "dining_living",
+"surface": "hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(-60, 18, 8),
+"min": Vector3(-195, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "kitchen_breakfast",
+"surface": "tile_floor"
+}, {
+"bounds": {
+"max": Vector3(84, 18, 8),
+"min": Vector3(-50, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "playroom_family",
+"surface": "playroom_floor"
+}, {
+"bounds": {
+"max": Vector3(214, 18, 134),
+"min": Vector3(96, -1, -52)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "garage_service",
+"surface": "garage_slab"
+}, {
+"bounds": {
+"max": Vector3(64, 18, -134),
+"min": Vector3(-165, -1, -174)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "back_deck_patio",
+"surface": "deck_patio"
+}, {
+"bounds": {
+"max": Vector3(318, 18, -156),
+"min": Vector3(-330, -1, -420)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "yard_play",
+"surface": "yard_hardscape_and_ground"
+}, {
+"bounds": {
+"max": Vector3(86, 70, 140),
+"min": Vector3(0, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "upper_hall",
+"surface": "upper_hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(-22, 70, 100),
+"min": Vector3(-180, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "bedroom_suite",
+"surface": "bedroom_carpet"
+}, {
+"bounds": {
+"max": Vector3(52, 70, 100),
+"min": Vector3(-8, 51, 24)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "glam_dressing",
+"surface": "closet_floor"
+}, {
+"bounds": {
+"max": Vector3(42, 124, 112),
+"min": Vector3(-145, 103, -86)
+},
+"floor": "attic",
+"floor_datum_y": 104.6,
+"id": "attic_toy_course",
+"surface": "attic_floor"
+}])
 }
 metadata/whole_unit_visual_review_contract = {
 "beta_blockers": ["flat tray yard", "weak window assembly", "weak porch hierarchy", "underscaled sourced asset", "unclassified placeholder box", "route infrastructure without material/edge treatment", "camera evidence dominated by editor helpers"],
@@ -33491,6 +34115,1923 @@ metadata/opening_marker = true
 metadata/clearance_size = Vector3(62, 2, 32)
 metadata/validation_gate = "floor opening must align with sourced stair asset and remain clear of active route/camera corridors"
 
+[node name="HomeNavigation" type="Node3D" parent="."]
+metadata/plan_role = "whole-house free-roam navigation graph, spawn anchors, AI patrol route, thresholds, and drivable toy ramp links"
+metadata/home_navigation_contract = {
+"ai_patrol_loops": Array[Dictionary]([{
+"anchor_ids": ["front_foyer", "dining_living_hub", "kitchen_gate", "kitchen_center", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "sandbox_gate", "yard_play_hub", "front_foyer"],
+"closed": true,
+"id": "main_floor_patrol"
+}, {
+"anchor_ids": ["front_foyer", "dining_living_hub", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "front_foyer", "main_ramp_lower", "main_ramp_mid", "upper_hall_landing", "upper_hall_hub", "bedroom_gate", "bedroom_center", "upper_hall_hub", "attic_ramp_lower", "attic_ramp_mid", "attic_hub", "attic_center", "attic_hub", "attic_ramp_mid", "attic_ramp_lower", "upper_hall_hub", "upper_hall_landing", "main_ramp_mid", "main_ramp_lower"],
+"closed": true,
+"id": "whole_house_patrol"
+}]),
+"anchors": Array[Dictionary]([{
+"floor": "site",
+"id": "front_walk_arrival",
+"position": Vector3(-50, 0.7, 162),
+"spawn_index": 1,
+"yaw_degrees": 180.0,
+"zone": "front_walk"
+}, {
+"floor": "main",
+"id": "front_foyer",
+"position": Vector3(62, 0.7, 116),
+"spawn_index": 0,
+"yaw_degrees": 180.0,
+"zone": "front_foyer"
+}, {
+"floor": "main",
+"id": "dining_living_hub",
+"position": Vector3(-50, 0.7, 72),
+"spawn_index": 2,
+"yaw_degrees": -90.0,
+"zone": "dining_living"
+}, {
+"floor": "main",
+"id": "kitchen_gate",
+"position": Vector3(-128, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "kitchen_breakfast"
+}, {
+"floor": "main",
+"id": "kitchen_center",
+"position": Vector3(-128, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "kitchen_breakfast"
+}, {
+"floor": "main",
+"id": "playroom_gate",
+"position": Vector3(12, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "playroom_family"
+}, {
+"floor": "main",
+"id": "playroom_center",
+"position": Vector3(18, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "playroom_family"
+}, {
+"floor": "main",
+"id": "garage_gate",
+"position": Vector3(96, 0.7, 70),
+"spawn_index": 3,
+"yaw_degrees": 90.0,
+"zone": "garage_service"
+}, {
+"floor": "main",
+"id": "garage_center",
+"position": Vector3(154, 0.7, 40),
+"yaw_degrees": 0.0,
+"zone": "garage_service"
+}, {
+"floor": "site",
+"id": "doggie_door",
+"position": Vector3(4, 0.8, -134),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}, {
+"floor": "site",
+"id": "back_deck",
+"position": Vector3(-36, 0.8, -154),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}, {
+"floor": "site",
+"id": "yard_play_hub",
+"position": Vector3(-52, 0.8, -218),
+"yaw_degrees": 0.0,
+"zone": "yard_play"
+}, {
+"floor": "site",
+"id": "garden_gate",
+"position": Vector3(-184, 0.8, -258),
+"yaw_degrees": -90.0,
+"zone": "yard_play"
+}, {
+"floor": "site",
+"id": "sandbox_gate",
+"position": Vector3(150, 0.8, -258),
+"yaw_degrees": 90.0,
+"zone": "yard_play"
+}, {
+"floor": "main",
+"id": "main_ramp_lower",
+"position": Vector3(44, 0.9, 94),
+"spawn_index": 4,
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}, {
+"floor": "main_to_upper",
+"id": "main_ramp_mid",
+"position": Vector3(44, 26.5, 36),
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}, {
+"floor": "upper",
+"id": "upper_hall_landing",
+"position": Vector3(44, 53.2, -22),
+"spawn_index": 5,
+"yaw_degrees": 0.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper",
+"id": "upper_hall_hub",
+"position": Vector3(10, 53.2, 82),
+"yaw_degrees": -90.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper",
+"id": "bedroom_gate",
+"position": Vector3(-118, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "bedroom_suite"
+}, {
+"floor": "upper",
+"id": "bedroom_center",
+"position": Vector3(-98, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "bedroom_suite"
+}, {
+"floor": "upper",
+"id": "glam_gate",
+"position": Vector3(12, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "glam_dressing"
+}, {
+"floor": "upper",
+"id": "glam_center",
+"position": Vector3(36, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "glam_dressing"
+}, {
+"floor": "upper",
+"id": "attic_ramp_lower",
+"position": Vector3(18, 53.2, -86),
+"spawn_index": 6,
+"yaw_degrees": 90.0,
+"zone": "upper_hall"
+}, {
+"floor": "upper_to_attic",
+"id": "attic_ramp_mid",
+"position": Vector3(44, 80, -86),
+"yaw_degrees": 90.0,
+"zone": "upper_to_attic"
+}, {
+"floor": "attic",
+"id": "attic_hub",
+"position": Vector3(72, 105.2, -86),
+"spawn_index": 7,
+"yaw_degrees": 90.0,
+"zone": "attic_toy_course"
+}, {
+"floor": "attic",
+"id": "attic_center",
+"position": Vector3(-50, 105.2, 12),
+"yaw_degrees": 0.0,
+"zone": "attic_toy_course"
+}]),
+"camera_clearance_volumes": Array[Dictionary]([{
+"anchors": ["front_foyer", "dining_living_hub", "kitchen_center", "playroom_center"],
+"height_units": 14.0,
+"id": "main_floor_camera_corridor",
+"width_units": 18.0
+}, {
+"anchors": ["doggie_door", "back_deck", "yard_play_hub", "garden_gate", "sandbox_gate"],
+"height_units": 16.0,
+"id": "yard_camera_corridor",
+"width_units": 20.0
+}, {
+"anchors": ["upper_hall_landing", "upper_hall_hub", "bedroom_center", "glam_center"],
+"height_units": 14.0,
+"id": "upper_floor_camera_corridor",
+"width_units": 18.0
+}, {
+"anchors": ["attic_hub", "attic_center"],
+"height_units": 12.0,
+"id": "attic_camera_corridor",
+"width_units": 16.0
+}]),
+"forbidden_aabbs": Array[Dictionary]([{
+"id": "main_stair_architectural_treads",
+"max": Vector3(90, 53.6, 146),
+"min": Vector3(54, 39.5, 78),
+"reason": "human stair is visual architecture; racers use the adjacent toy ramp"
+}, {
+"id": "attic_architectural_stair",
+"max": Vector3(76, 105, -92),
+"min": Vector3(14, 52, -124),
+"reason": "attic stair remains architecture; racers use the adjacent toy ramp"
+}, {
+"id": "kitchen_appliance_wall",
+"max": Vector3(-166, 30, 10),
+"min": Vector3(-198, 0, -128),
+"reason": "human-scale fixtures are room landmarks, not drive-through space"
+}, {
+"id": "garden_raised_beds",
+"max": Vector3(-194, 12, -234),
+"min": Vector3(-306, 0, -382),
+"reason": "garden beds are Moko landmarks and route boundaries"
+}]),
+"free_roam_track_dependency": "none",
+"id": "home_yard_v3_whole_house_navigation_v1",
+"links": Array[Dictionary]([{
+"from": "front_walk_arrival",
+"id": "front_walk_to_foyer",
+"kind": "arrival_threshold",
+"opening_id": "FrontDoor",
+"to": "front_foyer",
+"width_units": 18.0
+}, {
+"from": "front_foyer",
+"id": "foyer_to_living",
+"kind": "open_floor",
+"opening_id": "LivingEntryDivider",
+"to": "dining_living_hub"
+}, {
+"from": "dining_living_hub",
+"id": "living_to_kitchen",
+"kind": "cased_opening",
+"opening_id": "KitchenDiningCasedOpening",
+"to": "kitchen_gate"
+}, {
+"from": "dining_living_hub",
+"id": "living_to_playroom",
+"kind": "cased_opening",
+"opening_id": "PlayroomLivingCasedOpening",
+"to": "playroom_gate"
+}, {
+"from": "kitchen_center",
+"id": "kitchen_to_playroom",
+"kind": "wide_room_opening",
+"opening_id": "KitchenPlayroomDivider",
+"to": "playroom_center"
+}, {
+"from": "front_foyer",
+"id": "foyer_to_garage",
+"kind": "service_threshold",
+"opening_id": "GarageInteriorBackWall",
+"to": "garage_gate"
+}, {
+"from": "playroom_center",
+"id": "playroom_to_deck",
+"kind": "oversized_doggie_door_threshold",
+"opening_id": "DoggieDoorInteriorThreshold",
+"to": "doggie_door"
+}, {
+"from": "back_deck",
+"id": "deck_to_yard",
+"kind": "deck_to_yard",
+"to": "yard_play_hub"
+}, {
+"from": "yard_play_hub",
+"id": "yard_to_garden",
+"kind": "yard_path",
+"to": "garden_gate"
+}, {
+"from": "yard_play_hub",
+"id": "yard_to_sandbox",
+"kind": "yard_path",
+"to": "sandbox_gate"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_bedroom",
+"kind": "upper_doorway",
+"opening_id": "BedroomDoor",
+"to": "bedroom_gate"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_glam",
+"kind": "upper_doorway",
+"opening_id": "GlamClosetDoor",
+"to": "glam_gate"
+}, {
+"from": "bedroom_center",
+"id": "bedroom_to_glam",
+"kind": "cased_opening",
+"opening_id": "BedroomGlamCasedOpening",
+"to": "glam_center"
+}, {
+"from": "upper_hall_hub",
+"id": "upper_to_attic_ramp",
+"kind": "open_floor",
+"to": "attic_ramp_lower"
+}]),
+"map_id": "home_yard_v3",
+"movement_model": "open_floor_driving_with_toy_ramp_vertical_links",
+"road_width_units": 16.0,
+"runtime_spawn_anchor_id": "front_foyer",
+"scale_contract_id": "home_yard_v3_human_house_toy_racer_scale_v1",
+"third_person_camera_clearance_height_units": 12.0,
+"toy_racer_swept_width_units": 6.0,
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"vertical_links": Array[Dictionary]([{
+"architectural_link_id": "MainStairEntryToUpperHall",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "main_ramp_lower",
+"id": "MainFloorToUpperToyRamp",
+"kind": "toy_ramp_beside_architectural_stair",
+"lower_floor_datum_y": 0.05,
+"mid": "main_ramp_mid",
+"ramp_nodes": ["HomeNavigation/MainFloorToUpperRampLowerRun", "HomeNavigation/MainFloorToUpperRampUpperRun"],
+"to": "upper_hall_landing",
+"upper_floor_datum_y": 52.6,
+"validation_camera": "ValidationCameras/MainStairContinuityCamera"
+}, {
+"architectural_link_id": "AtticRearStairUpperHallToAttic",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "attic_ramp_lower",
+"id": "UpperHallToAtticToyRamp",
+"kind": "toy_ramp_beside_attic_stair",
+"lower_floor_datum_y": 52.6,
+"mid": "attic_ramp_mid",
+"ramp_nodes": ["HomeNavigation/UpperToAtticRampLowerRun", "HomeNavigation/UpperToAtticRampUpperRun"],
+"to": "attic_hub",
+"upper_floor_datum_y": 104.6,
+"validation_camera": "ValidationCameras/AtticRearStairContinuityCamera"
+}]),
+"zones": Array[Dictionary]([{
+"bounds": {
+"max": Vector3(-10, 16, 185),
+"min": Vector3(-90, -2, 100)
+},
+"floor": "site",
+"floor_datum_y": 0.05,
+"id": "front_walk",
+"surface": "concrete_walk"
+}, {
+"bounds": {
+"max": Vector3(88, 18, 136),
+"min": Vector3(36, -1, 40)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "front_foyer",
+"surface": "hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(30, 18, 136),
+"min": Vector3(-195, -1, 18)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "dining_living",
+"surface": "hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(-60, 18, 8),
+"min": Vector3(-195, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "kitchen_breakfast",
+"surface": "tile_floor"
+}, {
+"bounds": {
+"max": Vector3(84, 18, 8),
+"min": Vector3(-50, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "playroom_family",
+"surface": "playroom_floor"
+}, {
+"bounds": {
+"max": Vector3(214, 18, 134),
+"min": Vector3(96, -1, -52)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "garage_service",
+"surface": "garage_slab"
+}, {
+"bounds": {
+"max": Vector3(64, 18, -134),
+"min": Vector3(-165, -1, -174)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "back_deck_patio",
+"surface": "deck_patio"
+}, {
+"bounds": {
+"max": Vector3(318, 18, -156),
+"min": Vector3(-330, -1, -420)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "yard_play",
+"surface": "yard_hardscape_and_ground"
+}, {
+"bounds": {
+"max": Vector3(86, 70, 140),
+"min": Vector3(0, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "upper_hall",
+"surface": "upper_hardwood_floor"
+}, {
+"bounds": {
+"max": Vector3(-22, 70, 100),
+"min": Vector3(-180, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "bedroom_suite",
+"surface": "bedroom_carpet"
+}, {
+"bounds": {
+"max": Vector3(52, 70, 100),
+"min": Vector3(-8, 51, 24)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "glam_dressing",
+"surface": "closet_floor"
+}, {
+"bounds": {
+"max": Vector3(42, 124, 112),
+"min": Vector3(-145, 103, -86)
+},
+"floor": "attic",
+"floor_datum_y": 104.6,
+"id": "attic_toy_course",
+"surface": "attic_floor"
+}])
+}
+
+[node name="Zone_Front Walk" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(-10, 16, 185),
+"min": Vector3(-90, -2, 100)
+},
+"floor": "site",
+"floor_datum_y": 0.05,
+"id": "front_walk",
+"surface": "concrete_walk"
+}
+metadata/validation_only = true
+
+[node name="Zone_Front Foyer" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(88, 18, 136),
+"min": Vector3(36, -1, 40)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "front_foyer",
+"surface": "hardwood_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Dining Living" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(30, 18, 136),
+"min": Vector3(-195, -1, 18)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "dining_living",
+"surface": "hardwood_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Kitchen Breakfast" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(-60, 18, 8),
+"min": Vector3(-195, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "kitchen_breakfast",
+"surface": "tile_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Playroom Family" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(84, 18, 8),
+"min": Vector3(-50, -1, -126)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "playroom_family",
+"surface": "playroom_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Garage Service" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(214, 18, 134),
+"min": Vector3(96, -1, -52)
+},
+"floor": "main",
+"floor_datum_y": 0.05,
+"id": "garage_service",
+"surface": "garage_slab"
+}
+metadata/validation_only = true
+
+[node name="Zone_Back Deck Patio" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(64, 18, -134),
+"min": Vector3(-165, -1, -174)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "back_deck_patio",
+"surface": "deck_patio"
+}
+metadata/validation_only = true
+
+[node name="Zone_Yard Play" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(318, 18, -156),
+"min": Vector3(-330, -1, -420)
+},
+"floor": "site",
+"floor_datum_y": 0.15,
+"id": "yard_play",
+"surface": "yard_hardscape_and_ground"
+}
+metadata/validation_only = true
+
+[node name="Zone_Upper Hall" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(86, 70, 140),
+"min": Vector3(0, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "upper_hall",
+"surface": "upper_hardwood_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Bedroom Suite" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(-22, 70, 100),
+"min": Vector3(-180, 51, -118)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "bedroom_suite",
+"surface": "bedroom_carpet"
+}
+metadata/validation_only = true
+
+[node name="Zone_Glam Dressing" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(52, 70, 100),
+"min": Vector3(-8, 51, 24)
+},
+"floor": "upper",
+"floor_datum_y": 52.6,
+"id": "glam_dressing",
+"surface": "closet_floor"
+}
+metadata/validation_only = true
+
+[node name="Zone_Attic Toy Course" type="Node3D" parent="HomeNavigation"]
+metadata/navigation_zone = {
+"bounds": {
+"max": Vector3(42, 124, 112),
+"min": Vector3(-145, 103, -86)
+},
+"floor": "attic",
+"floor_datum_y": 104.6,
+"id": "attic_toy_course",
+"surface": "attic_floor"
+}
+metadata/validation_only = true
+
+[node name="Anchor_Front Walk Arrival" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -50, 0.7, 162)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "front_walk_arrival",
+"position": Vector3(-50, 0.7, 162),
+"spawn_index": 1,
+"yaw_degrees": 180.0,
+"zone": "front_walk"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Front Foyer" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 62, 0.7, 116)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "front_foyer",
+"position": Vector3(62, 0.7, 116),
+"spawn_index": 0,
+"yaw_degrees": 180.0,
+"zone": "front_foyer"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Dining Living Hub" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -50, 0.7, 72)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "dining_living_hub",
+"position": Vector3(-50, 0.7, 72),
+"spawn_index": 2,
+"yaw_degrees": -90.0,
+"zone": "dining_living"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Kitchen Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -128, 0.7, -2)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "kitchen_gate",
+"position": Vector3(-128, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "kitchen_breakfast"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Kitchen Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0.7, -58)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "kitchen_center",
+"position": Vector3(-128, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "kitchen_breakfast"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Playroom Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12, 0.7, -2)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "playroom_gate",
+"position": Vector3(12, 0.7, -2),
+"yaw_degrees": 180.0,
+"zone": "playroom_family"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Playroom Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.7, -58)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "playroom_center",
+"position": Vector3(18, 0.7, -58),
+"yaw_degrees": 0.0,
+"zone": "playroom_family"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Garage Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 96, 0.7, 70)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "garage_gate",
+"position": Vector3(96, 0.7, 70),
+"spawn_index": 3,
+"yaw_degrees": 90.0,
+"zone": "garage_service"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Garage Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 0.7, 40)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "garage_center",
+"position": Vector3(154, 0.7, 40),
+"yaw_degrees": 0.0,
+"zone": "garage_service"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Doggie Door" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, -134)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "doggie_door",
+"position": Vector3(4, 0.8, -134),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Back Deck" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0.8, -154)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "back_deck",
+"position": Vector3(-36, 0.8, -154),
+"yaw_degrees": 0.0,
+"zone": "back_deck_patio"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Yard Play Hub" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0.8, -218)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "yard_play_hub",
+"position": Vector3(-52, 0.8, -218),
+"yaw_degrees": 0.0,
+"zone": "yard_play"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Garden Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -184, 0.8, -258)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "garden_gate",
+"position": Vector3(-184, 0.8, -258),
+"yaw_degrees": -90.0,
+"zone": "yard_play"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Sandbox Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150, 0.8, -258)
+metadata/home_navigation_anchor = {
+"floor": "site",
+"id": "sandbox_gate",
+"position": Vector3(150, 0.8, -258),
+"yaw_degrees": 90.0,
+"zone": "yard_play"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Main Ramp Lower" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0.9, 94)
+metadata/home_navigation_anchor = {
+"floor": "main",
+"id": "main_ramp_lower",
+"position": Vector3(44, 0.9, 94),
+"spawn_index": 4,
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Main Ramp Mid" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 26.5, 36)
+metadata/home_navigation_anchor = {
+"floor": "main_to_upper",
+"id": "main_ramp_mid",
+"position": Vector3(44, 26.5, 36),
+"yaw_degrees": 0.0,
+"zone": "front_foyer"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Upper Hall Landing" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 53.2, -22)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "upper_hall_landing",
+"position": Vector3(44, 53.2, -22),
+"spawn_index": 5,
+"yaw_degrees": 0.0,
+"zone": "upper_hall"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Upper Hall Hub" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 53.2, 82)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "upper_hall_hub",
+"position": Vector3(10, 53.2, 82),
+"yaw_degrees": -90.0,
+"zone": "upper_hall"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Bedroom Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -118, 53.2, 96)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "bedroom_gate",
+"position": Vector3(-118, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "bedroom_suite"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Bedroom Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 53.2, -12)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "bedroom_center",
+"position": Vector3(-98, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "bedroom_suite"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Glam Gate" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12, 53.2, 96)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "glam_gate",
+"position": Vector3(12, 53.2, 96),
+"yaw_degrees": 180.0,
+"zone": "glam_dressing"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Glam Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 53.2, -12)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "glam_center",
+"position": Vector3(36, 53.2, -12),
+"yaw_degrees": 0.0,
+"zone": "glam_dressing"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Attic Ramp Lower" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18, 53.2, -86)
+metadata/home_navigation_anchor = {
+"floor": "upper",
+"id": "attic_ramp_lower",
+"position": Vector3(18, 53.2, -86),
+"spawn_index": 6,
+"yaw_degrees": 90.0,
+"zone": "upper_hall"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Attic Ramp Mid" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 44, 80, -86)
+metadata/home_navigation_anchor = {
+"floor": "upper_to_attic",
+"id": "attic_ramp_mid",
+"position": Vector3(44, 80, -86),
+"yaw_degrees": 90.0,
+"zone": "upper_to_attic"
+}
+metadata/spawn_anchor = false
+
+[node name="Anchor_Attic Hub" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 105.2, -86)
+metadata/home_navigation_anchor = {
+"floor": "attic",
+"id": "attic_hub",
+"position": Vector3(72, 105.2, -86),
+"spawn_index": 7,
+"yaw_degrees": 90.0,
+"zone": "attic_toy_course"
+}
+metadata/spawn_anchor = true
+
+[node name="Anchor_Attic Center" type="Marker3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 105.2, 12)
+metadata/home_navigation_anchor = {
+"floor": "attic",
+"id": "attic_center",
+"position": Vector3(-50, 105.2, 12),
+"yaw_degrees": 0.0,
+"zone": "attic_toy_course"
+}
+metadata/spawn_anchor = false
+
+[node name="Link_Front Walk To Foyer" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "front_walk_arrival",
+"id": "front_walk_to_foyer",
+"kind": "arrival_threshold",
+"opening_id": "FrontDoor",
+"to": "front_foyer",
+"width_units": 18.0
+}
+metadata/validation_only = true
+
+[node name="Link_Foyer To Living" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "front_foyer",
+"id": "foyer_to_living",
+"kind": "open_floor",
+"opening_id": "LivingEntryDivider",
+"to": "dining_living_hub"
+}
+metadata/validation_only = true
+
+[node name="Link_Living To Kitchen" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "dining_living_hub",
+"id": "living_to_kitchen",
+"kind": "cased_opening",
+"opening_id": "KitchenDiningCasedOpening",
+"to": "kitchen_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Living To Playroom" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "dining_living_hub",
+"id": "living_to_playroom",
+"kind": "cased_opening",
+"opening_id": "PlayroomLivingCasedOpening",
+"to": "playroom_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Kitchen To Playroom" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "kitchen_center",
+"id": "kitchen_to_playroom",
+"kind": "wide_room_opening",
+"opening_id": "KitchenPlayroomDivider",
+"to": "playroom_center"
+}
+metadata/validation_only = true
+
+[node name="Link_Foyer To Garage" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "front_foyer",
+"id": "foyer_to_garage",
+"kind": "service_threshold",
+"opening_id": "GarageInteriorBackWall",
+"to": "garage_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Playroom To Deck" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "playroom_center",
+"id": "playroom_to_deck",
+"kind": "oversized_doggie_door_threshold",
+"opening_id": "DoggieDoorInteriorThreshold",
+"to": "doggie_door"
+}
+metadata/validation_only = true
+
+[node name="Link_Deck To Yard" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "back_deck",
+"id": "deck_to_yard",
+"kind": "deck_to_yard",
+"to": "yard_play_hub"
+}
+metadata/validation_only = true
+
+[node name="Link_Yard To Garden" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "yard_play_hub",
+"id": "yard_to_garden",
+"kind": "yard_path",
+"to": "garden_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Yard To Sandbox" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "yard_play_hub",
+"id": "yard_to_sandbox",
+"kind": "yard_path",
+"to": "sandbox_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Upper To Bedroom" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "upper_hall_hub",
+"id": "upper_to_bedroom",
+"kind": "upper_doorway",
+"opening_id": "BedroomDoor",
+"to": "bedroom_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Upper To Glam" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "upper_hall_hub",
+"id": "upper_to_glam",
+"kind": "upper_doorway",
+"opening_id": "GlamClosetDoor",
+"to": "glam_gate"
+}
+metadata/validation_only = true
+
+[node name="Link_Bedroom To Glam" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "bedroom_center",
+"id": "bedroom_to_glam",
+"kind": "cased_opening",
+"opening_id": "BedroomGlamCasedOpening",
+"to": "glam_center"
+}
+metadata/validation_only = true
+
+[node name="Link_Upper To Attic Ramp" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_link = {
+"from": "upper_hall_hub",
+"id": "upper_to_attic_ramp",
+"kind": "open_floor",
+"to": "attic_ramp_lower"
+}
+metadata/validation_only = true
+
+[node name="Vertical_Main Floor To Upper Toy Ramp" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_vertical_link = {
+"architectural_link_id": "MainStairEntryToUpperHall",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "main_ramp_lower",
+"id": "MainFloorToUpperToyRamp",
+"kind": "toy_ramp_beside_architectural_stair",
+"lower_floor_datum_y": 0.05,
+"mid": "main_ramp_mid",
+"ramp_nodes": ["HomeNavigation/MainFloorToUpperRampLowerRun", "HomeNavigation/MainFloorToUpperRampUpperRun"],
+"to": "upper_hall_landing",
+"upper_floor_datum_y": 52.6,
+"validation_camera": "ValidationCameras/MainStairContinuityCamera"
+}
+metadata/validation_only = true
+
+[node name="Vertical_Upper Hall To Attic Toy Ramp" type="Node3D" parent="HomeNavigation"]
+metadata/home_navigation_vertical_link = {
+"architectural_link_id": "AtticRearStairUpperHallToAttic",
+"clear_width_units": 18.0,
+"collision_policy": "drivable_static_toy_ramp",
+"from": "attic_ramp_lower",
+"id": "UpperHallToAtticToyRamp",
+"kind": "toy_ramp_beside_attic_stair",
+"lower_floor_datum_y": 52.6,
+"mid": "attic_ramp_mid",
+"ramp_nodes": ["HomeNavigation/UpperToAtticRampLowerRun", "HomeNavigation/UpperToAtticRampUpperRun"],
+"to": "attic_hub",
+"upper_floor_datum_y": 104.6,
+"validation_camera": "ValidationCameras/AtticRearStairContinuityCamera"
+}
+metadata/validation_only = true
+
+[node name="FrontDoorDriveThresholdStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.35, 145)
+material_override = SubResource("StandardMaterial3D_3u00i")
+mesh = SubResource("BoxMesh_an5uf")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "front_door_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "front_door_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/FrontDoorDriveThresholdStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "front_door_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low drivable strip connects front walk to foyer without an invisible floor"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "front_door_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low drivable strip connects front walk to foyer without an invisible floor"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "front_door_threshold start anchor"
+metadata/end_anchor = "front_door_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/FrontDoorDriveThresholdStrip"
+
+[node name="FrontDoorDriveThresholdStripCollision" type="StaticBody3D" parent="HomeNavigation/FrontDoorDriveThresholdStrip"]
+
+[node name="@CollisionShape3D@82" type="CollisionShape3D" parent="HomeNavigation/FrontDoorDriveThresholdStrip/FrontDoorDriveThresholdStripCollision"]
+shape = SubResource("BoxShape3D_snxqh")
+
+[node name="LivingEntryGuideRunner" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0.42, 74)
+material_override = SubResource("StandardMaterial3D_ewt6v")
+mesh = SubResource("BoxMesh_hp4mn")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "living_entry_guide",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "living_entry_guide end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/LivingEntryGuideRunner",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "living_entry_guide start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "dark runner marks the open-floor route from foyer into living/dining"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "living_entry_guide"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "dark runner marks the open-floor route from foyer into living/dining"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "living_entry_guide start anchor"
+metadata/end_anchor = "living_entry_guide end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/LivingEntryGuideRunner"
+
+[node name="KitchenCasedOpeningDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0.42, 15)
+material_override = SubResource("StandardMaterial3D_00byf")
+mesh = SubResource("BoxMesh_acncn")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "kitchen_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "kitchen_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/KitchenCasedOpeningDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "kitchen_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low drivable threshold marks the kitchen/dining opening"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "kitchen_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low drivable threshold marks the kitchen/dining opening"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "kitchen_threshold start anchor"
+metadata/end_anchor = "kitchen_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/KitchenCasedOpeningDriveStrip"
+
+[node name="KitchenCasedOpeningDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/KitchenCasedOpeningDriveStrip"]
+
+[node name="@CollisionShape3D@83" type="CollisionShape3D" parent="HomeNavigation/KitchenCasedOpeningDriveStrip/KitchenCasedOpeningDriveStripCollision"]
+shape = SubResource("BoxShape3D_mafik")
+
+[node name="PlayroomCasedOpeningDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.42, 15)
+material_override = SubResource("StandardMaterial3D_i10lh")
+mesh = SubResource("BoxMesh_vsyda")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "playroom_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "playroom_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/PlayroomCasedOpeningDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "playroom_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low drivable threshold marks the playroom/living opening"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "playroom_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low drivable threshold marks the playroom/living opening"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "playroom_threshold start anchor"
+metadata/end_anchor = "playroom_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/PlayroomCasedOpeningDriveStrip"
+
+[node name="PlayroomCasedOpeningDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/PlayroomCasedOpeningDriveStrip"]
+
+[node name="@CollisionShape3D@84" type="CollisionShape3D" parent="HomeNavigation/PlayroomCasedOpeningDriveStrip/PlayroomCasedOpeningDriveStripCollision"]
+shape = SubResource("BoxShape3D_v7x7e")
+
+[node name="KitchenPlayroomDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0.42, -28)
+material_override = SubResource("StandardMaterial3D_4qxxn")
+mesh = SubResource("BoxMesh_nedod")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "kitchen_playroom_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "kitchen_playroom_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/KitchenPlayroomDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "kitchen_playroom_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low strip marks the wide opening between kitchen and playroom"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "kitchen_playroom_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low strip marks the wide opening between kitchen and playroom"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "kitchen_playroom_threshold start anchor"
+metadata/end_anchor = "kitchen_playroom_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/KitchenPlayroomDriveStrip"
+
+[node name="KitchenPlayroomDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/KitchenPlayroomDriveStrip"]
+
+[node name="@CollisionShape3D@85" type="CollisionShape3D" parent="HomeNavigation/KitchenPlayroomDriveStrip/KitchenPlayroomDriveStripCollision"]
+shape = SubResource("BoxShape3D_q8pir")
+
+[node name="GarageServiceDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.42, 70)
+material_override = SubResource("StandardMaterial3D_3ph3b")
+mesh = SubResource("BoxMesh_4m7xr")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "garage_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "garage_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/GarageServiceDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "garage_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low strip marks the service doorway to the garage"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "garage_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low strip marks the service doorway to the garage"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "garage_threshold start anchor"
+metadata/end_anchor = "garage_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/GarageServiceDriveStrip"
+
+[node name="GarageServiceDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/GarageServiceDriveStrip"]
+
+[node name="@CollisionShape3D@86" type="CollisionShape3D" parent="HomeNavigation/GarageServiceDriveStrip/GarageServiceDriveStripCollision"]
+shape = SubResource("BoxShape3D_odxab")
+
+[node name="DoggieDoorDriveBridge" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.45, -130)
+material_override = SubResource("StandardMaterial3D_qp7e4")
+mesh = SubResource("BoxMesh_faxgg")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "doggie_door_bridge",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "doggie_door_bridge end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/DoggieDoorDriveBridge",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "doggie_door_bridge start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "oversized doggie-door bridge connects playroom free roam to the deck/patio"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "doggie_door_bridge"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "oversized doggie-door bridge connects playroom free roam to the deck/patio"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "doggie_door_bridge start anchor"
+metadata/end_anchor = "doggie_door_bridge end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/DoggieDoorDriveBridge"
+
+[node name="DoggieDoorDriveBridgeCollision" type="StaticBody3D" parent="HomeNavigation/DoggieDoorDriveBridge"]
+
+[node name="@CollisionShape3D@87" type="CollisionShape3D" parent="HomeNavigation/DoggieDoorDriveBridge/DoggieDoorDriveBridgeCollision"]
+shape = SubResource("BoxShape3D_rvglu")
+
+[node name="UpperHallBedroomDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118, 52.98, 106)
+material_override = SubResource("StandardMaterial3D_4pohe")
+mesh = SubResource("BoxMesh_iju2q")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "bedroom_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "bedroom_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperHallBedroomDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "bedroom_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low strip marks bedroom door traversal"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "bedroom_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low strip marks bedroom door traversal"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "bedroom_threshold start anchor"
+metadata/end_anchor = "bedroom_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperHallBedroomDriveStrip"
+
+[node name="UpperHallBedroomDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/UpperHallBedroomDriveStrip"]
+
+[node name="@CollisionShape3D@88" type="CollisionShape3D" parent="HomeNavigation/UpperHallBedroomDriveStrip/UpperHallBedroomDriveStripCollision"]
+shape = SubResource("BoxShape3D_1j8h6")
+
+[node name="UpperHallGlamDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 52.98, 106)
+material_override = SubResource("StandardMaterial3D_oml0s")
+mesh = SubResource("BoxMesh_1jt8k")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "glam_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "glam_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperHallGlamDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "glam_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low strip marks glam closet door traversal"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "glam_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low strip marks glam closet door traversal"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "glam_threshold start anchor"
+metadata/end_anchor = "glam_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperHallGlamDriveStrip"
+
+[node name="UpperHallGlamDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/UpperHallGlamDriveStrip"]
+
+[node name="@CollisionShape3D@89" type="CollisionShape3D" parent="HomeNavigation/UpperHallGlamDriveStrip/UpperHallGlamDriveStripCollision"]
+shape = SubResource("BoxShape3D_yvid7")
+
+[node name="BedroomGlamDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 52.98, 46)
+material_override = SubResource("StandardMaterial3D_sf1f4")
+mesh = SubResource("BoxMesh_hm55f")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "bedroom_glam_threshold",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "bedroom_glam_threshold end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/BedroomGlamDriveStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "bedroom_glam_threshold start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "low strip marks bedroom-to-glam cased opening"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "bedroom_glam_threshold"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "low strip marks bedroom-to-glam cased opening"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "bedroom_glam_threshold start anchor"
+metadata/end_anchor = "bedroom_glam_threshold end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/BedroomGlamDriveStrip"
+
+[node name="BedroomGlamDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/BedroomGlamDriveStrip"]
+
+[node name="@CollisionShape3D@90" type="CollisionShape3D" parent="HomeNavigation/BedroomGlamDriveStrip/BedroomGlamDriveStripCollision"]
+shape = SubResource("BoxShape3D_jhyfj")
+
+[node name="MainFloorToUpperRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 44, 13.675, 65)
+material_override = SubResource("StandardMaterial3D_6smar")
+mesh = SubResource("BoxMesh_o77kb")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperToyRamp",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperToyRamp end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampLowerRun",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperToyRamp start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "MainFloorToUpperRampLowerRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperToyRamp"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "MainFloorToUpperRampLowerRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperToyRamp start anchor"
+metadata/end_anchor = "MainFloorToUpperToyRamp end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerRun"
+metadata/home_navigation_vertical_link_id = "MainFloorToUpperToyRamp"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/scale_class = "toy_scale_racing"
+metadata/support_surface_start = Vector3(44, 0.85, 94)
+metadata/support_surface_end = Vector3(44, 26.5, 36)
+
+[node name="MainFloorToUpperRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun"]
+
+[node name="@CollisionShape3D@91" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun/MainFloorToUpperRampLowerRunCollision"]
+shape = SubResource("BoxShape3D_gxkse")
+
+[node name="MainFloorToUpperRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 39.975, 7)
+material_override = SubResource("StandardMaterial3D_eu82p")
+mesh = SubResource("BoxMesh_capdf")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperToyRamp",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperToyRamp end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampUpperRun",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperToyRamp start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "MainFloorToUpperRampUpperRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperToyRamp"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "MainFloorToUpperRampUpperRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperToyRamp start anchor"
+metadata/end_anchor = "MainFloorToUpperToyRamp end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperRun"
+metadata/home_navigation_vertical_link_id = "MainFloorToUpperToyRamp"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/scale_class = "toy_scale_racing"
+metadata/support_surface_start = Vector3(44, 26.5, 36)
+metadata/support_surface_end = Vector3(44, 53.45, -22)
+
+[node name="MainFloorToUpperRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun"]
+
+[node name="@CollisionShape3D@92" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun/MainFloorToUpperRampUpperRunCollision"]
+shape = SubResource("BoxShape3D_a5dcc")
+
+[node name="MainFloorToUpperRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0.72, 98)
+material_override = SubResource("StandardMaterial3D_qnrqs")
+mesh = SubResource("BoxMesh_plrhd")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "main_ramp_lower_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "main_ramp_lower_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampLowerLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "main_ramp_lower_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "landing gives racers a clear approach to the main-to-upper toy ramp"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "main_ramp_lower_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "landing gives racers a clear approach to the main-to-upper toy ramp"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "main_ramp_lower_landing start anchor"
+metadata/end_anchor = "main_ramp_lower_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerLanding"
+
+[node name="MainFloorToUpperRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding"]
+
+[node name="@CollisionShape3D@93" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding/MainFloorToUpperRampLowerLandingCollision"]
+shape = SubResource("BoxShape3D_x0ryh")
+
+[node name="MainFloorToUpperRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 53.32, -26)
+material_override = SubResource("StandardMaterial3D_oohjh")
+mesh = SubResource("BoxMesh_wy1g0")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "main_ramp_upper_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "main_ramp_upper_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampUpperLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "main_ramp_upper_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "landing connects the main-to-upper toy ramp to upper hall free roam"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "main_ramp_upper_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "landing connects the main-to-upper toy ramp to upper hall free roam"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "main_ramp_upper_landing start anchor"
+metadata/end_anchor = "main_ramp_upper_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperLanding"
+
+[node name="MainFloorToUpperRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding"]
+
+[node name="@CollisionShape3D@94" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding/MainFloorToUpperRampUpperLandingCollision"]
+shape = SubResource("BoxShape3D_gu1wq")
+
+[node name="UpperToAtticRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 66.725, -86)
+material_override = SubResource("StandardMaterial3D_5y7fg")
+mesh = SubResource("BoxMesh_62jty")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperHallToAtticToyRamp",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperHallToAtticToyRamp end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampLowerRun",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperHallToAtticToyRamp start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "UpperToAtticRampLowerRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperHallToAtticToyRamp"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "UpperToAtticRampLowerRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperHallToAtticToyRamp start anchor"
+metadata/end_anchor = "UpperHallToAtticToyRamp end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRun"
+metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/scale_class = "toy_scale_racing"
+metadata/support_surface_start = Vector3(18, 53.45, -86)
+metadata/support_surface_end = Vector3(44, 80, -86)
+
+[node name="UpperToAtticRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerRun"]
+
+[node name="@CollisionShape3D@95" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerRun/UpperToAtticRampLowerRunCollision"]
+shape = SubResource("BoxShape3D_ga7l8")
+
+[node name="UpperToAtticRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 92.725, -86)
+material_override = SubResource("StandardMaterial3D_dkdg6")
+mesh = SubResource("BoxMesh_e244b")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperHallToAtticToyRamp",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperHallToAtticToyRamp end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampUpperRun",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperHallToAtticToyRamp start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "UpperToAtticRampUpperRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperHallToAtticToyRamp"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "UpperToAtticRampUpperRun is a drivable toy ramp beside the architectural stair, with real collision and visible edge color"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperHallToAtticToyRamp start anchor"
+metadata/end_anchor = "UpperHallToAtticToyRamp end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRun"
+metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/scale_class = "toy_scale_racing"
+metadata/support_surface_start = Vector3(44, 80, -86)
+metadata/support_surface_end = Vector3(72, 105.45, -86)
+
+[node name="UpperToAtticRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperRun"]
+
+[node name="@CollisionShape3D@96" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperRun/UpperToAtticRampUpperRunCollision"]
+shape = SubResource("BoxShape3D_c20w4")
+
+[node name="UpperToAtticRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 53.32, -86)
+material_override = SubResource("StandardMaterial3D_wjulv")
+mesh = SubResource("BoxMesh_1c1ca")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "attic_ramp_lower_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "attic_ramp_lower_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampLowerLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "attic_ramp_lower_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "landing gives racers a clear approach to the attic toy ramp"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "attic_ramp_lower_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "landing gives racers a clear approach to the attic toy ramp"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "attic_ramp_lower_landing start anchor"
+metadata/end_anchor = "attic_ramp_lower_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampLowerLanding"
+
+[node name="UpperToAtticRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerLanding"]
+
+[node name="@CollisionShape3D@97" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerLanding/UpperToAtticRampLowerLandingCollision"]
+shape = SubResource("BoxShape3D_d0bx4")
+
+[node name="UpperToAtticRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 105.32, -86)
+material_override = SubResource("StandardMaterial3D_spya7")
+mesh = SubResource("BoxMesh_aqewe")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "attic_ramp_upper_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "attic_ramp_upper_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampUpperLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "attic_ramp_upper_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "landing connects the attic toy ramp to attic free roam"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "attic_ramp_upper_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "landing connects the attic toy ramp to attic free roam"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "attic_ramp_upper_landing start anchor"
+metadata/end_anchor = "attic_ramp_upper_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampUpperLanding"
+
+[node name="UpperToAtticRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperLanding"]
+
+[node name="@CollisionShape3D@98" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperLanding/UpperToAtticRampUpperLandingCollision"]
+shape = SubResource("BoxShape3D_l6k46")
+
 [node name="CourseRoutes" type="Node3D" parent="."]
 
 [node name="KitchenRoutePreview" type="Node3D" parent="CourseRoutes"]
@@ -34395,4 +36936,4 @@ transform = Transform3D(0.81915206, 0.4055798, -0.4055798, 0, 0.70710677, 0.7071
 light_energy = 2.3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3u00i")
+environment = SubResource("Environment_6jjbc")

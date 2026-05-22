@@ -156,6 +156,8 @@ var track_audio_ids: Dictionary = {}
 var track_audio_zones: Array = []
 var audio_zone_players: Dictionary = {}
 var audio_zone_active: Dictionary = {}
+var home_navigation_contract: Dictionary = {}
+var home_navigation_anchor_positions: Dictionary = {}
 var music_player: AudioStreamPlayer
 var live_home_track_builder: LiveHomeTrackBuilder = null
 var previous_boost_pressed := false
@@ -288,6 +290,8 @@ func _start_home_free_roam() -> void:
 	player_car.controlled_locally = true
 	player_car.set_input(_empty_input())
 	_init_local_racer_state(local_user_id, selected_racer, false, player_car.global_transform)
+	ai_driver_state[local_user_id] = _make_ai_driver_state(-1, player_car)
+	_spawn_home_free_roam_ai(selected_racer)
 	_set_pause_button_visible(true)
 	_show_message("Free roam")
 
@@ -1518,6 +1522,8 @@ func _ensure_audio_bus(bus_name: String) -> void:
 	AudioServer.set_bus_name(index, bus_name)
 
 func _spawn_track() -> void:
+	if home_free_roam and _spawn_home_free_roam_map():
+		return
 	var track_id := str(NakamaService.get_meta_value("track_id", TrackCatalog.get_default_track_id()))
 	var definition = TrackCatalog.get_definition(track_id)
 	if definition != null:
@@ -1568,6 +1574,126 @@ func _spawn_track() -> void:
 					if child is Marker3D:
 						spawn_points.append(child.global_transform)
 		track_checkpoint_total = checkpoint_system.checkpoint_count
+
+func _spawn_home_free_roam_map() -> bool:
+	var map_id := str(NakamaService.get_meta_value("track_map_id", NavigationFlow.HOME_FREE_ROAM_MAP_ID)).strip_edges()
+	if map_id.is_empty():
+		map_id = NavigationFlow.HOME_FREE_ROAM_MAP_ID
+	var map_definition := TrackCatalog.get_map_definition(map_id)
+	var map_scene_path := ""
+	if map_definition != null:
+		map_scene_path = map_definition.map_scene_path
+	if map_scene_path.strip_edges().is_empty():
+		map_scene_path = str(TrackCatalog.get_map_package(map_id).get("map_scene_path", ""))
+	if map_scene_path.strip_edges().is_empty():
+		return false
+	var packed := load(map_scene_path)
+	if not (packed is PackedScene):
+		push_error("Home free roam map is not a PackedScene: %s" % map_scene_path)
+		return false
+	var map_root := (packed as PackedScene).instantiate()
+	if not (map_root is Node3D):
+		if map_root != null:
+			map_root.queue_free()
+		push_error("Home free roam map root must be Node3D: %s" % map_scene_path)
+		return false
+	map_root.name = "HomeFreeRoamMap"
+	add_child(map_root)
+	_cache_heat_sources(map_root)
+	_read_home_navigation_contract(map_root)
+	spawn_points = _home_navigation_spawn_transforms()
+	track_waypoints = _home_navigation_patrol_waypoints("whole_house_patrol")
+	track_checkpoint_indices = []
+	track_checkpoint_total = 0
+	track_laps = 1
+	track_closed_loop = true
+	track_source_id = map_id
+	track_progress_rule_id = TrackSourceRules.PROGRESS_ROUTE_LAP
+	track_win_condition_id = TrackSourceRules.WIN_CHECKPOINT_LAPS
+	track_out_of_bounds_y = -28.0
+	track_reset_mode = "instant_pop"
+	track_road_width = 16.0
+	_setup_live_home_track_builder(map_root)
+	return true
+
+func _read_home_navigation_contract(map_root: Node) -> void:
+	home_navigation_contract.clear()
+	home_navigation_anchor_positions.clear()
+	if map_root == null:
+		return
+	var contract_value: Variant = map_root.get_meta("home_navigation_contract", {})
+	if not (contract_value is Dictionary):
+		var holder := map_root.get_node_or_null("HomeNavigation")
+		if holder != null:
+			contract_value = holder.get_meta("home_navigation_contract", {})
+	if contract_value is Dictionary:
+		home_navigation_contract = (contract_value as Dictionary).duplicate(true)
+	for anchor in home_navigation_contract.get("anchors", []):
+		if not (anchor is Dictionary):
+			continue
+		var data := anchor as Dictionary
+		var anchor_id := str(data.get("id", ""))
+		if anchor_id.is_empty():
+			continue
+		home_navigation_anchor_positions[anchor_id] = data.get("position", Vector3.ZERO)
+
+func _home_navigation_spawn_transforms() -> Array:
+	var anchors: Array = home_navigation_contract.get("anchors", [])
+	var spawn_entries: Array[Dictionary] = []
+	for anchor in anchors:
+		if not (anchor is Dictionary):
+			continue
+		var data := anchor as Dictionary
+		if not data.has("spawn_index"):
+			continue
+		spawn_entries.append(data)
+	spawn_entries.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return int(a.get("spawn_index", 999)) < int(b.get("spawn_index", 999))
+	)
+	var out: Array = []
+	for data in spawn_entries:
+		var position := data.get("position", Vector3.ZERO) as Vector3
+		var yaw := deg_to_rad(float(data.get("yaw_degrees", 0.0)))
+		out.append(Transform3D(Basis(Vector3.UP, yaw), position + Vector3.UP * 1.0))
+	if out.is_empty():
+		out.append(Transform3D(Basis.IDENTITY, Vector3(62, 2.0, 116)))
+	return out
+
+func _home_navigation_patrol_waypoints(loop_id: String) -> Array:
+	var loops: Array = home_navigation_contract.get("ai_patrol_loops", [])
+	for loop in loops:
+		if not (loop is Dictionary):
+			continue
+		var data := loop as Dictionary
+		if str(data.get("id", "")) != loop_id:
+			continue
+		var out: Array[Vector3] = []
+		for anchor_id_value in data.get("anchor_ids", []):
+			var anchor_id := str(anchor_id_value)
+			if home_navigation_anchor_positions.has(anchor_id):
+				out.append(home_navigation_anchor_positions[anchor_id] as Vector3)
+		if out.size() >= 2:
+			return out
+	return []
+
+func _spawn_home_free_roam_ai(selected_racer: String) -> void:
+	var cpu_index := 1
+	for roster_id in RacerRoster.select_order():
+		if roster_id == selected_racer:
+			continue
+		var rid := "home_cpu_%02d" % cpu_index
+		cpu_index += 1
+		local_racer_ids.append(rid)
+		ai_racer_ids.append(rid)
+		racer_visual_ids[rid] = roster_id
+		var car := _spawn_car(rid)
+		car.controlled_locally = true
+		car.set_input(_empty_input())
+		_init_local_racer_state(rid, roster_id, true, car.global_transform)
+		ai_route_targets[rid] = _initial_ai_route_target_for_car(car)
+		ai_driver_state[rid] = _make_ai_driver_state(cpu_index - 2, car)
+		if cpu_index > 4:
+			return
 
 func _instantiate_track_package(track_id: String, definition) -> Dictionary:
 	var scene_path := TrackCatalog.get_scene_path(track_id)
@@ -1751,6 +1877,8 @@ func _physics_process_home_free_roam(delta: float) -> void:
 	input_accum += delta
 	while input_accum >= INPUT_INTERVAL:
 		_tick_local_input()
+		for rid in ai_racer_ids:
+			_tick_ai_input(rid, INPUT_INTERVAL, true)
 		input_accum -= INPUT_INTERVAL
 	_update_local_track_return_point()
 	_handle_manual_return_to_track()
@@ -2289,6 +2417,8 @@ func _update_camera(delta:float) -> void:
 func _update_camera_for_car(car: CarController, delta: float) -> void:
 	var look_target := camera_follow_look_target(car.global_transform, CAMERA_LOOK_HEIGHT)
 	var desired := camera_follow_position(car.global_transform, CAMERA_DISTANCE, CAMERA_HEIGHT)
+	if home_free_roam:
+		desired = _clamp_home_free_roam_camera_position(car.global_transform.origin, desired, look_target)
 	var resolved := _resolve_camera_occlusion(look_target, desired)
 	var follow_speed := CAMERA_OCCLUDED_FOLLOW_SPEED if resolved.distance_squared_to(desired) > 0.01 else CAMERA_FOLLOW_SPEED
 	var shake_intensity := appliance_rumble_target_intensity(
@@ -2301,6 +2431,35 @@ func _update_camera_for_car(car: CarController, delta: float) -> void:
 	var blend := 1.0 if delta <= 0.0 else clampf(delta * follow_speed, 0.0, 1.0)
 	camera.global_transform.origin = camera.global_transform.origin.lerp(resolved + shake_offset, blend)
 	camera.look_at(look_target + shake_offset * 0.25, Vector3.UP)
+
+func _clamp_home_free_roam_camera_position(car_position: Vector3, desired: Vector3, look_target: Vector3) -> Vector3:
+	var zones: Array = home_navigation_contract.get("zones", [])
+	var active_bounds := {}
+	for zone in zones:
+		if not (zone is Dictionary):
+			continue
+		var bounds: Variant = (zone as Dictionary).get("bounds", {})
+		if not (bounds is Dictionary):
+			continue
+		var min_point := (bounds as Dictionary).get("min", Vector3.ZERO) as Vector3
+		var max_point := (bounds as Dictionary).get("max", Vector3.ZERO) as Vector3
+		var expanded := AABB(min_point, max_point - min_point).abs().grow(3.0)
+		if expanded.has_point(car_position):
+			active_bounds = bounds as Dictionary
+			break
+	if active_bounds.is_empty():
+		return desired
+	var min_bound := active_bounds.get("min", Vector3.ZERO) as Vector3
+	var max_bound := active_bounds.get("max", Vector3.ZERO) as Vector3
+	var clamped := Vector3(
+		clampf(desired.x, min_bound.x + 2.0, max_bound.x - 2.0),
+		clampf(desired.y, min_bound.y + 2.0, max_bound.y - 2.0),
+		clampf(desired.z, min_bound.z + 2.0, max_bound.z - 2.0)
+	)
+	if clamped.distance_squared_to(desired) <= 0.01:
+		return desired
+	var toward_target := look_target + (clamped - look_target).limit_length(maxf(look_target.distance_to(desired), CAMERA_OCCLUSION_MIN_DISTANCE))
+	return toward_target
 
 func _update_racer_visual_lods() -> void:
 	var reference_position := _racer_lod_reference_position()

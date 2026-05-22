@@ -140,7 +140,7 @@ func test_local_single_race_spawns_full_roster_and_blocks_input_during_intro() -
 		assert_true(float(input_state.get("throttle", 0.0)) > 0.0, "CPU racers should drive through CarController input")
 	race.queue_free()
 
-func test_home_free_roam_uses_authored_track_surface_for_spawn_support() -> void:
+func test_home_free_roam_uses_authored_home_floor_for_spawn_support() -> void:
 	var race: Node = _make_home_free_roam()
 	var floor := race.get_node_or_null("HomeFreeRoamFloor")
 	assert_true(floor == null, "Free roam should not add invisible whole-house floor collision")
@@ -149,14 +149,14 @@ func test_home_free_roam_uses_authored_track_surface_for_spawn_support() -> void
 	assert_true(car != null, "Free roam should spawn the local car")
 	if car != null:
 		var spawn_points: Array = race.get("spawn_points")
-		assert_true(not spawn_points.is_empty(), "Free roam should load authored spawn points from the selected home track")
+		assert_true(not spawn_points.is_empty(), "Free roam should load authored spawn points from the home navigation contract")
 		if not spawn_points.is_empty():
 			var expected: Transform3D = spawn_points[0]
-			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on an authored visible route surface instead of a hidden floor proxy")
+			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on an authored visible home floor instead of a hidden floor proxy")
 		var start_y := car.global_transform.origin.y
 		for i in range(20):
 			car.call("_physics_process", 0.016)
-		assert_true(car.global_transform.origin.y >= start_y - 1.0, "Free-roam spawn should stay supported by authored track collision")
+		assert_true(car.global_transform.origin.y >= start_y - 1.0, "Free-roam spawn should stay supported by authored home floor collision")
 	race.queue_free()
 
 func test_local_single_countdown_uses_large_overlay() -> void:
@@ -817,24 +817,34 @@ func test_race_pause_menu_can_resume_or_target_level_select() -> void:
 	assert_true(bool(race.call("pause_button_is_visible_for_test")), "Pause button should return after resuming gameplay")
 	race.queue_free()
 
-func test_home_free_roam_spawns_one_player_and_exposes_home_pause_actions() -> void:
+func test_home_free_roam_spawns_player_and_ai_on_home_navigation_graph() -> void:
 	var race: Node = _make_home_free_roam()
 	assert_true(bool(race.get("home_free_roam")), "Race scene should branch into home free-roam mode")
 	assert_true(not bool(race.get("local_single_race")), "Free roam should not use local race phase flow")
-	assert_equal((race.get("local_racer_ids") as Array).size(), 1, "Free roam should spawn only the local player")
-	assert_equal((race.get("ai_racer_ids") as Array).size(), 0, "Free roam should not spawn CPU racers")
+	assert_true((race.get("local_racer_ids") as Array).size() >= 2, "Free roam should spawn player plus AI racers")
+	assert_true((race.get("ai_racer_ids") as Array).size() >= 1, "Free roam should spawn CPU racers for house navigation")
 	assert_true(bool(race.get("player_input_enabled")), "Free roam should allow immediate driving")
 	assert_equal(str(race.get("race_phase")), "", "Free roam should not enter countdown or racing phases")
 	assert_true(bool(race.call("live_builder_exists_for_test")), "Free roam should mount the live home builder")
+	assert_true((race.get("track_waypoints") as Array).size() >= 8, "Free roam should expose whole-house AI patrol waypoints")
 	var cars: Dictionary = race.get("cars")
 	var car: Node3D = cars.get("local_player", null)
 	assert_true(car != null, "Free roam should spawn the local car")
 	if car != null:
 		var spawn_points: Array = race.get("spawn_points")
-		assert_true(not spawn_points.is_empty(), "Free roam should load authored home track spawns")
+		assert_true(not spawn_points.is_empty(), "Free roam should load authored home navigation spawns")
 		if not spawn_points.is_empty():
 			var expected: Transform3D = spawn_points[0]
-			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on the authored visible route surface")
+			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on the authored visible home floor")
+	var ai_ids: Array = race.get("ai_racer_ids")
+	if not ai_ids.is_empty():
+		var first_ai := str(ai_ids[0])
+		var ai_car: CarController = cars.get(first_ai, null)
+		assert_true(ai_car != null, "Free-roam AI should have a spawned car")
+		if ai_car != null:
+			race.call("_tick_ai_input", first_ai, 0.016, true)
+			var input_state: Dictionary = ai_car.get("input_state")
+			assert_true(float(input_state.get("throttle", 0.0)) > 0.0, "Free-roam AI should drive along the home navigation graph")
 	race.call("pause_race_for_test")
 	var labels: Array = race.call("get_pause_menu_labels_for_test")
 	assert_true(labels.has("Change Character / Stage"), "Free roam pause should expose character/stage changes")
@@ -911,7 +921,7 @@ func _make_local_race() -> Node:
 
 func _make_home_free_roam() -> Node:
 	NakamaService.set_meta_value("selected_racer_id", "Dash")
-	NakamaService.set_meta_value("track_id", "kitchen")
+	NakamaService.set_meta_value("track_id", "home_yard_v3")
 	NakamaService.set_meta_value("track_map_id", "home_yard_v3")
 	NakamaService.set_meta_value("race_mode", "home_free_roam")
 	NakamaService.set_meta_value("race_match_id", "home-free-roam")

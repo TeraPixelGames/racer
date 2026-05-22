@@ -129,8 +129,9 @@ const PLAN_CONTRACT := {
 	"shell_ownership": "ExteriorShell/Roof/Foundation/Openings/PorchesDecks/GarageService own exterior assemblies; floor holders own interior partitions, room finishes, props, lighting, route aids, and localized collision only.",
 	"route_contract": "Each race is a plastic toy-track overlay with declared zone bounds, route bounds, road-surface elevation above finished floors, obstacle exclusions, and clear start/finish language.",
 	"roof_contract": "Dutch gambrel roof: lower steep roof planes spring from the attic floor plate, upper shallow planes meet at one ridge, central attic has 7.5 ft walkable clearance, and no rectangular attic story may be visible above the roof.",
-	"free_drive_contract": "Free-drive circulation is laid out through entry, dining/living, stair hall, back deck, and oversized doggie door, but races still start in separate area courses for this pass.",
+	"free_drive_contract": "Free-drive circulation uses real authored human-scale floors, garage slab, patio/deck, yard hardscape, doorway thresholds, oversized doggie door access, and named toy ramp links beside stairs; players and AI racers must not need the kitchen race loop or invisible floor proxies to navigate the house.",
 	"vertical_circulation_contract": "The floor plan includes architectural vertical circulation: a main stair from the entry/stair hall to the upper hall, plus a visible rear-wall attic stair from the upstairs living area into the gambrel attic. Toy ramp boxes and pull-down ladders are not valid house circulation.",
+	"home_navigation_contract": "Home free roam is a whole-house navigation graph with named drive zones, anchors, threshold links, AI patrol loops, camera-clearance volumes, and toy ramp links that sit beside architectural stairs.",
 	"beta_visual_contract": "Whole-unit beta review requires clean runtime/cinematic screenshots without editor camera icons or selected-node overlays; front/back/side/elevated/roofline/underside/player-route views must identify out-of-place pieces before metadata is accepted. Generated route decks and ramps are allowed only as classified route_infrastructure with non-placeholder materials, edge treatment, route clearance, and validation cameras.",
 	"vertical_links": [
 		{"id": "MainStairEntryToUpperHall", "type": "u_shaped_residential_stair", "from_floor": "main", "to_floor": "upper", "lower_zone": "entry_stair_hall", "upper_zone": "upper_front_hall", "lower_landing_center": Vector3(MAIN_STAIR_LOWER_X, 0.05, 134), "upper_landing_center": Vector3(MAIN_STAIR_UPPER_X, 52.60, 134), "stairwell_bounds": {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX}, "opening_required": "upper_floor_stairwell_opening", "path_segments": ["lower_landing", "lower_flight", "switchback_landing", "upper_flight", "upper_landing"], "continuity_gate": "segments must connect landing-to-landing from main floor datum to upper floor datum with separated lower/upper flights, readable riser fill, 14-unit clear flight width, 5-unit tread depth, and a shaft void that starts at z=78 for upper-flight headroom", "source_asset": "generated_floor_plan_architect_measured_stair_v2", "collision_policy": "visible_architectural_stair_collision", "validation_gate": "must not intersect route corridors, exterior shell, or camera views; lower and upper flights must be separated in plan with no tread/stringer overlap, visible risers, landings, stringers, railings, clear approach volumes, and no floor/ceiling slab covering the stair path"},
@@ -234,11 +235,12 @@ func _save_map_scene() -> void:
 	root.set_meta("scale_contract", SCALE_CONTRACT)
 	root.set_meta("interior_wall_schedule", INTERIOR_WALL_SCHEDULE)
 	root.set_meta("vertical_circulation_contract", _vertical_circulation_contract())
+	root.set_meta("home_navigation_contract", _home_navigation_contract())
 	root.set_meta("whole_unit_visual_review_contract", _whole_unit_visual_review_contract())
 	root.set_meta("route_envelopes", _all_route_envelopes())
 	root.set_meta("clearance_conflicts", [])
 	var holders := {}
-	for holder_name in ["Site", "Foundation", "ExteriorShell", "Roof", "Openings", "PorchesDecks", "GarageService", "MainFloor", "UpperFloor", "Attic", "Yard", "VerticalConnectors", "CourseRoutes", "Collision", "ValidationCameras", "ConceptReference"]:
+	for holder_name in ["Site", "Foundation", "ExteriorShell", "Roof", "Openings", "PorchesDecks", "GarageService", "MainFloor", "UpperFloor", "Attic", "Yard", "VerticalConnectors", "HomeNavigation", "CourseRoutes", "Collision", "ValidationCameras", "ConceptReference"]:
 		var holder := Node3D.new()
 		holder.name = holder_name
 		root.add_child(holder)
@@ -257,6 +259,7 @@ func _save_map_scene() -> void:
 	_add_upper_floor_interior(root, holders["UpperFloor"])
 	_add_attic_interior(root, holders["Attic"])
 	_add_vertical_connectors(root, holders["VerticalConnectors"])
+	_add_home_navigation(root, holders["HomeNavigation"])
 	_add_decor(root, holders)
 	_add_course_route_markers(root, holders["CourseRoutes"])
 	_add_validation_cameras(root, holders["ValidationCameras"])
@@ -1267,6 +1270,242 @@ func _add_vertical_link_marker(root: Node3D, parent: Node3D, node_name: String, 
 	marker.set_meta("validation_gate", "floor opening must align with sourced stair asset and remain clear of active route/camera corridors")
 	parent.add_child(marker)
 	marker.owner = root
+
+func _home_navigation_contract() -> Dictionary:
+	return {
+		"id": "home_yard_v3_whole_house_navigation_v1",
+		"map_id": MAP_ID,
+		"scale_contract_id": SCALE_CONTRACT_ID,
+		"movement_model": "open_floor_driving_with_toy_ramp_vertical_links",
+		"free_roam_track_dependency": "none",
+		"runtime_spawn_anchor_id": "front_foyer",
+		"road_width_units": ROAD_WIDTH,
+		"toy_racer_swept_width_units": 6.0,
+		"third_person_camera_clearance_height_units": 12.0,
+		"zones": _home_navigation_zones(),
+		"anchors": _home_navigation_anchors(),
+		"links": _home_navigation_links(),
+		"vertical_links": _home_navigation_vertical_links(),
+		"ai_patrol_loops": _home_navigation_ai_patrol_loops(),
+		"forbidden_aabbs": _home_navigation_forbidden_aabbs(),
+		"camera_clearance_volumes": _home_navigation_camera_clearance_volumes(),
+		"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+	}
+
+func _home_navigation_zones() -> Array[Dictionary]:
+	return [
+		{"id": "front_walk", "floor": "site", "bounds": {"min": Vector3(-90, -2, 100), "max": Vector3(-10, 16, 185)}, "floor_datum_y": 0.05, "surface": "concrete_walk"},
+		{"id": "front_foyer", "floor": "main", "bounds": {"min": Vector3(36, -1, 40), "max": Vector3(88, 18, 136)}, "floor_datum_y": MAIN_FLOOR_TOP_Y, "surface": "hardwood_floor"},
+		{"id": "dining_living", "floor": "main", "bounds": {"min": Vector3(-195, -1, 18), "max": Vector3(30, 18, 136)}, "floor_datum_y": MAIN_FLOOR_TOP_Y, "surface": "hardwood_floor"},
+		{"id": "kitchen_breakfast", "floor": "main", "bounds": {"min": Vector3(-195, -1, -126), "max": Vector3(-60, 18, 8)}, "floor_datum_y": MAIN_FLOOR_TOP_Y, "surface": "tile_floor"},
+		{"id": "playroom_family", "floor": "main", "bounds": {"min": Vector3(-50, -1, -126), "max": Vector3(84, 18, 8)}, "floor_datum_y": MAIN_FLOOR_TOP_Y, "surface": "playroom_floor"},
+		{"id": "garage_service", "floor": "main", "bounds": {"min": Vector3(96, -1, -52), "max": Vector3(214, 18, 134)}, "floor_datum_y": MAIN_FLOOR_TOP_Y, "surface": "garage_slab"},
+		{"id": "back_deck_patio", "floor": "site", "bounds": {"min": Vector3(-165, -1, -174), "max": Vector3(64, 18, -134)}, "floor_datum_y": 0.15, "surface": "deck_patio"},
+		{"id": "yard_play", "floor": "site", "bounds": {"min": Vector3(-330, -1, -420), "max": Vector3(318, 18, -156)}, "floor_datum_y": 0.15, "surface": "yard_hardscape_and_ground"},
+		{"id": "upper_hall", "floor": "upper", "bounds": {"min": Vector3(0, 51, -118), "max": Vector3(86, 70, 140)}, "floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y, "surface": "upper_hardwood_floor"},
+		{"id": "bedroom_suite", "floor": "upper", "bounds": {"min": Vector3(-180, 51, -118), "max": Vector3(-22, 70, 100)}, "floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y, "surface": "bedroom_carpet"},
+		{"id": "glam_dressing", "floor": "upper", "bounds": {"min": Vector3(-8, 51, 24), "max": Vector3(52, 70, 100)}, "floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y, "surface": "closet_floor"},
+		{"id": "attic_toy_course", "floor": "attic", "bounds": {"min": Vector3(-145, 103, -86), "max": Vector3(42, 124, 112)}, "floor_datum_y": ATTIC_ROOM_FLOOR_TOP_Y, "surface": "attic_floor"},
+	]
+
+func _home_navigation_anchors() -> Array[Dictionary]:
+	return [
+		{"id": "front_walk_arrival", "zone": "front_walk", "floor": "site", "position": Vector3(-50, 0.70, 162), "yaw_degrees": 180.0, "spawn_index": 1},
+		{"id": "front_foyer", "zone": "front_foyer", "floor": "main", "position": Vector3(62, 0.70, 116), "yaw_degrees": 180.0, "spawn_index": 0},
+		{"id": "dining_living_hub", "zone": "dining_living", "floor": "main", "position": Vector3(-50, 0.70, 72), "yaw_degrees": -90.0, "spawn_index": 2},
+		{"id": "kitchen_gate", "zone": "kitchen_breakfast", "floor": "main", "position": Vector3(-128, 0.70, -2), "yaw_degrees": 180.0},
+		{"id": "kitchen_center", "zone": "kitchen_breakfast", "floor": "main", "position": Vector3(-128, 0.70, -58), "yaw_degrees": 0.0},
+		{"id": "playroom_gate", "zone": "playroom_family", "floor": "main", "position": Vector3(12, 0.70, -2), "yaw_degrees": 180.0},
+		{"id": "playroom_center", "zone": "playroom_family", "floor": "main", "position": Vector3(18, 0.70, -58), "yaw_degrees": 0.0},
+		{"id": "garage_gate", "zone": "garage_service", "floor": "main", "position": Vector3(96, 0.70, 70), "yaw_degrees": 90.0, "spawn_index": 3},
+		{"id": "garage_center", "zone": "garage_service", "floor": "main", "position": Vector3(154, 0.70, 40), "yaw_degrees": 0.0},
+		{"id": "doggie_door", "zone": "back_deck_patio", "floor": "site", "position": Vector3(4, 0.80, -134), "yaw_degrees": 0.0},
+		{"id": "back_deck", "zone": "back_deck_patio", "floor": "site", "position": Vector3(-36, 0.80, -154), "yaw_degrees": 0.0},
+		{"id": "yard_play_hub", "zone": "yard_play", "floor": "site", "position": Vector3(-52, 0.80, -218), "yaw_degrees": 0.0},
+		{"id": "garden_gate", "zone": "yard_play", "floor": "site", "position": Vector3(-184, 0.80, -258), "yaw_degrees": -90.0},
+		{"id": "sandbox_gate", "zone": "yard_play", "floor": "site", "position": Vector3(150, 0.80, -258), "yaw_degrees": 90.0},
+		{"id": "main_ramp_lower", "zone": "front_foyer", "floor": "main", "position": Vector3(44, 0.90, 94), "yaw_degrees": 0.0, "spawn_index": 4},
+		{"id": "main_ramp_mid", "zone": "front_foyer", "floor": "main_to_upper", "position": Vector3(44, 26.50, 36), "yaw_degrees": 0.0},
+		{"id": "upper_hall_landing", "zone": "upper_hall", "floor": "upper", "position": Vector3(44, 53.20, -22), "yaw_degrees": 0.0, "spawn_index": 5},
+		{"id": "upper_hall_hub", "zone": "upper_hall", "floor": "upper", "position": Vector3(10, 53.20, 82), "yaw_degrees": -90.0},
+		{"id": "bedroom_gate", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-118, 53.20, 96), "yaw_degrees": 180.0},
+		{"id": "bedroom_center", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-98, 53.20, -12), "yaw_degrees": 0.0},
+		{"id": "glam_gate", "zone": "glam_dressing", "floor": "upper", "position": Vector3(12, 53.20, 96), "yaw_degrees": 180.0},
+		{"id": "glam_center", "zone": "glam_dressing", "floor": "upper", "position": Vector3(36, 53.20, -12), "yaw_degrees": 0.0},
+		{"id": "attic_ramp_lower", "zone": "upper_hall", "floor": "upper", "position": Vector3(18, 53.20, -86), "yaw_degrees": 90.0, "spawn_index": 6},
+		{"id": "attic_ramp_mid", "zone": "upper_to_attic", "floor": "upper_to_attic", "position": Vector3(44, 80.0, -86), "yaw_degrees": 90.0},
+		{"id": "attic_hub", "zone": "attic_toy_course", "floor": "attic", "position": Vector3(72, 105.20, -86), "yaw_degrees": 90.0, "spawn_index": 7},
+		{"id": "attic_center", "zone": "attic_toy_course", "floor": "attic", "position": Vector3(-50, 105.20, 12), "yaw_degrees": 0.0},
+	]
+
+func _home_navigation_links() -> Array[Dictionary]:
+	return [
+		{"id": "front_walk_to_foyer", "from": "front_walk_arrival", "to": "front_foyer", "kind": "arrival_threshold", "opening_id": "FrontDoor", "width_units": 18.0},
+		{"id": "foyer_to_living", "from": "front_foyer", "to": "dining_living_hub", "kind": "open_floor", "opening_id": "LivingEntryDivider"},
+		{"id": "living_to_kitchen", "from": "dining_living_hub", "to": "kitchen_gate", "kind": "cased_opening", "opening_id": "KitchenDiningCasedOpening"},
+		{"id": "living_to_playroom", "from": "dining_living_hub", "to": "playroom_gate", "kind": "cased_opening", "opening_id": "PlayroomLivingCasedOpening"},
+		{"id": "kitchen_to_playroom", "from": "kitchen_center", "to": "playroom_center", "kind": "wide_room_opening", "opening_id": "KitchenPlayroomDivider"},
+		{"id": "foyer_to_garage", "from": "front_foyer", "to": "garage_gate", "kind": "service_threshold", "opening_id": "GarageInteriorBackWall"},
+		{"id": "playroom_to_deck", "from": "playroom_center", "to": "doggie_door", "kind": "oversized_doggie_door_threshold", "opening_id": "DoggieDoorInteriorThreshold"},
+		{"id": "deck_to_yard", "from": "back_deck", "to": "yard_play_hub", "kind": "deck_to_yard"},
+		{"id": "yard_to_garden", "from": "yard_play_hub", "to": "garden_gate", "kind": "yard_path"},
+		{"id": "yard_to_sandbox", "from": "yard_play_hub", "to": "sandbox_gate", "kind": "yard_path"},
+		{"id": "upper_to_bedroom", "from": "upper_hall_hub", "to": "bedroom_gate", "kind": "upper_doorway", "opening_id": "BedroomDoor"},
+		{"id": "upper_to_glam", "from": "upper_hall_hub", "to": "glam_gate", "kind": "upper_doorway", "opening_id": "GlamClosetDoor"},
+		{"id": "bedroom_to_glam", "from": "bedroom_center", "to": "glam_center", "kind": "cased_opening", "opening_id": "BedroomGlamCasedOpening"},
+		{"id": "upper_to_attic_ramp", "from": "upper_hall_hub", "to": "attic_ramp_lower", "kind": "open_floor"},
+	]
+
+func _home_navigation_vertical_links() -> Array[Dictionary]:
+	return [
+		{
+			"id": "MainFloorToUpperToyRamp",
+			"architectural_link_id": "MainStairEntryToUpperHall",
+			"kind": "toy_ramp_beside_architectural_stair",
+			"from": "main_ramp_lower",
+			"mid": "main_ramp_mid",
+			"to": "upper_hall_landing",
+			"ramp_nodes": ["HomeNavigation/MainFloorToUpperRampLowerRun", "HomeNavigation/MainFloorToUpperRampUpperRun"],
+			"lower_floor_datum_y": MAIN_FLOOR_TOP_Y,
+			"upper_floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y,
+			"clear_width_units": 18.0,
+			"collision_policy": "drivable_static_toy_ramp",
+			"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+		},
+		{
+			"id": "UpperHallToAtticToyRamp",
+			"architectural_link_id": "AtticRearStairUpperHallToAttic",
+			"kind": "toy_ramp_beside_attic_stair",
+			"from": "attic_ramp_lower",
+			"mid": "attic_ramp_mid",
+			"to": "attic_hub",
+			"ramp_nodes": ["HomeNavigation/UpperToAtticRampLowerRun", "HomeNavigation/UpperToAtticRampUpperRun"],
+			"lower_floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y,
+			"upper_floor_datum_y": ATTIC_ROOM_FLOOR_TOP_Y,
+			"clear_width_units": 18.0,
+			"collision_policy": "drivable_static_toy_ramp",
+			"validation_camera": "ValidationCameras/AtticRearStairContinuityCamera",
+		},
+	]
+
+func _home_navigation_ai_patrol_loops() -> Array[Dictionary]:
+	return [
+		{"id": "main_floor_patrol", "closed": true, "anchor_ids": ["front_foyer", "dining_living_hub", "kitchen_gate", "kitchen_center", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "sandbox_gate", "yard_play_hub", "front_foyer"]},
+		{"id": "whole_house_patrol", "closed": true, "anchor_ids": ["front_foyer", "dining_living_hub", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "front_foyer", "main_ramp_lower", "main_ramp_mid", "upper_hall_landing", "upper_hall_hub", "bedroom_gate", "bedroom_center", "upper_hall_hub", "attic_ramp_lower", "attic_ramp_mid", "attic_hub", "attic_center", "attic_hub", "attic_ramp_mid", "attic_ramp_lower", "upper_hall_hub", "upper_hall_landing", "main_ramp_mid", "main_ramp_lower"]},
+	]
+
+func _home_navigation_forbidden_aabbs() -> Array[Dictionary]:
+	return [
+		{"id": "main_stair_architectural_treads", "reason": "human stair is visual architecture; racers use the adjacent toy ramp", "min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX},
+		{"id": "attic_architectural_stair", "reason": "attic stair remains architecture; racers use the adjacent toy ramp", "min": Vector3(14, 52, -124), "max": Vector3(76, 105, -92)},
+		{"id": "kitchen_appliance_wall", "reason": "human-scale fixtures are room landmarks, not drive-through space", "min": Vector3(-198, 0, -128), "max": Vector3(-166, 30, 10)},
+		{"id": "garden_raised_beds", "reason": "garden beds are Moko landmarks and route boundaries", "min": Vector3(-306, 0, -382), "max": Vector3(-194, 12, -234)},
+	]
+
+func _home_navigation_camera_clearance_volumes() -> Array[Dictionary]:
+	return [
+		{"id": "main_floor_camera_corridor", "anchors": ["front_foyer", "dining_living_hub", "kitchen_center", "playroom_center"], "height_units": 14.0, "width_units": 18.0},
+		{"id": "yard_camera_corridor", "anchors": ["doggie_door", "back_deck", "yard_play_hub", "garden_gate", "sandbox_gate"], "height_units": 16.0, "width_units": 20.0},
+		{"id": "upper_floor_camera_corridor", "anchors": ["upper_hall_landing", "upper_hall_hub", "bedroom_center", "glam_center"], "height_units": 14.0, "width_units": 18.0},
+		{"id": "attic_camera_corridor", "anchors": ["attic_hub", "attic_center"], "height_units": 12.0, "width_units": 16.0},
+	]
+
+func _add_home_navigation(root: Node3D, parent: Node3D) -> void:
+	parent.set_meta("plan_role", "whole-house free-roam navigation graph, spawn anchors, AI patrol route, thresholds, and drivable toy ramp links")
+	parent.set_meta("home_navigation_contract", _home_navigation_contract())
+	for zone in _home_navigation_zones():
+		var marker := Node3D.new()
+		marker.name = "Zone_%s" % str(zone.get("id", "")).capitalize().replace("_", "")
+		marker.set_meta("navigation_zone", zone)
+		marker.set_meta("validation_only", true)
+		parent.add_child(marker)
+		marker.owner = root
+	for anchor in _home_navigation_anchors():
+		var marker := Marker3D.new()
+		marker.name = "Anchor_%s" % str(anchor.get("id", "")).capitalize().replace("_", "")
+		marker.position = anchor.get("position", Vector3.ZERO) as Vector3
+		marker.rotation_degrees.y = float(anchor.get("yaw_degrees", 0.0))
+		marker.set_meta("home_navigation_anchor", anchor)
+		marker.set_meta("spawn_anchor", anchor.has("spawn_index"))
+		parent.add_child(marker)
+		marker.owner = root
+	for link in _home_navigation_links():
+		var marker := Node3D.new()
+		marker.name = "Link_%s" % str(link.get("id", "")).capitalize().replace("_", "")
+		marker.set_meta("home_navigation_link", link)
+		marker.set_meta("validation_only", true)
+		parent.add_child(marker)
+		marker.owner = root
+	for vertical_link in _home_navigation_vertical_links():
+		var marker := Node3D.new()
+		marker.name = "Vertical_%s" % str(vertical_link.get("id", "")).capitalize().replace("_", "")
+		marker.set_meta("home_navigation_vertical_link", vertical_link)
+		marker.set_meta("validation_only", true)
+		parent.add_child(marker)
+		marker.owner = root
+	_add_home_navigation_guides(root, parent)
+	_add_home_navigation_ramps(root, parent)
+
+func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
+	var threshold := Color(0.08, 0.12, 0.14)
+	_add_box(root, parent, "FrontDoorDriveThresholdStrip", Vector3(-50, 0.35, 145), Vector3(26, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("front_door_threshold", "low drivable strip connects front walk to foyer without an invisible floor"))
+	_add_box(root, parent, "LivingEntryGuideRunner", Vector3(35, 0.42, 74), Vector3(5, 0.22, 42), Color(0.18, 0.22, 0.24), false, 0.0, Vector3.ZERO, _home_navigation_provenance("living_entry_guide", "dark runner marks the open-floor route from foyer into living/dining"))
+	_add_box(root, parent, "KitchenCasedOpeningDriveStrip", Vector3(-128, 0.42, 15), Vector3(70, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("kitchen_threshold", "low drivable threshold marks the kitchen/dining opening"))
+	_add_box(root, parent, "PlayroomCasedOpeningDriveStrip", Vector3(8, 0.42, 15), Vector3(70, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("playroom_threshold", "low drivable threshold marks the playroom/living opening"))
+	_add_box(root, parent, "KitchenPlayroomDriveStrip", Vector3(-55, 0.42, -28), Vector3(5, 0.28, 32), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("kitchen_playroom_threshold", "low strip marks the wide opening between kitchen and playroom"))
+	_add_box(root, parent, "GarageServiceDriveStrip", Vector3(90, 0.42, 70), Vector3(5, 0.28, 24), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("garage_threshold", "low strip marks the service doorway to the garage"))
+	_add_box(root, parent, "DoggieDoorDriveBridge", Vector3(4, 0.45, -130), Vector3(48, 0.35, 16), Color(0.20, 0.18, 0.14), true, 0.0, Vector3.ZERO, _home_navigation_provenance("doggie_door_bridge", "oversized doggie-door bridge connects playroom free roam to the deck/patio"))
+	_add_box(root, parent, "UpperHallBedroomDriveStrip", Vector3(-118, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 106), Vector3(32, 0.25, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("bedroom_threshold", "low strip marks bedroom door traversal"))
+	_add_box(root, parent, "UpperHallGlamDriveStrip", Vector3(6, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 106), Vector3(30, 0.25, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("glam_threshold", "low strip marks glam closet door traversal"))
+	_add_box(root, parent, "BedroomGlamDriveStrip", Vector3(-15, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 46), Vector3(5, 0.25, 28), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("bedroom_glam_threshold", "low strip marks bedroom-to-glam cased opening"))
+
+func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
+	var blue := Color(0.14, 0.36, 0.72)
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, 0.85, 94), Vector3(44, 26.50, 36), 20.0, blue, "MainFloorToUpperToyRamp")
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, 26.50, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -22), 20.0, blue.lightened(0.08), "MainFloorToUpperToyRamp")
+	_add_box(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, 0.72, 98), Vector3(24, 0.8, 18), blue.darkened(0.15), true, 0.0, Vector3.ZERO, _home_navigation_provenance("main_ramp_lower_landing", "landing gives racers a clear approach to the main-to-upper toy ramp"))
+	_add_box(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -26), Vector3(24, 0.8, 20), blue.darkened(0.12), true, 0.0, Vector3.ZERO, _home_navigation_provenance("main_ramp_upper_landing", "landing connects the main-to-upper toy ramp to upper hall free roam"))
+	var orange := Color(0.78, 0.38, 0.12)
+	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -86), Vector3(44, 80.0, -86), 20.0, orange, "UpperHallToAtticToyRamp")
+	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(44, 80.0, -86), Vector3(72, ATTIC_ROOM_FLOOR_TOP_Y + 0.85, -86), 20.0, orange.lightened(0.08), "UpperHallToAtticToyRamp")
+	_add_box(root, parent, "UpperToAtticRampLowerLanding", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(22, 0.8, 22), orange.darkened(0.15), true, 0.0, Vector3.ZERO, _home_navigation_provenance("attic_ramp_lower_landing", "landing gives racers a clear approach to the attic toy ramp"))
+	_add_box(root, parent, "UpperToAtticRampUpperLanding", Vector3(74, ATTIC_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(24, 0.8, 22), orange.darkened(0.12), true, 0.0, Vector3.ZERO, _home_navigation_provenance("attic_ramp_upper_landing", "landing connects the attic toy ramp to attic free roam"))
+
+func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: Vector3, end: Vector3, width: float, color: Color, vertical_link_id: String) -> MeshInstance3D:
+	var horizontal := Vector3(end.x - start.x, 0.0, end.z - start.z)
+	var run := horizontal.length()
+	var rise := end.y - start.y
+	var direction := horizontal.normalized() if run > 0.01 else Vector3.FORWARD
+	var yaw := rad_to_deg(atan2(direction.x, direction.z))
+	var pitch := -rad_to_deg(atan2(rise, maxf(run, 0.01)))
+	var center := start.lerp(end, 0.5)
+	var ramp := _add_box(root, parent, node_name, center, Vector3(width, 1.0, sqrt(run * run + rise * rise)), color, true, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance(vertical_link_id, "%s is a drivable toy ramp beside the architectural stair, with real collision and visible edge color" % node_name))
+	ramp.set_meta("home_navigation_vertical_link_id", vertical_link_id)
+	ramp.set_meta("collision_policy", "drivable_static_toy_ramp")
+	ramp.set_meta("route_clearance", "intentional_free_roam_surface")
+	ramp.set_meta("scale_class", "toy_scale_racing")
+	ramp.set_meta("support_surface_start", start)
+	ramp.set_meta("support_surface_end", end)
+	return ramp
+
+func _home_navigation_provenance(assembly: String, why_exists: String) -> Dictionary:
+	return _provenance(
+		"HomeNavigation",
+		assembly,
+		"free_roam_navigation_surface",
+		"PLAN_CONTRACT.home_navigation_contract",
+		why_exists,
+		"authored floors, thresholds, or stair-adjacent ramp landing",
+		"bottom face to floor/ramp landing",
+		"xz navigation edge",
+		"%s start anchor" % assembly,
+		"%s end anchor" % assembly,
+		["floor contact", "threshold overlap", "ramp landing overlap"],
+		["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+		"delete only if the navigation contract removes this free-roam edge",
+		"test_home_yard_exports_whole_house_navigation_contract",
+		"ValidationCameras/MainStairContinuityCamera"
+	)
 
 func _add_yard_plan(root: Node3D, parent: Node3D) -> void:
 	_add_box(root, parent, "PatioDeckTransition", Vector3(-47.5, -0.45, -152.5), Vector3(245, 1.2, 45), Color(0.48, 0.44, 0.38), true)

@@ -572,9 +572,10 @@ func _assert_indoor_shell_seals(root: Node, track_id: String) -> void:
 		assert_true(shell.get_node_or_null(node_name) != null, "%s RoomShell should include seam/door seal node %s" % [track_id, node_name])
 
 func _assert_home_yard_scene_holders(root: Node, track_id: String) -> void:
-	for holder_name in ["Site", "Foundation", "ExteriorShell", "Roof", "Openings", "PorchesDecks", "GarageService", "MainFloor", "UpperFloor", "Attic", "Yard", "VerticalConnectors", "CourseRoutes", "Collision", "ValidationCameras"]:
+	for holder_name in ["Site", "Foundation", "ExteriorShell", "Roof", "Openings", "PorchesDecks", "GarageService", "MainFloor", "UpperFloor", "Attic", "Yard", "VerticalConnectors", "HomeNavigation", "CourseRoutes", "Collision", "ValidationCameras"]:
 		assert_true(root.get_node_or_null(holder_name) != null, "%s shared home-yard scene should include %s" % [track_id, holder_name])
 	_assert_home_yard_floor_plan_contract(root, track_id)
+	_assert_home_yard_navigation_contract(root, track_id)
 	_assert_home_yard_generated_scene_provenance_contract(root, track_id)
 	_assert_home_yard_whole_unit_visual_contract(root, track_id)
 	_assert_home_yard_route_infrastructure_is_classified_and_dressed(root, track_id)
@@ -639,6 +640,47 @@ func _assert_home_yard_floor_plan_contract(root: Node, track_id: String) -> void
 	assert_true(envelopes is Dictionary and (envelopes as Dictionary).has(track_id), "%s shared home-yard scene should include numeric route envelopes" % track_id)
 	var conflicts: Variant = root.get_meta("clearance_conflicts", [])
 	assert_true(conflicts is Array and (conflicts as Array).is_empty(), "%s shared home-yard scene should export no known clearance conflicts" % track_id)
+
+func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void:
+	var contract: Variant = root.get_meta("home_navigation_contract", {})
+	assert_true(contract is Dictionary, "%s shared home-yard scene should export a home navigation contract" % track_id)
+	if not (contract is Dictionary):
+		return
+	var data := contract as Dictionary
+	assert_equal(str(data.get("movement_model", "")), "open_floor_driving_with_toy_ramp_vertical_links", "%s free roam should prioritize authored floors plus toy ramp vertical links" % track_id)
+	assert_equal(str(data.get("free_roam_track_dependency", "")), "none", "%s free roam should not depend on the kitchen race loop" % track_id)
+	for key in ["zones", "anchors", "links", "vertical_links", "ai_patrol_loops", "forbidden_aabbs", "camera_clearance_volumes"]:
+		assert_true(data.get(key, []) is Array and not (data.get(key, []) as Array).is_empty(), "%s navigation contract should include %s" % [track_id, key])
+	var anchors := data.get("anchors", []) as Array
+	for anchor_id in ["front_foyer", "kitchen_center", "playroom_center", "garage_center", "yard_play_hub", "upper_hall_hub", "bedroom_center", "glam_center", "attic_center"]:
+		assert_true(_navigation_anchor_has_id(anchors, anchor_id), "%s navigation contract should include anchor %s" % [track_id, anchor_id])
+	var links := data.get("links", []) as Array
+	for opening_link in ["living_to_kitchen", "living_to_playroom", "foyer_to_garage", "playroom_to_deck", "upper_to_bedroom", "upper_to_glam"]:
+		assert_true(_navigation_link_has_id(links, opening_link), "%s navigation contract should include reachable opening link %s" % [track_id, opening_link])
+	var vertical_links := data.get("vertical_links", []) as Array
+	for vertical_id in ["MainFloorToUpperToyRamp", "UpperHallToAtticToyRamp"]:
+		assert_true(_navigation_link_has_id(vertical_links, vertical_id), "%s navigation contract should include vertical ramp link %s" % [track_id, vertical_id])
+	var holder := root.get_node_or_null("HomeNavigation")
+	assert_true(holder != null, "%s should include HomeNavigation holder" % track_id)
+	if holder != null:
+		for ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun"]:
+			var ramp := holder.get_node_or_null(ramp_node)
+			assert_true(ramp != null, "%s should include drivable navigation ramp %s" % [track_id, ramp_node])
+			if ramp != null:
+				assert_equal(str(ramp.get_meta("collision_policy", "")), "drivable_static_toy_ramp", "%s %s should declare drivable static ramp collision" % [track_id, ramp_node])
+				assert_equal(str(ramp.get_meta("route_clearance", "")), "intentional_free_roam_surface", "%s %s should be classified as intentional free-roam surface" % [track_id, ramp_node])
+
+func _navigation_anchor_has_id(anchors: Array, anchor_id: String) -> bool:
+	for anchor in anchors:
+		if anchor is Dictionary and str((anchor as Dictionary).get("id", "")) == anchor_id:
+			return true
+	return false
+
+func _navigation_link_has_id(links: Array, link_id: String) -> bool:
+	for link in links:
+		if link is Dictionary and str((link as Dictionary).get("id", "")) == link_id:
+			return true
+	return false
 
 func _assert_home_yard_generated_scene_provenance_contract(root: Node, track_id: String) -> void:
 	for holder_path in ["ExteriorShell", "Roof", "Foundation"]:

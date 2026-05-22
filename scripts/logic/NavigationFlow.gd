@@ -33,7 +33,7 @@ const LOCAL_SINGLE_MATCH_ID := "local-single-race"
 const LOCAL_TOURNAMENT_MATCH_ID := "local-tournament-race"
 const HOME_FREE_ROAM_MATCH_ID := "home-free-roam"
 const HOME_FREE_ROAM_MAP_ID := "home_yard_v3"
-const HOME_FREE_ROAM_TRACK_ID := "kitchen"
+const HOME_FREE_ROAM_TRACK_ID := HOME_FREE_ROAM_MAP_ID
 
 const WIN_PLACEHOLDER_SCENE := "res://scenes/endings/WinPlaceholderEnding.tscn"
 const LOSS_PLACEHOLDER_SCENE := "res://scenes/endings/FrontDoorLossPlaceholder.tscn"
@@ -68,13 +68,18 @@ static func prepare_local_single_track(service: Node, track_id: String) -> void:
 	_set_meta(service, KEY_RACE_MODE, RACE_MODE_LOCAL_SINGLE)
 
 static func prepare_home_free_roam(service: Node, map_id: String = HOME_FREE_ROAM_MAP_ID) -> void:
-	var resolved_track_id := HOME_FREE_ROAM_TRACK_ID
-	if map_id.strip_edges().to_lower() != HOME_FREE_ROAM_MAP_ID:
+	var resolved_map_id := map_id.strip_edges().to_lower()
+	if resolved_map_id.is_empty():
+		resolved_map_id = HOME_FREE_ROAM_MAP_ID
+	var resolved_track_id := resolved_map_id
+	if resolved_map_id != HOME_FREE_ROAM_MAP_ID:
 		resolved_track_id = TrackCatalog.get_default_track_id()
+	var map_definition := TrackCatalog.get_map_definition(resolved_map_id)
+	var recipe := map_definition.to_map_summary() if map_definition != null else TrackCatalog.get_metadata(resolved_track_id)
 	_set_meta(service, KEY_NAV_FLOW_MODE, FLOW_SINGLE_RACE)
 	_set_meta(service, KEY_TRACK_ID, resolved_track_id)
-	_set_meta(service, KEY_TRACK_RECIPE, TrackCatalog.get_metadata(resolved_track_id))
-	_set_meta(service, "track_map_id", map_id)
+	_set_meta(service, KEY_TRACK_RECIPE, recipe)
+	_set_meta(service, "track_map_id", resolved_map_id)
 	_set_meta(service, "home_free_roam_spawn_id", "front_foyer")
 	_set_meta(service, KEY_RACE_MATCH_ID, HOME_FREE_ROAM_MATCH_ID)
 	_set_meta(service, KEY_RACE_MODE, RACE_MODE_HOME_FREE_ROAM)
