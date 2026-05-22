@@ -430,7 +430,7 @@ stage_props = Array[Dictionary]([{
 "validation_camera": "ValidationCameras/OutdoorPlaygroundStartPlayerCamera",
 "yaw_degrees": -20.0
 }, {
-"asset_path": "res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
+"asset_path": "res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
 "asset_source": "toybox existing repo asset",
 "audio_material_id": "",
 "collision_mode": "visual",

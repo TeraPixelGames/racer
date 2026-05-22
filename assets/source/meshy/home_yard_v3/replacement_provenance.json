@@ -49,7 +49,7 @@
       "validation_result": "pending"
     },
     {
-      "old_asset_path": "res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
+      "old_asset_path": "res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
       "old_origin": "toybox",
       "replacement_asset_path": "res://assets/source/meshy/home_yard_v3/backyard/low_poly_backyard_tree_tire_swing/low_poly_backyard_tree_tire_swing.glb",
       "replacement_origin": "meshy_planned",

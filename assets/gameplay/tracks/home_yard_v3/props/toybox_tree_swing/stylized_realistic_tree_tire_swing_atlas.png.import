@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ojpj3o4h7pt6"
-path="res://.godot/imported/stylized_realistic_tree_tire_swing_atlas.png-3d0e27fd3e17c1d7b89f3f49029f577e.ctex"
+path="res://.godot/imported/stylized_realistic_tree_tire_swing_atlas.png-9af292edd6e78c118c432f2a61f4e32f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing_atlas.png"
-dest_files=["res://.godot/imported/stylized_realistic_tree_tire_swing_atlas.png-3d0e27fd3e17c1d7b89f3f49029f577e.ctex"]
+source_file="res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing_atlas.png"
+dest_files=["res://.godot/imported/stylized_realistic_tree_tire_swing_atlas.png-9af292edd6e78c118c432f2a61f4e32f.ctex"]
 
 [params]
 

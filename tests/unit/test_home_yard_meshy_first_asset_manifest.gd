@@ -39,7 +39,6 @@ const REQUIRED_CONCEPT_ARTIFACTS := [
 	"stages/legacy_home_yard_courses/garden/stage_key_art.png",
 	"stages/legacy_home_yard_courses/sandbox/stage_concept.md",
 	"stages/legacy_home_yard_courses/sandbox/stage_key_art.png",
-	"home_estate_v1_character_mapping.md",
 ]
 
 func test_meshy_first_policy_is_explicit() -> void:
@@ -137,7 +136,6 @@ func test_concept_reference_and_batch_protocol_are_blocking() -> void:
 	assert_equal(concept.get("root", ""), "res://docs/story_bible/concepts/", "Concept references should live under the story-bible concept folder.")
 	assert_true(bool(concept.get("blocks_paid_asset_batches_until_present", false)), "Concept references should block paid asset batches.")
 	assert_true("floor_plans/racer_house_yard_concept_floor_plan.png" in concept.get("required_artifacts", []), "Story-bible floor plan should be required.")
-	assert_true("home_estate_v1_character_mapping.md" in concept.get("required_artifacts", []), "Home estate character mapping should be required.")
 	for artifact in REQUIRED_CONCEPT_ARTIFACTS:
 		var artifact_path := "%s%s" % [str(concept.get("root", "")), artifact]
 		assert_true(FileAccess.file_exists(artifact_path), "Concept artifact should exist: %s." % artifact_path)

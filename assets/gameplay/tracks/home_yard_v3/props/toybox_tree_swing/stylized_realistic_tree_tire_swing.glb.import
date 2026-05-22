@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4o3c201fcshd"
-path="res://.godot/imported/modern_farmhouse_shell.glb-3239432560c126cd263546b945afd451.scn"
+uid="uid://b3crvdqon8pjl"
+path="res://.godot/imported/stylized_realistic_tree_tire_swing.glb-37eba861b53d9fc5554ca58421678762.scn"
 
 [deps]
 
-source_file="res://assets/gameplay/tracks/home_estate_v1/meshes/modern_farmhouse_shell.glb"
-dest_files=["res://.godot/imported/modern_farmhouse_shell.glb-3239432560c126cd263546b945afd451.scn"]
+source_file="res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb"
+dest_files=["res://.godot/imported/stylized_realistic_tree_tire_swing.glb-37eba861b53d9fc5554ca58421678762.scn"]
 
 [params]
 

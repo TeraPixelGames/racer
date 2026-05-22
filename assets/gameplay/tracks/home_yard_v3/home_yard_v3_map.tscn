@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" path="res://assets/source/meshy/home_yard_v3/attic/low_poly_attic_jack_in_the_box_setpiece/low_poly_attic_jack_in_the_box_setpiece.glb" id="19_uygeg"]
 [ext_resource type="PackedScene" path="res://assets/source/meshy/home_yard_v3/attic/low_poly_attic_sheet_tunnel/low_poly_attic_sheet_tunnel.glb" id="20_j2wo2"]
 [ext_resource type="PackedScene" path="res://assets/gameplay/tracks/shared/backyard_optimized/playground_structure_low.glb" id="21_trs7q"]
-[ext_resource type="PackedScene" path="res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb" id="22_xkhcx"]
+[ext_resource type="PackedScene" path="res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb" id="22_xkhcx"]
 [ext_resource type="PackedScene" path="res://assets/gameplay/tracks/shared/backyard_optimized/sandbox_fossil_low.glb" id="23_fvyg7"]
 [ext_resource type="PackedScene" path="res://assets/gameplay/tracks/shared/backyard_optimized/garden_log_bush_low.glb" id="24_eqton"]
 [ext_resource type="PackedScene" path="res://assets/source/kenney/mini_skate/steps.glb" id="25_i4a6c"]
@@ -25478,7 +25478,7 @@ metadata/external_scene_instance = "res://assets/gameplay/tracks/shared/backyard
 
 [node name="ToyboxTreeTireSwing" type="Node3D" parent="Yard" instance=ExtResource("22_xkhcx")]
 transform = Transform3D(14.888192, 0, 1.8280402, 0, 15, 0, -1.8280402, 0, 14.888192, 42, 0, -308)
-metadata/external_scene_instance = "res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb"
+metadata/external_scene_instance = "res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb"
 
 [node name="SandboxFossil" type="Node3D" parent="Yard" instance=ExtResource("23_fvyg7")]
 transform = Transform3D(10.461622, 0, -3.399187, 0, 11, 0, 3.399187, 0, 10.461622, 217, 0, -320)

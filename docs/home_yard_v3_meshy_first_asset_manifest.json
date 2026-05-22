@@ -130,8 +130,7 @@
       "stages/legacy_home_yard_courses/garden/stage_concept.md",
       "stages/legacy_home_yard_courses/garden/stage_key_art.png",
       "stages/legacy_home_yard_courses/sandbox/stage_concept.md",
-      "stages/legacy_home_yard_courses/sandbox/stage_key_art.png",
-      "home_estate_v1_character_mapping.md"
+      "stages/legacy_home_yard_courses/sandbox/stage_key_art.png"
     ],
     "each_artifact_requires": [
       "design_intent",
@@ -805,7 +804,7 @@
     },
     {
       "asset_id": "toybox_tree_tire_swing",
-      "asset_path": "res://assets/gameplay/tracks/home_yard/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
+      "asset_path": "res://assets/gameplay/tracks/home_yard_v3/props/toybox_tree_swing/stylized_realistic_tree_tire_swing.glb",
       "area": "backyard",
       "visible": true,
       "current_source_family": "toybox",
