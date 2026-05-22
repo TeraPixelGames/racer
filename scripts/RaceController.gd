@@ -104,7 +104,6 @@ const RACE_MODE_ONLINE_TOURNAMENT := OnlineRaceRules.RACE_MODE_ONLINE_TOURNAMENT
 const LOCAL_SINGLE_MATCH_ID := "local-single-race"
 const LOCAL_TOURNAMENT_MATCH_ID := "local-tournament-race"
 const HOME_FREE_ROAM_MATCH_ID := NavigationFlow.HOME_FREE_ROAM_MATCH_ID
-const HOME_FREE_ROAM_SPAWN_POSITION := Vector3(-50.0, 1.0, 128.0)
 const PHASE_INTRO := "intro"
 const PHASE_GRID_ENTRY := "grid_entry"
 const PHASE_CAMERA_TRANSITION := "camera_transition"
@@ -282,7 +281,6 @@ func _start_home_free_roam() -> void:
 	camera_follow_target_id = local_user_id
 	_hide_results_overlay()
 	_spawn_track()
-	_ensure_home_free_roam_floor_collision()
 	var selected_racer := RacerRoster.normalize_id(str(NakamaService.get_meta_value("selected_racer_id", RacerRoster.DEFAULT_RACER_ID)))
 	local_racer_ids.append(local_user_id)
 	racer_visual_ids[local_user_id] = selected_racer
@@ -292,35 +290,6 @@ func _start_home_free_roam() -> void:
 	_init_local_racer_state(local_user_id, selected_racer, false, player_car.global_transform)
 	_set_pause_button_visible(true)
 	_show_message("Free roam")
-
-func _ensure_home_free_roam_floor_collision() -> void:
-	if get_node_or_null("HomeFreeRoamFloor") != null:
-		return
-	var holder := Node3D.new()
-	holder.name = "HomeFreeRoamFloor"
-	add_child(holder)
-	_add_home_free_roam_floor_collider(holder, "MainHouseFloor", Vector3(10.0, -0.18, 25.0), Vector3(430.0, 0.4, 320.0))
-	_add_home_free_roam_floor_collider(holder, "FrontPorchFloor", Vector3(-50.0, -0.18, 162.0), Vector3(210.0, 0.4, 36.0))
-	_add_home_free_roam_floor_collider(holder, "BackDeckFloor", Vector3(-47.5, -0.18, -152.5), Vector3(245.0, 0.4, 45.0))
-
-func _add_home_free_roam_floor_collider(parent: Node3D, collider_name: String, center: Vector3, size: Vector3) -> void:
-	var body := StaticBody3D.new()
-	body.name = collider_name
-	body.collision_layer = 1
-	body.collision_mask = 2
-	body.position = center
-	var physics_material := PhysicsMaterial.new()
-	physics_material.friction = 0.08
-	physics_material.bounce = 0.0
-	physics_material.rough = false
-	body.physics_material_override = physics_material
-	var shape_node := CollisionShape3D.new()
-	shape_node.name = "CollisionShape3D"
-	var shape := BoxShape3D.new()
-	shape.size = size
-	shape_node.shape = shape
-	body.add_child(shape_node)
-	parent.add_child(body)
 
 func _start_local_single_race() -> void:
 	home_free_roam = false
@@ -1963,9 +1932,7 @@ func _spawn_car(racer_id:String) -> CarController:
 	cars[racer_id] = car
 	var spawn_index := cars.size() - 1
 	var spawn_xform := Transform3D.IDENTITY
-	if home_free_roam and racer_id == local_user_id:
-		spawn_xform = Transform3D(Basis.IDENTITY, HOME_FREE_ROAM_SPAWN_POSITION)
-	elif spawn_index < spawn_points.size():
+	if spawn_index < spawn_points.size():
 		spawn_xform = spawn_points[spawn_index]
 	else:
 		spawn_xform.origin = Vector3(spawn_index * 2.0, 1.0, spawn_index * 1.5)

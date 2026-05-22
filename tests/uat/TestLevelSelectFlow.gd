@@ -140,18 +140,23 @@ func test_local_single_race_spawns_full_roster_and_blocks_input_during_intro() -
 		assert_true(float(input_state.get("throttle", 0.0)) > 0.0, "CPU racers should drive through CarController input")
 	race.queue_free()
 
-func test_home_free_roam_floor_keeps_foyer_spawn_supported() -> void:
+func test_home_free_roam_uses_authored_track_surface_for_spawn_support() -> void:
 	var race: Node = _make_home_free_roam()
 	var floor := race.get_node_or_null("HomeFreeRoamFloor")
-	assert_true(floor != null, "Free roam should add runtime home floor collision")
+	assert_true(floor == null, "Free roam should not add invisible whole-house floor collision")
 	var cars: Dictionary = race.get("cars")
 	var car: CarController = cars.get("local_player", null)
 	assert_true(car != null, "Free roam should spawn the local car")
 	if car != null:
+		var spawn_points: Array = race.get("spawn_points")
+		assert_true(not spawn_points.is_empty(), "Free roam should load authored spawn points from the selected home track")
+		if not spawn_points.is_empty():
+			var expected: Transform3D = spawn_points[0]
+			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on an authored visible route surface instead of a hidden floor proxy")
 		var start_y := car.global_transform.origin.y
 		for i in range(20):
 			car.call("_physics_process", 0.016)
-		assert_true(car.global_transform.origin.y >= start_y - 1.0, "Foyer free-roam spawn should stay supported by runtime floor collision")
+		assert_true(car.global_transform.origin.y >= start_y - 1.0, "Free-roam spawn should stay supported by authored track collision")
 	race.queue_free()
 
 func test_local_single_countdown_uses_large_overlay() -> void:
@@ -825,7 +830,11 @@ func test_home_free_roam_spawns_one_player_and_exposes_home_pause_actions() -> v
 	var car: Node3D = cars.get("local_player", null)
 	assert_true(car != null, "Free roam should spawn the local car")
 	if car != null:
-		assert_true(car.global_transform.origin.distance_to(Vector3(-50.0, car.global_transform.origin.y, 128.0)) <= 8.0, "Free roam should spawn near the front foyer")
+		var spawn_points: Array = race.get("spawn_points")
+		assert_true(not spawn_points.is_empty(), "Free roam should load authored home track spawns")
+		if not spawn_points.is_empty():
+			var expected: Transform3D = spawn_points[0]
+			assert_true(car.global_transform.origin.distance_to(expected.origin) <= 8.0, "Free roam should spawn on the authored visible route surface")
 	race.call("pause_race_for_test")
 	var labels: Array = race.call("get_pause_menu_labels_for_test")
 	assert_true(labels.has("Change Character / Stage"), "Free roam pause should expose character/stage changes")

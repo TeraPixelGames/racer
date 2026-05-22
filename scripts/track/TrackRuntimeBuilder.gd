@@ -916,40 +916,9 @@ static func _add_dressing_scene(parent: Node3D, definition: TrackDefinition) -> 
 	if definition.id == "kitchen":
 		_make_kitchen_window_glass_transparent(instance)
 	_apply_ground_shader_to_editable_floor(instance, definition)
-	_apply_home_yard_active_floor_visibility(instance, definition)
 	_disable_gameplay_collision(instance)
 	parent.add_child(instance)
 	_disable_gameplay_collision(instance)
-
-static func _apply_home_yard_active_floor_visibility(instance: Node3D, definition: TrackDefinition) -> void:
-	var dressing_path := str(definition.dressing_scene_path)
-	if not dressing_path.contains("home_yard_v3"):
-		return
-	var mode_id := str(definition.get_meta("track_mode_id", definition.id)).trim_suffix("_preview")
-	var hidden_paths: Array[String] = []
-	if mode_id in ["kitchen", "playroom"]:
-		hidden_paths = [
-			"MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane",
-			"MainFloor/RoomFinishes/GarageTenFootCeilingPlane",
-			"UpperFloor/RoomFinishes/UpperFloorDeck",
-			"UpperFloor/RoomFinishes/BedroomSuite",
-			"UpperFloor/RoomFinishes/GlamDressing",
-			"UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane",
-			"Attic/RoomFinishes/AtticDeck",
-			"Attic/RoomFinishes/AtticStorageZone",
-		]
-	elif mode_id in ["bedroom", "glam_closet"]:
-		hidden_paths = [
-			"UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane",
-			"Attic/RoomFinishes/AtticDeck",
-			"Attic/RoomFinishes/AtticStorageZone",
-		]
-	for path in hidden_paths:
-		var blocker := instance.get_node_or_null(NodePath(path)) as Node3D
-		if blocker == null:
-			continue
-		blocker.visible = false
-		blocker.set_meta("active_floor_hidden_for_mode", mode_id)
 
 static func _remove_embedded_runtime_environment(parent: Node) -> void:
 	if parent == null:

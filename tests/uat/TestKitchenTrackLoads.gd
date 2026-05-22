@@ -218,8 +218,8 @@ func test_playroom_runtime_start_corridor_is_readable() -> void:
 	assert_true(_playroom_player_camera_corridor_clear(track_node, definition), "Playroom start player camera corridor should stay clear of route dressing")
 	track_node.queue_free()
 
-func test_home_yard_first_floor_runtime_hides_overhead_camera_blockers() -> void:
-	var blocker_paths: Array[String] = [
+func test_home_yard_runtime_keeps_authored_floor_and_ceiling_structure_visible() -> void:
+	var structural_paths: Array[String] = [
 		"Dressing/EditableRoom/MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane",
 		"Dressing/EditableRoom/MainFloor/RoomFinishes/GarageTenFootCeilingPlane",
 		"Dressing/EditableRoom/UpperFloor/RoomFinishes/UpperFloorDeck",
@@ -237,12 +237,12 @@ func test_home_yard_first_floor_runtime_hides_overhead_camera_blockers() -> void
 		scene_tree.root.add_child(track_node)
 		var concept_reference := track_node.get_node_or_null("Dressing/EditableRoom/ConceptReference") as Node3D
 		assert_true(concept_reference != null and not concept_reference.visible and not concept_reference.is_visible_in_tree(), "%s should hide authoring scale references during runtime races" % track_id)
-		for path in blocker_paths:
-			var blocker := track_node.get_node_or_null(NodePath(path)) as Node3D
-			assert_true(blocker != null, "%s should include authored overhead slab %s so runtime can explicitly cull it" % [track_id, path])
-			if blocker != null:
-				assert_true(not blocker.visible and not blocker.is_visible_in_tree(), "%s should hide %s so third-person cameras cannot be blocked by an inactive floor or ceiling slab" % [track_id, path])
-				assert_equal(str(blocker.get_meta("active_floor_hidden_for_mode", "")), track_id, "%s should record why %s was hidden" % [track_id, path])
+		for path in structural_paths:
+			var structure := track_node.get_node_or_null(NodePath(path)) as Node3D
+			assert_true(structure != null, "%s should include authored structural plane %s" % [track_id, path])
+			if structure != null:
+				assert_true(structure.visible and structure.is_visible_in_tree(), "%s should keep %s visible; camera clearance should be solved by camera/route envelopes, not structural culling" % [track_id, path])
+				assert_equal(str(structure.get_meta("active_floor_hidden_for_mode", "")), "", "%s should not carry the retired active-floor culling metadata" % path)
 		track_node.queue_free()
 
 func test_bedroom_runtime_start_corridor_is_readable() -> void:

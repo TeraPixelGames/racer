@@ -8,7 +8,7 @@ const TrackRuntimeScene = preload("res://scripts/track/TrackRuntimeScene.gd")
 const ARKIT_FACE_PREVIEW_SCENE := "res://scenes/dev/ARKitFacePreview.tscn"
 const PREVIEW_CAMERA_ROUTE_SPEED := 0.03
 const PREVIEW_CAMERA_BLEND := 0.05
-const HOME_HUB_TRACK_ID := "kitchen"
+const HOME_HUB_TRACK_ID := "outdoor_playground"
 const FRONT_DOOR_ENTRY_DURATION := 0.9
 
 var _preview_root: Node3D

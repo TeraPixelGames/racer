@@ -23,7 +23,7 @@ func test_main_menu_sets_navigation_flow_and_preview_track() -> void:
 	assert_true(bool(screen.call("has_root_buttons_for_test")), "Main menu should expose the Start button")
 	assert_equal(str(screen.call("get_title_text_for_test")), "Toy Dominion", "Main menu should show the home-first title")
 	assert_true(screen.has_method("get_preview_track_id_for_test"), "Main menu should expose preview track test hook")
-	assert_equal(str(screen.call("get_preview_track_id_for_test")), "kitchen", "Main menu should force the home-yard preview track")
+	assert_equal(str(screen.call("get_preview_track_id_for_test")), "outdoor_playground", "Main menu should preview the outside of the home instead of an indoor room course")
 	assert_equal(str(screen.call("get_ar_face_preview_scene_for_test")), "res://scenes/dev/ARKitFacePreview.tscn", "Main menu should expose the AR face preview scene route")
 	screen.call("start_game_for_test")
 	assert_equal(NakamaService.get_meta_value("nav_flow_mode", ""), "single_race", "Start should prepare the in-home selection flow")
