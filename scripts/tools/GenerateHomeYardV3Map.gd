@@ -1460,16 +1460,23 @@ func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
 	_add_box(root, parent, "BedroomGlamDriveStrip", Vector3(-15, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 46), Vector3(5, 0.25, 28), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("bedroom_glam_threshold", "low strip marks bedroom-to-glam cased opening"))
 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
-	var blue := Color(0.14, 0.36, 0.72)
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, 0.85, 94), Vector3(44, 26.50, 36), 20.0, blue, "MainFloorToUpperToyRamp")
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, 26.50, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -22), 20.0, blue.lightened(0.08), "MainFloorToUpperToyRamp")
-	_add_box(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, 0.72, 98), Vector3(24, 0.8, 18), blue.darkened(0.15), true, 0.0, Vector3.ZERO, _home_navigation_provenance("main_ramp_lower_landing", "landing gives racers a clear approach to the main-to-upper toy ramp"))
-	_add_box(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -26), Vector3(24, 0.8, 20), blue.darkened(0.12), true, 0.0, Vector3.ZERO, _home_navigation_provenance("main_ramp_upper_landing", "landing connects the main-to-upper toy ramp to upper hall free roam"))
-	var orange := Color(0.78, 0.38, 0.12)
-	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -86), Vector3(44, 80.0, -86), 20.0, orange, "UpperHallToAtticToyRamp")
-	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(44, 80.0, -86), Vector3(72, ATTIC_ROOM_FLOOR_TOP_Y + 0.85, -86), 20.0, orange.lightened(0.08), "UpperHallToAtticToyRamp")
-	_add_box(root, parent, "UpperToAtticRampLowerLanding", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(22, 0.8, 22), orange.darkened(0.15), true, 0.0, Vector3.ZERO, _home_navigation_provenance("attic_ramp_lower_landing", "landing gives racers a clear approach to the attic toy ramp"))
-	_add_box(root, parent, "UpperToAtticRampUpperLanding", Vector3(74, ATTIC_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(24, 0.8, 22), orange.darkened(0.12), true, 0.0, Vector3.ZERO, _home_navigation_provenance("attic_ramp_upper_landing", "landing connects the attic toy ramp to attic free roam"))
+	var plywood := Color(0.58, 0.39, 0.22)
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, 0.85, 94), Vector3(44, 26.50, 36), 14.0, plywood, "MainFloorToUpperToyRamp")
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, 26.50, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -22), 14.0, plywood.lightened(0.08), "MainFloorToUpperToyRamp")
+	_add_navigation_landing(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, 0.72, 98), Vector3(18, 0.8, 18), plywood.darkened(0.10), "main_ramp_lower_landing", "landing gives racers a clear approach to the main-to-upper toy ramp")
+	_add_navigation_landing(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -26), Vector3(18, 0.8, 20), plywood.darkened(0.08), "main_ramp_upper_landing", "landing connects the main-to-upper toy ramp to upper hall free roam")
+	var cardboard := Color(0.63, 0.43, 0.24)
+	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -86), Vector3(44, 80.0, -86), 14.0, cardboard, "UpperHallToAtticToyRamp")
+	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(44, 80.0, -86), Vector3(72, ATTIC_ROOM_FLOOR_TOP_Y + 0.85, -86), 14.0, cardboard.lightened(0.08), "UpperHallToAtticToyRamp")
+	_add_navigation_landing(root, parent, "UpperToAtticRampLowerLanding", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(18, 0.8, 22), cardboard.darkened(0.10), "attic_ramp_lower_landing", "landing gives racers a clear approach to the attic toy ramp")
+	_add_navigation_landing(root, parent, "UpperToAtticRampUpperLanding", Vector3(74, ATTIC_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(18, 0.8, 22), cardboard.darkened(0.08), "attic_ramp_upper_landing", "landing connects the attic toy ramp to attic free roam")
+
+func _add_navigation_landing(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, assembly: String, why_exists: String) -> MeshInstance3D:
+	var landing := _add_box(root, parent, node_name, position, size, color, true, 0.0, Vector3.ZERO, _home_navigation_provenance(assembly, why_exists))
+	landing.set_meta("collision_policy", "drivable_static_toy_ramp")
+	landing.set_meta("route_clearance", "intentional_free_roam_surface")
+	landing.set_meta("visible_material_contract", "muted wood/cardboard landing, not saturated placeholder color")
+	return landing
 
 func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: Vector3, end: Vector3, width: float, color: Color, vertical_link_id: String) -> MeshInstance3D:
 	var horizontal := Vector3(end.x - start.x, 0.0, end.z - start.z)
@@ -1486,7 +1493,21 @@ func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: 
 	ramp.set_meta("scale_class", "toy_scale_racing")
 	ramp.set_meta("support_surface_start", start)
 	ramp.set_meta("support_surface_end", end)
+	ramp.set_meta("visible_material_contract", "muted plywood/cardboard toy ramp, not saturated placeholder blue")
+	_add_ramp_edge_detail(root, parent, node_name, center, direction, width, sqrt(run * run + rise * rise), yaw, pitch, color.darkened(0.32))
 	return ramp
+
+func _add_ramp_edge_detail(root: Node3D, parent: Node3D, node_name: String, center: Vector3, direction: Vector3, width: float, length: float, yaw: float, pitch: float, color: Color) -> void:
+	var side_axis := Vector3(direction.z, 0.0, -direction.x).normalized()
+	for side in [
+		{"suffix": "LeftEdgeRail", "offset": -width * 0.5 + 0.65},
+		{"suffix": "RightEdgeRail", "offset": width * 0.5 - 0.65},
+	]:
+		var rail := _add_box(root, parent, "%s%s" % [node_name, str(side["suffix"])], center + side_axis * float(side["offset"]) + Vector3.UP * 1.0, Vector3(0.9, 1.8, length + 1.2), color, false, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance("%s_edge_rail" % node_name, "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"))
+		rail.set_meta("home_navigation_ramp_edge_rail", true)
+		rail.set_meta("collision_policy", "visual_edge_no_gameplay_collision")
+	var stripe := _add_box(root, parent, "%sCenterWearStrip" % node_name, center + Vector3.UP * 0.65, Vector3(width - 3.0, 0.12, length - 2.0), color.lightened(0.45), false, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance("%s_center_wear_strip" % node_name, "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"))
+	stripe.set_meta("home_navigation_ramp_surface_detail", true)
 
 func _home_navigation_provenance(assembly: String, why_exists: String) -> Dictionary:
 	return _provenance(

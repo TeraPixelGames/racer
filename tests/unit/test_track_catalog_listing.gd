@@ -669,6 +669,14 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			if ramp != null:
 				assert_equal(str(ramp.get_meta("collision_policy", "")), "drivable_static_toy_ramp", "%s %s should declare drivable static ramp collision" % [track_id, ramp_node])
 				assert_equal(str(ramp.get_meta("route_clearance", "")), "intentional_free_roam_surface", "%s %s should be classified as intentional free-roam surface" % [track_id, ramp_node])
+				assert_true(str(ramp.get_meta("visible_material_contract", "")).contains("not saturated placeholder blue"), "%s %s should reject placeholder-blue ramp material" % [track_id, ramp_node])
+				assert_true(not _color_is_placeholder_blue(_mesh_albedo_color(ramp)), "%s %s should use muted toy ramp material instead of saturated placeholder blue" % [track_id, ramp_node])
+				var left_rail := holder.get_node_or_null("%sLeftEdgeRail" % ramp_node)
+				var right_rail := holder.get_node_or_null("%sRightEdgeRail" % ramp_node)
+				var wear_strip := holder.get_node_or_null("%sCenterWearStrip" % ramp_node)
+				assert_true(left_rail != null and bool(left_rail.get_meta("home_navigation_ramp_edge_rail", false)), "%s %s should include a visible left edge rail" % [track_id, ramp_node])
+				assert_true(right_rail != null and bool(right_rail.get_meta("home_navigation_ramp_edge_rail", false)), "%s %s should include a visible right edge rail" % [track_id, ramp_node])
+				assert_true(wear_strip != null and bool(wear_strip.get_meta("home_navigation_ramp_surface_detail", false)), "%s %s should include a surface detail strip" % [track_id, ramp_node])
 
 func _navigation_anchor_has_id(anchors: Array, anchor_id: String) -> bool:
 	for anchor in anchors:
@@ -681,6 +689,16 @@ func _navigation_link_has_id(links: Array, link_id: String) -> bool:
 		if link is Dictionary and str((link as Dictionary).get("id", "")) == link_id:
 			return true
 	return false
+
+func _mesh_albedo_color(node: Node) -> Color:
+	if node is MeshInstance3D:
+		var mesh_instance := node as MeshInstance3D
+		if mesh_instance.material_override is StandardMaterial3D:
+			return (mesh_instance.material_override as StandardMaterial3D).albedo_color
+	return Color.BLACK
+
+func _color_is_placeholder_blue(color: Color) -> bool:
+	return color.b > 0.55 and color.r < 0.25 and color.g > 0.25
 
 func _assert_home_yard_generated_scene_provenance_contract(root: Node, track_id: String) -> void:
 	for holder_path in ["ExteriorShell", "Roof", "Foundation"]:

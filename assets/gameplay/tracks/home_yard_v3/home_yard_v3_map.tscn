@@ -1,4 +1,4 @@
-[gd_scene load_steps=1355 format=3]
+[gd_scene load_steps=1379 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenFridge.glb" id="1_dkcm6"]
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenSink.glb" id="2_mgulr"]
@@ -4824,86 +4824,170 @@ size = Vector3(5, 0.25, 28)
 size = Vector3(5, 0.25, 28)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smar"]
-albedo_color = Color(0.14, 0.36, 0.72, 1)
+albedo_color = Color(0.58, 0.39, 0.22, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_o77kb"]
-size = Vector3(20, 1, 63.41863)
+size = Vector3(14, 1, 63.41863)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxkse"]
-size = Vector3(20, 1, 63.41863)
+size = Vector3(14, 1, 63.41863)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu82p"]
-albedo_color = Color(0.2088, 0.41120002, 0.74240005, 1)
+albedo_color = Color(0.3944, 0.2652, 0.1496, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_capdf"]
-size = Vector3(20, 1, 63.955475)
+size = Vector3(0.9, 1.8, 64.61863)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a5dcc"]
-size = Vector3(20, 1, 63.955475)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnrqs"]
-albedo_color = Color(0.119, 0.30600002, 0.61200005, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5dcc"]
+albedo_color = Color(0.3944, 0.2652, 0.1496, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_plrhd"]
-size = Vector3(24, 0.8, 18)
+[sub_resource type="BoxMesh" id="BoxMesh_qnrqs"]
+size = Vector3(0.9, 1.8, 64.61863)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x0ryh"]
-size = Vector3(24, 0.8, 18)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plrhd"]
+albedo_color = Color(0.66692, 0.59586, 0.53227997, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_x0ryh"]
+size = Vector3(11, 0.12, 61.41863)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oohjh"]
-albedo_color = Color(0.1232, 0.3168, 0.6336, 1)
+albedo_color = Color(0.61359996, 0.43879998, 0.28239998, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_wy1g0"]
-size = Vector3(24, 0.8, 20)
+size = Vector3(14, 1, 63.955475)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu1wq"]
-size = Vector3(24, 0.8, 20)
+size = Vector3(14, 1, 63.955475)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y7fg"]
-albedo_color = Color(0.78, 0.38, 0.12, 1)
+albedo_color = Color(0.41724798, 0.29838398, 0.192032, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_62jty"]
-size = Vector3(20, 1, 37.160496)
+size = Vector3(0.9, 1.8, 65.15547)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ga7l8"]
-size = Vector3(20, 1, 37.160496)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkdg6"]
-albedo_color = Color(0.7976, 0.4296, 0.1904, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga7l8"]
+albedo_color = Color(0.41724798, 0.29838398, 0.192032, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_e244b"]
-size = Vector3(20, 1, 37.83784)
+[sub_resource type="BoxMesh" id="BoxMesh_dkdg6"]
+size = Vector3(0.9, 1.8, 65.15547)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c20w4"]
-size = Vector3(20, 1, 37.83784)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e244b"]
+albedo_color = Color(0.6794864, 0.6141112, 0.5556176, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_c20w4"]
+size = Vector3(11, 0.12, 61.955475)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjulv"]
-albedo_color = Color(0.663, 0.323, 0.102, 1)
+albedo_color = Color(0.52199996, 0.35099998, 0.198, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c1ca"]
-size = Vector3(22, 0.8, 22)
+size = Vector3(18, 0.8, 18)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0bx4"]
-size = Vector3(22, 0.8, 22)
+size = Vector3(18, 0.8, 18)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spya7"]
-albedo_color = Color(0.6864, 0.3344, 0.1056, 1)
+albedo_color = Color(0.5336, 0.3588, 0.2024, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_aqewe"]
-size = Vector3(24, 0.8, 22)
+size = Vector3(18, 0.8, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l6k46"]
-size = Vector3(24, 0.8, 22)
+size = Vector3(18, 0.8, 20)
 
-[sub_resource type="Environment" id="Environment_6jjbc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jjbc"]
+albedo_color = Color(0.63, 0.43, 0.24, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_7i2ut"]
+size = Vector3(14, 1, 37.160496)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eu5ch"]
+size = Vector3(14, 1, 37.160496)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ixi0"]
+albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj2sj"]
+size = Vector3(0.9, 1.8, 38.360497)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evtxg"]
+albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_dvh6u"]
+size = Vector3(0.9, 1.8, 38.360497)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4o61"]
+albedo_color = Color(0.68561995, 0.61082, 0.53976, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6jw6"]
+size = Vector3(11, 0.12, 35.160496)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44vi0"]
+albedo_color = Color(0.6596, 0.4756, 0.3008, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_55tsq"]
+size = Vector3(14, 1, 37.83784)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2cq3"]
+size = Vector3(14, 1, 37.83784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jlqa"]
+albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_hema6"]
+size = Vector3(0.9, 1.8, 39.03784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x7ef"]
+albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_riivm"]
+size = Vector3(0.9, 1.8, 39.03784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8wtv"]
+albedo_color = Color(0.6966904, 0.6278744, 0.56249917, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_dircy"]
+size = Vector3(11, 0.12, 35.83784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4orx"]
+albedo_color = Color(0.567, 0.387, 0.21599999, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_vn0sx"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4t1th"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h86q6"]
+albedo_color = Color(0.5796, 0.39560002, 0.2208, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_0dpue"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46g2n"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="Environment" id="Environment_bx8kt"]
 background_mode = 1
 background_color = Color(0.67, 0.8, 0.94, 1)
 ambient_light_source = 2
@@ -35686,16 +35770,145 @@ metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(44, 0.85, 94)
 metadata/support_surface_end = Vector3(44, 26.5, 36)
+metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="MainFloorToUpperRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun"]
 
 [node name="@CollisionShape3D@91" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun/MainFloorToUpperRampLowerRunCollision"]
 shape = SubResource("BoxShape3D_gxkse")
 
-[node name="MainFloorToUpperRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 39.975, 7)
+[node name="MainFloorToUpperRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 50.35, 14.675, 65)
 material_override = SubResource("StandardMaterial3D_eu82p")
 mesh = SubResource("BoxMesh_capdf")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampLowerRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampLowerRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampLowerRunLeftEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampLowerRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampLowerRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampLowerRun_edge_rail start anchor"
+metadata/end_anchor = "MainFloorToUpperRampLowerRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerRunLeftEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="MainFloorToUpperRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 37.65, 14.675, 65)
+material_override = SubResource("StandardMaterial3D_a5dcc")
+mesh = SubResource("BoxMesh_qnrqs")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampLowerRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampLowerRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampLowerRunRightEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampLowerRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampLowerRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampLowerRun_edge_rail start anchor"
+metadata/end_anchor = "MainFloorToUpperRampLowerRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerRunRightEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="MainFloorToUpperRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 44, 14.325, 65)
+material_override = SubResource("StandardMaterial3D_plrhd")
+mesh = SubResource("BoxMesh_x0ryh")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampLowerRun_center_wear_strip",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampLowerRun_center_wear_strip end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampLowerRunCenterWearStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampLowerRun_center_wear_strip start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampLowerRun_center_wear_strip"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampLowerRun_center_wear_strip start anchor"
+metadata/end_anchor = "MainFloorToUpperRampLowerRun_center_wear_strip end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerRunCenterWearStrip"
+metadata/home_navigation_ramp_surface_detail = true
+
+[node name="MainFloorToUpperRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 39.975, 7)
+material_override = SubResource("StandardMaterial3D_oohjh")
+mesh = SubResource("BoxMesh_wy1g0")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperToyRamp",
@@ -35738,16 +35951,145 @@ metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(44, 26.5, 36)
 metadata/support_surface_end = Vector3(44, 53.45, -22)
+metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="MainFloorToUpperRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun"]
 
 [node name="@CollisionShape3D@92" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun/MainFloorToUpperRampUpperRunCollision"]
-shape = SubResource("BoxShape3D_a5dcc")
+shape = SubResource("BoxShape3D_gu1wq")
+
+[node name="MainFloorToUpperRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 50.35, 40.975, 7)
+material_override = SubResource("StandardMaterial3D_5y7fg")
+mesh = SubResource("BoxMesh_62jty")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampUpperRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampUpperRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampUpperRunLeftEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampUpperRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampUpperRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampUpperRun_edge_rail start anchor"
+metadata/end_anchor = "MainFloorToUpperRampUpperRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperRunLeftEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="MainFloorToUpperRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 37.65, 40.975, 7)
+material_override = SubResource("StandardMaterial3D_ga7l8")
+mesh = SubResource("BoxMesh_dkdg6")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampUpperRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampUpperRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampUpperRunRightEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampUpperRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampUpperRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampUpperRun_edge_rail start anchor"
+metadata/end_anchor = "MainFloorToUpperRampUpperRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperRunRightEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="MainFloorToUpperRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 40.625, 7)
+material_override = SubResource("StandardMaterial3D_e244b")
+mesh = SubResource("BoxMesh_c20w4")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "MainFloorToUpperRampUpperRun_center_wear_strip",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "MainFloorToUpperRampUpperRun_center_wear_strip end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampUpperRunCenterWearStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "MainFloorToUpperRampUpperRun_center_wear_strip start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "MainFloorToUpperRampUpperRun_center_wear_strip"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "MainFloorToUpperRampUpperRun_center_wear_strip start anchor"
+metadata/end_anchor = "MainFloorToUpperRampUpperRun_center_wear_strip end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperRunCenterWearStrip"
+metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainFloorToUpperRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0.72, 98)
-material_override = SubResource("StandardMaterial3D_qnrqs")
-mesh = SubResource("BoxMesh_plrhd")
+material_override = SubResource("StandardMaterial3D_wjulv")
+mesh = SubResource("BoxMesh_1c1ca")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "main_ramp_lower_landing",
@@ -35784,16 +36126,19 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
 
 [node name="MainFloorToUpperRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding"]
 
 [node name="@CollisionShape3D@93" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding/MainFloorToUpperRampLowerLandingCollision"]
-shape = SubResource("BoxShape3D_x0ryh")
+shape = SubResource("BoxShape3D_d0bx4")
 
 [node name="MainFloorToUpperRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 53.32, -26)
-material_override = SubResource("StandardMaterial3D_oohjh")
-mesh = SubResource("BoxMesh_wy1g0")
+material_override = SubResource("StandardMaterial3D_spya7")
+mesh = SubResource("BoxMesh_aqewe")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "main_ramp_upper_landing",
@@ -35830,16 +36175,19 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
 
 [node name="MainFloorToUpperRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding"]
 
 [node name="@CollisionShape3D@94" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding/MainFloorToUpperRampUpperLandingCollision"]
-shape = SubResource("BoxShape3D_gu1wq")
+shape = SubResource("BoxShape3D_l6k46")
 
 [node name="UpperToAtticRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 66.725, -86)
-material_override = SubResource("StandardMaterial3D_5y7fg")
-mesh = SubResource("BoxMesh_62jty")
+material_override = SubResource("StandardMaterial3D_6jjbc")
+mesh = SubResource("BoxMesh_7i2ut")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperHallToAtticToyRamp",
@@ -35882,16 +36230,145 @@ metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(18, 53.45, -86)
 metadata/support_surface_end = Vector3(44, 80, -86)
+metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="UpperToAtticRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerRun"]
 
 [node name="@CollisionShape3D@95" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerRun/UpperToAtticRampLowerRunCollision"]
-shape = SubResource("BoxShape3D_ga7l8")
+shape = SubResource("BoxShape3D_eu5ch")
+
+[node name="UpperToAtticRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.725, -79.65)
+material_override = SubResource("StandardMaterial3D_0ixi0")
+mesh = SubResource("BoxMesh_fj2sj")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampLowerRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampLowerRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampLowerRunLeftEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampLowerRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampLowerRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampLowerRun_edge_rail start anchor"
+metadata/end_anchor = "UpperToAtticRampLowerRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunLeftEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="UpperToAtticRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.725, -92.35)
+material_override = SubResource("StandardMaterial3D_evtxg")
+mesh = SubResource("BoxMesh_dvh6u")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampLowerRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampLowerRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampLowerRunRightEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampLowerRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampLowerRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampLowerRun_edge_rail start anchor"
+metadata/end_anchor = "UpperToAtticRampLowerRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunRightEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="UpperToAtticRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.375, -86)
+material_override = SubResource("StandardMaterial3D_y4o61")
+mesh = SubResource("BoxMesh_u6jw6")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampLowerRun_center_wear_strip",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampLowerRun_center_wear_strip end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampLowerRunCenterWearStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampLowerRun_center_wear_strip start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampLowerRun_center_wear_strip"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampLowerRun_center_wear_strip start anchor"
+metadata/end_anchor = "UpperToAtticRampLowerRun_center_wear_strip end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunCenterWearStrip"
+metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 92.725, -86)
-material_override = SubResource("StandardMaterial3D_dkdg6")
-mesh = SubResource("BoxMesh_e244b")
+material_override = SubResource("StandardMaterial3D_44vi0")
+mesh = SubResource("BoxMesh_55tsq")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperHallToAtticToyRamp",
@@ -35934,16 +36411,145 @@ metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(44, 80, -86)
 metadata/support_surface_end = Vector3(72, 105.45, -86)
+metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="UpperToAtticRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperRun"]
 
 [node name="@CollisionShape3D@96" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperRun/UpperToAtticRampUpperRunCollision"]
-shape = SubResource("BoxShape3D_c20w4")
+shape = SubResource("BoxShape3D_n2cq3")
+
+[node name="UpperToAtticRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.725, -79.65)
+material_override = SubResource("StandardMaterial3D_1jlqa")
+mesh = SubResource("BoxMesh_hema6")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampUpperRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampUpperRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampUpperRunLeftEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampUpperRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampUpperRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampUpperRun_edge_rail start anchor"
+metadata/end_anchor = "UpperToAtticRampUpperRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunLeftEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="UpperToAtticRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.725, -92.35)
+material_override = SubResource("StandardMaterial3D_4x7ef")
+mesh = SubResource("BoxMesh_riivm")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampUpperRun_edge_rail",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampUpperRun_edge_rail end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampUpperRunRightEdgeRail",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampUpperRun_edge_rail start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampUpperRun_edge_rail"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "raised edge rail makes the drivable ramp read as finished toy-racing infrastructure instead of a plain debug slab"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampUpperRun_edge_rail start anchor"
+metadata/end_anchor = "UpperToAtticRampUpperRun_edge_rail end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunRightEdgeRail"
+metadata/home_navigation_ramp_edge_rail = true
+metadata/collision_policy = "visual_edge_no_gameplay_collision"
+
+[node name="UpperToAtticRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.375, -86)
+material_override = SubResource("StandardMaterial3D_i8wtv")
+mesh = SubResource("BoxMesh_dircy")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "UpperToAtticRampUpperRun_center_wear_strip",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "UpperToAtticRampUpperRun_center_wear_strip end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampUpperRunCenterWearStrip",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "UpperToAtticRampUpperRun_center_wear_strip start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "UpperToAtticRampUpperRun_center_wear_strip"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "thin surface strip breaks up the ramp plane and prevents a placeholder slab read"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "UpperToAtticRampUpperRun_center_wear_strip start anchor"
+metadata/end_anchor = "UpperToAtticRampUpperRun_center_wear_strip end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunCenterWearStrip"
+metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 53.32, -86)
-material_override = SubResource("StandardMaterial3D_wjulv")
-mesh = SubResource("BoxMesh_1c1ca")
+material_override = SubResource("StandardMaterial3D_d4orx")
+mesh = SubResource("BoxMesh_vn0sx")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "attic_ramp_lower_landing",
@@ -35980,16 +36586,19 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/UpperToAtticRampLowerLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
 
 [node name="UpperToAtticRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerLanding"]
 
 [node name="@CollisionShape3D@97" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerLanding/UpperToAtticRampLowerLandingCollision"]
-shape = SubResource("BoxShape3D_d0bx4")
+shape = SubResource("BoxShape3D_4t1th")
 
 [node name="UpperToAtticRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 105.32, -86)
-material_override = SubResource("StandardMaterial3D_spya7")
-mesh = SubResource("BoxMesh_aqewe")
+material_override = SubResource("StandardMaterial3D_h86q6")
+mesh = SubResource("BoxMesh_0dpue")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "attic_ramp_upper_landing",
@@ -36026,11 +36635,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/UpperToAtticRampUpperLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
 
 [node name="UpperToAtticRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperLanding"]
 
 [node name="@CollisionShape3D@98" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperLanding/UpperToAtticRampUpperLandingCollision"]
-shape = SubResource("BoxShape3D_l6k46")
+shape = SubResource("BoxShape3D_46g2n")
 
 [node name="CourseRoutes" type="Node3D" parent="."]
 
@@ -36936,4 +37548,4 @@ transform = Transform3D(0.81915206, 0.4055798, -0.4055798, 0, 0.70710677, 0.7071
 light_energy = 2.3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6jjbc")
+environment = SubResource("Environment_bx8kt")
