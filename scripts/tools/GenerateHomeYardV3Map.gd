@@ -40,6 +40,13 @@ const MAIN_STAIR_SHAFT_MIN := Vector3(54, 39.5, 78)
 const MAIN_STAIR_SHAFT_MAX := Vector3(90, 53.6, 146)
 const UNITS_PER_FOOT := 4.0
 const SCALE_CONTRACT_ID := "home_yard_v3_human_house_toy_racer_scale_v1"
+const HUMAN_APPLIANCE_SCALE := Vector3(18.0, 18.0, 18.0)
+const HUMAN_COUNTER_SCALE := Vector3(16.0, 16.0, 16.0)
+const HUMAN_TABLE_SCALE := Vector3(18.0, 18.0, 18.0)
+const HUMAN_SEATING_SCALE := Vector3(18.0, 18.0, 18.0)
+const HUMAN_BED_SCALE := Vector3(18.0, 18.0, 18.0)
+const HUMAN_STORAGE_SCALE := Vector3(16.0, 16.0, 16.0)
+const HUMAN_ACCENT_SCALE := Vector3(14.0, 14.0, 14.0)
 const SCALE_CONTRACT := {
 	"id": SCALE_CONTRACT_ID,
 	"units": "Godot units",
@@ -79,6 +86,13 @@ const SCALE_CONTRACT := {
 		"road_floor_clearance_units": ROAD_FLOOR_CLEARANCE,
 	},
 	"asset_policy": "House shell, stairs, windows, doors, counters, furniture, and yards use human residential scale. Racers, plastic road, cones, gates, and toy-route cues use toy scale inside that house. Imported Kenney/Meshy/toybox assets must declare intended scale class and target dimensions before production acceptance.",
+	"human_furnishing_targets": {
+		"refrigerator_height_units_min": 24.0,
+		"counter_height_units_min": 10.0,
+		"dining_table_height_units_min": 10.0,
+		"bed_length_units_min": 26.0,
+		"storage_height_units_min": 20.0,
+	},
 }
 const GENERATED_PROVENANCE_REQUIRED_FIELDS := [
 	"node_path",
@@ -1266,10 +1280,8 @@ func _add_yard_plan(root: Node3D, parent: Node3D) -> void:
 	_add_box(root, parent, "PlaygroundMulchBorderWest", Vector3(-170, 1.0, -217.5), Vector3(4, 3, 139), Color(0.22, 0.12, 0.06), false)
 	_add_box(root, parent, "PlaygroundMulchBorderEast", Vector3(65, 1.0, -217.5), Vector3(4, 3, 139), Color(0.22, 0.12, 0.06), false)
 	_add_box(root, parent, "GardenZone", Vector3(-250, -0.35, -307.5), Vector3(160, 1.4, 225), Color(0.24, 0.36, 0.18), true)
-	_add_box(root, parent, "GardenRaisedBedA", Vector3(-282, 3, -308), Vector3(32, 6, 132), Color(0.20, 0.12, 0.07), false)
-	_add_box(root, parent, "GardenRaisedBedB", Vector3(-218, 3, -308), Vector3(32, 6, 132), Color(0.20, 0.12, 0.07), false)
-	for i in range(5):
-		_add_box(root, parent, "GardenVegetableRow%02d" % i, Vector3(-282 + (i % 2) * 64, 7, -368 + i * 30), Vector3(24, 5, 8), Color(0.18, 0.44, 0.18).lightened(float(i) * 0.025), false)
+	_add_raised_garden_bed(root, parent, "GardenRaisedBedA", Vector3(-282, 2.2, -308), Vector3(34, 5.2, 132))
+	_add_raised_garden_bed(root, parent, "GardenRaisedBedB", Vector3(-218, 2.2, -308), Vector3(34, 5.2, 132))
 	_add_box(root, parent, "GardenPath", Vector3(-250, 0.05, -308), Vector3(18, 0.5, 210), Color(0.64, 0.56, 0.42), false)
 	_add_box(root, parent, "LawnRouteBuffer", Vector3(0, -0.55, -326), Vector3(210, 1.1, 190), Color(0.48, 0.62, 0.34), true)
 	_add_box(root, parent, "ToyboxTreeSwingLandingPatch", Vector3(42, -0.30, -308), Vector3(86, 1.2, 78), Color(0.34, 0.56, 0.28), true)
@@ -1288,6 +1300,48 @@ func _add_yard_plan(root: Node3D, parent: Node3D) -> void:
 	for i in range(8):
 		_add_box(root, parent, "BackFenceShrubMass%02d" % i, Vector3(-300 + i * 84, 5, -434 + float(i % 2) * 8), Vector3(34, 10, 18), Color(0.16, 0.34, 0.14).lightened(float(i % 4) * 0.035), false)
 
+func _add_raised_garden_bed(root: Node3D, parent: Node3D, prefix: String, center: Vector3, size: Vector3) -> void:
+	var wood := Color(0.28, 0.15, 0.07)
+	var soil := Color(0.12, 0.08, 0.04)
+	var board_height := size.y
+	var board_thickness := 3.0
+	_add_box(root, parent, "%sSoilSurface" % prefix, center + Vector3(0, board_height * 0.08, 0), Vector3(size.x - 5.5, 0.7, size.z - 8.0), soil, false, 0.0, Vector3.ZERO, _garden_provenance(prefix, "soil surface sits inside the raised-bed frame instead of reading as a solid box"))
+	_add_box(root, parent, "%sWestBoard" % prefix, center + Vector3(-size.x * 0.5, 0.0, 0), Vector3(board_thickness, board_height, size.z), wood, false, 0.0, Vector3.ZERO, _garden_provenance(prefix, "west timber board frames the garden bed with visible wall thickness"))
+	_add_box(root, parent, "%sEastBoard" % prefix, center + Vector3(size.x * 0.5, 0.0, 0), Vector3(board_thickness, board_height, size.z), wood, false, 0.0, Vector3.ZERO, _garden_provenance(prefix, "east timber board frames the garden bed with visible wall thickness"))
+	_add_box(root, parent, "%sNorthBoard" % prefix, center + Vector3(0, 0.0, -size.z * 0.5), Vector3(size.x + board_thickness, board_height, board_thickness), wood.darkened(0.04), false, 0.0, Vector3.ZERO, _garden_provenance(prefix, "north timber board terminates the raised-bed frame"))
+	_add_box(root, parent, "%sSouthBoard" % prefix, center + Vector3(0, 0.0, size.z * 0.5), Vector3(size.x + board_thickness, board_height, board_thickness), wood.darkened(0.04), false, 0.0, Vector3.ZERO, _garden_provenance(prefix, "south timber board terminates the raised-bed frame"))
+	for i in range(6):
+		var z := center.z - size.z * 0.38 + float(i) * size.z * 0.15
+		var x := center.x + (-5.5 if i % 2 == 0 else 5.5)
+		_add_garden_plant_clump(root, parent, "%sPlantClump%02d" % [prefix, i], Vector3(x, center.y + board_height * 0.5, z), 1.0 + float(i % 3) * 0.14)
+
+func _add_garden_plant_clump(root: Node3D, parent: Node3D, node_name: String, position: Vector3, scale_factor: float) -> void:
+	var stem := _add_cylinder_mesh(root, parent, "%sStem" % node_name, position + Vector3(0, 2.2 * scale_factor, 0), 0.55 * scale_factor, 4.4 * scale_factor, Color(0.12, 0.30, 0.09), _garden_provenance(node_name, "thin stems replace the prior vegetable-row box"))
+	_add_sphere_mesh(root, parent, "%sLeafA" % node_name, position + Vector3(-1.4 * scale_factor, 5.0 * scale_factor, 0.2 * scale_factor), Vector3(2.8, 2.0, 2.2) * scale_factor, Color(0.18, 0.45, 0.16), _garden_provenance(node_name, "leaf cluster creates an organic plant silhouette"))
+	_add_sphere_mesh(root, parent, "%sLeafB" % node_name, position + Vector3(1.2 * scale_factor, 4.6 * scale_factor, -0.8 * scale_factor), Vector3(2.5, 1.8, 2.0) * scale_factor, Color(0.23, 0.54, 0.20), _garden_provenance(node_name, "offset leaf cluster breaks the boxy garden silhouette"))
+	_add_sphere_mesh(root, parent, "%sLeafC" % node_name, position + Vector3(0.0, 5.8 * scale_factor, 1.1 * scale_factor), Vector3(2.2, 1.7, 2.6) * scale_factor, Color(0.15, 0.38, 0.13), _garden_provenance(node_name, "top leaf cluster gives the plant height without route-blocking collision"))
+	stem.set_meta("scale_class", "yard_site")
+
+func _garden_provenance(node_name: String, why_exists: String) -> Dictionary:
+	return _provenance(
+		"Yard",
+		"moko_garden_planting",
+		"yard_site_final_intent",
+		"home_yard_v3 landscape/garden brief and screenshot critique",
+		"%s: %s" % [node_name, why_exists],
+		"GardenZone authored soil/bed surface",
+		"garden bed top/support face",
+		"xz planting row",
+		"%s planted start anchor" % node_name,
+		"%s planted end anchor" % node_name,
+		["soil contact", "raised-bed board contact", "non-colliding foliage overlap"],
+		["route corridor", "third-person camera blocker", "solid placeholder vegetable box"],
+		"replace if Meshy/Kenney foliage asset passes scale and route clearance review",
+		"test_home_yard_garden_uses_non_box_planting",
+		"ValidationCameras/GardenMidpointRouteCamera",
+		"yard_site"
+	)
+
 func _add_decor(root: Node3D, holders: Dictionary) -> void:
 	var main := holders["MainFloor"] as Node3D
 	var upper := holders["UpperFloor"] as Node3D
@@ -1297,29 +1351,29 @@ func _add_decor(root: Node3D, holders: Dictionary) -> void:
 	_add_scene(root, yard, TOYBOX_TREE_SWING_PATH, Vector3(42, 0, -308), 7, Vector3(15, 15, 15), "ToyboxTreeTireSwing")
 	_add_scene(root, yard, BACKYARD_FOSSIL_PATH, Vector3(217, 0, -320), -18, Vector3(11, 11, 11), "SandboxFossil")
 	_add_scene(root, yard, BACKYARD_GARDEN_PATH, Vector3(-300, 0, -226), 24, Vector3(12, 12, 12), "GardenLogBush")
-	_add_room_asset_scene(root, main, KENNEY_KITCHEN_FRIDGE_PATH, Vector3(-194, 2.5, -10), 90, Vector3(8, 8, 8), "KitchenFridge", "kenney_keep_review", "kitchen", "fridge landmark anchors the kitchen without a primitive cabinet box", "ValidationCameras/KitchenAssetCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_KITCHEN_SINK_PATH, Vector3(-170, 2.5, -122), 0, Vector3(8, 8, 8), "KitchenSink", "kenney_keep_review", "kitchen", "sink fixture replaces rear cabinet placeholder massing", "ValidationCameras/KitchenAssetCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_KITCHEN_CABINET_PATH, Vector3(-120, 2.5, -122), 0, Vector3(9, 9, 9), "KitchenCabinetRunA", "kenney_keep_review", "kitchen", "sourced cabinets replace the old KitchenCabinetRunBack box", "ValidationCameras/KitchenAssetCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_KITCHEN_CABINET_PATH, Vector3(-94, 2.5, -122), 0, Vector3(9, 9, 9), "KitchenCabinetRunB", "kenney_keep_review", "kitchen", "sourced cabinets continue the rear kitchen run without a broad primitive slab", "ValidationCameras/KitchenAssetCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_KITCHEN_BAR_PATH, Vector3(-128, 2.5, -57), 90, Vector3(10, 10, 10), "KitchenIslandBar", "kenney_keep_review", "kitchen", "sourced bar island replaces the old KitchenIsland box", "ValidationCameras/KitchenAssetCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_CHAIR_CUSHION_PATH, Vector3(-46, 1.5, 90), 180, Vector3(11, 11, 11), "LivingCushionSofa", "kenney_keep_review", "living_room", "sourced seating replaces the old LivingSofa primitive block", "ValidationCameras/MainFloorFurnitureCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_TABLE_PATH, Vector3(-142, 1.5, 86), 0, Vector3(10, 10, 10), "DiningTable", "kenney_keep_review", "dining_living", "sourced dining table replaces the DiningTableAnchor box", "ValidationCameras/MainFloorFurnitureCloseupCamera")
-	_add_room_asset_scene(root, main, KENNEY_ROUND_TABLE_PATH, Vector3(18, 1.5, -92), 0, Vector3(8, 8, 8), "PlayroomRoundActivityTable", "kenney_keep_review", "playroom", "round activity table replaces the old PlayroomLowTable box", "ValidationCameras/PlayroomAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_KITCHEN_FRIDGE_PATH, Vector3(-194, 2.5, -10), 90, HUMAN_APPLIANCE_SCALE, "KitchenFridge", "kenney_keep_review", "kitchen", "fridge landmark anchors the kitchen at human appliance scale, not toy scale", "ValidationCameras/KitchenAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_KITCHEN_SINK_PATH, Vector3(-170, 2.5, -122), 0, HUMAN_COUNTER_SCALE, "KitchenSink", "kenney_keep_review", "kitchen", "sink fixture is scaled against the 3 ft / 12 unit counter contract", "ValidationCameras/KitchenAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_KITCHEN_CABINET_PATH, Vector3(-120, 2.5, -122), 0, HUMAN_COUNTER_SCALE, "KitchenCabinetRunA", "kenney_keep_review", "kitchen", "sourced cabinets are scaled as human kitchen casework instead of toy furniture", "ValidationCameras/KitchenAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_KITCHEN_CABINET_PATH, Vector3(-94, 2.5, -122), 0, HUMAN_COUNTER_SCALE, "KitchenCabinetRunB", "kenney_keep_review", "kitchen", "sourced cabinets continue the rear kitchen run at human-house scale", "ValidationCameras/KitchenAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_KITCHEN_BAR_PATH, Vector3(-128, 2.5, -57), 90, HUMAN_COUNTER_SCALE, "KitchenIslandBar", "kenney_keep_review", "kitchen", "island bar is scaled as a human counter landmark while remaining outside the route corridor", "ValidationCameras/KitchenAssetCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_CHAIR_CUSHION_PATH, Vector3(-46, 1.5, 90), 180, HUMAN_SEATING_SCALE, "LivingCushionSofa", "kenney_keep_review", "living_room", "sourced seating is scaled as a human room furnishing rather than a toy couch", "ValidationCameras/MainFloorFurnitureCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_TABLE_PATH, Vector3(-142, 1.5, 86), 0, HUMAN_TABLE_SCALE, "DiningTable", "kenney_keep_review", "dining_living", "dining table is scaled against human furniture proportions", "ValidationCameras/MainFloorFurnitureCloseupCamera")
+	_add_room_asset_scene(root, main, KENNEY_ROUND_TABLE_PATH, Vector3(18, 1.5, -92), 0, HUMAN_TABLE_SCALE, "PlayroomRoundActivityTable", "kenney_keep_review", "playroom", "round activity table is a human-room table with toy racing around it, not a toy table", "ValidationCameras/PlayroomAssetCloseupCamera")
 	_add_room_asset_scene(root, main, PLAYROOM_MESHY_PLUSH_PATH, Vector3(66, 1.5, -106), -20, Vector3(6.0, 6.0, 6.0), "PlayroomPlushLandmark", "meshy_preview", "playroom", "Meshy plush landmark replaces generic toy placeholder readability", "ValidationCameras/PlayroomAssetCloseupCamera")
 	_add_room_asset_scene(root, main, PLAYROOM_MESHY_BLOCK_TOWER_PATH, Vector3(44, 1.5, -18), 12, Vector3(5.0, 5.0, 5.0), "PlayroomBlockTower", "meshy_preview", "playroom", "Meshy block tower replaces the old PlayroomBlockMountain primitive", "ValidationCameras/PlayroomAssetCloseupCamera")
 	_add_room_asset_scene(root, main, PLAYROOM_MESHY_TOY_BINS_PATH, Vector3(-30, 1.5, -28), -18, Vector3(5.5, 5.5, 5.5), "PlayroomToyBins", "meshy_preview", "playroom", "Meshy toy bins replace low-detail playroom side dressing", "ValidationCameras/PlayroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_BED_PATH, Vector3(-128, 54, 26), 90, Vector3(10, 10, 10), "BedroomBed", "kenney_keep_review", "bedroom", "sourced bed replaces BedroomBedPlatform primitive", "ValidationCameras/BedroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_CABINET_BED_PATH, Vector3(-166, 54, 10), 90, Vector3(9, 9, 9), "BedroomClosetCabinet", "kenney_keep_review", "bedroom", "sourced cabinet replaces BedroomClosetBuiltIn primitive", "ValidationCameras/BedroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(-52, 54, 74), 0, Vector3(8, 8, 8), "BedroomDeskSideTable", "kenney_keep_review", "bedroom", "sourced side table replaces BedroomDeskNook primitive", "ValidationCameras/BedroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_BEDROOM_LAMP_PATH, Vector3(-40, 54, 72), 0, Vector3(8, 8, 8), "BedroomLampBeacon", "kenney_keep_review", "bedroom", "sourced lamp improves bedroom identity at player height", "ValidationCameras/BedroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, -64), 90, Vector3(10, 10, 10), "GlamWardrobeDrawerA", "kenney_keep_review", "glam_closet", "sourced wardrobe/drawer module replaces the old GlamWardrobeRun box", "ValidationCameras/GlamClosetAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, 26), 90, Vector3(10, 10, 10), "GlamWardrobeDrawerB", "kenney_keep_review", "glam_closet", "second sourced wardrobe module gives the closet a repeated furniture rhythm", "ValidationCameras/GlamClosetAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(36, 54, -54), 0, Vector3(9, 9, 9), "GlamVanityTable", "kenney_keep_review", "glam_closet", "sourced table replaces GlamVanityIsland primitive", "ValidationCameras/GlamClosetAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_GLAM_MIRROR_PATH, Vector3(36, 56, 96), 180, Vector3(12, 12, 12), "GlamMirror", "kenney_keep_review", "glam_closet", "sourced mirror replaces translucent primitive mirror wall", "ValidationCameras/GlamClosetMirrorCamera")
-	_add_room_asset_scene(root, upper, KENNEY_GLAM_RUG_PATH, Vector3(36, 53, 70), 0, Vector3(12, 12, 12), "GlamRug", "kenney_keep_review", "glam_closet", "sourced rug anchors the closet route without collision", "ValidationCameras/GlamClosetAssetCloseupCamera")
-	_add_room_asset_scene(root, attic, ATTIC_MESHY_TRUNK_PATH, Vector3(-84, 105, 84), 18, Vector3(7, 7, 7), "AtticChest", "meshy_preview", "attic", "Meshy trunk replaces the old AtticTrunkStack box", "ValidationCameras/AtticAssetCloseupCamera")
-	_add_room_asset_scene(root, attic, ATTIC_MESHY_JACK_PATH, Vector3(28, 105, 92), -12, Vector3(1.8, 1.8, 1.8), "AtticJackSetpiece", "meshy_refined", "attic", "Meshy jack-in-the-box replaces custom/primitive prank set dressing", "ValidationCameras/AtticAssetCloseupCamera")
-	_add_room_asset_scene(root, attic, ATTIC_MESHY_SHEET_TUNNEL_PATH, Vector3(-36, 105, 116), 8, Vector3(2.4, 2.4, 2.4), "AtticSheetTunnelSetpiece", "meshy_preview", "attic", "Meshy sheet tunnel adds attic identity without a generic block tunnel", "ValidationCameras/AtticAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_BED_PATH, Vector3(-128, 54, 26), 90, HUMAN_BED_SCALE, "BedroomBed", "kenney_keep_review", "bedroom", "bed is scaled as a human bedroom furnishing", "ValidationCameras/BedroomAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_CABINET_BED_PATH, Vector3(-166, 54, 10), 90, HUMAN_STORAGE_SCALE, "BedroomClosetCabinet", "kenney_keep_review", "bedroom", "cabinet is scaled as human storage instead of toy furniture", "ValidationCameras/BedroomAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(-52, 54, 74), 0, HUMAN_TABLE_SCALE, "BedroomDeskSideTable", "kenney_keep_review", "bedroom", "side table is scaled as human furniture", "ValidationCameras/BedroomAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_BEDROOM_LAMP_PATH, Vector3(-40, 54, 72), 0, HUMAN_ACCENT_SCALE, "BedroomLampBeacon", "kenney_keep_review", "bedroom", "lamp is a human-room accent scaled against the side table", "ValidationCameras/BedroomAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, -64), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerA", "kenney_keep_review", "glam_closet", "wardrobe/drawer module is scaled as human closet storage", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, 26), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerB", "kenney_keep_review", "glam_closet", "second wardrobe module repeats the human-scale closet rhythm", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(36, 54, -54), 0, HUMAN_TABLE_SCALE, "GlamVanityTable", "kenney_keep_review", "glam_closet", "vanity table is scaled as human closet furniture", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_GLAM_MIRROR_PATH, Vector3(36, 56, 96), 180, HUMAN_ACCENT_SCALE, "GlamMirror", "kenney_keep_review", "glam_closet", "mirror scales with the human vanity wall instead of reading as a toy mirror", "ValidationCameras/GlamClosetMirrorCamera")
+	_add_room_asset_scene(root, upper, KENNEY_GLAM_RUG_PATH, Vector3(36, 53, 70), 0, HUMAN_TABLE_SCALE, "GlamRug", "kenney_keep_review", "glam_closet", "rug anchors the human closet route without collision", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, attic, ATTIC_MESHY_TRUNK_PATH, Vector3(-84, 105, 84), 18, Vector3(12, 12, 12), "AtticChest", "meshy_preview", "attic", "attic trunk reads as human storage beside toy prank route", "ValidationCameras/AtticAssetCloseupCamera")
+	_add_room_asset_scene(root, attic, ATTIC_MESHY_JACK_PATH, Vector3(28, 105, 92), -12, Vector3(3.2, 3.2, 3.2), "AtticJackSetpiece", "meshy_refined", "attic", "jack-in-the-box is scaled up to read as a route-side prank setpiece", "ValidationCameras/AtticAssetCloseupCamera", "toy_scale_racing")
+	_add_room_asset_scene(root, attic, ATTIC_MESHY_SHEET_TUNNEL_PATH, Vector3(-36, 105, 116), 8, Vector3(4.0, 4.0, 4.0), "AtticSheetTunnelSetpiece", "meshy_preview", "attic", "sheet tunnel remains a toy-route prop but no longer reads miniaturized against the attic", "ValidationCameras/AtticAssetCloseupCamera", "toy_scale_racing")
 
 func _add_course_route_markers(root: Node3D, parent: Node3D) -> void:
 	for course in COURSES:
@@ -2244,6 +2298,44 @@ func _add_window(root: Node3D, parent: Node3D, node_name: String, position: Vect
 		_add_box(root, parent, "%sCenterMuntinHorizontal" % node_name, glass_pos + normal * 0.15, Vector3(2.6, 2.2, size.z + 2.0), trim_color.darkened(0.08), false)
 		_add_box(root, parent, "%sInteriorShadowBacking" % node_name, backing_pos, Vector3(1.4, size.y * 0.70, size.z * 0.82), Color(0.07, 0.12, 0.16, 0.55), false)
 
+func _add_sphere_mesh(root: Node3D, parent: Node3D, node_name: String, position: Vector3, scale: Vector3, color: Color, provenance := {}) -> MeshInstance3D:
+	var mesh := MeshInstance3D.new()
+	mesh.name = node_name
+	var sphere := SphereMesh.new()
+	sphere.radius = 0.5
+	sphere.height = 1.0
+	sphere.radial_segments = 12
+	sphere.rings = 6
+	mesh.mesh = sphere
+	mesh.transform = Transform3D(Basis.IDENTITY.scaled(scale), position)
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.roughness = 0.78
+	mesh.material_override = material
+	parent.add_child(mesh)
+	mesh.owner = root
+	_apply_generated_provenance(root, parent, mesh, provenance)
+	return mesh
+
+func _add_cylinder_mesh(root: Node3D, parent: Node3D, node_name: String, position: Vector3, radius: float, height: float, color: Color, provenance := {}) -> MeshInstance3D:
+	var mesh := MeshInstance3D.new()
+	mesh.name = node_name
+	var cylinder := CylinderMesh.new()
+	cylinder.top_radius = radius
+	cylinder.bottom_radius = radius
+	cylinder.height = height
+	cylinder.radial_segments = 8
+	mesh.mesh = cylinder
+	mesh.transform.origin = position
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.roughness = 0.78
+	mesh.material_override = material
+	parent.add_child(mesh)
+	mesh.owner = root
+	_apply_generated_provenance(root, parent, mesh, provenance)
+	return mesh
+
 func _add_box(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, collision: bool, yaw_degrees := 0.0, rotation_degrees := Vector3.ZERO, provenance := {}) -> MeshInstance3D:
 	var mesh := MeshInstance3D.new()
 	mesh.name = node_name
@@ -2290,7 +2382,7 @@ func _add_scene(root: Node3D, parent: Node3D, path: String, position: Vector3, y
 	node.owner = root
 	return node
 
-func _add_room_asset_scene(root: Node3D, parent: Node3D, path: String, position: Vector3, yaw_degrees: float, scale: Vector3, node_name: String, source_family: String, area: String, role: String, validation_camera: String) -> void:
+func _add_room_asset_scene(root: Node3D, parent: Node3D, path: String, position: Vector3, yaw_degrees: float, scale: Vector3, node_name: String, source_family: String, area: String, role: String, validation_camera: String, scale_class := "room_furnishing") -> void:
 	var node := _add_scene(root, parent, path, position, yaw_degrees, scale, node_name)
 	if node == null:
 		return
@@ -2303,7 +2395,27 @@ func _add_room_asset_scene(root: Node3D, parent: Node3D, path: String, position:
 	node.set_meta("collision_policy", "visual_off_route_or_import_defined_only")
 	node.set_meta("route_clearance", "outside_route_corridor_pending_camera_review")
 	node.set_meta("scale_contract_id", SCALE_CONTRACT_ID)
+	node.set_meta("scale_class", scale_class)
+	node.set_meta("final_scale", scale)
+	node.set_meta("target_dimensions_units", _target_dimensions_for_asset_class(node_name, scale_class))
+	node.set_meta("scale_validation_status", "generator_scaled_against_human_house_contract_pending_screenshot_score")
 	node.set_meta("validation_camera", validation_camera)
+
+func _target_dimensions_for_asset_class(node_name: String, scale_class: String) -> Vector3:
+	var name_lower := node_name.to_lower()
+	if name_lower.contains("fridge"):
+		return Vector3(12.0, 28.0, 12.0)
+	if name_lower.contains("cabinet") or name_lower.contains("sink") or name_lower.contains("island") or name_lower.contains("bar"):
+		return Vector3(24.0, 12.0, 12.0)
+	if name_lower.contains("table") or name_lower.contains("vanity"):
+		return Vector3(24.0, 12.0, 18.0)
+	if name_lower.contains("bed"):
+		return Vector3(24.0, 12.0, 36.0)
+	if name_lower.contains("wardrobe") or name_lower.contains("drawer"):
+		return Vector3(18.0, 24.0, 12.0)
+	if scale_class == "toy_scale_racing":
+		return Vector3(10.0, 8.0, 10.0)
+	return Vector3(16.0, 16.0, 16.0)
 
 func _add_label(root: Node3D, parent: Node3D, node_name: String, text: String, position: Vector3, size: float) -> void:
 	var label := Label3D.new()

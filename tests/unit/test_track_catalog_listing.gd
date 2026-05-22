@@ -282,6 +282,9 @@ func test_home_yard_scale_contract_separates_human_house_from_toy_racers() -> vo
 		assert_equal(float(human.get("reference_height_units", 0.0)), 25.0, "Human reference should be 6.25 ft / 25 units")
 		assert_equal(float(human.get("clearance_proxy_height_units", 0.0)), 32.0, "Human clearance proxy should remain 8 ft / 32 units")
 		assert_equal(float(human.get("occupied_ceiling_clearance_units", 0.0)), 40.0, "Occupied rooms should retain 10 ft / 40 unit ceiling clearances")
+		var furnishing_targets: Dictionary = data.get("human_furnishing_targets", {})
+		assert_true(float(furnishing_targets.get("refrigerator_height_units_min", 0.0)) >= 24.0, "Scale contract should require a human-height refrigerator target")
+		assert_true(float(furnishing_targets.get("counter_height_units_min", 0.0)) >= 10.0, "Scale contract should require human counter-height fixture targets")
 		var racer: Dictionary = data.get("toy_racer_scale", {})
 		assert_true(float(racer.get("observed_visual_height_units_max", 999.0)) <= 1.5, "Runtime toy racers should remain under 1.5 units tall")
 		assert_true(float(racer.get("route_swept_width_units", 0.0)) >= 6.0, "Toy racer swept route width should include gameplay clearance beyond raw mesh size")
@@ -294,6 +297,55 @@ func test_home_yard_scale_contract_separates_human_house_from_toy_racers() -> vo
 		assert_equal(str(human_ref.get_meta("scale_contract_id", "")), "home_yard_v3_human_house_toy_racer_scale_v1", "Human reference should point at the scale contract")
 		assert_equal(float(human_ref.get_meta("declared_human_height_units", 0.0)), 25.0, "Human reference should declare visual human height separately from clearance proxy")
 		assert_equal(float(human_ref.get_meta("clearance_proxy_height_ft", 0.0)), 8.0, "Human clearance proxy should be explicitly identified as an 8 ft envelope")
+	root.queue_free()
+
+func test_home_yard_room_assets_use_human_furnishing_scale_metadata() -> void:
+	var packed := load(HOME_YARD_MAP_SCENE) as PackedScene
+	assert_true(packed != null, "Home Yard shared map scene should load")
+	if packed == null:
+		return
+	var root := packed.instantiate() as Node3D
+	assert_true(root != null, "Home Yard shared map scene should instantiate")
+	if root == null:
+		return
+	for spec in [
+		{"path": "MainFloor/KitchenFridge", "min_scale": 18.0, "class": "room_furnishing"},
+		{"path": "MainFloor/KitchenSink", "min_scale": 16.0, "class": "room_furnishing"},
+		{"path": "MainFloor/DiningTable", "min_scale": 18.0, "class": "room_furnishing"},
+		{"path": "UpperFloor/BedroomBed", "min_scale": 18.0, "class": "room_furnishing"},
+		{"path": "UpperFloor/GlamWardrobeDrawerA", "min_scale": 16.0, "class": "room_furnishing"},
+		{"path": "Attic/AtticChest", "min_scale": 12.0, "class": "room_furnishing"},
+	]:
+		var node := root.get_node_or_null(str(spec.get("path", ""))) as Node3D
+		assert_true(node != null, "Home Yard should include human-scale room asset %s" % str(spec.get("path", "")))
+		if node != null:
+			var final_scale: Vector3 = node.get_meta("final_scale", Vector3.ZERO)
+			assert_true(final_scale.x >= float(spec.get("min_scale", 0.0)), "%s should be scaled as human-room furnishing, not toy furniture" % str(spec.get("path", "")))
+			assert_equal(str(node.get_meta("scale_class", "")), str(spec.get("class", "")), "%s should declare the expected scale class" % str(spec.get("path", "")))
+			assert_true(node.get_meta("target_dimensions_units", Vector3.ZERO) is Vector3, "%s should declare target dimensions for scale review" % str(spec.get("path", "")))
+			assert_true(str(node.get_meta("scale_validation_status", "")).contains("human_house_contract"), "%s should record scale validation status" % str(spec.get("path", "")))
+	root.queue_free()
+
+func test_home_yard_garden_uses_non_box_planting() -> void:
+	var packed := load(HOME_YARD_MAP_SCENE) as PackedScene
+	assert_true(packed != null, "Home Yard shared map scene should load")
+	if packed == null:
+		return
+	var root := packed.instantiate() as Node3D
+	assert_true(root != null, "Home Yard shared map scene should instantiate")
+	if root == null:
+		return
+	assert_true(root.get_node_or_null("Yard/GardenVegetableRow00") == null, "Garden should not use the retired box vegetable-row placeholder")
+	for node_path in [
+		"Yard/GardenRaisedBedAPlantClump00Stem",
+		"Yard/GardenRaisedBedAPlantClump00LeafA",
+		"Yard/GardenRaisedBedBPlantClump05LeafC",
+	]:
+		var mesh_instance := root.get_node_or_null(node_path) as MeshInstance3D
+		assert_true(mesh_instance != null, "Garden should include authored non-box planting %s" % node_path)
+		if mesh_instance != null:
+			assert_true(not (mesh_instance.mesh is BoxMesh), "%s should not be a box mesh placeholder" % node_path)
+			assert_equal(str(mesh_instance.get_meta("visible_class", "")), "yard_site", "%s should classify as yard-site planting" % node_path)
 	root.queue_free()
 
 func _assert_gridmap_contract(definition: TrackDefinition, track_id: String) -> void:
@@ -1924,7 +1976,7 @@ func _assert_home_yard_landscape_and_assets(root: Node, track_id: String) -> voi
 		"Site/ServiceTrashBinA",
 		"Yard/ToyboxTreeSwingLandingPatch",
 		"Yard/ToyboxTreeTireSwing",
-		"Yard/GardenVegetableRow00",
+		"Yard/GardenRaisedBedAPlantClump00LeafA",
 		"Yard/MixedGrassHeightClump00",
 		"ValidationCameras/ExteriorRooflineCamera",
 		"ValidationCameras/BackyardDoggieDoorCamera",
