@@ -29,17 +29,17 @@ const UPPER_ROOM_FLOOR_TOP_Y := 52.60
 const ATTIC_ROOM_FLOOR_TOP_Y := 104.60
 const HOME_NAV_THRESHOLD_VISUAL_THICKNESS := 0.08
 const HOME_NAV_RAMP_THICKNESS := 0.45
-const MAIN_STAIR_X := 72.0
-const MAIN_STAIR_LOWER_X := 61.0
-const MAIN_STAIR_UPPER_X := 82.0
+const MAIN_STAIR_X := 70.0
+const MAIN_STAIR_RAMP_X := 54.0
 const MAIN_STAIR_FLIGHT_WIDTH := 14.0
-const MAIN_STAIR_LOWER_LANDING_SIZE := Vector3(28, 0.6, 16)
-const MAIN_STAIR_UPPER_LANDING_SIZE := Vector3(34, 0.6, 18)
+const MAIN_STAIR_RAMP_WIDTH := 8.0
+const MAIN_STAIR_TREAD_COUNT := 22
+const MAIN_STAIR_LOWER_LANDING_SIZE := Vector3(34, 0.6, 18)
+const MAIN_STAIR_UPPER_LANDING_SIZE := Vector3(34, 0.6, 20)
 const MAIN_STAIR_LOWER_Z := 134.0
-const MAIN_STAIR_UPPER_Z := 78.0
-const MAIN_STAIR_LANDING_Z := 78.0
-const MAIN_STAIR_SHAFT_MIN := Vector3(54, 39.5, 78)
-const MAIN_STAIR_SHAFT_MAX := Vector3(90, 53.6, 146)
+const MAIN_STAIR_UPPER_Z := 24.0
+const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
+const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
 const UNITS_PER_FOOT := 4.0
 const SCALE_CONTRACT_ID := "home_yard_v3_human_house_toy_racer_scale_v1"
 const HUMAN_APPLIANCE_SCALE := Vector3(18.0, 18.0, 18.0)
@@ -132,11 +132,11 @@ const PLAN_CONTRACT := {
 	"route_contract": "Each race is a plastic toy-track overlay with declared zone bounds, route bounds, road-surface elevation above finished floors, obstacle exclusions, and clear start/finish language.",
 	"roof_contract": "Dutch gambrel roof: lower steep roof planes spring from the attic floor plate, upper shallow planes meet at one ridge, central attic has 7.5 ft walkable clearance, and no rectangular attic story may be visible above the roof.",
 	"free_drive_contract": "Free-drive circulation uses real authored human-scale floors, garage slab, patio/deck, yard hardscape, doorway thresholds, oversized doggie door access, and named toy ramp links beside stairs; players and AI racers must not need the kitchen race loop or invisible floor proxies to navigate the house.",
-	"vertical_circulation_contract": "The floor plan includes architectural vertical circulation: a main stair from the entry/stair hall to the upper hall, plus a visible rear-wall attic stair from the upstairs living area into the gambrel attic. Toy ramp boxes and pull-down ladders are not valid house circulation.",
-	"home_navigation_contract": "Home free roam is a whole-house navigation graph with named drive zones, anchors, threshold links, AI patrol loops, camera-clearance volumes, and toy ramp links that sit beside architectural stairs.",
+	"vertical_circulation_contract": "The floor plan includes architectural vertical circulation: a single straight front-to-back main stair from the entry/stair hall to the upper hall, an integrated toy-racer ramp lane in the same stairwell, plus a visible rear-wall attic stair/ramp access from the upstairs living area into the gambrel attic.",
+	"home_navigation_contract": "Home free roam is a whole-house navigation graph with named drive zones, anchors, threshold links, AI patrol loops, camera-clearance volumes, and integrated toy ramp links that share the same stairwell volume as the architectural stairs.",
 	"beta_visual_contract": "Whole-unit beta review requires clean runtime/cinematic screenshots without editor camera icons or selected-node overlays; front/back/side/elevated/roofline/underside/player-route views must identify out-of-place pieces before metadata is accepted. Generated route decks and ramps are allowed only as classified route_infrastructure with non-placeholder materials, edge treatment, route clearance, and validation cameras.",
 	"vertical_links": [
-		{"id": "MainStairEntryToUpperHall", "type": "u_shaped_residential_stair", "from_floor": "main", "to_floor": "upper", "lower_zone": "entry_stair_hall", "upper_zone": "upper_front_hall", "lower_landing_center": Vector3(MAIN_STAIR_LOWER_X, 0.05, 134), "upper_landing_center": Vector3(MAIN_STAIR_UPPER_X, 52.60, 134), "stairwell_bounds": {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX}, "opening_required": "upper_floor_stairwell_opening", "path_segments": ["lower_landing", "lower_flight", "switchback_landing", "upper_flight", "upper_landing"], "continuity_gate": "segments must connect landing-to-landing from main floor datum to upper floor datum with separated lower/upper flights, readable riser fill, 14-unit clear flight width, 5-unit tread depth, and a shaft void that starts at z=78 for upper-flight headroom", "source_asset": "generated_floor_plan_architect_measured_stair_v2", "collision_policy": "visible_architectural_stair_collision", "validation_gate": "must not intersect route corridors, exterior shell, or camera views; lower and upper flights must be separated in plan with no tread/stringer overlap, visible risers, landings, stringers, railings, clear approach volumes, and no floor/ceiling slab covering the stair path"},
+		{"id": "MainStairEntryToUpperHall", "type": "straight_residential_stair", "from_floor": "main", "to_floor": "upper", "lower_zone": "entry_stair_hall", "upper_zone": "upper_front_hall", "lower_landing_center": Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), "upper_landing_center": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), "stairwell_bounds": {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX}, "opening_required": "straight_upper_floor_stairwell_opening", "path_segments": ["lower_landing", "straight_flight", "upper_landing", "integrated_toy_ramp_lane"], "continuity_gate": "one straight front-to-back stair and integrated toy ramp lane must share the same shaft, connect main and upper floor datums, and keep the garage service door outside the shaft", "source_asset": "generated_floor_plan_architect_straight_stair_v1", "collision_policy": "visible_architectural_stair_collision", "validation_gate": "must not intersect route corridors, exterior shell, garage service door, or camera views; no split U-shaped flight or detached switchback toy ramp may remain"},
 		{"id": "AtticRearStairUpperHallToAttic", "type": "rear_wall_attic_stair", "from_floor": "upper", "to_floor": "attic", "lower_zone": "upper_living_back_wall", "upper_zone": "attic_toy_course", "lower_landing_center": Vector3(20, 52.60, -108), "upper_landing_center": Vector3(66, 104.60, -108), "stairwell_bounds": {"min": Vector3(14, 52, -124), "max": Vector3(76, 105, -92)}, "opening_required": "attic_stair_ceiling_opening", "path_segments": ["lower_landing", "stair_flight", "attic_hatch_landing"], "continuity_gate": "visible treads, risers, stringers, rails, and landings must span upper floor datum to attic floor datum at the rear wall, run east-west instead of facing the side wall, and overlap the hatch opening", "source_asset": "generated_floor_plan_architect_measured_rear_attic_stair_v1", "collision_policy": "visible_architectural_attic_stair_collision", "validation_gate": "must not intersect attic route corridor, roof planes, upper living walls, or third-person camera views"},
 	],
 }
@@ -146,7 +146,7 @@ const INTERIOR_WALL_SCHEDULE := [
 	{"id": "KitchenDiningCasedOpening", "floor": "main", "owner": "interior_partition", "axis": "z", "z": 15.0, "start": -200.0, "end": -55.0, "base_y": 0.0, "height": 40.0, "connected_zones": ["kitchen_breakfast", "dining_living"], "opening_span": Vector2(-166.0, -94.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "PlayroomLivingCasedOpening", "floor": "main", "owner": "interior_partition", "axis": "z", "z": 15.0, "start": -55.0, "end": 90.0, "base_y": 0.0, "height": 40.0, "connected_zones": ["playroom_family", "dining_living"], "opening_span": Vector2(-28.0, 45.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "LivingEntryDivider", "floor": "main", "owner": "interior_partition", "axis": "x", "x": 35.0, "start": 15.0, "end": 145.0, "base_y": 0.0, "height": 40.0, "connected_zones": ["dining_living", "entry_stair_hall"], "opening_span": Vector2(54.0, 96.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
-	{"id": "GarageInteriorBackWall", "floor": "main", "owner": "interior_partition", "axis": "x", "x": 90.0, "start": -60.0, "end": 145.0, "base_y": 0.0, "height": 40.0, "connected_zones": ["entry_stair_hall", "garage_service"], "opening_span": Vector2(58.0, 82.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
+	{"id": "GarageInteriorSideServiceWall", "floor": "main", "owner": "interior_partition", "axis": "x", "x": 90.0, "start": -52.0, "end": 134.0, "base_y": 0.0, "height": 40.0, "connected_zones": ["playroom_family", "garage_service"], "opening_span": Vector2(-42.0, -18.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "reflowed_for_straight_stairwell_v1"},
 	{"id": "DoggieDoorInteriorThreshold", "floor": "main", "owner": "interior_partition", "axis": "z", "z": -130.0, "start": -55.0, "end": 30.0, "base_y": 0.0, "height": 20.0, "connected_zones": ["playroom_family", "back_deck_free_drive"], "opening_span": Vector2(-18.0, 26.0), "threshold_datum": 0.05, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "BedroomGlamCasedOpening", "floor": "upper", "owner": "interior_partition", "axis": "x", "x": -15.0, "start": -130.0, "end": 106.0, "base_y": 52.0, "height": 40.0, "connected_zones": ["bedroom_suite", "glam_dressing"], "opening_span": Vector2(32.0, 60.0), "threshold_datum": 52.60, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "UpperHallBedroomDivider", "floor": "upper", "owner": "interior_partition", "axis": "z", "z": 106.0, "start": -180.0, "end": 54.0, "base_y": 52.0, "height": 40.0, "connected_zones": ["upper_living_area", "bedroom_glam_suite"], "opening_spans": [{"id": "BedroomDoor", "span": Vector2(-136.0, -104.0), "connected_zones": ["upper_living_area", "bedroom_suite"]}, {"id": "GlamClosetDoor", "span": Vector2(-10.0, 22.0), "connected_zones": ["upper_living_area", "glam_dressing"]}], "threshold_datum": 52.60, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
@@ -198,7 +198,7 @@ const COURSES := [
 	{"id": "garden", "display_name": "Garden / Moko", "sky": "fresh_morning", "placement": Vector3(-250, 0.90, -307), "floor": 0, "color": Color(0.32, 0.43, 0.24), "texture": "res://assets/gameplay/materials/garden/garden_dirt_mud_albedo.png"},
 	{"id": "sandbox", "display_name": "Sandbox / Rexx", "sky": "hot_afternoon", "placement": Vector3(217, 0.90, -318), "floor": 0, "color": Color(0.82, 0.66, 0.42), "texture": "res://assets/gameplay/materials/sand/sandbox_sand_albedo.png"},
 	{"id": "bedroom", "display_name": "Bedroom / Tuggs", "sky": "soft_morning", "placement": Vector3(-98, UPPER_ROOM_FLOOR_TOP_Y + ROAD_FLOOR_CLEARANCE, -12), "floor": 1, "color": Color(0.55, 0.50, 0.66), "texture": "res://assets/gameplay/materials/fabric/plush_fabric_albedo.png"},
-	{"id": "glam_closet", "display_name": "Glam Closet / Velva", "sky": "night_city_glow", "placement": Vector3(37, UPPER_ROOM_FLOOR_TOP_Y + ROAD_FLOOR_CLEARANCE, -12), "floor": 1, "color": Color(0.74, 0.42, 0.63), "texture": "res://assets/gameplay/materials/glam/glam_mirror_glitter_albedo.png"},
+	{"id": "glam_closet", "display_name": "Glam Closet / Velva", "sky": "night_city_glow", "placement": Vector3(20, UPPER_ROOM_FLOOR_TOP_Y + ROAD_FLOOR_CLEARANCE, -20), "floor": 1, "color": Color(0.74, 0.42, 0.63), "texture": "res://assets/gameplay/materials/glam/glam_mirror_glitter_albedo.png"},
 	{"id": "attic", "display_name": "Attic Mayhem", "sky": "stormy_moonlight_night", "placement": Vector3(-50, ATTIC_ROOM_FLOOR_TOP_Y + ROAD_FLOOR_CLEARANCE, 13), "floor": 2, "color": Color(0.45, 0.35, 0.25), "texture": "res://assets/gameplay/materials/attic/attic_cardboard_wood_albedo.png"},
 ]
 
@@ -525,15 +525,15 @@ func _add_main_floor_ceiling_with_stairwell_shaft(root: Node3D, parent: Node3D) 
 	var ceiling := _add_child_holder(root, parent, "MainFloorTenFootCeilingPlane", "split first-floor ceiling plane; stairwell shaft remains clear through the interstitial floor assembly")
 	ceiling.set_meta("stairwell_shaft_void_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
 	ceiling.set_meta("opening_required_for_vertical_link", "MainStairEntryToUpperHall")
-	ceiling.set_meta("ceiling_footprint_contract", "main-floor ceiling pieces are clipped to occupied interior zones west/north/south of the enlarged U-shaped stairwell; garage ceiling is owned by GarageTenFootCeilingPlane and no east-of-shaft broad patch is allowed")
+	ceiling.set_meta("ceiling_footprint_contract", "main-floor ceiling pieces are clipped around the straight front-to-back stairwell shaft; garage ceiling is owned by GarageTenFootCeilingPlane and no shaft-covering broad patch is allowed")
 	var color := Color(0.79, 0.75, 0.66)
-	_add_box(root, ceiling, "MainCeilingWestOfStairShaft", Vector3(-73, 40.8, 7.5), Vector3(254, 1.6, 275), color, false)
-	_add_box(root, ceiling, "MainCeilingNorthOfStairShaft", Vector3(MAIN_STAIR_X, 40.8, -26), Vector3(36, 1.6, 208), color, false)
+	_add_box(root, ceiling, "MainCeilingWestOfStairShaft", Vector3(-76, 40.8, 7.5), Vector3(248, 1.6, 275), color, false)
+	_add_box(root, ceiling, "MainCeilingNorthOfStairShaft", Vector3(MAIN_STAIR_X, 40.8, -56), Vector3(36, 1.6, 148), color, false)
 	_add_box(root, ceiling, "MainCeilingSouthOfStairShaft", Vector3(MAIN_STAIR_X, 40.8, 147.5), Vector3(36, 1.6, 3), color, false)
 	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnNorth", Vector3(MAIN_STAIR_X, 46.4, MAIN_STAIR_SHAFT_MIN.z), Vector3(36, 11.2, 2.0), color.darkened(0.15))
 	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnSouth", Vector3(MAIN_STAIR_X, 46.4, MAIN_STAIR_SHAFT_MAX.z), Vector3(36, 11.2, 2.0), color.darkened(0.15))
-	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, 46.4, 112), Vector3(2.0, 11.2, 68), color.darkened(0.15))
-	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, 46.4, 112), Vector3(2.0, 11.2, 68), color.darkened(0.15))
+	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, 46.4, 82), Vector3(2.0, 11.2, 128), color.darkened(0.15))
+	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, 46.4, 82), Vector3(2.0, 11.2, 128), color.darkened(0.15))
 
 func _add_stairwell_soffit_return(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color) -> void:
 	var return_piece := _add_box(root, parent, node_name, position, size, color, false)
@@ -564,20 +564,20 @@ func _add_upper_floor_interior(root: Node3D, parent: Node3D) -> void:
 	var wall := Color(0.57, 0.51, 0.43)
 	var upper_deck := _add_child_holder(root, finishes, "UpperFloorDeck", "split upper floor deck; the main stairwell opening is intentionally clear")
 	upper_deck.set_meta("stairwell_opening_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
-	upper_deck.set_meta("shell_footprint_contract", "upper floor deck covers the main-house shell footprint x -200..90 z -130..145 except the enlarged main stair shaft x 54..90 z 78..146")
+	upper_deck.set_meta("shell_footprint_contract", "upper floor deck covers the main-house shell footprint x -200..90 z -130..145 except the straight main stair shaft x 48..84 z 18..146")
 	upper_deck.set_meta("opening_required_for_vertical_link", "MainStairEntryToUpperHall")
 	_add_room_floor(root, upper_deck, "UpperFloorDeckWestShellStrip", Vector3(-190, 51, 7.5), Vector3(20, 2, 275), Color(0.46, 0.40, 0.34), false)
 	_add_room_floor(root, upper_deck, "UpperFloorDeckFrontBedroomHallShell", Vector3(-97, 51, 125.5), Vector3(166, 2, 39), Color(0.46, 0.40, 0.34), false)
 	_add_room_floor(root, upper_deck, "UpperFloorDeckBedroomBack", Vector3(-97.5, 51, -12), Vector3(165, 2, 236), Color(0.46, 0.40, 0.34))
-	_add_room_floor(root, upper_deck, "UpperFloorDeckGlamBack", Vector3(37.5, 51, -26), Vector3(105, 2, 208), Color(0.46, 0.40, 0.34), false)
-	_add_room_floor(root, upper_deck, "UpperFloorDeckGlamFrontWestOfStair", Vector3(19.5, 51, 92), Vector3(69, 2, 28), Color(0.46, 0.40, 0.34), false)
-	_add_room_floor(root, upper_deck, "UpperFloorDeckUpperHallWest", Vector3(19.5, 51, 126), Vector3(69, 2, 40), Color(0.46, 0.40, 0.34), false)
+	_add_room_floor(root, upper_deck, "UpperFloorDeckGlamBack", Vector3(16.5, 51, -26), Vector3(63, 2, 208), Color(0.46, 0.40, 0.34), false)
+	_add_room_floor(root, upper_deck, "UpperFloorDeckGlamFrontWestOfStair", Vector3(16.5, 51, 92), Vector3(63, 2, 28), Color(0.46, 0.40, 0.34), false)
+	_add_room_floor(root, upper_deck, "UpperFloorDeckUpperHallWest", Vector3(16.5, 51, 126), Vector3(63, 2, 40), Color(0.46, 0.40, 0.34), false)
 	_add_room_floor(root, finishes, "BedroomSuite", Vector3(-97.5, 52, -12), Vector3(165, 1.2, 236), Color(0.58, 0.52, 0.43))
 	_add_upper_hall_landing_floor(root, finishes)
 	var glam_floor := _add_child_holder(root, finishes, "GlamDressing", "glam dressing finish floor split around the front-hall stairwell opening")
 	glam_floor.set_meta("stairwell_opening_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
-	_add_room_floor(root, glam_floor, "GlamDressingBackFloor", Vector3(37.5, 52, -26), Vector3(105, 1.2, 208), Color(0.60, 0.52, 0.45), false)
-	_add_room_floor(root, glam_floor, "GlamDressingFrontFloorWestOfStair", Vector3(19.5, 52, 92), Vector3(69, 1.2, 28), Color(0.60, 0.52, 0.45), false)
+	_add_room_floor(root, glam_floor, "GlamDressingBackFloor", Vector3(16.5, 52, -26), Vector3(63, 1.2, 208), Color(0.60, 0.52, 0.45), false)
+	_add_room_floor(root, glam_floor, "GlamDressingFrontFloorWestOfStair", Vector3(16.5, 52, 92), Vector3(63, 1.2, 28), Color(0.60, 0.52, 0.45), false)
 	_add_stairwell_guardrail(root, finishes)
 	_add_upper_floor_ceiling_with_attic_hatch(root, finishes)
 	_add_interior_partitions_from_schedule(root, walls, "upper", wall)
@@ -585,16 +585,16 @@ func _add_upper_floor_interior(root: Node3D, parent: Node3D) -> void:
 func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	var holder := _add_child_holder(root, parent, "UpperHallLandingFloor", "upper front-hall finish floor and stair-opening trim; stops flush at the main stair shaft so the upper hall reads complete without covering the vertical connector")
 	holder.set_meta("owner_volume", "upper_front_hall")
-	holder.set_meta("floor_coverage_contract", "visible finish floor covers the upper hall west of the enlarged stair opening; x >= 54 and z >= 78 remains the intentional stairwell void/garage boundary")
+	holder.set_meta("floor_coverage_contract", "visible finish floor covers the upper hall west of the straight stair opening; x >= 48 and z 18..146 remains the intentional stairwell void")
 	holder.set_meta("stairwell_opening_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
-	var floor := _add_box(root, holder, "UpperHallLandingFloorWestOfStairOpening", Vector3(19.45, 52.05, 112), Vector3(68.9, 1.1, 68), Color(0.62, 0.56, 0.47), true)
+	var floor := _add_box(root, holder, "UpperHallLandingFloorWestOfStairOpening", Vector3(16.5, 52.05, 82), Vector3(63.0, 1.1, 128), Color(0.62, 0.56, 0.47), true)
 	floor.set_meta("owner_volume", "upper_front_hall")
 	floor.set_meta("support_face", "UpperFloorDeckUpperHallWest")
 	floor.set_meta("validation_gate", "sampled upper-hall floor coverage and no AABB overlap with MainStairEntryToUpperHall opening")
 	var trim_color := Color(0.39, 0.33, 0.26)
-	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(53.0, 52.85, 112), Vector3(1.8, 1.2, 68), trim_color, false)
-	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(36.0, 52.85, 77.2), Vector3(36, 1.2, 1.6), trim_color, false)
-	var south_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimSouth", Vector3(36.0, 52.85, 146.8), Vector3(36, 1.2, 1.6), trim_color, false)
+	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(47.0, 52.85, 82), Vector3(1.8, 1.2, 128), trim_color, false)
+	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(66.0, 52.85, 17.2), Vector3(36, 1.2, 1.6), trim_color, false)
+	var south_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimSouth", Vector3(66.0, 52.85, 146.8), Vector3(36, 1.2, 1.6), trim_color, false)
 	for trim in [west_edge, north_edge, south_edge]:
 		trim.set_meta("owner_volume", "upper_front_hall")
 		trim.set_meta("support_face", "UpperFloorDeckUpperHallWest")
@@ -614,12 +614,12 @@ func _add_upper_floor_ceiling_with_attic_hatch(root: Node3D, parent: Node3D) -> 
 func _add_stairwell_guardrail(root: Node3D, parent: Node3D) -> void:
 	var rail_color := Color(0.38, 0.30, 0.22)
 	_add_guardrail_segment(root, parent, "MainStairOpeningRailNorth", Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y + 7.2, MAIN_STAIR_SHAFT_MIN.z), Vector3(36, 2.2, 2.2), rail_color)
-	_add_guardrail_segment(root, parent, "MainStairOpeningRailWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 112), Vector3(2.2, 2.2, 68), rail_color)
-	_add_guardrail_segment(root, parent, "MainStairOpeningRailEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 112), Vector3(2.2, 2.2, 68), rail_color)
+	_add_guardrail_segment(root, parent, "MainStairOpeningRailWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 82), Vector3(2.2, 2.2, 128), rail_color)
+	_add_guardrail_segment(root, parent, "MainStairOpeningRailEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 82), Vector3(2.2, 2.2, 128), rail_color)
 	var post_positions := [
 		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MIN.z),
 		Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MIN.z),
-		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, 112),
+		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MAX.z),
 	]
 	for i in range(post_positions.size()):
 		var post := _add_box(root, parent, "MainStairOpeningRailPost%02d" % i, post_positions[i], Vector3(2.6, 8.0, 2.6), rail_color.darkened(0.08), false)
@@ -905,7 +905,7 @@ func _add_opening_assemblies(root: Node3D, parent: Node3D) -> void:
 	_add_rear_opening_frame(root, parent, "OversizedDoggieDoor", Vector3(68, 10, -132), Vector2(24, 20), trim.darkened(0.05), 3.0, _rear_facade_provenance("OversizedDoggieDoorFrame", "oversized toy-racer doggie door frame is a small ring around the flap instead of a solid loose wall panel"))
 	_add_box(root, parent, "OversizedDoggieDoorFlap", Vector3(68, 10, -135), Vector3(14, 10, 1.2), Color(0.10, 0.08, 0.07, 0.62), false, 0.0, Vector3.ZERO, _rear_facade_provenance("OversizedDoggieDoorFlap", "dark flap is inset behind the doggie-door frame and reads as a route/freedrive portal instead of a loose exterior panel"))
 	_add_box(root, parent, "GarageDoorPanel", Vector3(155, 14, 148), Vector3(86, 28, 2.0), Color(0.32, 0.30, 0.27), false)
-	_add_box(root, parent, "GarageHouseServiceDoor", Vector3(92, 14, 68), Vector3(4, 28, 20), Color(0.22, 0.16, 0.10), false)
+	_add_box(root, parent, "GarageHouseServiceDoor", Vector3(92, 14, -30), Vector3(4, 28, 20), Color(0.22, 0.16, 0.10), false)
 	_add_box(root, parent, "AtticAccessHatchFrame", Vector3(45, 106, -108), Vector3(66, 5, 44), trim.darkened(0.20), false)
 
 func _add_porch_deck_system(root: Node3D, parent: Node3D) -> void:
@@ -977,13 +977,7 @@ func _add_vertical_connectors(root: Node3D, parent: Node3D) -> void:
 	parent.set_meta("visible_asset_policy", "Measured floor-to-floor stair and ladder continuity is required; sourced stair props alone are visual references, not circulation proof.")
 	parent.set_meta("vertical_circulation_contract", _vertical_circulation_contract())
 	_add_main_stair_continuity_geometry(root, parent)
-	_add_scene(root, parent, KENNEY_STEPS_PATH, Vector3(MAIN_STAIR_LOWER_X, 0.10, MAIN_STAIR_LANDING_Z), 0.0, Vector3(20.0, 20.0, 20.0), "MainStairLowerFlightKenneySteps")
-	_tag_vertical_link(parent.get_node_or_null("MainStairLowerFlightKenneySteps"), "MainStairEntryToUpperHall", "lower_flight", "main", "upper")
-	_hide_visual_reference_stair(parent.get_node_or_null("MainStairLowerFlightKenneySteps"))
-	_add_scene(root, parent, KENNEY_STEPS_PATH, Vector3(MAIN_STAIR_UPPER_X, 26.10, MAIN_STAIR_LANDING_Z), 180.0, Vector3(20.0, 20.0, 20.0), "MainStairUpperFlightKenneySteps")
-	_tag_vertical_link(parent.get_node_or_null("MainStairUpperFlightKenneySteps"), "MainStairEntryToUpperHall", "upper_flight", "main", "upper")
-	_hide_visual_reference_stair(parent.get_node_or_null("MainStairUpperFlightKenneySteps"))
-	_add_vertical_link_marker(root, parent, "MainStairUpperFloorOpening", "MainStairEntryToUpperHall", Vector3(MAIN_STAIR_X, 52.65, MAIN_STAIR_LANDING_Z), Vector3(36, 2, 40))
+	_add_vertical_link_marker(root, parent, "MainStairUpperFloorOpening", "MainStairEntryToUpperHall", Vector3(MAIN_STAIR_X, 52.65, 82), Vector3(36, 2, 128))
 	_add_attic_stair_continuity_geometry(root, parent)
 	_add_scene(root, parent, KENNEY_STEPS_PATH, Vector3(20, 52.70, -108), 90.0, Vector3(14.0, 14.0, 14.0), "AtticRearStairKenneyStepsReference")
 	_tag_vertical_link(parent.get_node_or_null("AtticRearStairKenneyStepsReference"), "AtticRearStairUpperHallToAttic", "reference_stair_asset", "upper", "attic")
@@ -997,23 +991,22 @@ func _vertical_circulation_contract() -> Dictionary:
 		"tolerance_units": 1.0,
 		"main_stair": {
 			"id": "MainStairEntryToUpperHall",
-			"type": "u_shaped_residential_stair",
+			"type": "straight_residential_stair",
 			"lower_floor_datum_y": MAIN_FLOOR_TOP_Y,
 			"upper_floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y,
 			"total_rise_units": UPPER_ROOM_FLOOR_TOP_Y - MAIN_FLOOR_TOP_Y,
 			"width_units": MAIN_STAIR_FLIGHT_WIDTH,
-			"riser_height_units": (UPPER_ROOM_FLOOR_TOP_Y - MAIN_FLOOR_TOP_Y - 0.60) / 22.0,
-			"tread_depth_units": absf(MAIN_STAIR_LOWER_Z - MAIN_STAIR_UPPER_Z) / 11.0,
-			"continuity_gate": "segments must connect landing-to-landing from main floor datum to upper floor datum with separated lower/upper flights, readable riser fill, 14-unit clear flight width, 5-unit tread depth, and a shaft void that starts at z=78 for upper-flight headroom",
-			"lower_approach_clearance": {"center": Vector3(MAIN_STAIR_LOWER_X, 6.0, 144), "size": Vector3(24, 12, 8)},
-			"upper_approach_clearance": {"center": Vector3(MAIN_STAIR_UPPER_X, UPPER_ROOM_FLOOR_TOP_Y + 6.0, 144), "size": Vector3(24, 12, 8)},
+			"riser_height_units": (UPPER_ROOM_FLOOR_TOP_Y - MAIN_FLOOR_TOP_Y - 0.60) / float(MAIN_STAIR_TREAD_COUNT),
+			"tread_depth_units": absf(MAIN_STAIR_LOWER_Z - MAIN_STAIR_UPPER_Z) / float(MAIN_STAIR_TREAD_COUNT),
+			"continuity_gate": "single straight front-to-back flight and one integrated toy-ramp lane share the same stair shaft with no switchback landing or detached ramp",
+			"lower_approach_clearance": {"center": Vector3(MAIN_STAIR_X, 6.0, 144), "size": Vector3(34, 12, 8)},
+			"upper_approach_clearance": {"center": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y + 6.0, 18), "size": Vector3(34, 12, 8)},
 			"route_exclusion": ["bedroom", "glam_closet"],
 			"path_segments": [
-				{"id": "lower_landing", "node": "MainStairLowerLandingSurface", "center": Vector3(MAIN_STAIR_X - 4.0, MAIN_FLOOR_TOP_Y + 0.30, 134), "size": MAIN_STAIR_LOWER_LANDING_SIZE},
-				{"id": "lower_flight", "node_prefix": "MainStairLowerFlightTread", "start": Vector3(MAIN_STAIR_LOWER_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_LOWER_X, 26.625, MAIN_STAIR_UPPER_Z), "tread_count": 11},
-				{"id": "switchback_landing", "node": "MainStairSwitchbackLandingSurface", "center": Vector3(MAIN_STAIR_X, 26.325, MAIN_STAIR_LANDING_Z), "size": Vector3(36, 0.6, 22)},
-				{"id": "upper_flight", "node_prefix": "MainStairUpperFlightTread", "start": Vector3(MAIN_STAIR_UPPER_X, 26.625, MAIN_STAIR_UPPER_Z), "end": Vector3(MAIN_STAIR_UPPER_X, UPPER_ROOM_FLOOR_TOP_Y, 134), "tread_count": 11},
-				{"id": "upper_landing", "node": "MainStairUpperLandingSurface", "center": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y - 0.30, 132), "size": MAIN_STAIR_UPPER_LANDING_SIZE},
+				{"id": "lower_landing", "node": "MainStairLowerLandingSurface", "center": Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y - 0.30, MAIN_STAIR_LOWER_Z), "size": MAIN_STAIR_LOWER_LANDING_SIZE},
+				{"id": "straight_flight", "node_prefix": "MainStairStraightFlightTread", "start": Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), "tread_count": MAIN_STAIR_TREAD_COUNT},
+				{"id": "upper_landing", "node": "MainStairUpperLandingSurface", "center": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y - 0.30, MAIN_STAIR_UPPER_Z), "size": MAIN_STAIR_UPPER_LANDING_SIZE},
+				{"id": "integrated_toy_ramp_lane", "node": "MainStairIntegratedToyRampLane", "start": Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z)},
 			],
 			"opening_node": "MainStairUpperFloorOpening",
 			"floor_assembly_shaft_void_bounds": {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX},
@@ -1045,15 +1038,15 @@ func _vertical_circulation_contract() -> Dictionary:
 
 func _add_main_stair_continuity_geometry(root: Node3D, parent: Node3D) -> void:
 	var wood := Color(0.62, 0.42, 0.25)
-	_add_stair_landing(root, parent, "MainStairLowerLandingSurface", "MainStairEntryToUpperHall", "lower_landing", "main", "upper", Vector3(MAIN_STAIR_X - 4.0, MAIN_FLOOR_TOP_Y + 0.30, 134), MAIN_STAIR_LOWER_LANDING_SIZE, wood.darkened(0.05))
-	_add_stair_flight(root, parent, "MainStairLowerFlightTread", "MainStairEntryToUpperHall", Vector3(MAIN_STAIR_LOWER_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_LOWER_X, 26.625, MAIN_STAIR_UPPER_Z), MAIN_STAIR_FLIGHT_WIDTH, 11, wood)
-	_add_stair_landing(root, parent, "MainStairSwitchbackLandingSurface", "MainStairEntryToUpperHall", "switchback_landing", "main", "upper", Vector3(MAIN_STAIR_X, 26.325, MAIN_STAIR_LANDING_Z), Vector3(36, 0.6, 22), wood.darkened(0.08))
-	_add_stair_flight(root, parent, "MainStairUpperFlightTread", "MainStairEntryToUpperHall", Vector3(MAIN_STAIR_UPPER_X, 26.625, MAIN_STAIR_UPPER_Z), Vector3(MAIN_STAIR_UPPER_X, UPPER_ROOM_FLOOR_TOP_Y, 134), MAIN_STAIR_FLIGHT_WIDTH, 11, wood.lightened(0.03))
-	_add_stair_landing(root, parent, "MainStairUpperLandingSurface", "MainStairEntryToUpperHall", "upper_landing", "main", "upper", Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y - 0.30, 132), MAIN_STAIR_UPPER_LANDING_SIZE, wood.darkened(0.05))
-	_add_stair_stringer_pair(root, parent, "MainStairLowerStringer", Vector3(MAIN_STAIR_LOWER_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_LOWER_X, 26.625, MAIN_STAIR_UPPER_Z), MAIN_STAIR_FLIGHT_WIDTH, wood.darkened(0.28))
-	_add_stair_stringer_pair(root, parent, "MainStairUpperStringer", Vector3(MAIN_STAIR_UPPER_X, 26.625, MAIN_STAIR_UPPER_Z), Vector3(MAIN_STAIR_UPPER_X, UPPER_ROOM_FLOOR_TOP_Y, 134), MAIN_STAIR_FLIGHT_WIDTH, wood.darkened(0.25))
-	_add_stair_guardrail(root, parent, "MainStairLowerGuardrailLeft", Vector3(MAIN_STAIR_SHAFT_MIN.x + 1.0, 16.0, 109), Vector3(1.5, 14.0, 54), wood.darkened(0.42))
-	_add_stair_guardrail(root, parent, "MainStairUpperGuardrailRight", Vector3(MAIN_STAIR_SHAFT_MAX.x - 1.0, 42.0, 101), Vector3(1.5, 14.0, 38), wood.darkened(0.42))
+	var lower_landing_center := Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y - 0.30, MAIN_STAIR_LOWER_Z)
+	var upper_landing_center := Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y - 0.30, MAIN_STAIR_UPPER_Z)
+	var stair_start := Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z)
+	var stair_end := Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z)
+	_add_stair_landing(root, parent, "MainStairLowerLandingSurface", "MainStairEntryToUpperHall", "lower_landing", "main", "upper", lower_landing_center, MAIN_STAIR_LOWER_LANDING_SIZE, wood.darkened(0.05))
+	_add_stair_flight(root, parent, "MainStairStraightFlightTread", "MainStairEntryToUpperHall", stair_start, stair_end, MAIN_STAIR_FLIGHT_WIDTH, MAIN_STAIR_TREAD_COUNT, wood)
+	_add_stair_landing(root, parent, "MainStairUpperLandingSurface", "MainStairEntryToUpperHall", "upper_landing", "main", "upper", upper_landing_center, MAIN_STAIR_UPPER_LANDING_SIZE, wood.darkened(0.05))
+	_add_stair_stringer_pair(root, parent, "MainStairStraightStringer", stair_start, stair_end, MAIN_STAIR_FLIGHT_WIDTH, wood.darkened(0.26))
+	_add_stair_guardrail(root, parent, "MainStairStraightGuardrailRight", Vector3(MAIN_STAIR_SHAFT_MAX.x - 1.0, 28.0, 82), Vector3(1.5, 42.0, 124), wood.darkened(0.42))
 
 func _hide_visual_reference_stair(node: Node) -> void:
 	if node == null:
@@ -1319,16 +1312,15 @@ func _home_navigation_anchors() -> Array[Dictionary]:
 		{"id": "kitchen_center", "zone": "kitchen_breakfast", "floor": "main", "position": Vector3(-128, 0.70, -58), "yaw_degrees": 0.0},
 		{"id": "playroom_gate", "zone": "playroom_family", "floor": "main", "position": Vector3(12, 0.70, -2), "yaw_degrees": 180.0},
 		{"id": "playroom_center", "zone": "playroom_family", "floor": "main", "position": Vector3(18, 0.70, -58), "yaw_degrees": 0.0},
-		{"id": "garage_gate", "zone": "garage_service", "floor": "main", "position": Vector3(96, 0.70, 70), "yaw_degrees": 90.0, "spawn_index": 3},
+		{"id": "garage_gate", "zone": "garage_service", "floor": "main", "position": Vector3(96, 0.70, -30), "yaw_degrees": 90.0, "spawn_index": 3},
 		{"id": "garage_center", "zone": "garage_service", "floor": "main", "position": Vector3(154, 0.70, 40), "yaw_degrees": 0.0},
 		{"id": "doggie_door", "zone": "back_deck_patio", "floor": "site", "position": Vector3(4, 0.80, -134), "yaw_degrees": 0.0},
 		{"id": "back_deck", "zone": "back_deck_patio", "floor": "site", "position": Vector3(-36, 0.80, -154), "yaw_degrees": 0.0},
 		{"id": "yard_play_hub", "zone": "yard_play", "floor": "site", "position": Vector3(-52, 0.80, -218), "yaw_degrees": 0.0},
 		{"id": "garden_gate", "zone": "yard_play", "floor": "site", "position": Vector3(-184, 0.80, -258), "yaw_degrees": -90.0},
 		{"id": "sandbox_gate", "zone": "yard_play", "floor": "site", "position": Vector3(150, 0.80, -258), "yaw_degrees": 90.0},
-		{"id": "main_ramp_lower", "zone": "front_foyer", "floor": "main", "position": Vector3(44, 0.90, 94), "yaw_degrees": 0.0, "spawn_index": 4},
-		{"id": "main_ramp_mid", "zone": "front_foyer", "floor": "main_to_upper", "position": Vector3(44, 26.50, 36), "yaw_degrees": 0.0},
-		{"id": "upper_hall_landing", "zone": "upper_hall", "floor": "upper", "position": Vector3(44, 53.20, -22), "yaw_degrees": 0.0, "spawn_index": 5},
+		{"id": "main_ramp_lower", "zone": "front_foyer", "floor": "main", "position": Vector3(MAIN_STAIR_RAMP_X, 0.90, MAIN_STAIR_LOWER_Z), "yaw_degrees": 180.0, "spawn_index": 4},
+		{"id": "upper_hall_landing", "zone": "upper_hall", "floor": "upper", "position": Vector3(MAIN_STAIR_RAMP_X, 53.20, MAIN_STAIR_UPPER_Z), "yaw_degrees": 180.0, "spawn_index": 5},
 		{"id": "upper_hall_hub", "zone": "upper_hall", "floor": "upper", "position": Vector3(10, 53.20, 82), "yaw_degrees": -90.0},
 		{"id": "bedroom_gate", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-118, 53.20, 96), "yaw_degrees": 180.0},
 		{"id": "bedroom_center", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-98, 53.20, -12), "yaw_degrees": 0.0},
@@ -1347,7 +1339,7 @@ func _home_navigation_links() -> Array[Dictionary]:
 		{"id": "living_to_kitchen", "from": "dining_living_hub", "to": "kitchen_gate", "kind": "cased_opening", "opening_id": "KitchenDiningCasedOpening"},
 		{"id": "living_to_playroom", "from": "dining_living_hub", "to": "playroom_gate", "kind": "cased_opening", "opening_id": "PlayroomLivingCasedOpening"},
 		{"id": "kitchen_to_playroom", "from": "kitchen_center", "to": "playroom_center", "kind": "wide_room_opening", "opening_id": "KitchenPlayroomDivider"},
-		{"id": "foyer_to_garage", "from": "front_foyer", "to": "garage_gate", "kind": "service_threshold", "opening_id": "GarageInteriorBackWall"},
+		{"id": "foyer_to_garage", "from": "front_foyer", "to": "garage_gate", "kind": "service_threshold", "opening_id": "GarageInteriorSideServiceWall"},
 		{"id": "playroom_to_deck", "from": "playroom_center", "to": "doggie_door", "kind": "oversized_doggie_door_threshold", "opening_id": "DoggieDoorInteriorThreshold"},
 		{"id": "deck_to_yard", "from": "back_deck", "to": "yard_play_hub", "kind": "deck_to_yard"},
 		{"id": "yard_to_garden", "from": "yard_play_hub", "to": "garden_gate", "kind": "yard_path"},
@@ -1363,14 +1355,13 @@ func _home_navigation_vertical_links() -> Array[Dictionary]:
 		{
 			"id": "MainFloorToUpperToyRamp",
 			"architectural_link_id": "MainStairEntryToUpperHall",
-			"kind": "toy_ramp_beside_architectural_stair",
+			"kind": "integrated_toy_ramp_lane_in_stairwell",
 			"from": "main_ramp_lower",
-			"mid": "main_ramp_mid",
 			"to": "upper_hall_landing",
-			"ramp_nodes": ["HomeNavigation/MainFloorToUpperRampLowerRun", "HomeNavigation/MainFloorToUpperRampUpperRun"],
+			"ramp_nodes": ["HomeNavigation/MainStairIntegratedToyRampLane"],
 			"lower_floor_datum_y": MAIN_FLOOR_TOP_Y,
 			"upper_floor_datum_y": UPPER_ROOM_FLOOR_TOP_Y,
-			"clear_width_units": 18.0,
+			"clear_width_units": MAIN_STAIR_RAMP_WIDTH,
 			"collision_policy": "drivable_static_toy_ramp",
 			"validation_camera": "ValidationCameras/MainStairContinuityCamera",
 		},
@@ -1393,12 +1384,12 @@ func _home_navigation_vertical_links() -> Array[Dictionary]:
 func _home_navigation_ai_patrol_loops() -> Array[Dictionary]:
 	return [
 		{"id": "main_floor_patrol", "closed": true, "anchor_ids": ["front_foyer", "dining_living_hub", "kitchen_gate", "kitchen_center", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "sandbox_gate", "yard_play_hub", "front_foyer"]},
-		{"id": "whole_house_patrol", "closed": true, "anchor_ids": ["front_foyer", "dining_living_hub", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "front_foyer", "main_ramp_lower", "main_ramp_mid", "upper_hall_landing", "upper_hall_hub", "bedroom_gate", "bedroom_center", "upper_hall_hub", "attic_ramp_lower", "attic_ramp_mid", "attic_hub", "attic_center", "attic_hub", "attic_ramp_mid", "attic_ramp_lower", "upper_hall_hub", "upper_hall_landing", "main_ramp_mid", "main_ramp_lower"]},
+		{"id": "whole_house_patrol", "closed": true, "anchor_ids": ["front_foyer", "dining_living_hub", "playroom_center", "doggie_door", "back_deck", "yard_play_hub", "front_foyer", "main_ramp_lower", "upper_hall_landing", "upper_hall_hub", "bedroom_gate", "bedroom_center", "upper_hall_hub", "attic_ramp_lower", "attic_ramp_mid", "attic_hub", "attic_center", "attic_hub", "attic_ramp_mid", "attic_ramp_lower", "upper_hall_hub", "upper_hall_landing", "main_ramp_lower"]},
 	]
 
 func _home_navigation_forbidden_aabbs() -> Array[Dictionary]:
 	return [
-		{"id": "main_stair_architectural_treads", "reason": "human stair is visual architecture; racers use the adjacent toy ramp", "min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX},
+		{"id": "main_stair_architectural_treads", "reason": "human stair treads are visual architecture; racers use the integrated ramp lane inside the same shaft", "min": Vector3(62, 0, 18), "max": MAIN_STAIR_SHAFT_MAX},
 		{"id": "attic_architectural_stair", "reason": "attic stair remains architecture; racers use the adjacent toy ramp", "min": Vector3(14, 52, -124), "max": Vector3(76, 105, -92)},
 		{"id": "kitchen_appliance_wall", "reason": "human-scale fixtures are room landmarks, not drive-through space", "min": Vector3(-198, 0, -128), "max": Vector3(-166, 30, 10)},
 		{"id": "garden_raised_beds", "reason": "garden beds are Moko landmarks and route boundaries", "min": Vector3(-306, 0, -382), "max": Vector3(-194, 12, -234)},
@@ -1458,7 +1449,7 @@ func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
 	_add_navigation_threshold_overlay(root, parent, "KitchenCasedOpeningDriveStrip", Vector3(-128, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "kitchen_threshold", "visual strip marks the kitchen/dining opening without adding a raised collision lip")
 	_add_navigation_threshold_overlay(root, parent, "PlayroomCasedOpeningDriveStrip", Vector3(8, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "playroom_threshold", "visual strip marks the playroom/living opening without adding a raised collision lip")
 	_add_navigation_threshold_overlay(root, parent, "KitchenPlayroomDriveStrip", Vector3(-55, main_visual_y, -28), Vector3(5, visual_strip, 32), threshold, "kitchen_playroom_threshold", "visual strip marks the wide opening between kitchen and playroom without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "GarageServiceDriveStrip", Vector3(90, main_visual_y, 70), Vector3(5, visual_strip, 24), threshold, "garage_threshold", "visual strip marks the service doorway to the garage without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "GarageServiceDriveStrip", Vector3(90, main_visual_y, -30), Vector3(5, visual_strip, 24), threshold, "garage_threshold", "visual strip marks the relocated side/service doorway to the garage without adding a raised collision lip")
 	_add_navigation_threshold_overlay(root, parent, "DoggieDoorDriveBridge", Vector3(4, main_visual_y, -130), Vector3(48, visual_strip, 16), Color(0.20, 0.18, 0.14), "doggie_door_bridge", "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal")
 	_add_navigation_threshold_overlay(root, parent, "UpperHallBedroomDriveStrip", Vector3(-118, upper_visual_y, 106), Vector3(32, visual_strip, 5), threshold, "bedroom_threshold", "visual strip marks bedroom door traversal without adding a raised collision lip")
 	_add_navigation_threshold_overlay(root, parent, "UpperHallGlamDriveStrip", Vector3(6, upper_visual_y, 106), Vector3(30, visual_strip, 5), threshold, "glam_threshold", "visual strip marks glam closet door traversal without adding a raised collision lip")
@@ -1473,12 +1464,9 @@ func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: 
 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	var plywood := Color(0.58, 0.39, 0.22)
-	var main_switchback_y := 26.50
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, MAIN_FLOOR_TOP_Y, 94), Vector3(44, main_switchback_y, 36), 14.0, plywood, "MainFloorToUpperToyRamp")
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, main_switchback_y, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y, -22), 14.0, plywood.lightened(0.08), "MainFloorToUpperToyRamp")
-	_add_navigation_landing(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), 98), Vector3(18, 0.8, 18), plywood.darkened(0.10), "main_ramp_lower_landing", "landing gives racers a clear flush approach to the main-to-upper toy ramp")
-	_add_navigation_landing(root, parent, "MainFloorToUpperRampSwitchbackLanding", Vector3(44, _landing_center_y(main_switchback_y, 0.8), 36), Vector3(18, 0.8, 18), plywood.darkened(0.12), "main_ramp_switchback_landing", "mid landing joins the two main-to-upper ramp runs so racers do not hit a disconnected seam")
-	_add_navigation_landing(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), -26), Vector3(18, 0.8, 20), plywood.darkened(0.08), "main_ramp_upper_landing", "landing connects the main-to-upper toy ramp flush to upper hall free roam")
+	_add_drivable_ramp(root, parent, "MainStairIntegratedToyRampLane", Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), MAIN_STAIR_RAMP_WIDTH, plywood, "MainFloorToUpperToyRamp")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_LOWER_Z), Vector3(12, 0.8, 18), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing aligns the integrated stairwell toy ramp to the main finished floor")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_UPPER_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing aligns the integrated stairwell toy ramp to the upper finished floor")
 	var cardboard := Color(0.63, 0.43, 0.24)
 	var attic_switchback_y := 80.0
 	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y, -86), Vector3(44, attic_switchback_y, -86), 14.0, cardboard, "UpperHallToAtticToyRamp")
@@ -1650,8 +1638,8 @@ func _add_decor(root: Node3D, holders: Dictionary) -> void:
 	_add_room_asset_scene(root, upper, KENNEY_CABINET_BED_PATH, Vector3(-166, 54, 10), 90, HUMAN_STORAGE_SCALE, "BedroomClosetCabinet", "kenney_keep_review", "bedroom", "cabinet is scaled as human storage instead of toy furniture", "ValidationCameras/BedroomAssetCloseupCamera")
 	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(-52, 54, 74), 0, HUMAN_TABLE_SCALE, "BedroomDeskSideTable", "kenney_keep_review", "bedroom", "side table is scaled as human furniture", "ValidationCameras/BedroomAssetCloseupCamera")
 	_add_room_asset_scene(root, upper, KENNEY_BEDROOM_LAMP_PATH, Vector3(-40, 54, 72), 0, HUMAN_ACCENT_SCALE, "BedroomLampBeacon", "kenney_keep_review", "bedroom", "lamp is a human-room accent scaled against the side table", "ValidationCameras/BedroomAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, -64), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerA", "kenney_keep_review", "glam_closet", "wardrobe/drawer module is scaled as human closet storage", "ValidationCameras/GlamClosetAssetCloseupCamera")
-	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(78, 54, 26), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerB", "kenney_keep_review", "glam_closet", "second wardrobe module repeats the human-scale closet rhythm", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(42, 54, -64), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerA", "kenney_keep_review", "glam_closet", "wardrobe/drawer module is scaled as human closet storage while staying clear of the straight stair shaft", "ValidationCameras/GlamClosetAssetCloseupCamera")
+	_add_room_asset_scene(root, upper, KENNEY_CABINET_DRAWER_PATH, Vector3(42, 54, 26), 90, HUMAN_STORAGE_SCALE, "GlamWardrobeDrawerB", "kenney_keep_review", "glam_closet", "second wardrobe module repeats the human-scale closet rhythm while staying clear of the stairwell", "ValidationCameras/GlamClosetAssetCloseupCamera")
 	_add_room_asset_scene(root, upper, KENNEY_SIDE_TABLE_PATH, Vector3(36, 54, -54), 0, HUMAN_TABLE_SCALE, "GlamVanityTable", "kenney_keep_review", "glam_closet", "vanity table is scaled as human closet furniture", "ValidationCameras/GlamClosetAssetCloseupCamera")
 	_add_room_asset_scene(root, upper, KENNEY_GLAM_MIRROR_PATH, Vector3(36, 56, 96), 180, HUMAN_ACCENT_SCALE, "GlamMirror", "kenney_keep_review", "glam_closet", "mirror scales with the human vanity wall instead of reading as a toy mirror", "ValidationCameras/GlamClosetMirrorCamera")
 	_add_room_asset_scene(root, upper, KENNEY_GLAM_RUG_PATH, Vector3(36, 53, 70), 0, HUMAN_TABLE_SCALE, "GlamRug", "kenney_keep_review", "glam_closet", "rug anchors the human closet route without collision", "ValidationCameras/GlamClosetAssetCloseupCamera")
@@ -1723,7 +1711,7 @@ func _add_validation_cameras(root: Node3D, parent: Node3D) -> void:
 	_add_camera(root, parent, "BedroomFirstTurnPlayerCamera", Vector3(-114, 70, -48), Vector3(-9, -42, 0), 62)
 	_add_camera(root, parent, "BedroomMidpointRouteCamera", Vector3(-120, 78, 52), Vector3(-12, 16, 0), 62)
 	_add_camera(root, parent, "BedroomChaseReadabilityCamera", Vector3(-146, 70, -78), Vector3(-7, -58, 0), 70)
-	_add_camera(root, parent, "GlamClosetStartPlayerCamera", Vector3(-26, 70, -62), Vector3(-12, -90, 0), 74)
+	_add_camera(root, parent, "GlamClosetStartPlayerCamera", Vector3(-8, 70, -98), Vector3(-12, -135, 0), 74)
 	_add_camera(root, parent, "GlamClosetFirstTurnPlayerCamera", Vector3(28, 70, -22), Vector3(-9, -36, 0), 62)
 	_add_camera(root, parent, "GlamClosetMidpointRouteCamera", Vector3(42, 78, 68), Vector3(-12, 14, 0), 62)
 	_add_camera(root, parent, "GlamClosetChaseReadabilityCamera", Vector3(-8, 70, -50), Vector3(-7, -54, 0), 70)
@@ -1866,7 +1854,7 @@ func _zone_contract_for_course(course_id: String) -> Dictionary:
 		"bedroom":
 			return {"zone_id": "bedroom_suite", "center": Vector3(-97.5, 52, -12), "size": Vector3(165, 40, 236), "floor_top_y": UPPER_ROOM_FLOOR_TOP_Y, "usable_inset": 10.0}
 		"glam_closet":
-			return {"zone_id": "glam_dressing", "center": Vector3(37.5, 52, -12), "size": Vector3(105, 40, 236), "floor_top_y": UPPER_ROOM_FLOOR_TOP_Y, "usable_inset": 10.0}
+			return {"zone_id": "glam_dressing", "center": Vector3(16, 52, -38), "size": Vector3(64, 40, 184), "floor_top_y": UPPER_ROOM_FLOOR_TOP_Y, "usable_inset": 2.0}
 		"attic":
 			return {"zone_id": "gambrel_attic_toy_build_course", "center": Vector3(-50, 104, 12.5), "size": Vector3(230, 60, 215), "floor_top_y": ATTIC_ROOM_FLOOR_TOP_Y, "roof_clearance_max_y": 164.0, "usable_inset": 11.0}
 	return {"zone_id": course_id, "center": Vector3.ZERO, "size": Vector3.ONE, "floor_top_y": 0.0}
@@ -1890,7 +1878,7 @@ func _route_cells_for_course(course_id: String) -> Array[Vector3i]:
 		"bedroom":
 			return _route_from_points([Vector3i(-4, 0, -5), Vector3i(4, 0, -5), Vector3i(4, 1, 5), Vector3i(-4, 1, 5)])
 		"glam_closet":
-			return _route_from_points([Vector3i(-2, 0, -5), Vector3i(2, 0, -5), Vector3i(2, 1, 5), Vector3i(-2, 1, 5)])
+			return _route_from_points([Vector3i(-1, 0, -4), Vector3i(1, 0, -4), Vector3i(1, 1, 4), Vector3i(-1, 1, 4)])
 		"attic":
 			return _route_from_points([Vector3i(-6, 0, -5), Vector3i(6, 0, -5), Vector3i(6, 1, 5), Vector3i(-6, 1, 5)])
 	return []

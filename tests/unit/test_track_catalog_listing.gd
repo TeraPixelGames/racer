@@ -593,8 +593,8 @@ func _assert_home_yard_scene_holders(root: Node, track_id: String) -> void:
 	_assert_no_visible_blockout_nodes(root, track_id)
 	if track_id == "kitchen":
 		_assert_home_yard_kitchen_readability(root)
-	assert_true(root.get_node_or_null("VerticalConnectors/MainStairLowerFlightKenneySteps") != null, "%s should include sourced main stair lower flight geometry" % track_id)
-	assert_true(root.get_node_or_null("VerticalConnectors/MainStairUpperFlightKenneySteps") != null, "%s should include sourced main stair upper flight geometry" % track_id)
+	assert_true(root.get_node_or_null("VerticalConnectors/MainStairLowerFlightKenneySteps") == null, "%s should not keep obsolete hidden Kenney lower-flight geometry from the split stair layout" % track_id)
+	assert_true(root.get_node_or_null("VerticalConnectors/MainStairUpperFlightKenneySteps") == null, "%s should not keep obsolete hidden Kenney upper-flight geometry from the split stair layout" % track_id)
 	assert_true(root.get_node_or_null("VerticalConnectors/AtticRearStairKenneyStepsReference") != null, "%s should include a hidden sourced attic stair reference for provenance" % track_id)
 	_assert_home_yard_vertical_circulation_continuity(root, track_id)
 	assert_true(root.get_node_or_null("VerticalConnectors/MainToUpperToyRamp") == null, "%s should not keep the blue placeholder toy ramp as house circulation" % track_id)
@@ -634,7 +634,7 @@ func _assert_home_yard_floor_plan_contract(root: Node, track_id: String) -> void
 	if wall_schedule is Array:
 		var schedule := wall_schedule as Array
 		assert_true(schedule.size() >= 10, "%s interior wall schedule should cover connected room seams" % track_id)
-		for expected_wall_id in ["KitchenDiningCasedOpening", "KitchenPlayroomDivider", "PlayroomLivingCasedOpening", "GarageInteriorBackWall", "BedroomGlamCasedOpening", "DoggieDoorInteriorThreshold", "AtticWestKneePartition"]:
+		for expected_wall_id in ["KitchenDiningCasedOpening", "KitchenPlayroomDivider", "PlayroomLivingCasedOpening", "GarageInteriorSideServiceWall", "BedroomGlamCasedOpening", "DoggieDoorInteriorThreshold", "AtticWestKneePartition"]:
 			assert_true(_wall_schedule_has_id(schedule, expected_wall_id), "%s interior wall schedule should include %s" % [track_id, expected_wall_id])
 	var envelopes: Variant = root.get_meta("route_envelopes", {})
 	assert_true(envelopes is Dictionary and (envelopes as Dictionary).has(track_id), "%s shared home-yard scene should include numeric route envelopes" % track_id)
@@ -680,7 +680,9 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_equal(str(strip.get_meta("collision_policy", "")), "visual_threshold_no_gameplay_collision", "%s %s should not add raised collision lips at room seams" % [track_id, str(strip_data["node"])])
 				var strip_bounds := _mesh_instance_global_aabb(strip)
 				assert_true(strip_bounds.end.y <= float(strip_data["floor_top_y"]) + 0.10, "%s %s should sit as a thin visual overlay at the finished floor datum" % [track_id, str(strip_data["node"])])
-		for ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun"]:
+		for obsolete_ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "MainFloorToUpperRampSwitchbackLanding"]:
+			assert_true(holder.get_node_or_null(obsolete_ramp_node) == null, "%s should remove obsolete split main-to-upper ramp node %s" % [track_id, obsolete_ramp_node])
+		for ramp_node in ["MainStairIntegratedToyRampLane", "UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun"]:
 			var ramp := holder.get_node_or_null(ramp_node)
 			assert_true(ramp != null, "%s should include drivable navigation ramp %s" % [track_id, ramp_node])
 			if ramp != null:
@@ -695,8 +697,8 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_true(right_rail != null and bool(right_rail.get_meta("home_navigation_ramp_edge_rail", false)), "%s %s should include a visible right edge rail" % [track_id, ramp_node])
 				assert_true(wear_strip != null and bool(wear_strip.get_meta("home_navigation_ramp_surface_detail", false)), "%s %s should include a surface detail strip" % [track_id, ramp_node])
 		for landing_data in [
-			{"node": "MainFloorToUpperRampLowerLanding", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "MainFloorToUpperRampUpperLanding", "floor_top_y": 52.60},
+			{"node": "MainStairIntegratedRampLowerLanding", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "MainStairIntegratedRampUpperLanding", "floor_top_y": 52.60},
 			{"node": "UpperToAtticRampLowerLanding", "floor_top_y": 52.60},
 			{"node": "UpperToAtticRampUpperLanding", "floor_top_y": 104.60},
 		]:
@@ -706,7 +708,6 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				var landing_bounds := _mesh_instance_global_aabb(landing)
 				assert_true(absf(landing_bounds.end.y - float(landing_data["floor_top_y"])) <= 0.05, "%s %s top should be flush with its finished floor datum" % [track_id, str(landing_data["node"])])
 		for seam_landing_data in [
-			{"node": "MainFloorToUpperRampSwitchbackLanding", "surface_y": 26.50},
 			{"node": "UpperToAtticRampSwitchbackLanding", "surface_y": 80.00},
 		]:
 			var seam_landing := holder.get_node_or_null(str(seam_landing_data["node"])) as MeshInstance3D
@@ -1208,14 +1209,12 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		assert_true(attic_flight_delta.x > 30.0, "%s attic stair should climb from west to east after the 90-degree rotation; start=%s end=%s" % [track_id, str(attic_flight_start), str(attic_flight_end)])
 	for node_path in [
 		"VerticalConnectors/MainStairLowerLandingSurface",
-		"VerticalConnectors/MainStairSwitchbackLandingSurface",
 		"VerticalConnectors/MainStairUpperLandingSurface",
-		"VerticalConnectors/MainStairLowerFlightTread00",
-		"VerticalConnectors/MainStairLowerFlightTread10",
-		"VerticalConnectors/MainStairUpperFlightTread00",
-		"VerticalConnectors/MainStairUpperFlightTread10",
-		"VerticalConnectors/MainStairLowerFlightRiser00",
-		"VerticalConnectors/MainStairUpperFlightRiser10",
+		"VerticalConnectors/MainStairStraightFlightTread00",
+		"VerticalConnectors/MainStairStraightFlightTread10",
+		"VerticalConnectors/MainStairStraightFlightTread21",
+		"VerticalConnectors/MainStairStraightFlightRiser00",
+		"VerticalConnectors/MainStairStraightFlightRiser21",
 		"VerticalConnectors/AtticRearStairLowerLandingSurface",
 		"VerticalConnectors/AtticRearStairUpperLandingSurface",
 		"VerticalConnectors/AtticRearStairTread00",
@@ -1267,8 +1266,8 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		"UpperFloor/RoomFinishes/GlamDressing/GlamDressingFrontFloorWestOfStair",
 	]:
 		assert_true(root.get_node_or_null(floor_path) != null, "%s should include split floor/ceiling assembly piece %s around the stairwell shaft" % [track_id, floor_path])
-	var opening_volume := AABB(Vector3(54.0, 50.0, 78.0), Vector3(36.0, 4.0, 68.0))
-	var shaft_volume := AABB(Vector3(54.0, 39.5, 78.0), Vector3(36.0, 14.1, 68.0))
+	var opening_volume := AABB(Vector3(48.0, 50.0, 18.0), Vector3(36.0, 4.0, 128.0))
+	var shaft_volume := AABB(Vector3(48.0, 39.5, 18.0), Vector3(36.0, 14.1, 128.0))
 	_assert_home_yard_main_stair_is_measured_and_visible(root, track_id)
 	_assert_home_yard_stair_route_exclusion(root, shaft_volume, track_id)
 	_assert_home_yard_stair_is_front_hall_not_garage(root, shaft_volume, track_id)
@@ -1281,8 +1280,8 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 			Vector3(-195, 52.6, -120),
 			Vector3(-195, 52.6, 138),
 			Vector3(-96, 52.6, 138),
-			Vector3(50, 52.6, 138),
-			Vector3(50, 52.6, 96),
+			Vector3(40, 52.6, 138),
+			Vector3(40, 52.6, 96),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(upper_deck_holder, sample), "%s upper floor deck should fit the main exterior shell footprint at sample %s" % [track_id, str(sample)])
 	if glam_holder != null:
@@ -1338,19 +1337,15 @@ func _assert_upper_floor_deck_clear_of_garage_volume(upper_deck_holder: Node, tr
 
 func _assert_home_yard_main_stair_is_measured_and_visible(root: Node, track_id: String) -> void:
 	var main_stair_contract := (root.get_meta("vertical_circulation_contract", {}) as Dictionary).get("main_stair", {}) as Dictionary
-	assert_equal(str(main_stair_contract.get("type", "")), "u_shaped_residential_stair", "%s main stair should be planned as a U-shaped residential stair" % track_id)
+	assert_equal(str(main_stair_contract.get("type", "")), "straight_residential_stair", "%s main stair should be planned as one straight residential stair" % track_id)
 	assert_true(float(main_stair_contract.get("tread_depth_units", 0.0)) >= 5.0, "%s main stair should have readable tread depth, not ladder-like blocks" % track_id)
-	assert_true(str(main_stair_contract.get("continuity_gate", "")).contains("separated lower/upper flights"), "%s main stair continuity contract should require separated stair flights" % track_id)
+	assert_true(str(main_stair_contract.get("continuity_gate", "")).contains("single straight"), "%s main stair continuity contract should require a single straight flight" % track_id)
 	for node_path in [
 		"VerticalConnectors/MainStairLowerLandingSurface",
-		"VerticalConnectors/MainStairSwitchbackLandingSurface",
 		"VerticalConnectors/MainStairUpperLandingSurface",
-		"VerticalConnectors/MainStairLowerStringerLeft",
-		"VerticalConnectors/MainStairLowerStringerRight",
-		"VerticalConnectors/MainStairUpperStringerLeft",
-		"VerticalConnectors/MainStairUpperStringerRight",
-		"VerticalConnectors/MainStairLowerGuardrailLeft",
-		"VerticalConnectors/MainStairUpperGuardrailRight",
+		"VerticalConnectors/MainStairStraightStringerLeft",
+		"VerticalConnectors/MainStairStraightStringerRight",
+		"VerticalConnectors/MainStairStraightGuardrailRight",
 	]:
 		var node := root.get_node_or_null(node_path) as MeshInstance3D
 		assert_true(node != null, "%s visible measured stair should include %s" % [track_id, node_path])
@@ -1359,7 +1354,7 @@ func _assert_home_yard_main_stair_is_measured_and_visible(root: Node, track_id: 
 			assert_equal(str(node.get_meta("asset_lifecycle_state", "")), "authored_measured_stair", "%s %s should be authored measured stair geometry" % [track_id, node_path])
 	var lower_landing := root.get_node_or_null("VerticalConnectors/MainStairLowerLandingSurface") as MeshInstance3D
 	var upper_landing := root.get_node_or_null("VerticalConnectors/MainStairUpperLandingSurface") as MeshInstance3D
-	var upper_guardrail := root.get_node_or_null("VerticalConnectors/MainStairUpperGuardrailRight") as MeshInstance3D
+	var upper_guardrail := root.get_node_or_null("VerticalConnectors/MainStairStraightGuardrailRight") as MeshInstance3D
 	if lower_landing != null:
 		var lower_landing_bounds := _mesh_instance_global_aabb(lower_landing)
 		assert_true(lower_landing_bounds.size.x >= 27.5 and lower_landing_bounds.size.z >= 15.5, "%s lower stair should include a real bottom landing area, bounds=%s" % [track_id, str(lower_landing_bounds)])
@@ -1368,38 +1363,23 @@ func _assert_home_yard_main_stair_is_measured_and_visible(root: Node, track_id: 
 		assert_true(upper_landing_bounds.size.x >= 33.5 and upper_landing_bounds.size.z >= 17.5, "%s upper stair landing should be large enough for arrival and turn-in, bounds=%s" % [track_id, str(upper_landing_bounds)])
 		if upper_guardrail != null:
 			var rail_bounds := _mesh_instance_global_aabb(upper_guardrail)
-			assert_true(rail_bounds.end.z <= upper_landing_bounds.position.z + 1.0, "%s upper guardrail should stop before the landing entry instead of blocking it; rail=%s landing=%s" % [track_id, str(rail_bounds), str(upper_landing_bounds)])
+			assert_true(rail_bounds.position.x >= upper_landing_bounds.position.x + upper_landing_bounds.size.x * 0.35, "%s straight stair guardrail should sit on the stair side and not block the integrated ramp lane; rail=%s landing=%s" % [track_id, str(rail_bounds), str(upper_landing_bounds)])
+	for index in [0, 5, 10, 21]:
+		var node := root.get_node_or_null("VerticalConnectors/MainStairStraightFlightTread%02d" % index) as MeshInstance3D
+		assert_true(node != null, "%s visible measured straight stair should include tread %02d" % [track_id, index])
+		if node != null:
+			var bounds := _mesh_instance_global_aabb(node)
+			assert_true(node.visible, "%s straight stair tread %02d should be visible" % [track_id, index])
+			assert_true(maxf(bounds.size.x, bounds.size.z) >= 5.0, "%s straight stair tread %02d should have readable tread run, bounds=%s" % [track_id, index, str(bounds)])
 	for index in [0, 5, 10]:
-		for prefix in ["MainStairLowerFlightTread", "MainStairUpperFlightTread"]:
-			var node := root.get_node_or_null("VerticalConnectors/%s%02d" % [prefix, index]) as MeshInstance3D
-			assert_true(node != null, "%s visible measured stair should include tread %s%02d" % [track_id, prefix, index])
-			if node != null:
-				var bounds := _mesh_instance_global_aabb(node)
-				assert_true(node.visible, "%s %s%02d should be visible" % [track_id, prefix, index])
-				assert_true(maxf(bounds.size.x, bounds.size.z) >= 5.0, "%s %s%02d should have readable tread run, bounds=%s" % [track_id, prefix, index, str(bounds)])
-		var lower_tread := root.get_node_or_null("VerticalConnectors/MainStairLowerFlightTread%02d" % index) as MeshInstance3D
-		var upper_tread := root.get_node_or_null("VerticalConnectors/MainStairUpperFlightTread%02d" % index) as MeshInstance3D
-		if lower_tread != null and upper_tread != null:
-			var lower_bounds := _mesh_instance_global_aabb(lower_tread)
-			var upper_bounds := _mesh_instance_global_aabb(upper_tread)
-			var x_overlap: float = minf(lower_bounds.end.x, upper_bounds.end.x) - maxf(lower_bounds.position.x, upper_bounds.position.x)
-			var z_overlap: float = minf(lower_bounds.end.z, upper_bounds.end.z) - maxf(lower_bounds.position.z, upper_bounds.position.z)
-			assert_true(x_overlap <= 0.05 or z_overlap <= 0.05, "%s main stair lower and upper treads should be separated in plan, not overlapping; lower=%s upper=%s" % [track_id, str(lower_bounds), str(upper_bounds)])
-			assert_true(lower_bounds.end.x <= upper_bounds.position.x - 2.0, "%s lower flight should be moved west of upper flight with a visible gap; lower=%s upper=%s" % [track_id, str(lower_bounds), str(upper_bounds)])
-	for index in [0, 5, 10]:
-		for prefix in ["MainStairLowerFlightRiser", "MainStairUpperFlightRiser"]:
-			var riser := root.get_node_or_null("VerticalConnectors/%s%02d" % [prefix, index]) as MeshInstance3D
-			assert_true(riser != null, "%s visible measured stair should fill stair run with riser %s%02d" % [track_id, prefix, index])
-			if riser != null:
-				assert_true(riser.visible, "%s %s%02d should be visible stair fill" % [track_id, prefix, index])
-				assert_equal(str(riser.get_meta("asset_lifecycle_state", "")), "authored_measured_stair", "%s %s%02d should be authored measured stair fill" % [track_id, prefix, index])
+		var riser := root.get_node_or_null("VerticalConnectors/MainStairStraightFlightRiser%02d" % index) as MeshInstance3D
+		assert_true(riser != null, "%s visible measured straight stair should fill stair run with riser %02d" % [track_id, index])
+		if riser != null:
+			assert_true(riser.visible, "%s straight stair riser %02d should be visible stair fill" % [track_id, index])
+			assert_equal(str(riser.get_meta("asset_lifecycle_state", "")), "authored_measured_stair", "%s straight stair riser %02d should be authored measured stair fill" % [track_id, index])
 	var lower_ref := root.get_node_or_null("VerticalConnectors/MainStairLowerFlightKenneySteps") as Node3D
 	var upper_ref := root.get_node_or_null("VerticalConnectors/MainStairUpperFlightKenneySteps") as Node3D
-	for ref in [lower_ref, upper_ref]:
-		assert_true(ref != null, "%s hidden Kenney stair reference should remain for provenance" % track_id)
-		if ref != null:
-			assert_true(not ref.visible, "%s tiny Kenney stair reference should not be the visible stair design" % track_id)
-			assert_true(bool(ref.get_meta("visual_reference_hidden_by_measured_stair", false)), "%s hidden Kenney stair reference should document why it is hidden" % track_id)
+	assert_true(lower_ref == null and upper_ref == null, "%s old split-flight Kenney references should be removed after the straight stair rebuild" % track_id)
 
 func _assert_home_yard_stair_route_exclusion(root: Node, shaft_volume: AABB, track_id: String) -> void:
 	var envelopes: Variant = root.get_meta("route_envelopes", {})
@@ -1634,10 +1614,10 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 		for sample in [
 			Vector3(-12, 52.6, 126),
 			Vector3(20, 52.6, 126),
-			Vector3(52.5, 52.6, 126),
+			Vector3(40, 52.6, 126),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(upper_hall_floor, sample), "%s upper hall landing floor should cover visible hall sample %s without looking missing" % [track_id, str(sample)])
-		var stair_opening := AABB(Vector3(54.0, 50.0, 78.0), Vector3(36.0, 4.0, 68.0))
+		var stair_opening := AABB(Vector3(48.0, 50.0, 18.0), Vector3(36.0, 4.0, 128.0))
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_opening, track_id, "main stair upper-floor opening")
 	var attic_finishes := root.get_node_or_null("Attic/RoomFinishes")
 	assert_true(attic_finishes != null, "%s attic should include room finishes for shell-footprint deck audit" % track_id)
