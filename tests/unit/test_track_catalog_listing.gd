@@ -1320,11 +1320,14 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		"UpperFloor/RoomFinishes/UpperFloorDeck/UpperFloorDeckUpperHallWest",
 		"UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallLandingFloorWestOfStairOpening",
 		"UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallLandingFloorNorthOfStairOpening",
+		"UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallLandingFloorStairwellSideInfillWest",
+		"UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallLandingFloorStairwellSideInfillEast",
 		"UpperFloor/RoomFinishes/GlamDressing/GlamDressingBackFloor",
 		"UpperFloor/RoomFinishes/GlamDressing/GlamDressingFrontFloorWestOfStair",
 	]:
 		assert_true(root.get_node_or_null(floor_path) != null, "%s should include split floor/ceiling assembly piece %s around the stairwell shaft" % [track_id, floor_path])
-	var opening_volume := AABB(Vector3(48.0, 50.0, 18.0), Vector3(36.0, 4.0, 128.0))
+	var opening_volume := AABB(Vector3(48.0, 50.0, 88.0), Vector3(36.0, 4.0, 58.0))
+	var stair_ramp_swept_volume := AABB(Vector3(54.0, 50.0, 18.0), Vector3(24.0, 4.0, 70.0))
 	var shaft_volume := AABB(Vector3(48.0, 39.5, 18.0), Vector3(36.0, 14.1, 128.0))
 	_assert_home_yard_main_stair_is_measured_and_visible(root, track_id)
 	_assert_home_yard_stair_route_exclusion(root, shaft_volume, track_id)
@@ -1333,6 +1336,7 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		_assert_no_visible_mesh_intersects_aabb(main_ceiling_holder, shaft_volume, "MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane/MainStairShaftReturn", "%s first-floor ceiling and interstitial floor assembly must leave a clear stairwell shaft" % track_id)
 	if upper_deck_holder != null:
 		_assert_no_visible_mesh_intersects_aabb(upper_deck_holder, opening_volume, "NoExclusions/", "%s upper deck must leave a clear stairwell floor opening" % track_id)
+		_assert_no_visible_mesh_intersects_aabb(upper_deck_holder, stair_ramp_swept_volume, "NoExclusions/", "%s upper deck must leave the straight stair/ramp swept path clear" % track_id)
 		_assert_upper_floor_deck_clear_of_garage_volume(upper_deck_holder, track_id)
 		for sample in [
 			Vector3(-195, 52.6, -120),
@@ -1344,6 +1348,7 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 			assert_true(_visible_descendant_covers_xz_sample(upper_deck_holder, sample), "%s upper floor deck should fit the main exterior shell footprint at sample %s" % [track_id, str(sample)])
 	if glam_holder != null:
 		_assert_no_visible_mesh_intersects_aabb(glam_holder, opening_volume, "NoExclusions/", "%s glam floor must leave a clear stairwell floor opening" % track_id)
+		_assert_no_visible_mesh_intersects_aabb(glam_holder, stair_ramp_swept_volume, "NoExclusions/", "%s glam floor must leave the straight stair/ramp swept path clear" % track_id)
 	var upper_hall_divider_return := root.get_node_or_null("UpperFloor/InteriorWalls/UpperHallBedroomDividerSegment02") as MeshInstance3D
 	assert_true(upper_hall_divider_return != null, "%s upper hall divider should terminate before the stair shaft instead of closing the stair opening" % track_id)
 	if upper_hall_divider_return != null:
@@ -1676,6 +1681,8 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			"UpperHallStairOpeningFloorTrimWest",
 			"UpperHallStairOpeningFloorTrimNorth",
 			"UpperHallStairOpeningFloorTrimSouth",
+			"UpperHallLandingFloorStairwellSideInfillWest",
+			"UpperHallLandingFloorStairwellSideInfillEast",
 		]:
 			assert_true(upper_hall_floor.get_node_or_null(node_name) is MeshInstance3D, "%s upper hall should include measured landing piece %s" % [track_id, node_name])
 		for sample in [
@@ -1685,10 +1692,14 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			Vector3(66, 52.6, 10),
 			Vector3(54, 52.6, -10),
 			Vector3(66, 52.6, -10),
+			Vector3(51, 52.6, 54),
+			Vector3(81, 52.6, 54),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(upper_hall_floor, sample), "%s upper hall landing floor should cover visible hall sample %s without looking missing" % [track_id, str(sample)])
-		var stair_opening := AABB(Vector3(48.0, 50.0, 18.0), Vector3(36.0, 4.0, 128.0))
+		var stair_opening := AABB(Vector3(48.0, 50.0, 88.0), Vector3(36.0, 4.0, 58.0))
+		var stair_ramp_swept_volume := AABB(Vector3(54.0, 50.0, 18.0), Vector3(24.0, 4.0, 70.0))
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_opening, track_id, "main stair upper-floor opening")
+		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_ramp_swept_volume, track_id, "main stair/ramp swept path")
 	var attic_finishes := root.get_node_or_null("Attic/RoomFinishes")
 	assert_true(attic_finishes != null, "%s attic should include room finishes for shell-footprint deck audit" % track_id)
 	if attic_finishes != null:
