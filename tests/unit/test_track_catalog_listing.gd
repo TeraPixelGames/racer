@@ -755,8 +755,8 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				var bridge_bounds := _mesh_instance_global_aabb(attic_entry_bridge)
 				assert_true(absf(bridge_bounds.end.y - 104.60) <= 0.05, "%s attic ramp entry bridge should be flush with attic/ramp floor datum; bounds=%s" % [track_id, str(bridge_bounds)])
 				assert_true(bridge_bounds.position.x <= 50.0 and bridge_bounds.end.x >= 54.0, "%s attic ramp entry bridge should span the knee-wall opening into the attic course; bounds=%s" % [track_id, str(bridge_bounds)])
-				assert_true(bridge_bounds.position.z <= -87.0 and bridge_bounds.end.z >= -72.0, "%s attic ramp entry bridge should cover the gap after the upper ramp landing; bounds=%s" % [track_id, str(bridge_bounds)])
-				assert_true(attic_entry_bridge.get_node_or_null("AtticRampEntryBridgeCollision") == null, "%s attic ramp entry bridge should be visual-only so it cannot block full attic entry" % track_id)
+				assert_true(bridge_bounds.position.z <= -101.0 and bridge_bounds.end.z >= -34.0, "%s attic ramp entry bridge should cover the full drive-through hatch after the upper ramp landing; bounds=%s" % [track_id, str(bridge_bounds)])
+				assert_true(attic_entry_bridge.get_node_or_null("AtticRampEntryBridgeCollision") != null, "%s attic ramp entry bridge should own flush collision through the hatch so racers do not hit the course-pad slab edge" % track_id)
 			var attic_entry_course_pad := root.get_node_or_null("Attic/RoomFinishes/AtticRampEntryCoursePad") as MeshInstance3D
 			assert_true(attic_entry_course_pad != null, "%s attic should include a flush drive pad after the ramp-entry bridge" % track_id)
 			if attic_entry_course_pad != null:
@@ -1701,7 +1701,7 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			"AtticDeck",
 		]:
 			assert_true(attic_finishes.get_node_or_null(node_name) != null, "%s attic shell deck should include measured piece %s" % [track_id, node_name])
-		var attic_ramp_hatch_opening := AABB(Vector3(42.0, 102.0, -95.0), Vector3(24.0, 3.0, 24.0))
+		var attic_ramp_hatch_opening := AABB(Vector3(42.0, 102.0, -101.0), Vector3(24.0, 3.0, 67.0))
 		for floor_owner_name in ["AtticDeck", "AtticFloorDeckEastEaveShellStripBackOfHatch", "AtticFloorDeckEastEaveShellStripFrontOfHatch"]:
 			var floor_owner := attic_finishes.get_node_or_null(floor_owner_name)
 			assert_true(floor_owner != null, "%s attic floor hatch gate should find floor owner %s" % [track_id, floor_owner_name])
@@ -1719,8 +1719,16 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 	assert_true(attic_partitions != null, "%s attic should include measured interior partitions" % track_id)
 	if attic_partitions != null:
 		assert_true(attic_partitions.get_node_or_null("AtticEastKneePartitionOpeningHeader") is MeshInstance3D, "%s attic east knee partition should include a cased opening at the ramp entry" % track_id)
-		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 27.0))
+		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 65.0))
 		_assert_no_visible_descendant_intersects_aabb(attic_partitions, attic_ramp_entry_corridor, track_id, "attic ramp entry knee-wall opening")
+	var opening_holder := root.get_node_or_null("Openings")
+	assert_true(opening_holder != null, "%s should include opening assemblies" % track_id)
+	if opening_holder != null:
+		assert_true(opening_holder.get_node_or_null("AtticAccessHatchFrame") == null, "%s attic hatch frame should not be one solid slab across the drive-through opening" % track_id)
+		for node_name in ["AtticAccessHatchFrameWest", "AtticAccessHatchFrameEast", "AtticAccessHatchFrameBack", "AtticAccessHatchFrameFront"]:
+			assert_true(opening_holder.get_node_or_null(node_name) is MeshInstance3D, "%s attic hatch should include perimeter trim piece %s" % [track_id, node_name])
+		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 65.0))
+		_assert_no_visible_descendant_intersects_aabb(opening_holder, attic_ramp_entry_corridor, track_id, "attic hatch drive-through opening")
 
 func _visible_descendant_covers_xz_sample(node: Node, sample: Vector3) -> bool:
 	if node is MeshInstance3D:

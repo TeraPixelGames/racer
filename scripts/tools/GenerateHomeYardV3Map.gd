@@ -166,7 +166,7 @@ const INTERIOR_WALL_SCHEDULE := [
 	{"id": "BedroomGlamCasedOpening", "floor": "upper", "owner": "interior_partition", "axis": "x", "x": -15.0, "start": -130.0, "end": 106.0, "base_y": 52.0, "height": 40.0, "connected_zones": ["bedroom_suite", "glam_dressing"], "opening_span": Vector2(32.0, 60.0), "threshold_datum": 52.60, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "UpperHallBedroomDivider", "floor": "upper", "owner": "interior_partition", "axis": "z", "z": 106.0, "start": -180.0, "end": 54.0, "base_y": 52.0, "height": 40.0, "connected_zones": ["upper_living_area", "bedroom_glam_suite"], "opening_spans": [{"id": "BedroomDoor", "span": Vector2(-136.0, -104.0), "connected_zones": ["upper_living_area", "bedroom_suite"]}, {"id": "GlamClosetDoor", "span": Vector2(-10.0, 22.0), "connected_zones": ["upper_living_area", "glam_dressing"]}], "threshold_datum": 52.60, "owner_skill": "floor-plan-architect", "confidence": "inferred_from_v3_numeric_plan"},
 	{"id": "AtticWestKneePartition", "floor": "attic", "owner": "interior_partition", "axis": "x", "x": -160.0, "start": -95.0, "end": 120.0, "base_y": 104.0, "height": 20.0, "connected_zones": ["attic_toy_course", "west_knee_storage"], "opening_span": Vector2.ZERO, "threshold_datum": 104.60, "owner_skill": "floor-plan-architect", "confidence": "inboard_and_below_v3_gambrel_roof_contract"},
-	{"id": "AtticEastKneePartition", "floor": "attic", "owner": "interior_partition", "axis": "x", "x": 50.0, "start": -95.0, "end": 120.0, "base_y": 104.0, "height": 20.0, "connected_zones": ["attic_toy_course", "east_knee_storage"], "opening_span": Vector2(-102.0, -72.0), "threshold_datum": 104.60, "owner_skill": "floor-plan-architect", "confidence": "reflowed_for_stacked_attic_ramp_entry_v1"},
+	{"id": "AtticEastKneePartition", "floor": "attic", "owner": "interior_partition", "axis": "x", "x": 50.0, "start": -95.0, "end": 120.0, "base_y": 104.0, "height": 20.0, "connected_zones": ["attic_toy_course", "east_knee_storage"], "opening_span": Vector2(-102.0, -34.0), "threshold_datum": 104.60, "owner_skill": "floor-plan-architect", "confidence": "reflowed_for_drive_through_attic_ramp_entry_v2"},
 	{"id": "AtticStorageBackPartition", "floor": "attic", "owner": "interior_partition", "axis": "z", "z": 120.0, "start": -150.0, "end": 50.0, "base_y": 104.0, "height": 20.0, "connected_zones": ["attic_toy_course", "front_attic_storage"], "opening_span": Vector2(-42.0, 18.0), "threshold_datum": 104.60, "owner_skill": "floor-plan-architect", "confidence": "inboard_and_below_v3_gambrel_roof_contract"},
 ]
 
@@ -660,23 +660,23 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	parent.set_meta("plan_role", "Popper toy-built attic route inside measured Dutch gambrel roof volume; exterior gables and roof are owned by Roof")
 	var finishes := _add_child_holder(root, parent, "RoomFinishes", "attic deck, high-ramp staging, rafters, and Popper storage dressing")
 	var walls := _add_child_holder(root, parent, "InteriorPartitions", "contract-generated attic knee/storage partitions only")
-	finishes.set_meta("shell_footprint_contract", "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real stair/ramp hatch opening at x 42..66 z -95..-71 so racers can enter the attic")
+	finishes.set_meta("shell_footprint_contract", "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real drive-through stair/ramp hatch opening at x 42..66 z -101..-34 so racers can enter the attic without hitting a floor or knee-wall lip")
 	_add_room_floor(root, finishes, "AtticFloorDeckWestEaveShellStrip", Vector3(-182.5, 103, 7.5), Vector3(35, 2, 275), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripBackOfHatch", Vector3(77.5, 103, -112.5), Vector3(25, 2, 35), Color(0.40, 0.29, 0.19), false)
-	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripFrontOfHatch", Vector3(77.5, 103, 37.0), Vector3(25, 2, 216), Color(0.40, 0.29, 0.19), false)
+	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripFrontOfHatch", Vector3(79.0, 103, 55.5), Vector3(22, 2, 179), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-50, 103, -112.5), Vector3(230, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckFrontEaveShellStrip", Vector3(-50, 103, 132.5), Vector3(230, 2, 25), Color(0.40, 0.29, 0.19), false)
 	var attic_deck_holder := _add_child_holder(root, finishes, "AtticDeck", "split attic deck around the visible stair/ramp hatch opening; no broad slab covers the entry")
-	attic_deck_holder.set_meta("attic_ramp_hatch_opening_bounds", {"min": Vector3(42.0, 102.0, -95.0), "max": Vector3(66.0, 105.0, -71.0)})
-	_add_room_floor(root, attic_deck_holder, "AtticDeckWestOfRampHatch", Vector3(-61.5, 103, 12.5), Vector3(207, 2, 215), Color(0.45, 0.33, 0.22))
-	_add_room_floor(root, attic_deck_holder, "AtticDeckFrontOfRampHatch", Vector3(53.5, 103, 24.5), Vector3(23, 2, 191), Color(0.45, 0.33, 0.22))
-	_add_box(root, finishes, "AtticStorageZone", Vector3(-50, 104, 12.5), Vector3(202, 1.2, 190), Color(0.48, 0.36, 0.24), false)
-	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -79.0), Vector3(24.0, 0.8, 16.0), Color(0.55, 0.40, 0.25), false)
+	attic_deck_holder.set_meta("attic_ramp_hatch_opening_bounds", {"min": Vector3(42.0, 102.0, -101.0), "max": Vector3(66.0, 105.0, -34.0)})
+	_add_room_floor(root, attic_deck_holder, "AtticDeckWestOfRampHatch", Vector3(-61.5, 103, 12.5), Vector3(207, 2, 215), Color(0.45, 0.33, 0.22), false)
+	_add_room_floor(root, attic_deck_holder, "AtticDeckFrontOfRampHatch", Vector3(53.5, 103, 43.0), Vector3(23, 2, 154), Color(0.45, 0.33, 0.22), false)
+	_add_box(root, finishes, "AtticStorageZone", Vector3(-55.5, 104, 43.0), Vector3(191, 1.2, 129), Color(0.48, 0.36, 0.24), false)
+	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -67.5), Vector3(24.0, 0.8, 67.0), Color(0.55, 0.40, 0.25), true)
 	attic_entry_bridge.set_meta("owner_volume", "attic_toy_course")
 	attic_entry_bridge.set_meta("support_face", "UpperToAtticRampUpperLanding_to_AtticStorageZone")
-	attic_entry_bridge.set_meta("collision_policy", "visual_bridge_overlay_no_gameplay_collision")
-	attic_entry_bridge.set_meta("route_clearance", "attic_floor_and_course_pad_own_traversal")
-	attic_entry_bridge.set_meta("validation_gate", "visually bridges attic ramp landing through the knee-wall opening without adding a collision lip that blocks full attic entry")
+	attic_entry_bridge.set_meta("collision_policy", "flush_drivable_attic_entry_bridge_collision")
+	attic_entry_bridge.set_meta("route_clearance", "owns the continuous attic ramp exit surface through the enlarged knee-wall opening")
+	attic_entry_bridge.set_meta("validation_gate", "bridges attic ramp landing through the knee-wall opening with collision so racers do not hit the course pad or attic deck slab edge")
 	var attic_entry_course_pad := _add_box(root, finishes, "AtticRampEntryCoursePad", Vector3(10.0, 104.2, -55.5), Vector3(72.0, 0.8, 31.0), Color(0.55, 0.40, 0.25), true)
 	attic_entry_course_pad.set_meta("owner_volume", "attic_toy_course")
 	attic_entry_course_pad.set_meta("support_face", "AtticRampEntryBridge_to_attic_course")
@@ -705,7 +705,7 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	_add_box(root, finishes, "PopperBankedCardboardRamp", Vector3(-46, 112, -2), Vector3(128, 4, 24), Color(0.72, 0.42, 0.18), false, 26.0, Vector3.ZERO, _route_infrastructure_provenance("Attic", "popper_high_ramp", "PopperBankedCardboardRamp", "banked cardboard ramp is toy-racing route infrastructure, not a house circulation stair", "ValidationCameras/AtticRampSideProfileCamera"))
 	_add_box(root, finishes, "PopperRafterGateA", Vector3(-142, 122, 68), Vector3(6, 28, 6), Color(0.16, 0.10, 0.06), false)
 	_add_box(root, finishes, "PopperRafterGateB", Vector3(36, 120, -34), Vector3(6, 20, 6), Color(0.16, 0.10, 0.06), false)
-	_add_box(root, finishes, "PopperCardboardGuardWall", Vector3(22, 108, -86), Vector3(42, 8, 8), Color(0.58, 0.42, 0.24), false, 0.0, Vector3.ZERO, _route_infrastructure_provenance("Attic", "popper_high_ramp", "PopperCardboardGuardWall", "low cardboard guard wall blocks the non-playable side of the attic ramp corridor without entering the route swept volume or chase-camera cone", "ValidationCameras/AtticRampSideProfileCamera"))
+	_add_box(root, finishes, "PopperCardboardGuardWall", Vector3(22, 108, -22), Vector3(42, 8, 8), Color(0.58, 0.42, 0.24), false, 0.0, Vector3.ZERO, _route_infrastructure_provenance("Attic", "popper_high_ramp", "PopperCardboardGuardWall", "low cardboard guard wall dresses the Popper high-ramp route after the attic entry and stays outside the ramp hatch swept path", "ValidationCameras/AtticRampSideProfileCamera"))
 
 func _add_interior_partitions_from_schedule(root: Node3D, parent: Node3D, floor_id: String, color: Color) -> void:
 	parent.set_meta("wall_schedule", INTERIOR_WALL_SCHEDULE.filter(func(wall: Dictionary) -> bool:
@@ -936,7 +936,30 @@ func _add_opening_assemblies(root: Node3D, parent: Node3D) -> void:
 	_add_box(root, parent, "OversizedDoggieDoorFlap", Vector3(68, 10, -135), Vector3(14, 10, 1.2), Color(0.10, 0.08, 0.07, 0.62), false, 0.0, Vector3.ZERO, _rear_facade_provenance("OversizedDoggieDoorFlap", "dark flap is inset behind the doggie-door frame and reads as a route/freedrive portal instead of a loose exterior panel"))
 	_add_box(root, parent, "GarageDoorPanel", Vector3(155, 14, 148), Vector3(86, 28, 2.0), Color(0.32, 0.30, 0.27), false)
 	_add_box(root, parent, "GarageHouseServiceDoor", Vector3(92, 14, -30), Vector3(4, 28, 20), Color(0.22, 0.16, 0.10), false)
-	_add_box(root, parent, "AtticAccessHatchFrame", Vector3(72, 106, -46), Vector3(30, 5, 112), trim.darkened(0.20), false)
+	_add_attic_access_hatch_frame(root, parent, trim.darkened(0.20))
+
+func _add_attic_access_hatch_frame(root: Node3D, parent: Node3D, color: Color) -> void:
+	var provenance := _provenance(
+		"Openings",
+		"attic_access_hatch_frame",
+		"perimeter_trim",
+		"PLAN_CONTRACT.vertical_circulation_contract",
+		"attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear",
+		"AtticRampEntryBridge and UpperToAtticRampUpperLanding",
+		"attic hatch perimeter x=42..66 z=-101..-34",
+		"x/z",
+		Vector3(42, 103.5, -101),
+		Vector3(66, 108.5, -34),
+		["thin trim beside hatch opening"],
+		["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
+		"resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
+		"test_home_yard_attic_hatch_drive_through_opening",
+		"ValidationCameras/AtticRampSideProfileCamera"
+	)
+	_add_box(root, parent, "AtticAccessHatchFrameWest", Vector3(40.8, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameEast", Vector3(67.2, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameBack", Vector3(54.0, 106, -102.2), Vector3(28.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameFront", Vector3(54.0, 106, -32.8), Vector3(28.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
 
 func _add_porch_deck_system(root: Node3D, parent: Node3D) -> void:
 	parent.set_meta("plan_role", "front porch and backyard deck threshold system")
