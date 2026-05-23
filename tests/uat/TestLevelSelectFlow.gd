@@ -826,6 +826,11 @@ func test_home_free_roam_spawns_player_and_ai_on_home_navigation_graph() -> void
 	assert_true(bool(race.get("player_input_enabled")), "Free roam should allow immediate driving")
 	assert_equal(str(race.get("race_phase")), "", "Free roam should not enter countdown or racing phases")
 	assert_true(bool(race.call("live_builder_exists_for_test")), "Free roam should mount the live home builder")
+	var home_map := race.get_node_or_null("HomeFreeRoamMap")
+	assert_true(home_map != null, "Free roam should mount the shared home map as HomeFreeRoamMap")
+	if home_map != null:
+		var main_stair_tread := home_map.get_node_or_null("VerticalConnectors/MainStairStraightFlightTread10") as MeshInstance3D
+		assert_true(main_stair_tread != null and main_stair_tread.is_visible_in_tree(), "Free roam should keep the visible straight main stair in the mounted home map")
 	assert_true((race.get("track_waypoints") as Array).size() >= 8, "Free roam should expose whole-house AI patrol waypoints")
 	var cars: Dictionary = race.get("cars")
 	var car: Node3D = cars.get("local_player", null)

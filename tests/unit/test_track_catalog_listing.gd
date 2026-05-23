@@ -678,6 +678,7 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			"PlayroomCasedOpeningDriveStrip",
 			"KitchenPlayroomDriveStrip",
 			"GarageServiceDriveStrip",
+			"LivingEntryGuideRunner",
 			"UpperHallBedroomDriveStrip",
 			"UpperHallGlamDriveStrip",
 			"BedroomGlamDriveStrip",
@@ -692,6 +693,8 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			"UpperFloor/InteriorWalls/BedroomGlamCasedOpeningOpeningThreshold",
 			"UpperFloor/InteriorWalls/UpperHallBedroomDividerBedroomDoorThreshold",
 			"UpperFloor/InteriorWalls/UpperHallBedroomDividerGlamClosetDoorThreshold",
+			"MainFloor/RoomFinishes/KitchenPatioThresholdInterior",
+			"MainFloor/RoomFinishes/PlayroomDoggieDoorThresholdInterior",
 		]:
 			assert_true(root.get_node_or_null(removed_opening_threshold) == null, "%s should not render raised opening threshold %s between rooms" % [track_id, removed_opening_threshold])
 		for obsolete_ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "MainFloorToUpperRampSwitchbackLanding"]:

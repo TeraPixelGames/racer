@@ -519,8 +519,6 @@ func _add_main_floor_interior(root: Node3D, parent: Node3D) -> void:
 	_add_main_floor_ceiling_with_stairwell_shaft(root, finishes)
 	_add_box(root, finishes, "GarageTenFootCeilingPlane", Vector3(155, 40.8, 42.5), Vector3(130, 1.6, 205), Color(0.58, 0.56, 0.50), false)
 	_add_interior_partitions_from_schedule(root, walls, "main", wall)
-	_add_box(root, finishes, "KitchenPatioThresholdInterior", Vector3(-128, 1.0, -130), Vector3(72, 2.0, 8), Color(0.16, 0.24, 0.24), false)
-	_add_box(root, finishes, "PlayroomDoggieDoorThresholdInterior", Vector3(4, 1.0, -130), Vector3(56, 2.0, 8), Color(0.16, 0.24, 0.24), false)
 	_add_kitchen_readability_system(root, parent)
 
 func _add_main_floor_ceiling_with_stairwell_shaft(root: Node3D, parent: Node3D) -> void:
@@ -1444,7 +1442,6 @@ func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
 	var main_visual_y := MAIN_FLOOR_TOP_Y + HOME_NAV_THRESHOLD_VISUAL_THICKNESS * 0.5
 	var visual_strip := HOME_NAV_THRESHOLD_VISUAL_THICKNESS
 	_add_navigation_threshold_overlay(root, parent, "FrontDoorDriveThresholdStrip", Vector3(-50, main_visual_y, 145), Vector3(26, visual_strip, 5), threshold, "front_door_threshold", "visual strip marks the front walk to foyer transition without adding a raised collision lip")
-	_add_box(root, parent, "LivingEntryGuideRunner", Vector3(35, 0.42, 74), Vector3(5, 0.22, 42), Color(0.18, 0.22, 0.24), false, 0.0, Vector3.ZERO, _home_navigation_provenance("living_entry_guide", "dark runner marks the open-floor route from foyer into living/dining"))
 	_add_navigation_threshold_overlay(root, parent, "DoggieDoorDriveBridge", Vector3(4, main_visual_y, -130), Vector3(48, visual_strip, 16), Color(0.20, 0.18, 0.14), "doggie_door_bridge", "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal")
 
 func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, assembly: String, why_exists: String) -> MeshInstance3D:
