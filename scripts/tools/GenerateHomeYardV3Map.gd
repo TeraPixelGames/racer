@@ -38,7 +38,7 @@ const MAIN_STAIR_LOWER_LANDING_SIZE := Vector3(34, 0.6, 18)
 const MAIN_STAIR_UPPER_LANDING_SIZE := Vector3(34, 0.6, 20)
 const MAIN_STAIR_LOWER_Z := 134.0
 const MAIN_STAIR_UPPER_Z := 24.0
-const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 143.0
+const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 125.0
 const MAIN_STAIR_RAMP_UPPER_LANDING_Z := 14.0
 const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
 const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
@@ -600,7 +600,7 @@ func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	floor.set_meta("owner_volume", "upper_front_hall")
 	floor.set_meta("support_face", "UpperFloorDeckUpperHallWest")
 	floor.set_meta("validation_gate", "sampled upper-hall floor coverage and no AABB overlap with MainStairEntryToUpperHall opening")
-	var north_landing_floor := _add_box(root, holder, "UpperHallLandingFloorNorthOfStairOpening", Vector3(66.0, 52.05, 7.9), Vector3(36.0, 1.1, 19.8), Color(0.62, 0.56, 0.47), true)
+	var north_landing_floor := _add_box(root, holder, "UpperHallLandingFloorNorthOfStairOpening", Vector3(66.0, 52.05, -0.1), Vector3(36.0, 1.1, 35.8), Color(0.62, 0.56, 0.47), true)
 	north_landing_floor.set_meta("owner_volume", "upper_front_hall")
 	north_landing_floor.set_meta("support_face", "UpperHallLandingFloorNorthApproach")
 	north_landing_floor.set_meta("validation_gate", "patches the visible upper stair/ramp exit without covering the MainStairEntryToUpperHall opening AABB")
@@ -662,7 +662,17 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-50, 103, -112.5), Vector3(230, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckFrontEaveShellStrip", Vector3(-50, 103, 132.5), Vector3(230, 2, 25), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticDeck", Vector3(-50, 103, 12.5), Vector3(230, 2, 215), Color(0.45, 0.33, 0.22))
-	_add_room_floor(root, finishes, "AtticStorageZone", Vector3(-50, 104, 12.5), Vector3(202, 1.2, 190), Color(0.48, 0.36, 0.24))
+	_add_box(root, finishes, "AtticStorageZone", Vector3(-50, 104, 12.5), Vector3(202, 1.2, 190), Color(0.48, 0.36, 0.24), false)
+	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -79.0), Vector3(24.0, 0.8, 16.0), Color(0.55, 0.40, 0.25), true)
+	attic_entry_bridge.set_meta("owner_volume", "attic_toy_course")
+	attic_entry_bridge.set_meta("support_face", "UpperToAtticRampUpperLanding_to_AtticStorageZone")
+	attic_entry_bridge.set_meta("route_clearance", "intentional_free_roam_surface")
+	attic_entry_bridge.set_meta("validation_gate", "bridges attic ramp landing through knee-wall opening with no floor lip before the attic storage/course floor")
+	var attic_entry_course_pad := _add_box(root, finishes, "AtticRampEntryCoursePad", Vector3(10.0, 104.2, -55.5), Vector3(72.0, 0.8, 31.0), Color(0.55, 0.40, 0.25), true)
+	attic_entry_course_pad.set_meta("owner_volume", "attic_toy_course")
+	attic_entry_course_pad.set_meta("support_face", "AtticRampEntryBridge_to_attic_course")
+	attic_entry_course_pad.set_meta("route_clearance", "intentional_free_roam_surface")
+	attic_entry_course_pad.set_meta("validation_gate", "extends the flush attic ramp entry onto the attic-course side of the knee wall so racers can fully enter without a precision turn")
 	_add_interior_partitions_from_schedule(root, walls, "attic", Color(0.34, 0.27, 0.21))
 	var clearance_marker := Node3D.new()
 	clearance_marker.name = "AtticHumanClearanceMarker"

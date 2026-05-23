@@ -729,7 +729,8 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 		if main_ramp_lower_landing != null and main_ramp_upper_landing != null:
 			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
-			assert_true(lower_bounds.position.z >= 133.95, "%s integrated ramp lower landing should sit on the approach side of the lower endpoint instead of overlapping the ramp climb; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(lower_bounds.end.z <= 134.05, "%s integrated ramp lower landing should sit inside the foyer approach, not against the front wall; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(lower_bounds.position.z >= 115.95, "%s integrated ramp lower landing should still provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
 		var attic_lower_run := holder.get_node_or_null("UpperToAtticRampLowerRun") as MeshInstance3D
 		var attic_upper_run := holder.get_node_or_null("UpperToAtticRampUpperRun") as MeshInstance3D
@@ -747,6 +748,20 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			assert_true(attic_lower_landing_bounds.position.z >= lower_run_start.z - 0.05, "%s attic lower landing should touch the ramp start without overlapping the climb; landing=%s start=%s" % [track_id, str(attic_lower_landing_bounds), str(lower_run_start)])
 			assert_true(attic_mid_landing_bounds.position.z >= upper_run_start.z - 0.05 and attic_mid_landing_bounds.end.z <= lower_run_end.z + 0.05, "%s attic mid landing should sit between ramp runs without overlap; landing=%s lower_end=%s upper_start=%s" % [track_id, str(attic_mid_landing_bounds), str(lower_run_end), str(upper_run_start)])
 			assert_true(attic_upper_landing_bounds.end.z <= upper_run_end.z + 0.05, "%s attic upper landing should sit past the upper ramp endpoint instead of blocking attic entry; landing=%s end=%s" % [track_id, str(attic_upper_landing_bounds), str(upper_run_end)])
+			var attic_entry_bridge := root.get_node_or_null("Attic/RoomFinishes/AtticRampEntryBridge") as MeshInstance3D
+			assert_true(attic_entry_bridge != null, "%s attic should include a flush ramp-entry bridge from the upper landing into the attic course" % track_id)
+			if attic_entry_bridge != null:
+				var bridge_bounds := _mesh_instance_global_aabb(attic_entry_bridge)
+				assert_true(absf(bridge_bounds.end.y - 104.60) <= 0.05, "%s attic ramp entry bridge should be flush with attic/ramp floor datum; bounds=%s" % [track_id, str(bridge_bounds)])
+				assert_true(bridge_bounds.position.x <= 50.0 and bridge_bounds.end.x >= 54.0, "%s attic ramp entry bridge should span the knee-wall opening into the attic course; bounds=%s" % [track_id, str(bridge_bounds)])
+				assert_true(bridge_bounds.position.z <= -87.0 and bridge_bounds.end.z >= -72.0, "%s attic ramp entry bridge should cover the gap after the upper ramp landing; bounds=%s" % [track_id, str(bridge_bounds)])
+			var attic_entry_course_pad := root.get_node_or_null("Attic/RoomFinishes/AtticRampEntryCoursePad") as MeshInstance3D
+			assert_true(attic_entry_course_pad != null, "%s attic should include a flush drive pad after the ramp-entry bridge" % track_id)
+			if attic_entry_course_pad != null:
+				var pad_bounds := _mesh_instance_global_aabb(attic_entry_course_pad)
+				assert_true(absf(pad_bounds.end.y - 104.60) <= 0.05, "%s attic ramp entry course pad should be flush with attic/ramp floor datum; bounds=%s" % [track_id, str(pad_bounds)])
+				assert_true(pad_bounds.position.x <= -20.0 and pad_bounds.end.x <= 46.1, "%s attic ramp entry course pad should stay on the attic-course side of the knee wall; bounds=%s" % [track_id, str(pad_bounds)])
+				assert_true(pad_bounds.position.z <= -71.0 and pad_bounds.end.z >= -40.0, "%s attic ramp entry course pad should let racers fully enter after the knee-wall opening; bounds=%s" % [track_id, str(pad_bounds)])
 		for seam_landing_data in [
 			{"node": "UpperToAtticRampSwitchbackLanding", "surface_y": 80.00},
 		]:
@@ -1658,6 +1673,8 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			Vector3(20, 52.6, 126),
 			Vector3(40, 52.6, 126),
 			Vector3(66, 52.6, 10),
+			Vector3(54, 52.6, -10),
+			Vector3(66, 52.6, -10),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(upper_hall_floor, sample), "%s upper hall landing floor should cover visible hall sample %s without looking missing" % [track_id, str(sample)])
 		var stair_opening := AABB(Vector3(48.0, 50.0, 18.0), Vector3(36.0, 4.0, 128.0))
