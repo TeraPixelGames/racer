@@ -729,6 +729,7 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 		if main_ramp_lower_landing != null and main_ramp_upper_landing != null:
 			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
+			assert_true(lower_bounds.position.x >= 51.95, "%s integrated ramp lower landing should sit inward from the first-floor wall instead of hugging it; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(lower_bounds.end.z <= 134.05, "%s integrated ramp lower landing should sit inside the foyer approach, not against the front wall; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(lower_bounds.position.z >= 105.95, "%s integrated ramp lower landing should provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
@@ -1366,6 +1367,14 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		if rail != null:
 			assert_true(bool(rail.get_meta("stairwell_opening_part", false)), "%s %s should be tagged as part of the stairwell opening guardrail" % [track_id, rail_path])
 			assert_equal(str(rail.get_meta("collision_policy", "")), "visual_guardrail_no_gameplay_collision", "%s stairwell guardrail should not create gameplay collision until authored as a named boundary" % track_id)
+			var rail_bounds := _mesh_instance_global_aabb(rail as MeshInstance3D)
+			assert_true(rail_bounds.position.z >= 84.5, "%s stairwell guardrail %s should visually frame the front stair entry opening instead of the old full-house slot; bounds=%s" % [track_id, rail_path, str(rail_bounds)])
+	for trim_path in ["UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallStairOpeningFloorTrimWest", "UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallStairOpeningFloorTrimNorth", "UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallStairOpeningFloorTrimSouth"]:
+		var trim := root.get_node_or_null(trim_path) as MeshInstance3D
+		assert_true(trim != null, "%s should include front stairwell floor trim %s" % [track_id, trim_path])
+		if trim != null:
+			var trim_bounds := _mesh_instance_global_aabb(trim)
+			assert_true(trim_bounds.position.z >= 84.5, "%s stairwell floor trim %s should be moved to the front stair opening; bounds=%s" % [track_id, trim_path, str(trim_bounds)])
 	var attic_tread := root.get_node_or_null("VerticalConnectors/AtticRearStairTread06") as MeshInstance3D
 	assert_true(attic_tread != null and attic_tread.visible, "%s attic access should be a visible stair tread run, not a ladder" % track_id)
 	var attic_lower := root.get_node_or_null("VerticalConnectors/AtticRearStairLowerLandingSurface") as MeshInstance3D

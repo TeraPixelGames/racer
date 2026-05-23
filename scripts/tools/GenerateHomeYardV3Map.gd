@@ -30,7 +30,7 @@ const ATTIC_ROOM_FLOOR_TOP_Y := 104.60
 const HOME_NAV_THRESHOLD_VISUAL_THICKNESS := 0.08
 const HOME_NAV_RAMP_THICKNESS := 0.45
 const MAIN_STAIR_X := 70.0
-const MAIN_STAIR_RAMP_X := 54.0
+const MAIN_STAIR_RAMP_X := 60.0
 const MAIN_STAIR_FLIGHT_WIDTH := 14.0
 const MAIN_STAIR_RAMP_WIDTH := 8.0
 const MAIN_STAIR_TREAD_COUNT := 22
@@ -42,6 +42,10 @@ const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 120.0
 const MAIN_STAIR_RAMP_UPPER_LANDING_Z := 14.0
 const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
 const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
+const MAIN_STAIR_FRONT_OPENING_MIN_Z := 88.0
+const MAIN_STAIR_FRONT_OPENING_MAX_Z := 146.0
+const MAIN_STAIR_FRONT_OPENING_CENTER_Z := (MAIN_STAIR_FRONT_OPENING_MIN_Z + MAIN_STAIR_FRONT_OPENING_MAX_Z) * 0.5
+const MAIN_STAIR_FRONT_OPENING_SIZE_Z := MAIN_STAIR_FRONT_OPENING_MAX_Z - MAIN_STAIR_FRONT_OPENING_MIN_Z
 const ATTIC_STAIR_X := 70.0
 const ATTIC_STAIR_RAMP_X := 54.0
 const ATTIC_STAIR_LOWER_Z := -6.0
@@ -541,8 +545,8 @@ func _add_main_floor_ceiling_with_stairwell_shaft(root: Node3D, parent: Node3D) 
 	_add_box(root, ceiling, "MainCeilingSouthOfStairShaft", Vector3(MAIN_STAIR_X, 40.8, 147.5), Vector3(36, 1.6, 3), color, false)
 	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnNorth", Vector3(MAIN_STAIR_X, 46.4, MAIN_STAIR_SHAFT_MIN.z), Vector3(36, 11.2, 2.0), color.darkened(0.15))
 	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnSouth", Vector3(MAIN_STAIR_X, 46.4, MAIN_STAIR_SHAFT_MAX.z), Vector3(36, 11.2, 2.0), color.darkened(0.15))
-	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, 46.4, 82), Vector3(2.0, 11.2, 128), color.darkened(0.15))
-	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, 46.4, 82), Vector3(2.0, 11.2, 128), color.darkened(0.15))
+	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, 46.4, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(2.0, 11.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), color.darkened(0.15))
+	_add_stairwell_soffit_return(root, ceiling, "MainStairShaftReturnEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, 46.4, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(2.0, 11.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), color.darkened(0.15))
 
 func _add_stairwell_soffit_return(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color) -> void:
 	var return_piece := _add_box(root, parent, node_name, position, size, color, false)
@@ -605,8 +609,8 @@ func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	north_landing_floor.set_meta("support_face", "UpperHallLandingFloorNorthApproach")
 	north_landing_floor.set_meta("validation_gate", "patches the visible upper stair/ramp exit without covering the MainStairEntryToUpperHall opening AABB")
 	var trim_color := Color(0.39, 0.33, 0.26)
-	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(47.0, 52.85, 82), Vector3(1.8, 1.2, 128), trim_color, false)
-	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(66.0, 52.85, 17.2), Vector3(36, 1.2, 1.6), trim_color, false)
+	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(47.0, 52.85, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(1.8, 1.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), trim_color, false)
+	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(66.0, 52.85, MAIN_STAIR_FRONT_OPENING_MIN_Z - 0.8), Vector3(36, 1.2, 1.6), trim_color, false)
 	var south_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimSouth", Vector3(66.0, 52.85, 146.8), Vector3(36, 1.2, 1.6), trim_color, false)
 	for trim in [west_edge, north_edge, south_edge]:
 		trim.set_meta("owner_volume", "upper_front_hall")
@@ -626,12 +630,12 @@ func _add_upper_floor_ceiling_with_attic_hatch(root: Node3D, parent: Node3D) -> 
 
 func _add_stairwell_guardrail(root: Node3D, parent: Node3D) -> void:
 	var rail_color := Color(0.38, 0.30, 0.22)
-	_add_guardrail_segment(root, parent, "MainStairOpeningRailNorth", Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y + 7.2, MAIN_STAIR_SHAFT_MIN.z), Vector3(36, 2.2, 2.2), rail_color)
-	_add_guardrail_segment(root, parent, "MainStairOpeningRailWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 82), Vector3(2.2, 2.2, 128), rail_color)
-	_add_guardrail_segment(root, parent, "MainStairOpeningRailEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, 82), Vector3(2.2, 2.2, 128), rail_color)
+	_add_guardrail_segment(root, parent, "MainStairOpeningRailNorth", Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y + 7.2, MAIN_STAIR_FRONT_OPENING_MIN_Z), Vector3(36, 2.2, 2.2), rail_color)
+	_add_guardrail_segment(root, parent, "MainStairOpeningRailWest", Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(2.2, 2.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), rail_color)
+	_add_guardrail_segment(root, parent, "MainStairOpeningRailEast", Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 7.2, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(2.2, 2.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), rail_color)
 	var post_positions := [
-		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MIN.z),
-		Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MIN.z),
+		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_FRONT_OPENING_MIN_Z),
+		Vector3(MAIN_STAIR_SHAFT_MAX.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_FRONT_OPENING_MIN_Z),
 		Vector3(MAIN_STAIR_SHAFT_MIN.x, UPPER_ROOM_FLOOR_TOP_Y + 4.0, MAIN_STAIR_SHAFT_MAX.z),
 	]
 	for i in range(post_positions.size()):

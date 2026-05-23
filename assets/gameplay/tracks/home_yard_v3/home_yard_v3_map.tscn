@@ -2304,14 +2304,14 @@ albedo_color = Color(0.6715, 0.63750005, 0.56100005, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_unvji"]
-size = Vector3(2, 11.2, 128)
+size = Vector3(2, 11.2, 58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gm16m"]
 albedo_color = Color(0.6715, 0.63750005, 0.56100005, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_fm2nv"]
-size = Vector3(2, 11.2, 128)
+size = Vector3(2, 11.2, 58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bb23k"]
 albedo_color = Color(0.58, 0.56, 0.5, 1)
@@ -2717,7 +2717,7 @@ albedo_color = Color(0.39, 0.33, 0.26, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_63aew"]
-size = Vector3(1.8, 1.2, 128)
+size = Vector3(1.8, 1.2, 58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3msto"]
 albedo_color = Color(0.39, 0.33, 0.26, 1)
@@ -2765,14 +2765,14 @@ albedo_color = Color(0.38, 0.3, 0.22, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_c6e43"]
-size = Vector3(2.2, 2.2, 128)
+size = Vector3(2.2, 2.2, 58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc4ua"]
 albedo_color = Color(0.38, 0.3, 0.22, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_73njw"]
-size = Vector3(2.2, 2.2, 128)
+size = Vector3(2.2, 2.2, 58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goiaq"]
 albedo_color = Color(0.3496, 0.27600002, 0.2024, 1)
@@ -5201,12 +5201,12 @@ metadata/vertical_circulation_contract = {
 "node": "MainStairUpperLandingSurface",
 "size": Vector3(34, 0.6, 20)
 }, {
-"end": Vector3(54, 52.6, 24),
+"end": Vector3(60, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
-"lower_landing_center": Vector3(54, 0.05, 120),
+"lower_landing_center": Vector3(60, 0.05, 120),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(54, 0.05, 134),
-"upper_landing_center": Vector3(54, 52.6, 14)
+"start": Vector3(60, 0.05, 134),
+"upper_landing_center": Vector3(60, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -5325,14 +5325,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 120),
+"position": Vector3(60, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 14),
+"position": Vector3(60, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -17883,7 +17883,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairShaftReturnWest" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 46.4, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 46.4, 117)
 material_override = SubResource("StandardMaterial3D_8u8gm")
 mesh = SubResource("BoxMesh_unvji")
 metadata/generated_scene_provenance = {
@@ -17930,7 +17930,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairShaftReturnEast" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 46.4, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 46.4, 117)
 material_override = SubResource("StandardMaterial3D_gm16m")
 mesh = SubResource("BoxMesh_fm2nv")
 metadata/generated_scene_provenance = {
@@ -20569,7 +20569,7 @@ metadata/support_face = "UpperHallLandingFloorNorthApproach"
 shape = SubResource("BoxShape3D_n4yhy")
 
 [node name="UpperHallStairOpeningFloorTrimWest" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 52.85, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 52.85, 117)
 material_override = SubResource("StandardMaterial3D_cyyvv")
 mesh = SubResource("BoxMesh_63aew")
 metadata/generated_scene_provenance = {
@@ -20612,7 +20612,7 @@ metadata/support_face = "UpperFloorDeckUpperHallWest"
 metadata/collision_policy = "visual_trim_no_gameplay_collision"
 
 [node name="UpperHallStairOpeningFloorTrimNorth" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.85, 17.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.85, 87.2)
 material_override = SubResource("StandardMaterial3D_3msto")
 mesh = SubResource("BoxMesh_o8ymq")
 metadata/generated_scene_provenance = {
@@ -20797,7 +20797,7 @@ metadata/node_path = "UpperFloor/RoomFinishes/GlamDressing/GlamDressingFrontFloo
 shape = SubResource("BoxShape3D_54w8d")
 
 [node name="MainStairOpeningRailNorth" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 59.8, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 59.8, 88)
 material_override = SubResource("StandardMaterial3D_gsk5f")
 mesh = SubResource("BoxMesh_33etw")
 metadata/generated_scene_provenance = {
@@ -20844,7 +20844,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailWest" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 59.8, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 59.8, 117)
 material_override = SubResource("StandardMaterial3D_54y7v")
 mesh = SubResource("BoxMesh_c6e43")
 metadata/generated_scene_provenance = {
@@ -20891,7 +20891,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailEast" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 59.8, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 59.8, 117)
 material_override = SubResource("StandardMaterial3D_bc4ua")
 mesh = SubResource("BoxMesh_73njw")
 metadata/generated_scene_provenance = {
@@ -20938,7 +20938,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailPost00" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 56.6, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 56.6, 88)
 material_override = SubResource("StandardMaterial3D_goiaq")
 mesh = SubResource("BoxMesh_dqswn")
 metadata/generated_scene_provenance = {
@@ -20985,7 +20985,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailPost01" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 56.6, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 56.6, 88)
 material_override = SubResource("StandardMaterial3D_1yi3t")
 mesh = SubResource("BoxMesh_v67g6")
 metadata/generated_scene_provenance = {
@@ -28502,12 +28502,12 @@ metadata/vertical_circulation_contract = {
 "node": "MainStairUpperLandingSurface",
 "size": Vector3(34, 0.6, 20)
 }, {
-"end": Vector3(54, 52.6, 24),
+"end": Vector3(60, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
-"lower_landing_center": Vector3(54, 0.05, 120),
+"lower_landing_center": Vector3(60, 0.05, 120),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(54, 0.05, 134),
-"upper_landing_center": Vector3(54, 52.6, 14)
+"start": Vector3(60, 0.05, 134),
+"upper_landing_center": Vector3(60, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -33664,14 +33664,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 120),
+"position": Vector3(60, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 14),
+"position": Vector3(60, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34318,11 +34318,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Main Ramp Lower" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 0.9, 120)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 60, 0.9, 120)
 metadata/home_navigation_anchor = {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 120),
+"position": Vector3(60, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
@@ -34330,11 +34330,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = true
 
 [node name="Anchor_Upper Hall Landing" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, 14)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 60, 53.2, 14)
 metadata/home_navigation_anchor = {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 14),
+"position": Vector3(60, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34701,7 +34701,7 @@ metadata/route_clearance = "floor_collision_owns_traversal"
 metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="MainStairIntegratedToyRampLane" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 54, 26.121977, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 60, 26.121977, 79)
 material_override = SubResource("StandardMaterial3D_fijjg")
 mesh = SubResource("BoxMesh_q8tsa")
 metadata/generated_scene_provenance = {
@@ -34744,8 +34744,8 @@ metadata/home_navigation_vertical_link_id = "MainFloorToUpperToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(54, 0.05, 134)
-metadata/support_surface_end = Vector3(54, 52.6, 24)
+metadata/support_surface_start = Vector3(60, 0.05, 134)
+metadata/support_surface_end = Vector3(60, 52.6, 24)
 metadata/finished_floor_top_y_start = 0.05
 metadata/finished_floor_top_y_end = 52.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -34756,7 +34756,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_e2dex")
 
 [node name="MainStairIntegratedToyRampLaneLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 57.35, 27.324999, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 63.35, 27.324999, 79)
 material_override = SubResource("StandardMaterial3D_rdf7p")
 mesh = SubResource("BoxMesh_a8osg")
 metadata/generated_scene_provenance = {
@@ -34799,7 +34799,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainStairIntegratedToyRampLaneRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 50.65, 27.324999, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 56.65, 27.324999, 79)
 material_override = SubResource("StandardMaterial3D_xkif6")
 mesh = SubResource("BoxMesh_qq8a7")
 metadata/generated_scene_provenance = {
@@ -34842,7 +34842,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainStairIntegratedToyRampLaneCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 54, 26.974998, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 60, 26.974998, 79)
 material_override = SubResource("StandardMaterial3D_gjw6m")
 mesh = SubResource("BoxMesh_jcmsv")
 metadata/generated_scene_provenance = {
@@ -34884,7 +34884,7 @@ metadata/node_path = "HomeNavigation/MainStairIntegratedToyRampLaneCenterWearStr
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainStairIntegratedRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, -0.35, 120)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -0.35, 120)
 material_override = SubResource("StandardMaterial3D_tvowb")
 mesh = SubResource("BoxMesh_5dvna")
 metadata/generated_scene_provenance = {
@@ -34934,7 +34934,7 @@ metadata/finished_floor_top_y = 0.050000012
 shape = SubResource("BoxShape3D_xev5r")
 
 [node name="MainStairIntegratedRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 52.2, 14)
 material_override = SubResource("StandardMaterial3D_snfrg")
 mesh = SubResource("BoxMesh_3u00i")
 metadata/generated_scene_provenance = {
