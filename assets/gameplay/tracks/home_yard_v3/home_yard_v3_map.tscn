@@ -1,4 +1,4 @@
-[gd_scene load_steps=1379 format=3]
+[gd_scene load_steps=1376 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenFridge.glb" id="1_dkcm6"]
 [ext_resource type="PackedScene" path="res://assets/source/kenney/furniture_kit/kitchenSink.glb" id="2_mgulr"]
@@ -4731,244 +4731,247 @@ albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_an5uf"]
-size = Vector3(26, 0.28, 5)
+size = Vector3(26, 0.08, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_snxqh"]
-size = Vector3(26, 0.28, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewt6v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snxqh"]
 albedo_color = Color(0.18, 0.22, 0.24, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_hp4mn"]
+[sub_resource type="BoxMesh" id="BoxMesh_ewt6v"]
 size = Vector3(5, 0.22, 42)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00byf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp4mn"]
 albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_acncn"]
-size = Vector3(70, 0.28, 5)
+[sub_resource type="BoxMesh" id="BoxMesh_00byf"]
+size = Vector3(70, 0.08, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mafik"]
-size = Vector3(70, 0.28, 5)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acncn"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_mafik"]
+size = Vector3(70, 0.08, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i10lh"]
 albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_vsyda"]
-size = Vector3(70, 0.28, 5)
+size = Vector3(5, 0.08, 32)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v7x7e"]
-size = Vector3(70, 0.28, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qxxn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7x7e"]
 albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_nedod"]
-size = Vector3(5, 0.28, 32)
+[sub_resource type="BoxMesh" id="BoxMesh_4qxxn"]
+size = Vector3(5, 0.08, 24)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q8pir"]
-size = Vector3(5, 0.28, 32)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nedod"]
+albedo_color = Color(0.2, 0.18, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_q8pir"]
+size = Vector3(48, 0.08, 16)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ph3b"]
 albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_4m7xr"]
-size = Vector3(5, 0.28, 24)
+size = Vector3(32, 0.08, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_odxab"]
-size = Vector3(5, 0.28, 24)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp7e4"]
-albedo_color = Color(0.2, 0.18, 0.14, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odxab"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_faxgg"]
-size = Vector3(48, 0.35, 16)
+[sub_resource type="BoxMesh" id="BoxMesh_qp7e4"]
+size = Vector3(30, 0.08, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rvglu"]
-size = Vector3(48, 0.35, 16)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faxgg"]
+albedo_color = Color(0.08, 0.12, 0.14, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvglu"]
+size = Vector3(5, 0.08, 28)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pohe"]
-albedo_color = Color(0.08, 0.12, 0.14, 1)
-roughness = 0.72
-
-[sub_resource type="BoxMesh" id="BoxMesh_iju2q"]
-size = Vector3(32, 0.25, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1j8h6"]
-size = Vector3(32, 0.25, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oml0s"]
-albedo_color = Color(0.08, 0.12, 0.14, 1)
-roughness = 0.72
-
-[sub_resource type="BoxMesh" id="BoxMesh_1jt8k"]
-size = Vector3(30, 0.25, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yvid7"]
-size = Vector3(30, 0.25, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf1f4"]
-albedo_color = Color(0.08, 0.12, 0.14, 1)
-roughness = 0.72
-
-[sub_resource type="BoxMesh" id="BoxMesh_hm55f"]
-size = Vector3(5, 0.25, 28)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jhyfj"]
-size = Vector3(5, 0.25, 28)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smar"]
 albedo_color = Color(0.58, 0.39, 0.22, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_o77kb"]
-size = Vector3(14, 1, 63.41863)
+[sub_resource type="BoxMesh" id="BoxMesh_iju2q"]
+size = Vector3(14, 0.45, 63.74639)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gxkse"]
-size = Vector3(14, 1, 63.41863)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j8h6"]
+size = Vector3(14, 0.45, 63.74639)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu82p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oml0s"]
 albedo_color = Color(0.3944, 0.2652, 0.1496, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_capdf"]
-size = Vector3(0.9, 1.8, 64.61863)
+[sub_resource type="BoxMesh" id="BoxMesh_1jt8k"]
+size = Vector3(0.9, 1.8, 64.94639)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5dcc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvid7"]
 albedo_color = Color(0.3944, 0.2652, 0.1496, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_qnrqs"]
-size = Vector3(0.9, 1.8, 64.61863)
+[sub_resource type="BoxMesh" id="BoxMesh_sf1f4"]
+size = Vector3(0.9, 1.8, 64.94639)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plrhd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hm55f"]
 albedo_color = Color(0.66692, 0.59586, 0.53227997, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_x0ryh"]
-size = Vector3(11, 0.12, 61.41863)
+[sub_resource type="BoxMesh" id="BoxMesh_jhyfj"]
+size = Vector3(11, 0.12, 61.74639)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oohjh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smar"]
 albedo_color = Color(0.61359996, 0.43879998, 0.28239998, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_wy1g0"]
-size = Vector3(14, 1, 63.955475)
+[sub_resource type="BoxMesh" id="BoxMesh_o77kb"]
+size = Vector3(14, 0.45, 63.601963)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gu1wq"]
-size = Vector3(14, 1, 63.955475)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxkse"]
+size = Vector3(14, 0.45, 63.601963)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y7fg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu82p"]
 albedo_color = Color(0.41724798, 0.29838398, 0.192032, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_62jty"]
-size = Vector3(0.9, 1.8, 65.15547)
+[sub_resource type="BoxMesh" id="BoxMesh_capdf"]
+size = Vector3(0.9, 1.8, 64.80196)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga7l8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5dcc"]
 albedo_color = Color(0.41724798, 0.29838398, 0.192032, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_dkdg6"]
-size = Vector3(0.9, 1.8, 65.15547)
+[sub_resource type="BoxMesh" id="BoxMesh_qnrqs"]
+size = Vector3(0.9, 1.8, 64.80196)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e244b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plrhd"]
 albedo_color = Color(0.6794864, 0.6141112, 0.5556176, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_c20w4"]
-size = Vector3(11, 0.12, 61.955475)
+[sub_resource type="BoxMesh" id="BoxMesh_x0ryh"]
+size = Vector3(11, 0.12, 61.601963)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjulv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oohjh"]
 albedo_color = Color(0.52199996, 0.35099998, 0.198, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_1c1ca"]
+[sub_resource type="BoxMesh" id="BoxMesh_wy1g0"]
 size = Vector3(18, 0.8, 18)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d0bx4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu1wq"]
 size = Vector3(18, 0.8, 18)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spya7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y7fg"]
+albedo_color = Color(0.5104, 0.3432, 0.1936, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_62jty"]
+size = Vector3(18, 0.8, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga7l8"]
+size = Vector3(18, 0.8, 18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkdg6"]
 albedo_color = Color(0.5336, 0.3588, 0.2024, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_aqewe"]
+[sub_resource type="BoxMesh" id="BoxMesh_e244b"]
 size = Vector3(18, 0.8, 20)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l6k46"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c20w4"]
 size = Vector3(18, 0.8, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jjbc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjulv"]
 albedo_color = Color(0.63, 0.43, 0.24, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_7i2ut"]
-size = Vector3(14, 1, 37.160496)
+[sub_resource type="BoxMesh" id="BoxMesh_1c1ca"]
+size = Vector3(14, 0.45, 37.772476)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_eu5ch"]
-size = Vector3(14, 1, 37.160496)
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0bx4"]
+size = Vector3(14, 0.45, 37.772476)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ixi0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spya7"]
 albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_fj2sj"]
-size = Vector3(0.9, 1.8, 38.360497)
+[sub_resource type="BoxMesh" id="BoxMesh_aqewe"]
+size = Vector3(0.9, 1.8, 38.972477)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evtxg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6k46"]
 albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_dvh6u"]
-size = Vector3(0.9, 1.8, 38.360497)
+[sub_resource type="BoxMesh" id="BoxMesh_6jjbc"]
+size = Vector3(0.9, 1.8, 38.972477)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4o61"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7i2ut"]
 albedo_color = Color(0.68561995, 0.61082, 0.53976, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_u6jw6"]
-size = Vector3(11, 0.12, 35.160496)
+[sub_resource type="BoxMesh" id="BoxMesh_eu5ch"]
+size = Vector3(11, 0.12, 35.772476)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44vi0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ixi0"]
 albedo_color = Color(0.6596, 0.4756, 0.3008, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_55tsq"]
-size = Vector3(14, 1, 37.83784)
+[sub_resource type="BoxMesh" id="BoxMesh_fj2sj"]
+size = Vector3(14, 0.45, 37.271435)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n2cq3"]
-size = Vector3(14, 1, 37.83784)
+[sub_resource type="BoxShape3D" id="BoxShape3D_evtxg"]
+size = Vector3(14, 0.45, 37.271435)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jlqa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvh6u"]
 albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_hema6"]
-size = Vector3(0.9, 1.8, 39.03784)
+[sub_resource type="BoxMesh" id="BoxMesh_y4o61"]
+size = Vector3(0.9, 1.8, 38.471436)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x7ef"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6jw6"]
 albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_riivm"]
-size = Vector3(0.9, 1.8, 39.03784)
+[sub_resource type="BoxMesh" id="BoxMesh_44vi0"]
+size = Vector3(0.9, 1.8, 38.471436)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8wtv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55tsq"]
 albedo_color = Color(0.6966904, 0.6278744, 0.56249917, 1)
 roughness = 0.72
 
-[sub_resource type="BoxMesh" id="BoxMesh_dircy"]
-size = Vector3(11, 0.12, 35.83784)
+[sub_resource type="BoxMesh" id="BoxMesh_n2cq3"]
+size = Vector3(11, 0.12, 35.271435)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jlqa"]
+albedo_color = Color(0.567, 0.387, 0.21599999, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_hema6"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4x7ef"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riivm"]
+albedo_color = Color(0.55439997, 0.3784, 0.2112, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_i8wtv"]
+size = Vector3(18, 0.8, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dircy"]
+size = Vector3(18, 0.8, 22)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4orx"]
-albedo_color = Color(0.567, 0.387, 0.21599999, 1)
+albedo_color = Color(0.5796, 0.39560002, 0.2208, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_vn0sx"]
@@ -4977,17 +4980,7 @@ size = Vector3(18, 0.8, 22)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4t1th"]
 size = Vector3(18, 0.8, 22)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h86q6"]
-albedo_color = Color(0.5796, 0.39560002, 0.2208, 1)
-roughness = 0.72
-
-[sub_resource type="BoxMesh" id="BoxMesh_0dpue"]
-size = Vector3(18, 0.8, 22)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_46g2n"]
-size = Vector3(18, 0.8, 22)
-
-[sub_resource type="Environment" id="Environment_bx8kt"]
+[sub_resource type="Environment" id="Environment_h86q6"]
 background_mode = 1
 background_color = Color(0.67, 0.8, 0.94, 1)
 ambient_light_source = 2
@@ -35270,7 +35263,7 @@ metadata/home_navigation_vertical_link = {
 metadata/validation_only = true
 
 [node name="FrontDoorDriveThresholdStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.35, 145)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.09, 145)
 material_override = SubResource("StandardMaterial3D_3u00i")
 mesh = SubResource("BoxMesh_an5uf")
 metadata/generated_scene_provenance = {
@@ -35290,14 +35283,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low drivable strip connects front walk to foyer without an invisible floor"
+"why_exists": "visual strip marks the front walk to foyer transition without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "front_door_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low drivable strip connects front walk to foyer without an invisible floor"
+metadata/why_exists = "visual strip marks the front walk to foyer transition without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35309,16 +35302,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/FrontDoorDriveThresholdStrip"
-
-[node name="FrontDoorDriveThresholdStripCollision" type="StaticBody3D" parent="HomeNavigation/FrontDoorDriveThresholdStrip"]
-
-[node name="@CollisionShape3D@82" type="CollisionShape3D" parent="HomeNavigation/FrontDoorDriveThresholdStrip/FrontDoorDriveThresholdStripCollision"]
-shape = SubResource("BoxShape3D_snxqh")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="LivingEntryGuideRunner" type="MeshInstance3D" parent="HomeNavigation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0.42, 74)
-material_override = SubResource("StandardMaterial3D_ewt6v")
-mesh = SubResource("BoxMesh_hp4mn")
+material_override = SubResource("StandardMaterial3D_snxqh")
+mesh = SubResource("BoxMesh_ewt6v")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "living_entry_guide",
@@ -35357,9 +35348,9 @@ metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/LivingEntryGuideRunner"
 
 [node name="KitchenCasedOpeningDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0.42, 15)
-material_override = SubResource("StandardMaterial3D_00byf")
-mesh = SubResource("BoxMesh_acncn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0.09, 15)
+material_override = SubResource("StandardMaterial3D_hp4mn")
+mesh = SubResource("BoxMesh_00byf")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "kitchen_threshold",
@@ -35377,14 +35368,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low drivable threshold marks the kitchen/dining opening"
+"why_exists": "visual strip marks the kitchen/dining opening without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "kitchen_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low drivable threshold marks the kitchen/dining opening"
+metadata/why_exists = "visual strip marks the kitchen/dining opening without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35396,16 +35387,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/KitchenCasedOpeningDriveStrip"
-
-[node name="KitchenCasedOpeningDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/KitchenCasedOpeningDriveStrip"]
-
-[node name="@CollisionShape3D@83" type="CollisionShape3D" parent="HomeNavigation/KitchenCasedOpeningDriveStrip/KitchenCasedOpeningDriveStripCollision"]
-shape = SubResource("BoxShape3D_mafik")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="PlayroomCasedOpeningDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.42, 15)
-material_override = SubResource("StandardMaterial3D_i10lh")
-mesh = SubResource("BoxMesh_vsyda")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.09, 15)
+material_override = SubResource("StandardMaterial3D_acncn")
+mesh = SubResource("BoxMesh_mafik")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "playroom_threshold",
@@ -35423,14 +35412,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low drivable threshold marks the playroom/living opening"
+"why_exists": "visual strip marks the playroom/living opening without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "playroom_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low drivable threshold marks the playroom/living opening"
+metadata/why_exists = "visual strip marks the playroom/living opening without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35442,16 +35431,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/PlayroomCasedOpeningDriveStrip"
-
-[node name="PlayroomCasedOpeningDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/PlayroomCasedOpeningDriveStrip"]
-
-[node name="@CollisionShape3D@84" type="CollisionShape3D" parent="HomeNavigation/PlayroomCasedOpeningDriveStrip/PlayroomCasedOpeningDriveStripCollision"]
-shape = SubResource("BoxShape3D_v7x7e")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="KitchenPlayroomDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0.42, -28)
-material_override = SubResource("StandardMaterial3D_4qxxn")
-mesh = SubResource("BoxMesh_nedod")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0.09, -28)
+material_override = SubResource("StandardMaterial3D_i10lh")
+mesh = SubResource("BoxMesh_vsyda")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "kitchen_playroom_threshold",
@@ -35469,14 +35456,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low strip marks the wide opening between kitchen and playroom"
+"why_exists": "visual strip marks the wide opening between kitchen and playroom without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "kitchen_playroom_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low strip marks the wide opening between kitchen and playroom"
+metadata/why_exists = "visual strip marks the wide opening between kitchen and playroom without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35488,16 +35475,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/KitchenPlayroomDriveStrip"
-
-[node name="KitchenPlayroomDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/KitchenPlayroomDriveStrip"]
-
-[node name="@CollisionShape3D@85" type="CollisionShape3D" parent="HomeNavigation/KitchenPlayroomDriveStrip/KitchenPlayroomDriveStripCollision"]
-shape = SubResource("BoxShape3D_q8pir")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="GarageServiceDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.42, 70)
-material_override = SubResource("StandardMaterial3D_3ph3b")
-mesh = SubResource("BoxMesh_4m7xr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.09, 70)
+material_override = SubResource("StandardMaterial3D_v7x7e")
+mesh = SubResource("BoxMesh_4qxxn")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "garage_threshold",
@@ -35515,14 +35500,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low strip marks the service doorway to the garage"
+"why_exists": "visual strip marks the service doorway to the garage without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "garage_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low strip marks the service doorway to the garage"
+metadata/why_exists = "visual strip marks the service doorway to the garage without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35534,16 +35519,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/GarageServiceDriveStrip"
-
-[node name="GarageServiceDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/GarageServiceDriveStrip"]
-
-[node name="@CollisionShape3D@86" type="CollisionShape3D" parent="HomeNavigation/GarageServiceDriveStrip/GarageServiceDriveStripCollision"]
-shape = SubResource("BoxShape3D_odxab")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="DoggieDoorDriveBridge" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.45, -130)
-material_override = SubResource("StandardMaterial3D_qp7e4")
-mesh = SubResource("BoxMesh_faxgg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.09, -130)
+material_override = SubResource("StandardMaterial3D_nedod")
+mesh = SubResource("BoxMesh_q8pir")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "doggie_door_bridge",
@@ -35561,14 +35544,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "oversized doggie-door bridge connects playroom free roam to the deck/patio"
+"why_exists": "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "doggie_door_bridge"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "oversized doggie-door bridge connects playroom free roam to the deck/patio"
+metadata/why_exists = "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35580,16 +35563,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/DoggieDoorDriveBridge"
-
-[node name="DoggieDoorDriveBridgeCollision" type="StaticBody3D" parent="HomeNavigation/DoggieDoorDriveBridge"]
-
-[node name="@CollisionShape3D@87" type="CollisionShape3D" parent="HomeNavigation/DoggieDoorDriveBridge/DoggieDoorDriveBridgeCollision"]
-shape = SubResource("BoxShape3D_rvglu")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="UpperHallBedroomDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118, 52.98, 106)
-material_override = SubResource("StandardMaterial3D_4pohe")
-mesh = SubResource("BoxMesh_iju2q")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118, 52.64, 106)
+material_override = SubResource("StandardMaterial3D_3ph3b")
+mesh = SubResource("BoxMesh_4m7xr")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "bedroom_threshold",
@@ -35607,14 +35588,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low strip marks bedroom door traversal"
+"why_exists": "visual strip marks bedroom door traversal without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "bedroom_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low strip marks bedroom door traversal"
+metadata/why_exists = "visual strip marks bedroom door traversal without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35626,16 +35607,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/UpperHallBedroomDriveStrip"
-
-[node name="UpperHallBedroomDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/UpperHallBedroomDriveStrip"]
-
-[node name="@CollisionShape3D@88" type="CollisionShape3D" parent="HomeNavigation/UpperHallBedroomDriveStrip/UpperHallBedroomDriveStripCollision"]
-shape = SubResource("BoxShape3D_1j8h6")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 52.67999938875437
 
 [node name="UpperHallGlamDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 52.98, 106)
-material_override = SubResource("StandardMaterial3D_oml0s")
-mesh = SubResource("BoxMesh_1jt8k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 52.64, 106)
+material_override = SubResource("StandardMaterial3D_odxab")
+mesh = SubResource("BoxMesh_qp7e4")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "glam_threshold",
@@ -35653,14 +35632,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low strip marks glam closet door traversal"
+"why_exists": "visual strip marks glam closet door traversal without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "glam_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low strip marks glam closet door traversal"
+metadata/why_exists = "visual strip marks glam closet door traversal without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35672,16 +35651,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/UpperHallGlamDriveStrip"
-
-[node name="UpperHallGlamDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/UpperHallGlamDriveStrip"]
-
-[node name="@CollisionShape3D@89" type="CollisionShape3D" parent="HomeNavigation/UpperHallGlamDriveStrip/UpperHallGlamDriveStripCollision"]
-shape = SubResource("BoxShape3D_yvid7")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 52.67999938875437
 
 [node name="BedroomGlamDriveStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 52.98, 46)
-material_override = SubResource("StandardMaterial3D_sf1f4")
-mesh = SubResource("BoxMesh_hm55f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 52.64, 46)
+material_override = SubResource("StandardMaterial3D_faxgg")
+mesh = SubResource("BoxMesh_rvglu")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "bedroom_glam_threshold",
@@ -35699,14 +35676,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "low strip marks bedroom-to-glam cased opening"
+"why_exists": "visual strip marks bedroom-to-glam traversal without adding a raised collision lip"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "bedroom_glam_threshold"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "low strip marks bedroom-to-glam cased opening"
+metadata/why_exists = "visual strip marks bedroom-to-glam traversal without adding a raised collision lip"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35718,16 +35695,14 @@ metadata/deletion_rule = "delete only if the navigation contract removes this fr
 metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
 metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
 metadata/node_path = "HomeNavigation/BedroomGlamDriveStrip"
-
-[node name="BedroomGlamDriveStripCollision" type="StaticBody3D" parent="HomeNavigation/BedroomGlamDriveStrip"]
-
-[node name="@CollisionShape3D@90" type="CollisionShape3D" parent="HomeNavigation/BedroomGlamDriveStrip/BedroomGlamDriveStripCollision"]
-shape = SubResource("BoxShape3D_jhyfj")
+metadata/collision_policy = "visual_threshold_no_gameplay_collision"
+metadata/route_clearance = "floor_collision_owns_traversal"
+metadata/finished_floor_top_y = 52.67999938875437
 
 [node name="MainFloorToUpperRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 44, 13.675, 65)
-material_override = SubResource("StandardMaterial3D_6smar")
-mesh = SubResource("BoxMesh_o77kb")
+transform = Transform3D(-1, 3.6273935e-08, -7.954209e-08, 0, 0.9098554, 0.41492546, 8.742278e-08, 0.41492546, -0.9098554, 44, 13.070283, 65)
+material_override = SubResource("StandardMaterial3D_4pohe")
+mesh = SubResource("BoxMesh_iju2q")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperToyRamp",
@@ -35768,19 +35743,21 @@ metadata/home_navigation_vertical_link_id = "MainFloorToUpperToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(44, 0.85, 94)
+metadata/support_surface_start = Vector3(44, 0.05, 94)
 metadata/support_surface_end = Vector3(44, 26.5, 36)
+metadata/finished_floor_top_y_start = 0.05
+metadata/finished_floor_top_y_end = 26.5
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="MainFloorToUpperRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun"]
 
-[node name="@CollisionShape3D@91" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun/MainFloorToUpperRampLowerRunCollision"]
-shape = SubResource("BoxShape3D_gxkse")
+[node name="@CollisionShape3D@82" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerRun/MainFloorToUpperRampLowerRunCollision"]
+shape = SubResource("BoxShape3D_1j8h6")
 
 [node name="MainFloorToUpperRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 50.35, 14.675, 65)
-material_override = SubResource("StandardMaterial3D_eu82p")
-mesh = SubResource("BoxMesh_capdf")
+transform = Transform3D(-1, 3.6273935e-08, -7.954209e-08, 0, 0.9098554, 0.41492546, 8.742278e-08, 0.41492546, -0.9098554, 50.35, 14.275001, 65)
+material_override = SubResource("StandardMaterial3D_oml0s")
+mesh = SubResource("BoxMesh_1jt8k")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampLowerRun_edge_rail",
@@ -35821,9 +35798,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainFloorToUpperRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 37.65, 14.675, 65)
-material_override = SubResource("StandardMaterial3D_a5dcc")
-mesh = SubResource("BoxMesh_qnrqs")
+transform = Transform3D(-1, 3.6273935e-08, -7.954209e-08, 0, 0.9098554, 0.41492546, 8.742278e-08, 0.41492546, -0.9098554, 37.65, 14.275001, 65)
+material_override = SubResource("StandardMaterial3D_yvid7")
+mesh = SubResource("BoxMesh_sf1f4")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampLowerRun_edge_rail",
@@ -35864,9 +35841,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainFloorToUpperRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.5358603e-08, -7.9953175e-08, 0, 0.91455775, 0.40445527, 8.742278e-08, 0.40445527, -0.91455775, 44, 14.325, 65)
-material_override = SubResource("StandardMaterial3D_plrhd")
-mesh = SubResource("BoxMesh_x0ryh")
+transform = Transform3D(-1, 3.6273935e-08, -7.954209e-08, 0, 0.9098554, 0.41492546, 8.742278e-08, 0.41492546, -0.9098554, 44, 13.925, 65)
+material_override = SubResource("StandardMaterial3D_hm55f")
+mesh = SubResource("BoxMesh_jhyfj")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampLowerRun_center_wear_strip",
@@ -35906,9 +35883,9 @@ metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerRunCenterWearStrip
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainFloorToUpperRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 39.975, 7)
-material_override = SubResource("StandardMaterial3D_oohjh")
-mesh = SubResource("BoxMesh_wy1g0")
+transform = Transform3D(-1, 3.5875214e-08, -7.972271e-08, 0, 0.9119215, 0.41036463, 8.742278e-08, 0.41036463, -0.9119215, 44, 39.34482, 7)
+material_override = SubResource("StandardMaterial3D_6smar")
+mesh = SubResource("BoxMesh_o77kb")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperToyRamp",
@@ -35950,18 +35927,20 @@ metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(44, 26.5, 36)
-metadata/support_surface_end = Vector3(44, 53.45, -22)
+metadata/support_surface_end = Vector3(44, 52.6, -22)
+metadata/finished_floor_top_y_start = 26.5
+metadata/finished_floor_top_y_end = 52.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="MainFloorToUpperRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun"]
 
-[node name="@CollisionShape3D@92" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun/MainFloorToUpperRampUpperRunCollision"]
-shape = SubResource("BoxShape3D_gu1wq")
+[node name="@CollisionShape3D@83" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperRun/MainFloorToUpperRampUpperRunCollision"]
+shape = SubResource("BoxShape3D_gxkse")
 
 [node name="MainFloorToUpperRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 50.35, 40.975, 7)
-material_override = SubResource("StandardMaterial3D_5y7fg")
-mesh = SubResource("BoxMesh_62jty")
+transform = Transform3D(-1, 3.5875214e-08, -7.972271e-08, 0, 0.9119215, 0.41036463, 8.742278e-08, 0.41036463, -0.9119215, 50.35, 40.55, 7)
+material_override = SubResource("StandardMaterial3D_eu82p")
+mesh = SubResource("BoxMesh_capdf")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampUpperRun_edge_rail",
@@ -36002,9 +35981,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainFloorToUpperRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 37.65, 40.975, 7)
-material_override = SubResource("StandardMaterial3D_ga7l8")
-mesh = SubResource("BoxMesh_dkdg6")
+transform = Transform3D(-1, 3.5875214e-08, -7.972271e-08, 0, 0.9119215, 0.41036463, 8.742278e-08, 0.41036463, -0.9119215, 37.65, 40.55, 7)
+material_override = SubResource("StandardMaterial3D_a5dcc")
+mesh = SubResource("BoxMesh_qnrqs")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampUpperRun_edge_rail",
@@ -36045,9 +36024,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainFloorToUpperRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.6838816e-08, -7.9282046e-08, 0, 0.9068809, 0.42138696, 8.742278e-08, 0.42138696, -0.9068809, 44, 40.625, 7)
-material_override = SubResource("StandardMaterial3D_e244b")
-mesh = SubResource("BoxMesh_c20w4")
+transform = Transform3D(-1, 3.5875214e-08, -7.972271e-08, 0, 0.9119215, 0.41036463, 8.742278e-08, 0.41036463, -0.9119215, 44, 40.2, 7)
+material_override = SubResource("StandardMaterial3D_plrhd")
+mesh = SubResource("BoxMesh_x0ryh")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "MainFloorToUpperRampUpperRun_center_wear_strip",
@@ -36087,9 +36066,9 @@ metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperRunCenterWearStrip
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainFloorToUpperRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0.72, 98)
-material_override = SubResource("StandardMaterial3D_wjulv")
-mesh = SubResource("BoxMesh_1c1ca")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, -0.35, 98)
+material_override = SubResource("StandardMaterial3D_oohjh")
+mesh = SubResource("BoxMesh_wy1g0")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "main_ramp_lower_landing",
@@ -36107,14 +36086,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing gives racers a clear approach to the main-to-upper toy ramp"
+"why_exists": "landing gives racers a clear flush approach to the main-to-upper toy ramp"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "main_ramp_lower_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing gives racers a clear approach to the main-to-upper toy ramp"
+metadata/why_exists = "landing gives racers a clear flush approach to the main-to-upper toy ramp"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -36129,16 +36108,67 @@ metadata/node_path = "HomeNavigation/MainFloorToUpperRampLowerLanding"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 0.050000012
 
 [node name="MainFloorToUpperRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding"]
 
-[node name="@CollisionShape3D@93" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding/MainFloorToUpperRampLowerLandingCollision"]
-shape = SubResource("BoxShape3D_d0bx4")
+[node name="@CollisionShape3D@84" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampLowerLanding/MainFloorToUpperRampLowerLandingCollision"]
+shape = SubResource("BoxShape3D_gu1wq")
+
+[node name="MainFloorToUpperRampSwitchbackLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 26.1, 36)
+material_override = SubResource("StandardMaterial3D_5y7fg")
+mesh = SubResource("BoxMesh_62jty")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "main_ramp_switchback_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "main_ramp_switchback_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/MainFloorToUpperRampSwitchbackLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "main_ramp_switchback_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "mid landing joins the two main-to-upper ramp runs so racers do not hit a disconnected seam"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "main_ramp_switchback_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "mid landing joins the two main-to-upper ramp runs so racers do not hit a disconnected seam"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "main_ramp_switchback_landing start anchor"
+metadata/end_anchor = "main_ramp_switchback_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/MainFloorToUpperRampSwitchbackLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 26.50000038743019
+
+[node name="MainFloorToUpperRampSwitchbackLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampSwitchbackLanding"]
+
+[node name="@CollisionShape3D@85" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampSwitchbackLanding/MainFloorToUpperRampSwitchbackLandingCollision"]
+shape = SubResource("BoxShape3D_ga7l8")
 
 [node name="MainFloorToUpperRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 53.32, -26)
-material_override = SubResource("StandardMaterial3D_spya7")
-mesh = SubResource("BoxMesh_aqewe")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 52.2, -26)
+material_override = SubResource("StandardMaterial3D_dkdg6")
+mesh = SubResource("BoxMesh_e244b")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "main_ramp_upper_landing",
@@ -36156,14 +36186,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing connects the main-to-upper toy ramp to upper hall free roam"
+"why_exists": "landing connects the main-to-upper toy ramp flush to upper hall free roam"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "main_ramp_upper_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing connects the main-to-upper toy ramp to upper hall free roam"
+metadata/why_exists = "landing connects the main-to-upper toy ramp flush to upper hall free roam"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -36178,16 +36208,17 @@ metadata/node_path = "HomeNavigation/MainFloorToUpperRampUpperLanding"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 52.60000076889992
 
 [node name="MainFloorToUpperRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding"]
 
-[node name="@CollisionShape3D@94" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding/MainFloorToUpperRampUpperLandingCollision"]
-shape = SubResource("BoxShape3D_l6k46")
+[node name="@CollisionShape3D@86" type="CollisionShape3D" parent="HomeNavigation/MainFloorToUpperRampUpperLanding/MainFloorToUpperRampUpperLandingCollision"]
+shape = SubResource("BoxShape3D_c20w4")
 
 [node name="UpperToAtticRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 66.725, -86)
-material_override = SubResource("StandardMaterial3D_6jjbc")
-mesh = SubResource("BoxMesh_7i2ut")
+transform = Transform3D(-4.371139e-08, -0.7253959, 0.6883319, 0, 0.6883319, 0.7253959, -1, 3.1708062e-08, -3.0087943e-08, 31, 66.14513, -86)
+material_override = SubResource("StandardMaterial3D_wjulv")
+mesh = SubResource("BoxMesh_1c1ca")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperHallToAtticToyRamp",
@@ -36228,19 +36259,21 @@ metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(18, 53.45, -86)
+metadata/support_surface_start = Vector3(18, 52.6, -86)
 metadata/support_surface_end = Vector3(44, 80, -86)
+metadata/finished_floor_top_y_start = 52.6
+metadata/finished_floor_top_y_end = 80.0
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="UpperToAtticRampLowerRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerRun"]
 
-[node name="@CollisionShape3D@95" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerRun/UpperToAtticRampLowerRunCollision"]
-shape = SubResource("BoxShape3D_eu5ch")
+[node name="@CollisionShape3D@87" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerRun/UpperToAtticRampLowerRunCollision"]
+shape = SubResource("BoxShape3D_d0bx4")
 
 [node name="UpperToAtticRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.725, -79.65)
-material_override = SubResource("StandardMaterial3D_0ixi0")
-mesh = SubResource("BoxMesh_fj2sj")
+transform = Transform3D(-4.371139e-08, -0.7253959, 0.6883319, 0, 0.6883319, 0.7253959, -1, 3.1708062e-08, -3.0087943e-08, 31, 67.3, -79.65)
+material_override = SubResource("StandardMaterial3D_spya7")
+mesh = SubResource("BoxMesh_aqewe")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampLowerRun_edge_rail",
@@ -36281,9 +36314,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.725, -92.35)
-material_override = SubResource("StandardMaterial3D_evtxg")
-mesh = SubResource("BoxMesh_dvh6u")
+transform = Transform3D(-4.371139e-08, -0.7253959, 0.6883319, 0, 0.6883319, 0.7253959, -1, 3.1708062e-08, -3.0087943e-08, 31, 67.3, -92.35)
+material_override = SubResource("StandardMaterial3D_l6k46")
+mesh = SubResource("BoxMesh_6jjbc")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampLowerRun_edge_rail",
@@ -36324,9 +36357,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.71446836, 0.69966775, 0, 0.69966775, 0.71446836, -1, 3.1230403e-08, -3.058345e-08, 31, 67.375, -86)
-material_override = SubResource("StandardMaterial3D_y4o61")
-mesh = SubResource("BoxMesh_u6jw6")
+transform = Transform3D(-4.371139e-08, -0.7253959, 0.6883319, 0, 0.6883319, 0.7253959, -1, 3.1708062e-08, -3.0087943e-08, 31, 66.950005, -86)
+material_override = SubResource("StandardMaterial3D_7i2ut")
+mesh = SubResource("BoxMesh_eu5ch")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampLowerRun_center_wear_strip",
@@ -36366,9 +36399,9 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 92.725, -86)
-material_override = SubResource("StandardMaterial3D_44vi0")
-mesh = SubResource("BoxMesh_55tsq")
+transform = Transform3D(-4.371139e-08, -0.66002285, 0.75124556, 0, 0.75124556, 0.66002285, -1, 2.8850515e-08, -3.2837985e-08, 58, 92.130974, -86)
+material_override = SubResource("StandardMaterial3D_0ixi0")
+mesh = SubResource("BoxMesh_fj2sj")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperHallToAtticToyRamp",
@@ -36410,18 +36443,20 @@ metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(44, 80, -86)
-metadata/support_surface_end = Vector3(72, 105.45, -86)
+metadata/support_surface_end = Vector3(72, 104.6, -86)
+metadata/finished_floor_top_y_start = 80.0
+metadata/finished_floor_top_y_end = 104.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
 
 [node name="UpperToAtticRampUpperRunCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperRun"]
 
-[node name="@CollisionShape3D@96" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperRun/UpperToAtticRampUpperRunCollision"]
-shape = SubResource("BoxShape3D_n2cq3")
+[node name="@CollisionShape3D@88" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperRun/UpperToAtticRampUpperRunCollision"]
+shape = SubResource("BoxShape3D_evtxg")
 
 [node name="UpperToAtticRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.725, -79.65)
-material_override = SubResource("StandardMaterial3D_1jlqa")
-mesh = SubResource("BoxMesh_hema6")
+transform = Transform3D(-4.371139e-08, -0.66002285, 0.75124556, 0, 0.75124556, 0.66002285, -1, 2.8850515e-08, -3.2837985e-08, 58, 93.3, -79.65)
+material_override = SubResource("StandardMaterial3D_dvh6u")
+mesh = SubResource("BoxMesh_y4o61")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampUpperRun_edge_rail",
@@ -36462,9 +36497,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.725, -92.35)
-material_override = SubResource("StandardMaterial3D_4x7ef")
-mesh = SubResource("BoxMesh_riivm")
+transform = Transform3D(-4.371139e-08, -0.66002285, 0.75124556, 0, 0.75124556, 0.66002285, -1, 2.8850515e-08, -3.2837985e-08, 58, 93.3, -92.35)
+material_override = SubResource("StandardMaterial3D_u6jw6")
+mesh = SubResource("BoxMesh_44vi0")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampUpperRun_edge_rail",
@@ -36505,9 +36540,9 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-4.371139e-08, -0.67260695, 0.7399999, 0, 0.7399999, 0.67260695, -1, 2.9400583e-08, -3.2346424e-08, 58, 93.375, -86)
-material_override = SubResource("StandardMaterial3D_i8wtv")
-mesh = SubResource("BoxMesh_dircy")
+transform = Transform3D(-4.371139e-08, -0.66002285, 0.75124556, 0, 0.75124556, 0.66002285, -1, 2.8850515e-08, -3.2837985e-08, 58, 92.950005, -86)
+material_override = SubResource("StandardMaterial3D_55tsq")
+mesh = SubResource("BoxMesh_n2cq3")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "UpperToAtticRampUpperRun_center_wear_strip",
@@ -36547,9 +36582,9 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 53.32, -86)
-material_override = SubResource("StandardMaterial3D_d4orx")
-mesh = SubResource("BoxMesh_vn0sx")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 52.2, -86)
+material_override = SubResource("StandardMaterial3D_1jlqa")
+mesh = SubResource("BoxMesh_hema6")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "attic_ramp_lower_landing",
@@ -36567,14 +36602,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing gives racers a clear approach to the attic toy ramp"
+"why_exists": "landing gives racers a clear flush approach to the attic toy ramp"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "attic_ramp_lower_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing gives racers a clear approach to the attic toy ramp"
+metadata/why_exists = "landing gives racers a clear flush approach to the attic toy ramp"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -36589,16 +36624,67 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampLowerLanding"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 52.60000076889992
 
 [node name="UpperToAtticRampLowerLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampLowerLanding"]
 
-[node name="@CollisionShape3D@97" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerLanding/UpperToAtticRampLowerLandingCollision"]
-shape = SubResource("BoxShape3D_4t1th")
+[node name="@CollisionShape3D@89" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampLowerLanding/UpperToAtticRampLowerLandingCollision"]
+shape = SubResource("BoxShape3D_4x7ef")
+
+[node name="UpperToAtticRampSwitchbackLanding" type="MeshInstance3D" parent="HomeNavigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 79.6, -86)
+material_override = SubResource("StandardMaterial3D_riivm")
+mesh = SubResource("BoxMesh_i8wtv")
+metadata/generated_scene_provenance = {
+"allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
+"assembly": "attic_ramp_switchback_landing",
+"contact_face": "bottom face to floor/ramp landing",
+"deletion_rule": "delete only if the navigation contract removes this free-roam edge",
+"end_anchor": "attic_ramp_switchback_landing end anchor",
+"forbidden_intersections": ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"],
+"node_path": "HomeNavigation/UpperToAtticRampSwitchbackLanding",
+"owner_volume": "HomeNavigation",
+"role": "free_roam_navigation_surface",
+"source_of_truth": "PLAN_CONTRACT.home_navigation_contract",
+"span_axis": "xz navigation edge",
+"start_anchor": "attic_ramp_switchback_landing start anchor",
+"support_target": "authored floors, thresholds, or stair-adjacent ramp landing",
+"validation_camera": "ValidationCameras/MainStairContinuityCamera",
+"validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
+"visible_class": "architectural_mesh",
+"why_exists": "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam"
+}
+metadata/visible_class = "architectural_mesh"
+metadata/owner_volume = "HomeNavigation"
+metadata/assembly = "attic_ramp_switchback_landing"
+metadata/role = "free_roam_navigation_surface"
+metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
+metadata/why_exists = "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam"
+metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
+metadata/contact_face = "bottom face to floor/ramp landing"
+metadata/span_axis = "xz navigation edge"
+metadata/start_anchor = "attic_ramp_switchback_landing start anchor"
+metadata/end_anchor = "attic_ramp_switchback_landing end anchor"
+metadata/allowed_intersections = ["floor contact", "threshold overlap", "ramp landing overlap"]
+metadata/forbidden_intersections = ["unowned helper geometry", "race route camera blocker", "architectural stair treads as required racing path"]
+metadata/deletion_rule = "delete only if the navigation contract removes this free-roam edge"
+metadata/validation_gate = "test_home_yard_exports_whole_house_navigation_contract"
+metadata/validation_camera = "ValidationCameras/MainStairContinuityCamera"
+metadata/node_path = "HomeNavigation/UpperToAtticRampSwitchbackLanding"
+metadata/collision_policy = "drivable_static_toy_ramp"
+metadata/route_clearance = "intentional_free_roam_surface"
+metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 79.99999848008156
+
+[node name="UpperToAtticRampSwitchbackLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampSwitchbackLanding"]
+
+[node name="@CollisionShape3D@90" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampSwitchbackLanding/UpperToAtticRampSwitchbackLandingCollision"]
+shape = SubResource("BoxShape3D_dircy")
 
 [node name="UpperToAtticRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 105.32, -86)
-material_override = SubResource("StandardMaterial3D_h86q6")
-mesh = SubResource("BoxMesh_0dpue")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 104.2, -86)
+material_override = SubResource("StandardMaterial3D_d4orx")
+mesh = SubResource("BoxMesh_vn0sx")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["floor contact", "threshold overlap", "ramp landing overlap"],
 "assembly": "attic_ramp_upper_landing",
@@ -36616,14 +36702,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing connects the attic toy ramp to attic free roam"
+"why_exists": "landing connects the attic toy ramp flush to attic free roam"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "attic_ramp_upper_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing connects the attic toy ramp to attic free roam"
+metadata/why_exists = "landing connects the attic toy ramp flush to attic free roam"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -36638,11 +36724,12 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampUpperLanding"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/visible_material_contract = "muted wood/cardboard landing, not saturated placeholder color"
+metadata/finished_floor_top_y = 104.59999695420265
 
 [node name="UpperToAtticRampUpperLandingCollision" type="StaticBody3D" parent="HomeNavigation/UpperToAtticRampUpperLanding"]
 
-[node name="@CollisionShape3D@98" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperLanding/UpperToAtticRampUpperLandingCollision"]
-shape = SubResource("BoxShape3D_46g2n")
+[node name="@CollisionShape3D@91" type="CollisionShape3D" parent="HomeNavigation/UpperToAtticRampUpperLanding/UpperToAtticRampUpperLandingCollision"]
+shape = SubResource("BoxShape3D_4t1th")
 
 [node name="CourseRoutes" type="Node3D" parent="."]
 
@@ -37548,4 +37635,4 @@ transform = Transform3D(0.81915206, 0.4055798, -0.4055798, 0, 0.70710677, 0.7071
 light_energy = 2.3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bx8kt")
+environment = SubResource("Environment_h86q6")

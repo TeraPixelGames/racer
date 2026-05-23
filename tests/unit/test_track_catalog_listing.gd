@@ -663,6 +663,23 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 	var holder := root.get_node_or_null("HomeNavigation")
 	assert_true(holder != null, "%s should include HomeNavigation holder" % track_id)
 	if holder != null:
+		for strip_data in [
+			{"node": "FrontDoorDriveThresholdStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "KitchenCasedOpeningDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "PlayroomCasedOpeningDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "KitchenPlayroomDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "GarageServiceDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "DoggieDoorDriveBridge", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "UpperHallBedroomDriveStrip", "floor_top_y": 52.60},
+			{"node": "UpperHallGlamDriveStrip", "floor_top_y": 52.60},
+			{"node": "BedroomGlamDriveStrip", "floor_top_y": 52.60},
+		]:
+			var strip := holder.get_node_or_null(str(strip_data["node"])) as MeshInstance3D
+			assert_true(strip != null, "%s should include visual navigation threshold %s" % [track_id, str(strip_data["node"])])
+			if strip != null:
+				assert_equal(str(strip.get_meta("collision_policy", "")), "visual_threshold_no_gameplay_collision", "%s %s should not add raised collision lips at room seams" % [track_id, str(strip_data["node"])])
+				var strip_bounds := _mesh_instance_global_aabb(strip)
+				assert_true(strip_bounds.end.y <= float(strip_data["floor_top_y"]) + 0.10, "%s %s should sit as a thin visual overlay at the finished floor datum" % [track_id, str(strip_data["node"])])
 		for ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun"]:
 			var ramp := holder.get_node_or_null(ramp_node)
 			assert_true(ramp != null, "%s should include drivable navigation ramp %s" % [track_id, ramp_node])
@@ -677,6 +694,26 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_true(left_rail != null and bool(left_rail.get_meta("home_navigation_ramp_edge_rail", false)), "%s %s should include a visible left edge rail" % [track_id, ramp_node])
 				assert_true(right_rail != null and bool(right_rail.get_meta("home_navigation_ramp_edge_rail", false)), "%s %s should include a visible right edge rail" % [track_id, ramp_node])
 				assert_true(wear_strip != null and bool(wear_strip.get_meta("home_navigation_ramp_surface_detail", false)), "%s %s should include a surface detail strip" % [track_id, ramp_node])
+		for landing_data in [
+			{"node": "MainFloorToUpperRampLowerLanding", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
+			{"node": "MainFloorToUpperRampUpperLanding", "floor_top_y": 52.60},
+			{"node": "UpperToAtticRampLowerLanding", "floor_top_y": 52.60},
+			{"node": "UpperToAtticRampUpperLanding", "floor_top_y": 104.60},
+		]:
+			var landing := holder.get_node_or_null(str(landing_data["node"])) as MeshInstance3D
+			assert_true(landing != null, "%s should include navigation ramp landing %s" % [track_id, str(landing_data["node"])])
+			if landing != null:
+				var landing_bounds := _mesh_instance_global_aabb(landing)
+				assert_true(absf(landing_bounds.end.y - float(landing_data["floor_top_y"])) <= 0.05, "%s %s top should be flush with its finished floor datum" % [track_id, str(landing_data["node"])])
+		for seam_landing_data in [
+			{"node": "MainFloorToUpperRampSwitchbackLanding", "surface_y": 26.50},
+			{"node": "UpperToAtticRampSwitchbackLanding", "surface_y": 80.00},
+		]:
+			var seam_landing := holder.get_node_or_null(str(seam_landing_data["node"])) as MeshInstance3D
+			assert_true(seam_landing != null, "%s should include mid-ramp seam landing %s" % [track_id, str(seam_landing_data["node"])])
+			if seam_landing != null:
+				var seam_bounds := _mesh_instance_global_aabb(seam_landing)
+				assert_true(absf(seam_bounds.end.y - float(seam_landing_data["surface_y"])) <= 0.05, "%s %s should bridge ramp run seams at the authored surface height" % [track_id, str(seam_landing_data["node"])])
 
 func _navigation_anchor_has_id(anchors: Array, anchor_id: String) -> bool:
 	for anchor in anchors:

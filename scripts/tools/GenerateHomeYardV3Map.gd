@@ -27,6 +27,8 @@ const OUT_OF_BOUNDS_Y := -28.0
 const MAIN_FLOOR_TOP_Y := 0.05
 const UPPER_ROOM_FLOOR_TOP_Y := 52.60
 const ATTIC_ROOM_FLOOR_TOP_Y := 104.60
+const HOME_NAV_THRESHOLD_VISUAL_THICKNESS := 0.08
+const HOME_NAV_RAMP_THICKNESS := 0.45
 const MAIN_STAIR_X := 72.0
 const MAIN_STAIR_LOWER_X := 61.0
 const MAIN_STAIR_UPPER_X := 82.0
@@ -1448,34 +1450,52 @@ func _add_home_navigation(root: Node3D, parent: Node3D) -> void:
 
 func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
 	var threshold := Color(0.08, 0.12, 0.14)
-	_add_box(root, parent, "FrontDoorDriveThresholdStrip", Vector3(-50, 0.35, 145), Vector3(26, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("front_door_threshold", "low drivable strip connects front walk to foyer without an invisible floor"))
+	var main_visual_y := MAIN_FLOOR_TOP_Y + HOME_NAV_THRESHOLD_VISUAL_THICKNESS * 0.5
+	var upper_visual_y := UPPER_ROOM_FLOOR_TOP_Y + HOME_NAV_THRESHOLD_VISUAL_THICKNESS * 0.5
+	var visual_strip := HOME_NAV_THRESHOLD_VISUAL_THICKNESS
+	_add_navigation_threshold_overlay(root, parent, "FrontDoorDriveThresholdStrip", Vector3(-50, main_visual_y, 145), Vector3(26, visual_strip, 5), threshold, "front_door_threshold", "visual strip marks the front walk to foyer transition without adding a raised collision lip")
 	_add_box(root, parent, "LivingEntryGuideRunner", Vector3(35, 0.42, 74), Vector3(5, 0.22, 42), Color(0.18, 0.22, 0.24), false, 0.0, Vector3.ZERO, _home_navigation_provenance("living_entry_guide", "dark runner marks the open-floor route from foyer into living/dining"))
-	_add_box(root, parent, "KitchenCasedOpeningDriveStrip", Vector3(-128, 0.42, 15), Vector3(70, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("kitchen_threshold", "low drivable threshold marks the kitchen/dining opening"))
-	_add_box(root, parent, "PlayroomCasedOpeningDriveStrip", Vector3(8, 0.42, 15), Vector3(70, 0.28, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("playroom_threshold", "low drivable threshold marks the playroom/living opening"))
-	_add_box(root, parent, "KitchenPlayroomDriveStrip", Vector3(-55, 0.42, -28), Vector3(5, 0.28, 32), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("kitchen_playroom_threshold", "low strip marks the wide opening between kitchen and playroom"))
-	_add_box(root, parent, "GarageServiceDriveStrip", Vector3(90, 0.42, 70), Vector3(5, 0.28, 24), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("garage_threshold", "low strip marks the service doorway to the garage"))
-	_add_box(root, parent, "DoggieDoorDriveBridge", Vector3(4, 0.45, -130), Vector3(48, 0.35, 16), Color(0.20, 0.18, 0.14), true, 0.0, Vector3.ZERO, _home_navigation_provenance("doggie_door_bridge", "oversized doggie-door bridge connects playroom free roam to the deck/patio"))
-	_add_box(root, parent, "UpperHallBedroomDriveStrip", Vector3(-118, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 106), Vector3(32, 0.25, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("bedroom_threshold", "low strip marks bedroom door traversal"))
-	_add_box(root, parent, "UpperHallGlamDriveStrip", Vector3(6, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 106), Vector3(30, 0.25, 5), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("glam_threshold", "low strip marks glam closet door traversal"))
-	_add_box(root, parent, "BedroomGlamDriveStrip", Vector3(-15, UPPER_ROOM_FLOOR_TOP_Y + 0.38, 46), Vector3(5, 0.25, 28), threshold, true, 0.0, Vector3.ZERO, _home_navigation_provenance("bedroom_glam_threshold", "low strip marks bedroom-to-glam cased opening"))
+	_add_navigation_threshold_overlay(root, parent, "KitchenCasedOpeningDriveStrip", Vector3(-128, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "kitchen_threshold", "visual strip marks the kitchen/dining opening without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "PlayroomCasedOpeningDriveStrip", Vector3(8, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "playroom_threshold", "visual strip marks the playroom/living opening without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "KitchenPlayroomDriveStrip", Vector3(-55, main_visual_y, -28), Vector3(5, visual_strip, 32), threshold, "kitchen_playroom_threshold", "visual strip marks the wide opening between kitchen and playroom without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "GarageServiceDriveStrip", Vector3(90, main_visual_y, 70), Vector3(5, visual_strip, 24), threshold, "garage_threshold", "visual strip marks the service doorway to the garage without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "DoggieDoorDriveBridge", Vector3(4, main_visual_y, -130), Vector3(48, visual_strip, 16), Color(0.20, 0.18, 0.14), "doggie_door_bridge", "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal")
+	_add_navigation_threshold_overlay(root, parent, "UpperHallBedroomDriveStrip", Vector3(-118, upper_visual_y, 106), Vector3(32, visual_strip, 5), threshold, "bedroom_threshold", "visual strip marks bedroom door traversal without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "UpperHallGlamDriveStrip", Vector3(6, upper_visual_y, 106), Vector3(30, visual_strip, 5), threshold, "glam_threshold", "visual strip marks glam closet door traversal without adding a raised collision lip")
+	_add_navigation_threshold_overlay(root, parent, "BedroomGlamDriveStrip", Vector3(-15, upper_visual_y, 46), Vector3(5, visual_strip, 28), threshold, "bedroom_glam_threshold", "visual strip marks bedroom-to-glam traversal without adding a raised collision lip")
+
+func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, assembly: String, why_exists: String) -> MeshInstance3D:
+	var strip := _add_box(root, parent, node_name, position, size, color, false, 0.0, Vector3.ZERO, _home_navigation_provenance(assembly, why_exists))
+	strip.set_meta("collision_policy", "visual_threshold_no_gameplay_collision")
+	strip.set_meta("route_clearance", "floor_collision_owns_traversal")
+	strip.set_meta("finished_floor_top_y", position.y + size.y * 0.5)
+	return strip
 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	var plywood := Color(0.58, 0.39, 0.22)
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, 0.85, 94), Vector3(44, 26.50, 36), 14.0, plywood, "MainFloorToUpperToyRamp")
-	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, 26.50, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -22), 14.0, plywood.lightened(0.08), "MainFloorToUpperToyRamp")
-	_add_navigation_landing(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, 0.72, 98), Vector3(18, 0.8, 18), plywood.darkened(0.10), "main_ramp_lower_landing", "landing gives racers a clear approach to the main-to-upper toy ramp")
-	_add_navigation_landing(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -26), Vector3(18, 0.8, 20), plywood.darkened(0.08), "main_ramp_upper_landing", "landing connects the main-to-upper toy ramp to upper hall free roam")
+	var main_switchback_y := 26.50
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampLowerRun", Vector3(44, MAIN_FLOOR_TOP_Y, 94), Vector3(44, main_switchback_y, 36), 14.0, plywood, "MainFloorToUpperToyRamp")
+	_add_drivable_ramp(root, parent, "MainFloorToUpperRampUpperRun", Vector3(44, main_switchback_y, 36), Vector3(44, UPPER_ROOM_FLOOR_TOP_Y, -22), 14.0, plywood.lightened(0.08), "MainFloorToUpperToyRamp")
+	_add_navigation_landing(root, parent, "MainFloorToUpperRampLowerLanding", Vector3(44, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), 98), Vector3(18, 0.8, 18), plywood.darkened(0.10), "main_ramp_lower_landing", "landing gives racers a clear flush approach to the main-to-upper toy ramp")
+	_add_navigation_landing(root, parent, "MainFloorToUpperRampSwitchbackLanding", Vector3(44, _landing_center_y(main_switchback_y, 0.8), 36), Vector3(18, 0.8, 18), plywood.darkened(0.12), "main_ramp_switchback_landing", "mid landing joins the two main-to-upper ramp runs so racers do not hit a disconnected seam")
+	_add_navigation_landing(root, parent, "MainFloorToUpperRampUpperLanding", Vector3(44, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), -26), Vector3(18, 0.8, 20), plywood.darkened(0.08), "main_ramp_upper_landing", "landing connects the main-to-upper toy ramp flush to upper hall free roam")
 	var cardboard := Color(0.63, 0.43, 0.24)
-	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.85, -86), Vector3(44, 80.0, -86), 14.0, cardboard, "UpperHallToAtticToyRamp")
-	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(44, 80.0, -86), Vector3(72, ATTIC_ROOM_FLOOR_TOP_Y + 0.85, -86), 14.0, cardboard.lightened(0.08), "UpperHallToAtticToyRamp")
-	_add_navigation_landing(root, parent, "UpperToAtticRampLowerLanding", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(18, 0.8, 22), cardboard.darkened(0.10), "attic_ramp_lower_landing", "landing gives racers a clear approach to the attic toy ramp")
-	_add_navigation_landing(root, parent, "UpperToAtticRampUpperLanding", Vector3(74, ATTIC_ROOM_FLOOR_TOP_Y + 0.72, -86), Vector3(18, 0.8, 22), cardboard.darkened(0.08), "attic_ramp_upper_landing", "landing connects the attic toy ramp to attic free roam")
+	var attic_switchback_y := 80.0
+	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y, -86), Vector3(44, attic_switchback_y, -86), 14.0, cardboard, "UpperHallToAtticToyRamp")
+	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(44, attic_switchback_y, -86), Vector3(72, ATTIC_ROOM_FLOOR_TOP_Y, -86), 14.0, cardboard.lightened(0.08), "UpperHallToAtticToyRamp")
+	_add_navigation_landing(root, parent, "UpperToAtticRampLowerLanding", Vector3(18, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), -86), Vector3(18, 0.8, 22), cardboard.darkened(0.10), "attic_ramp_lower_landing", "landing gives racers a clear flush approach to the attic toy ramp")
+	_add_navigation_landing(root, parent, "UpperToAtticRampSwitchbackLanding", Vector3(44, _landing_center_y(attic_switchback_y, 0.8), -86), Vector3(18, 0.8, 22), cardboard.darkened(0.12), "attic_ramp_switchback_landing", "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam")
+	_add_navigation_landing(root, parent, "UpperToAtticRampUpperLanding", Vector3(74, _landing_center_y(ATTIC_ROOM_FLOOR_TOP_Y, 0.8), -86), Vector3(18, 0.8, 22), cardboard.darkened(0.08), "attic_ramp_upper_landing", "landing connects the attic toy ramp flush to attic free roam")
+
+func _landing_center_y(surface_top_y: float, thickness: float) -> float:
+	return surface_top_y - thickness * 0.5
 
 func _add_navigation_landing(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, assembly: String, why_exists: String) -> MeshInstance3D:
 	var landing := _add_box(root, parent, node_name, position, size, color, true, 0.0, Vector3.ZERO, _home_navigation_provenance(assembly, why_exists))
 	landing.set_meta("collision_policy", "drivable_static_toy_ramp")
 	landing.set_meta("route_clearance", "intentional_free_roam_surface")
 	landing.set_meta("visible_material_contract", "muted wood/cardboard landing, not saturated placeholder color")
+	landing.set_meta("finished_floor_top_y", position.y + size.y * 0.5)
 	return landing
 
 func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: Vector3, end: Vector3, width: float, color: Color, vertical_link_id: String) -> MeshInstance3D:
@@ -1485,16 +1505,20 @@ func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: 
 	var direction := horizontal.normalized() if run > 0.01 else Vector3.FORWARD
 	var yaw := rad_to_deg(atan2(direction.x, direction.z))
 	var pitch := -rad_to_deg(atan2(rise, maxf(run, 0.01)))
-	var center := start.lerp(end, 0.5)
-	var ramp := _add_box(root, parent, node_name, center, Vector3(width, 1.0, sqrt(run * run + rise * rise)), color, true, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance(vertical_link_id, "%s is a drivable toy ramp beside the architectural stair, with real collision and visible edge color" % node_name))
+	var surface_center := start.lerp(end, 0.5)
+	var ramp_center := surface_center - Vector3.UP * (cos(deg_to_rad(pitch)) * HOME_NAV_RAMP_THICKNESS * 0.5)
+	var ramp_length := sqrt(run * run + rise * rise)
+	var ramp := _add_box(root, parent, node_name, ramp_center, Vector3(width, HOME_NAV_RAMP_THICKNESS, ramp_length), color, true, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance(vertical_link_id, "%s is a drivable toy ramp beside the architectural stair, with real collision and visible edge color" % node_name))
 	ramp.set_meta("home_navigation_vertical_link_id", vertical_link_id)
 	ramp.set_meta("collision_policy", "drivable_static_toy_ramp")
 	ramp.set_meta("route_clearance", "intentional_free_roam_surface")
 	ramp.set_meta("scale_class", "toy_scale_racing")
 	ramp.set_meta("support_surface_start", start)
 	ramp.set_meta("support_surface_end", end)
+	ramp.set_meta("finished_floor_top_y_start", start.y)
+	ramp.set_meta("finished_floor_top_y_end", end.y)
 	ramp.set_meta("visible_material_contract", "muted plywood/cardboard toy ramp, not saturated placeholder blue")
-	_add_ramp_edge_detail(root, parent, node_name, center, direction, width, sqrt(run * run + rise * rise), yaw, pitch, color.darkened(0.32))
+	_add_ramp_edge_detail(root, parent, node_name, surface_center, direction, width, ramp_length, yaw, pitch, color.darkened(0.32))
 	return ramp
 
 func _add_ramp_edge_detail(root: Node3D, parent: Node3D, node_name: String, center: Vector3, direction: Vector3, width: float, length: float, yaw: float, pitch: float, color: Color) -> void:
