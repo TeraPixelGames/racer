@@ -707,6 +707,13 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			if landing != null:
 				var landing_bounds := _mesh_instance_global_aabb(landing)
 				assert_true(absf(landing_bounds.end.y - float(landing_data["floor_top_y"])) <= 0.05, "%s %s top should be flush with its finished floor datum" % [track_id, str(landing_data["node"])])
+		var main_ramp_lower_landing := holder.get_node_or_null("MainStairIntegratedRampLowerLanding") as MeshInstance3D
+		var main_ramp_upper_landing := holder.get_node_or_null("MainStairIntegratedRampUpperLanding") as MeshInstance3D
+		if main_ramp_lower_landing != null and main_ramp_upper_landing != null:
+			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
+			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
+			assert_true(lower_bounds.position.z >= 133.95, "%s integrated ramp lower landing should sit on the approach side of the lower endpoint instead of overlapping the ramp climb; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
 		for seam_landing_data in [
 			{"node": "UpperToAtticRampSwitchbackLanding", "surface_y": 80.00},
 		]:

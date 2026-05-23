@@ -5292,8 +5292,10 @@ metadata/vertical_circulation_contract = {
 }, {
 "end": Vector3(54, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
+"lower_landing_center": Vector3(54, 0.05, 143),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(54, 0.05, 134)
+"start": Vector3(54, 0.05, 134),
+"upper_landing_center": Vector3(54, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -5412,14 +5414,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 134),
+"position": Vector3(54, 0.9, 143),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 24),
+"position": Vector3(54, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -28809,8 +28811,10 @@ metadata/vertical_circulation_contract = {
 }, {
 "end": Vector3(54, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
+"lower_landing_center": Vector3(54, 0.05, 143),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(54, 0.05, 134)
+"start": Vector3(54, 0.05, 134),
+"upper_landing_center": Vector3(54, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -33967,14 +33971,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 134),
+"position": Vector3(54, 0.9, 143),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 24),
+"position": Vector3(54, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34621,11 +34625,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Main Ramp Lower" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 0.9, 134)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 0.9, 143)
 metadata/home_navigation_anchor = {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(54, 0.9, 134),
+"position": Vector3(54, 0.9, 143),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
@@ -34633,11 +34637,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = true
 
 [node name="Anchor_Upper Hall Landing" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, 24)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, 14)
 metadata/home_navigation_anchor = {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(54, 53.2, 24),
+"position": Vector3(54, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -35536,7 +35540,7 @@ metadata/node_path = "HomeNavigation/MainStairIntegratedToyRampLaneCenterWearStr
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainStairIntegratedRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, -0.35, 134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, -0.35, 143)
 material_override = SubResource("StandardMaterial3D_iju2q")
 mesh = SubResource("BoxMesh_1j8h6")
 metadata/generated_scene_provenance = {
@@ -35556,14 +35560,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing aligns the integrated stairwell toy ramp to the main finished floor"
+"why_exists": "landing sits on the approach side of the integrated ramp endpoint so its collision does not overlap the climb"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "main_integrated_ramp_lower_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing aligns the integrated stairwell toy ramp to the main finished floor"
+metadata/why_exists = "landing sits on the approach side of the integrated ramp endpoint so its collision does not overlap the climb"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35586,7 +35590,7 @@ metadata/finished_floor_top_y = 0.050000012
 shape = SubResource("BoxShape3D_oml0s")
 
 [node name="MainStairIntegratedRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, 14)
 material_override = SubResource("StandardMaterial3D_1jt8k")
 mesh = SubResource("BoxMesh_yvid7")
 metadata/generated_scene_provenance = {
@@ -35606,14 +35610,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing aligns the integrated stairwell toy ramp to the upper finished floor"
+"why_exists": "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "main_integrated_ramp_upper_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing aligns the integrated stairwell toy ramp to the upper finished floor"
+metadata/why_exists = "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"

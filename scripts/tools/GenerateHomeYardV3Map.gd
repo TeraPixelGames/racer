@@ -38,6 +38,8 @@ const MAIN_STAIR_LOWER_LANDING_SIZE := Vector3(34, 0.6, 18)
 const MAIN_STAIR_UPPER_LANDING_SIZE := Vector3(34, 0.6, 20)
 const MAIN_STAIR_LOWER_Z := 134.0
 const MAIN_STAIR_UPPER_Z := 24.0
+const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 143.0
+const MAIN_STAIR_RAMP_UPPER_LANDING_Z := 14.0
 const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
 const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
 const UNITS_PER_FOOT := 4.0
@@ -1006,7 +1008,7 @@ func _vertical_circulation_contract() -> Dictionary:
 				{"id": "lower_landing", "node": "MainStairLowerLandingSurface", "center": Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y - 0.30, MAIN_STAIR_LOWER_Z), "size": MAIN_STAIR_LOWER_LANDING_SIZE},
 				{"id": "straight_flight", "node_prefix": "MainStairStraightFlightTread", "start": Vector3(MAIN_STAIR_X, MAIN_FLOOR_TOP_Y + 0.60, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), "tread_count": MAIN_STAIR_TREAD_COUNT},
 				{"id": "upper_landing", "node": "MainStairUpperLandingSurface", "center": Vector3(MAIN_STAIR_X, UPPER_ROOM_FLOOR_TOP_Y - 0.30, MAIN_STAIR_UPPER_Z), "size": MAIN_STAIR_UPPER_LANDING_SIZE},
-				{"id": "integrated_toy_ramp_lane", "node": "MainStairIntegratedToyRampLane", "start": Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z)},
+				{"id": "integrated_toy_ramp_lane", "node": "MainStairIntegratedToyRampLane", "start": Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), "end": Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), "lower_landing_center": Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_RAMP_LOWER_LANDING_Z), "upper_landing_center": Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_RAMP_UPPER_LANDING_Z)},
 			],
 			"opening_node": "MainStairUpperFloorOpening",
 			"floor_assembly_shaft_void_bounds": {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX},
@@ -1319,8 +1321,8 @@ func _home_navigation_anchors() -> Array[Dictionary]:
 		{"id": "yard_play_hub", "zone": "yard_play", "floor": "site", "position": Vector3(-52, 0.80, -218), "yaw_degrees": 0.0},
 		{"id": "garden_gate", "zone": "yard_play", "floor": "site", "position": Vector3(-184, 0.80, -258), "yaw_degrees": -90.0},
 		{"id": "sandbox_gate", "zone": "yard_play", "floor": "site", "position": Vector3(150, 0.80, -258), "yaw_degrees": 90.0},
-		{"id": "main_ramp_lower", "zone": "front_foyer", "floor": "main", "position": Vector3(MAIN_STAIR_RAMP_X, 0.90, MAIN_STAIR_LOWER_Z), "yaw_degrees": 180.0, "spawn_index": 4},
-		{"id": "upper_hall_landing", "zone": "upper_hall", "floor": "upper", "position": Vector3(MAIN_STAIR_RAMP_X, 53.20, MAIN_STAIR_UPPER_Z), "yaw_degrees": 180.0, "spawn_index": 5},
+		{"id": "main_ramp_lower", "zone": "front_foyer", "floor": "main", "position": Vector3(MAIN_STAIR_RAMP_X, 0.90, MAIN_STAIR_RAMP_LOWER_LANDING_Z), "yaw_degrees": 180.0, "spawn_index": 4},
+		{"id": "upper_hall_landing", "zone": "upper_hall", "floor": "upper", "position": Vector3(MAIN_STAIR_RAMP_X, 53.20, MAIN_STAIR_RAMP_UPPER_LANDING_Z), "yaw_degrees": 180.0, "spawn_index": 5},
 		{"id": "upper_hall_hub", "zone": "upper_hall", "floor": "upper", "position": Vector3(10, 53.20, 82), "yaw_degrees": -90.0},
 		{"id": "bedroom_gate", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-118, 53.20, 96), "yaw_degrees": 180.0},
 		{"id": "bedroom_center", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-98, 53.20, -12), "yaw_degrees": 0.0},
@@ -1465,8 +1467,8 @@ func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	var plywood := Color(0.58, 0.39, 0.22)
 	_add_drivable_ramp(root, parent, "MainStairIntegratedToyRampLane", Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), MAIN_STAIR_RAMP_WIDTH, plywood, "MainFloorToUpperToyRamp")
-	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_LOWER_Z), Vector3(12, 0.8, 18), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing aligns the integrated stairwell toy ramp to the main finished floor")
-	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_UPPER_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing aligns the integrated stairwell toy ramp to the upper finished floor")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_LOWER_LANDING_Z), Vector3(12, 0.8, 18), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing sits on the approach side of the integrated ramp endpoint so its collision does not overlap the climb")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_UPPER_LANDING_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge")
 	var cardboard := Color(0.63, 0.43, 0.24)
 	var attic_switchback_y := 80.0
 	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(18, UPPER_ROOM_FLOOR_TOP_Y, -86), Vector3(44, attic_switchback_y, -86), 14.0, cardboard, "UpperHallToAtticToyRamp")
