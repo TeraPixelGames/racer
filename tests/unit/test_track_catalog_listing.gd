@@ -1685,12 +1685,19 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 	if attic_finishes != null:
 		for node_name in [
 			"AtticFloorDeckWestEaveShellStrip",
-			"AtticFloorDeckEastEaveShellStrip",
+			"AtticFloorDeckEastEaveShellStripBackOfHatch",
+			"AtticFloorDeckEastEaveShellStripFrontOfHatch",
 			"AtticFloorDeckBackEaveShellStrip",
 			"AtticFloorDeckFrontEaveShellStrip",
 			"AtticDeck",
 		]:
-			assert_true(attic_finishes.get_node_or_null(node_name) is MeshInstance3D, "%s attic shell deck should include measured piece %s" % [track_id, node_name])
+			assert_true(attic_finishes.get_node_or_null(node_name) != null, "%s attic shell deck should include measured piece %s" % [track_id, node_name])
+		var attic_ramp_hatch_opening := AABB(Vector3(42.0, 102.0, -95.0), Vector3(24.0, 3.0, 24.0))
+		for floor_owner_name in ["AtticDeck", "AtticFloorDeckEastEaveShellStripBackOfHatch", "AtticFloorDeckEastEaveShellStripFrontOfHatch"]:
+			var floor_owner := attic_finishes.get_node_or_null(floor_owner_name)
+			assert_true(floor_owner != null, "%s attic floor hatch gate should find floor owner %s" % [track_id, floor_owner_name])
+			if floor_owner != null:
+				_assert_no_visible_descendant_intersects_aabb(floor_owner, attic_ramp_hatch_opening, track_id, "attic ramp floor hatch opening")
 		for sample in [
 			Vector3(-195, 104.6, -120),
 			Vector3(85, 104.6, -120),
