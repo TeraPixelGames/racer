@@ -730,7 +730,7 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
 			assert_true(lower_bounds.end.z <= 134.05, "%s integrated ramp lower landing should sit inside the foyer approach, not against the front wall; bounds=%s" % [track_id, str(lower_bounds)])
-			assert_true(lower_bounds.position.z >= 115.95, "%s integrated ramp lower landing should still provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(lower_bounds.position.z >= 105.95, "%s integrated ramp lower landing should provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
 		var attic_lower_run := holder.get_node_or_null("UpperToAtticRampLowerRun") as MeshInstance3D
 		var attic_upper_run := holder.get_node_or_null("UpperToAtticRampUpperRun") as MeshInstance3D
@@ -755,6 +755,7 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_true(absf(bridge_bounds.end.y - 104.60) <= 0.05, "%s attic ramp entry bridge should be flush with attic/ramp floor datum; bounds=%s" % [track_id, str(bridge_bounds)])
 				assert_true(bridge_bounds.position.x <= 50.0 and bridge_bounds.end.x >= 54.0, "%s attic ramp entry bridge should span the knee-wall opening into the attic course; bounds=%s" % [track_id, str(bridge_bounds)])
 				assert_true(bridge_bounds.position.z <= -87.0 and bridge_bounds.end.z >= -72.0, "%s attic ramp entry bridge should cover the gap after the upper ramp landing; bounds=%s" % [track_id, str(bridge_bounds)])
+				assert_true(attic_entry_bridge.get_node_or_null("AtticRampEntryBridgeCollision") == null, "%s attic ramp entry bridge should be visual-only so it cannot block full attic entry" % track_id)
 			var attic_entry_course_pad := root.get_node_or_null("Attic/RoomFinishes/AtticRampEntryCoursePad") as MeshInstance3D
 			assert_true(attic_entry_course_pad != null, "%s attic should include a flush drive pad after the ramp-entry bridge" % track_id)
 			if attic_entry_course_pad != null:

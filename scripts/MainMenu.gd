@@ -45,6 +45,9 @@ func get_title_text_for_test() -> String:
 	var title := find_child("Title", true, false) as Label
 	return title.text if title != null else ""
 
+func preview_camera_position_for_test() -> Vector3:
+	return _camera.global_position if _camera != null else Vector3.ZERO
+
 func start_game_for_test() -> void:
 	_prepare_home_selection()
 
@@ -205,9 +208,9 @@ func _play_front_door_entry() -> void:
 
 func _set_menu_camera_entry_pose(ratio: float) -> void:
 	var start := _camera.global_transform.origin
-	var end := Vector3(-50.0, 10.0, 176.0).lerp(Vector3(-50.0, 4.5, 130.0), ratio)
+	var end := Vector3(-72.0, 12.0, 204.0).lerp(Vector3(-50.0, 11.0, 178.0), ratio)
 	_camera.global_transform.origin = start.lerp(end, clampf(ratio, 0.0, 1.0))
-	_camera.look_at(Vector3(-50.0, 5.0, 118.0), Vector3.UP)
+	_camera.look_at(Vector3(-50.0, 8.0, 145.0), Vector3.UP)
 
 func _rebuild_preview(track_id: String) -> void:
 	_preview_track_id = track_id
@@ -254,6 +257,15 @@ func _update_preview_camera(snap: bool = false) -> void:
 	if count < 2:
 		_camera.global_transform.origin = Vector3(-88, 92, 282)
 		_camera.look_at(Vector3(-35, 24, 45), Vector3.UP)
+		return
+	if _preview_track_id == HOME_HUB_TRACK_ID:
+		var exterior_angle := _preview_time * 0.08 + 2.25
+		var desired_exterior := Vector3(-126.0 + cos(exterior_angle) * 34.0, 86.0, 286.0 + sin(exterior_angle) * 18.0)
+		if snap:
+			_camera.global_transform.origin = desired_exterior
+		else:
+			_camera.global_transform.origin = _camera.global_transform.origin.lerp(desired_exterior, PREVIEW_CAMERA_BLEND)
+		_camera.look_at(Vector3(-45.0, 26.0, 92.0), Vector3.UP)
 		return
 	var bounds := AABB(_route_points[0], Vector3.ZERO)
 	for route_point in _route_points:

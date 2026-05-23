@@ -146,6 +146,9 @@ func preview_has_visible_rails_for_test() -> bool:
 func preview_camera_height_for_test() -> float:
 	return _camera.global_position.y if _camera != null else 0.0
 
+func preview_camera_position_for_test() -> Vector3:
+	return _camera.global_position if _camera != null else Vector3.ZERO
+
 func preview_has_backyard_dressing_for_test() -> bool:
 	return (
 		_has_visible_named_node(_preview_root, "PlaygroundSet")
@@ -611,21 +614,13 @@ func _update_preview_camera(snap: bool = false) -> void:
 	_camera.look_at(point + Vector3.UP * 2.0, Vector3.UP)
 
 func _update_home_yard_preview_camera(snap: bool = false) -> void:
-	var bounds := AABB(_route_points[0], Vector3.ZERO)
-	for point in _route_points:
-		bounds = bounds.expand(point)
-	var center := bounds.get_center()
-	var size := bounds.size
-	var longest := maxf(size.x, size.z)
-	var orbit_angle := _preview_time * 0.16 + 0.72
-	var radius := clampf(longest * 0.78, 110.0, 190.0)
-	var height := clampf(longest * 0.52, 70.0, 108.0)
-	var desired := center + Vector3(cos(orbit_angle) * radius, height, sin(orbit_angle) * radius)
+	var orbit_angle := _preview_time * 0.10 + 2.05
+	var desired := Vector3(-118.0 + cos(orbit_angle) * 28.0, 74.0, 258.0 + sin(orbit_angle) * 16.0)
 	if snap:
 		_camera.global_transform.origin = desired
 	else:
 		_camera.global_transform.origin = _camera.global_transform.origin.lerp(desired, PREVIEW_CAMERA_BLEND)
-	_camera.look_at(center + Vector3.UP * 8.0, Vector3.UP)
+	_camera.look_at(Vector3(-50.0, 13.0, 136.0), Vector3.UP)
 
 func _hide_preview_road_edges(node: Node) -> void:
 	if _is_preview_road_edge_node(node) and node is Node3D:

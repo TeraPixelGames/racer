@@ -21,6 +21,9 @@ func test_level_select_loads_default_track_and_writes_local_single_metadata() ->
 	assert_equal(str(screen.call("get_selected_track_id")), "kitchen", "Level select should default to the catalog default track")
 	assert_true(bool(screen.call("preview_has_visible_grid_road_for_test")), "Home-yard level select preview should keep the active GridMap track visible")
 	assert_true(float(screen.call("preview_camera_height_for_test")) >= 60.0, "Home-yard level select preview should use a room-scale camera, not a blocked kart-height chase camera")
+	assert_true(screen.has_method("preview_camera_position_for_test"), "Level select should expose preview camera position for foyer-safe chooser framing tests")
+	var preview_camera_position := screen.call("preview_camera_position_for_test") as Vector3
+	assert_true(preview_camera_position.z >= 220.0, "Choose Racer preview should stay outside the home and look toward the front foyer instead of clipping through interior floors; position=%s" % str(preview_camera_position))
 	assert_true(not bool(screen.call("preview_has_visible_road_edges_for_test")), "Level select preview should hide generated support road visuals")
 	assert_true(not bool(screen.call("preview_has_visible_rails_for_test")), "Level select preview should not show rail-era containment")
 	screen.call("apply_selected_track_for_test")

@@ -38,7 +38,7 @@ const MAIN_STAIR_LOWER_LANDING_SIZE := Vector3(34, 0.6, 18)
 const MAIN_STAIR_UPPER_LANDING_SIZE := Vector3(34, 0.6, 20)
 const MAIN_STAIR_LOWER_Z := 134.0
 const MAIN_STAIR_UPPER_Z := 24.0
-const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 125.0
+const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 120.0
 const MAIN_STAIR_RAMP_UPPER_LANDING_Z := 14.0
 const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
 const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
@@ -663,11 +663,12 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	_add_room_floor(root, finishes, "AtticFloorDeckFrontEaveShellStrip", Vector3(-50, 103, 132.5), Vector3(230, 2, 25), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticDeck", Vector3(-50, 103, 12.5), Vector3(230, 2, 215), Color(0.45, 0.33, 0.22))
 	_add_box(root, finishes, "AtticStorageZone", Vector3(-50, 104, 12.5), Vector3(202, 1.2, 190), Color(0.48, 0.36, 0.24), false)
-	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -79.0), Vector3(24.0, 0.8, 16.0), Color(0.55, 0.40, 0.25), true)
+	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -79.0), Vector3(24.0, 0.8, 16.0), Color(0.55, 0.40, 0.25), false)
 	attic_entry_bridge.set_meta("owner_volume", "attic_toy_course")
 	attic_entry_bridge.set_meta("support_face", "UpperToAtticRampUpperLanding_to_AtticStorageZone")
-	attic_entry_bridge.set_meta("route_clearance", "intentional_free_roam_surface")
-	attic_entry_bridge.set_meta("validation_gate", "bridges attic ramp landing through knee-wall opening with no floor lip before the attic storage/course floor")
+	attic_entry_bridge.set_meta("collision_policy", "visual_bridge_overlay_no_gameplay_collision")
+	attic_entry_bridge.set_meta("route_clearance", "attic_floor_and_course_pad_own_traversal")
+	attic_entry_bridge.set_meta("validation_gate", "visually bridges attic ramp landing through the knee-wall opening without adding a collision lip that blocks full attic entry")
 	var attic_entry_course_pad := _add_box(root, finishes, "AtticRampEntryCoursePad", Vector3(10.0, 104.2, -55.5), Vector3(72.0, 0.8, 31.0), Color(0.55, 0.40, 0.25), true)
 	attic_entry_course_pad.set_meta("owner_volume", "attic_toy_course")
 	attic_entry_course_pad.set_meta("support_face", "AtticRampEntryBridge_to_attic_course")
@@ -1477,7 +1478,7 @@ func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	var plywood := Color(0.58, 0.39, 0.22)
 	_add_drivable_ramp(root, parent, "MainStairIntegratedToyRampLane", Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), MAIN_STAIR_RAMP_WIDTH, plywood, "MainFloorToUpperToyRamp")
-	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_LOWER_LANDING_Z), Vector3(12, 0.8, 18), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing sits on the approach side of the integrated ramp endpoint so its collision does not overlap the climb")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_LOWER_LANDING_Z), Vector3(16, 0.8, 28), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing sits on the approach side of the integrated ramp endpoint with a broad foyer turn-in pocket so racers are not pinned against the wall")
 	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_UPPER_LANDING_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge")
 	var cardboard := Color(0.63, 0.43, 0.24)
 	var attic_switchback_y := 80.0
