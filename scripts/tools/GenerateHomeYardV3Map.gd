@@ -729,10 +729,8 @@ func _add_scheduled_opening_trim(root: Node3D, parent: Node3D, wall: Dictionary,
 	var height := float(wall["height"])
 	if axis == "x":
 		_add_box(root, parent, "%sHeader" % node_prefix, Vector3(float(wall["x"]), base_y + height - 6.0, (a + b) * 0.5), Vector3(8.0, 10.0, absf(b - a)), color.darkened(0.08), false)
-		_add_box(root, parent, "%sThreshold" % node_prefix, Vector3(float(wall["x"]), float(wall["threshold_datum"]) + 0.6, (a + b) * 0.5), Vector3(7.0, 1.2, absf(b - a)), color.darkened(0.32), false)
 	else:
 		_add_box(root, parent, "%sHeader" % node_prefix, Vector3((a + b) * 0.5, base_y + height - 6.0, float(wall["z"])), Vector3(absf(b - a), 10.0, 8.0), color.darkened(0.08), false)
-		_add_box(root, parent, "%sThreshold" % node_prefix, Vector3((a + b) * 0.5, float(wall["threshold_datum"]) + 0.6, float(wall["z"])), Vector3(absf(b - a), 1.2, 7.0), color.darkened(0.32), false)
 
 func _add_scheduled_wall_segment(root: Node3D, parent: Node3D, wall: Dictionary, node_name: String, start: float, end: float, color: Color) -> void:
 	if is_equal_approx(start, end):
@@ -1444,18 +1442,10 @@ func _add_home_navigation(root: Node3D, parent: Node3D) -> void:
 func _add_home_navigation_guides(root: Node3D, parent: Node3D) -> void:
 	var threshold := Color(0.08, 0.12, 0.14)
 	var main_visual_y := MAIN_FLOOR_TOP_Y + HOME_NAV_THRESHOLD_VISUAL_THICKNESS * 0.5
-	var upper_visual_y := UPPER_ROOM_FLOOR_TOP_Y + HOME_NAV_THRESHOLD_VISUAL_THICKNESS * 0.5
 	var visual_strip := HOME_NAV_THRESHOLD_VISUAL_THICKNESS
 	_add_navigation_threshold_overlay(root, parent, "FrontDoorDriveThresholdStrip", Vector3(-50, main_visual_y, 145), Vector3(26, visual_strip, 5), threshold, "front_door_threshold", "visual strip marks the front walk to foyer transition without adding a raised collision lip")
 	_add_box(root, parent, "LivingEntryGuideRunner", Vector3(35, 0.42, 74), Vector3(5, 0.22, 42), Color(0.18, 0.22, 0.24), false, 0.0, Vector3.ZERO, _home_navigation_provenance("living_entry_guide", "dark runner marks the open-floor route from foyer into living/dining"))
-	_add_navigation_threshold_overlay(root, parent, "KitchenCasedOpeningDriveStrip", Vector3(-128, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "kitchen_threshold", "visual strip marks the kitchen/dining opening without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "PlayroomCasedOpeningDriveStrip", Vector3(8, main_visual_y, 15), Vector3(70, visual_strip, 5), threshold, "playroom_threshold", "visual strip marks the playroom/living opening without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "KitchenPlayroomDriveStrip", Vector3(-55, main_visual_y, -28), Vector3(5, visual_strip, 32), threshold, "kitchen_playroom_threshold", "visual strip marks the wide opening between kitchen and playroom without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "GarageServiceDriveStrip", Vector3(90, main_visual_y, -30), Vector3(5, visual_strip, 24), threshold, "garage_threshold", "visual strip marks the relocated side/service doorway to the garage without adding a raised collision lip")
 	_add_navigation_threshold_overlay(root, parent, "DoggieDoorDriveBridge", Vector3(4, main_visual_y, -130), Vector3(48, visual_strip, 16), Color(0.20, 0.18, 0.14), "doggie_door_bridge", "visual strip marks the oversized doggie-door route; floor/deck collision owns traversal")
-	_add_navigation_threshold_overlay(root, parent, "UpperHallBedroomDriveStrip", Vector3(-118, upper_visual_y, 106), Vector3(32, visual_strip, 5), threshold, "bedroom_threshold", "visual strip marks bedroom door traversal without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "UpperHallGlamDriveStrip", Vector3(6, upper_visual_y, 106), Vector3(30, visual_strip, 5), threshold, "glam_threshold", "visual strip marks glam closet door traversal without adding a raised collision lip")
-	_add_navigation_threshold_overlay(root, parent, "BedroomGlamDriveStrip", Vector3(-15, upper_visual_y, 46), Vector3(5, visual_strip, 28), threshold, "bedroom_glam_threshold", "visual strip marks bedroom-to-glam traversal without adding a raised collision lip")
 
 func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, assembly: String, why_exists: String) -> MeshInstance3D:
 	var strip := _add_box(root, parent, node_name, position, size, color, false, 0.0, Vector3.ZERO, _home_navigation_provenance(assembly, why_exists))

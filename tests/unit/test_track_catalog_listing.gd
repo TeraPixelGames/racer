@@ -665,14 +665,7 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 	if holder != null:
 		for strip_data in [
 			{"node": "FrontDoorDriveThresholdStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "KitchenCasedOpeningDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "PlayroomCasedOpeningDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "KitchenPlayroomDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "GarageServiceDriveStrip", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
 			{"node": "DoggieDoorDriveBridge", "floor_top_y": MAIN_FLOOR_TOP_Y_FOR_TEST()},
-			{"node": "UpperHallBedroomDriveStrip", "floor_top_y": 52.60},
-			{"node": "UpperHallGlamDriveStrip", "floor_top_y": 52.60},
-			{"node": "BedroomGlamDriveStrip", "floor_top_y": 52.60},
 		]:
 			var strip := holder.get_node_or_null(str(strip_data["node"])) as MeshInstance3D
 			assert_true(strip != null, "%s should include visual navigation threshold %s" % [track_id, str(strip_data["node"])])
@@ -680,6 +673,27 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_equal(str(strip.get_meta("collision_policy", "")), "visual_threshold_no_gameplay_collision", "%s %s should not add raised collision lips at room seams" % [track_id, str(strip_data["node"])])
 				var strip_bounds := _mesh_instance_global_aabb(strip)
 				assert_true(strip_bounds.end.y <= float(strip_data["floor_top_y"]) + 0.10, "%s %s should sit as a thin visual overlay at the finished floor datum" % [track_id, str(strip_data["node"])])
+		for removed_room_divider in [
+			"KitchenCasedOpeningDriveStrip",
+			"PlayroomCasedOpeningDriveStrip",
+			"KitchenPlayroomDriveStrip",
+			"GarageServiceDriveStrip",
+			"UpperHallBedroomDriveStrip",
+			"UpperHallGlamDriveStrip",
+			"BedroomGlamDriveStrip",
+		]:
+			assert_true(holder.get_node_or_null(removed_room_divider) == null, "%s should not render floor divider strip %s between rooms" % [track_id, removed_room_divider])
+		for removed_opening_threshold in [
+			"MainFloor/InteriorWalls/KitchenDiningCasedOpeningOpeningThreshold",
+			"MainFloor/InteriorWalls/KitchenPlayroomDividerOpeningThreshold",
+			"MainFloor/InteriorWalls/PlayroomLivingCasedOpeningOpeningThreshold",
+			"MainFloor/InteriorWalls/LivingEntryDividerOpeningThreshold",
+			"MainFloor/InteriorWalls/GarageInteriorSideServiceWallOpeningThreshold",
+			"UpperFloor/InteriorWalls/BedroomGlamCasedOpeningOpeningThreshold",
+			"UpperFloor/InteriorWalls/UpperHallBedroomDividerBedroomDoorThreshold",
+			"UpperFloor/InteriorWalls/UpperHallBedroomDividerGlamClosetDoorThreshold",
+		]:
+			assert_true(root.get_node_or_null(removed_opening_threshold) == null, "%s should not render raised opening threshold %s between rooms" % [track_id, removed_opening_threshold])
 		for obsolete_ramp_node in ["MainFloorToUpperRampLowerRun", "MainFloorToUpperRampUpperRun", "MainFloorToUpperRampSwitchbackLanding"]:
 			assert_true(holder.get_node_or_null(obsolete_ramp_node) == null, "%s should remove obsolete split main-to-upper ramp node %s" % [track_id, obsolete_ramp_node])
 		for ramp_node in ["MainStairIntegratedToyRampLane", "UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun"]:
