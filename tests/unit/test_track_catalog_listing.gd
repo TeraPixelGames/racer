@@ -1681,6 +1681,12 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			Vector3(-50, 104.6, 132),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(attic_finishes, sample), "%s attic deck should fit the gambrel exterior shell footprint at sample %s" % [track_id, str(sample)])
+	var attic_partitions := root.get_node_or_null("Attic/InteriorPartitions")
+	assert_true(attic_partitions != null, "%s attic should include measured interior partitions" % track_id)
+	if attic_partitions != null:
+		assert_true(attic_partitions.get_node_or_null("AtticEastKneePartitionOpeningHeader") is MeshInstance3D, "%s attic east knee partition should include a cased opening at the ramp entry" % track_id)
+		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 27.0))
+		_assert_no_visible_descendant_intersects_aabb(attic_partitions, attic_ramp_entry_corridor, track_id, "attic ramp entry knee-wall opening")
 
 func _visible_descendant_covers_xz_sample(node: Node, sample: Vector3) -> bool:
 	if node is MeshInstance3D:
@@ -1850,7 +1856,8 @@ func _assert_home_yard_roof_and_attic_contract(root: Node, track_id: String) -> 
 	assert_true(attic != null, "%s should include attic holder" % track_id)
 	if attic != null:
 		assert_true(attic.get_node_or_null("InteriorPartitions/AtticWestKneePartition") != null, "%s attic should include contract-owned west knee partition" % track_id)
-		assert_true(attic.get_node_or_null("InteriorPartitions/AtticEastKneePartition") != null, "%s attic should include contract-owned east knee partition" % track_id)
+		assert_true(attic.get_node_or_null("InteriorPartitions/AtticEastKneePartitionSegment01") != null, "%s attic should include contract-owned east knee partition segment past the ramp entry opening" % track_id)
+		assert_true(attic.get_node_or_null("InteriorPartitions/AtticEastKneePartitionOpeningHeader") != null, "%s attic should include contract-owned east knee partition ramp-entry opening" % track_id)
 		assert_true(attic.get_node_or_null("RoomFinishes/PopperHighRampLaunchDeck") != null, "%s attic should include Popper high-ramp launch deck" % track_id)
 		assert_true(attic.get_node_or_null("RoomFinishes/PopperHighRampLandingDeck") != null, "%s attic should include Popper high-ramp landing deck" % track_id)
 		assert_true(attic.get_node_or_null("RoomFinishes/AtticHumanClearanceMarker") != null, "%s attic should include a human-walkable clearance marker" % track_id)
