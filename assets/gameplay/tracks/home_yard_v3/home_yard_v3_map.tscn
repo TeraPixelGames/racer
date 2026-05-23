@@ -4694,92 +4694,92 @@ albedo_color = Color(0.63, 0.43, 0.24, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8osg"]
-size = Vector3(14, 0.45, 48.48464)
+size = Vector3(14, 0.45, 44.449524)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xkif6"]
-size = Vector3(14, 0.45, 48.48464)
+size = Vector3(14, 0.45, 44.449524)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq8a7"]
 albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_gjw6m"]
-size = Vector3(0.9, 1.8, 49.68464)
+size = Vector3(0.9, 1.8, 45.649525)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcmsv"]
 albedo_color = Color(0.4284, 0.2924, 0.16319999, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_tvowb"]
-size = Vector3(0.9, 1.8, 49.68464)
+size = Vector3(0.9, 1.8, 45.649525)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dvna"]
 albedo_color = Color(0.68561995, 0.61082, 0.53976, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_xev5r"]
-size = Vector3(11, 0.12, 46.48464)
+size = Vector3(11, 0.12, 42.449524)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snfrg"]
 albedo_color = Color(0.6596, 0.4756, 0.3008, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_3u00i"]
-size = Vector3(14, 0.45, 46.95913)
+size = Vector3(14, 0.45, 43.60229)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an5uf"]
-size = Vector3(14, 0.45, 46.95913)
+size = Vector3(14, 0.45, 43.60229)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snxqh"]
 albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_ewt6v"]
-size = Vector3(0.9, 1.8, 48.15913)
+size = Vector3(0.9, 1.8, 44.80229)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp4mn"]
 albedo_color = Color(0.44852802, 0.323408, 0.204544, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_00byf"]
-size = Vector3(0.9, 1.8, 48.15913)
+size = Vector3(0.9, 1.8, 44.80229)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acncn"]
 albedo_color = Color(0.6966904, 0.6278744, 0.56249917, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_mafik"]
-size = Vector3(11, 0.12, 44.95913)
+size = Vector3(11, 0.12, 41.60229)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i10lh"]
 albedo_color = Color(0.567, 0.387, 0.21599999, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_vsyda"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7x7e"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qxxn"]
 albedo_color = Color(0.55439997, 0.3784, 0.2112, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_nedod"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8pir"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ph3b"]
 albedo_color = Color(0.5796, 0.39560002, 0.2208, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_4m7xr"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 14)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_odxab"]
-size = Vector3(18, 0.8, 22)
+size = Vector3(18, 0.8, 14)
 
 [sub_resource type="Environment" id="Environment_qp7e4"]
 background_mode = 1
@@ -5328,7 +5328,7 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, -6),
+"position": Vector3(54, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -5341,7 +5341,7 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -86),
+"position": Vector3(54, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -33440,7 +33440,7 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, -6),
+"position": Vector3(54, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -33453,7 +33453,7 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -86),
+"position": Vector3(54, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -34129,11 +34129,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Attic Ramp Lower" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, -6)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, 0)
 metadata/home_navigation_anchor = {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, -6),
+"position": Vector3(54, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34152,11 +34152,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Attic Hub" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 105.2, -86)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 105.2, -94)
 metadata/home_navigation_anchor = {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -86),
+"position": Vector3(54, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -34716,7 +34716,7 @@ metadata/finished_floor_top_y = 52.60000076889992
 shape = SubResource("BoxShape3D_e2dex")
 
 [node name="UpperToAtticRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9405013e-08, -7.21241e-08, 0, 0.82500356, 0.5651275, 8.742278e-08, 0.5651275, -0.82500356, 54, 66.11438, -26)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 54, 66.12283, -23.5)
 material_override = SubResource("StandardMaterial3D_rdf7p")
 mesh = SubResource("BoxMesh_a8osg")
 metadata/generated_scene_provenance = {
@@ -34760,7 +34760,7 @@ metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
 metadata/support_surface_start = Vector3(54, 52.6, -6)
-metadata/support_surface_end = Vector3(54, 80, -46)
+metadata/support_surface_end = Vector3(54, 80, -41)
 metadata/finished_floor_top_y_start = 52.6
 metadata/finished_floor_top_y_end = 80.0
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -34771,7 +34771,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_xkif6")
 
 [node name="UpperToAtticRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9405013e-08, -7.21241e-08, 0, 0.82500356, 0.5651275, 8.742278e-08, 0.5651275, -0.82500356, 60.35, 67.3, -26)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 60.35, 67.3, -23.5)
 material_override = SubResource("StandardMaterial3D_qq8a7")
 mesh = SubResource("BoxMesh_gjw6m")
 metadata/generated_scene_provenance = {
@@ -34814,7 +34814,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9405013e-08, -7.21241e-08, 0, 0.82500356, 0.5651275, 8.742278e-08, 0.5651275, -0.82500356, 47.65, 67.3, -26)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 47.65, 67.3, -23.5)
 material_override = SubResource("StandardMaterial3D_jcmsv")
 mesh = SubResource("BoxMesh_tvowb")
 metadata/generated_scene_provenance = {
@@ -34857,7 +34857,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9405013e-08, -7.21241e-08, 0, 0.82500356, 0.5651275, 8.742278e-08, 0.5651275, -0.82500356, 54, 66.950005, -26)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 54, 66.950005, -23.5)
 material_override = SubResource("StandardMaterial3D_5dvna")
 mesh = SubResource("BoxMesh_xev5r")
 metadata/generated_scene_provenance = {
@@ -34899,7 +34899,7 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.579727e-08, -7.446712e-08, 0, 0.85180455, 0.52385974, 8.742278e-08, 0.52385974, -0.85180455, 54, 92.108345, -66)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 54, 92.114235, -69)
 material_override = SubResource("StandardMaterial3D_snfrg")
 mesh = SubResource("BoxMesh_3u00i")
 metadata/generated_scene_provenance = {
@@ -34942,8 +34942,8 @@ metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(54, 80, -46)
-metadata/support_surface_end = Vector3(54, 104.6, -86)
+metadata/support_surface_start = Vector3(54, 80, -51)
+metadata/support_surface_end = Vector3(54, 104.6, -87)
 metadata/finished_floor_top_y_start = 80.0
 metadata/finished_floor_top_y_end = 104.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -34954,7 +34954,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_an5uf")
 
 [node name="UpperToAtticRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.579727e-08, -7.446712e-08, 0, 0.85180455, 0.52385974, 8.742278e-08, 0.52385974, -0.85180455, 60.35, 93.3, -66)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 60.35, 93.3, -69)
 material_override = SubResource("StandardMaterial3D_snxqh")
 mesh = SubResource("BoxMesh_ewt6v")
 metadata/generated_scene_provenance = {
@@ -34997,7 +34997,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.579727e-08, -7.446712e-08, 0, 0.85180455, 0.52385974, 8.742278e-08, 0.52385974, -0.85180455, 47.65, 93.3, -66)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 47.65, 93.3, -69)
 material_override = SubResource("StandardMaterial3D_hp4mn")
 mesh = SubResource("BoxMesh_00byf")
 metadata/generated_scene_provenance = {
@@ -35040,7 +35040,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.579727e-08, -7.446712e-08, 0, 0.85180455, 0.52385974, 8.742278e-08, 0.52385974, -0.85180455, 54, 92.950005, -66)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 54, 92.950005, -69)
 material_override = SubResource("StandardMaterial3D_acncn")
 mesh = SubResource("BoxMesh_mafik")
 metadata/generated_scene_provenance = {
@@ -35082,7 +35082,7 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, 0)
 material_override = SubResource("StandardMaterial3D_i10lh")
 mesh = SubResource("BoxMesh_vsyda")
 metadata/generated_scene_provenance = {
@@ -35102,14 +35102,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing gives racers a clear flush approach to the attic toy ramp"
+"why_exists": "landing ends at the attic ramp start so racers approach on a flat surface without overlapping the climb"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "attic_ramp_lower_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing gives racers a clear flush approach to the attic toy ramp"
+metadata/why_exists = "landing ends at the attic ramp start so racers approach on a flat surface without overlapping the climb"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35152,14 +35152,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam"
+"why_exists": "mid landing sits between the two attic ramp runs so racers do not hit an overlapping collision seam"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "attic_ramp_switchback_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam"
+metadata/why_exists = "mid landing sits between the two attic ramp runs so racers do not hit an overlapping collision seam"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"
@@ -35182,7 +35182,7 @@ metadata/finished_floor_top_y = 79.99999848008156
 shape = SubResource("BoxShape3D_q8pir")
 
 [node name="UpperToAtticRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 104.2, -86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 104.2, -94)
 material_override = SubResource("StandardMaterial3D_3ph3b")
 mesh = SubResource("BoxMesh_4m7xr")
 metadata/generated_scene_provenance = {
@@ -35202,14 +35202,14 @@ metadata/generated_scene_provenance = {
 "validation_camera": "ValidationCameras/MainStairContinuityCamera",
 "validation_gate": "test_home_yard_exports_whole_house_navigation_contract",
 "visible_class": "architectural_mesh",
-"why_exists": "landing connects the attic toy ramp flush to attic free roam"
+"why_exists": "landing starts past the upper ramp endpoint so it receives racers at attic floor height without blocking the ramp exit"
 }
 metadata/visible_class = "architectural_mesh"
 metadata/owner_volume = "HomeNavigation"
 metadata/assembly = "attic_ramp_upper_landing"
 metadata/role = "free_roam_navigation_surface"
 metadata/source_of_truth = "PLAN_CONTRACT.home_navigation_contract"
-metadata/why_exists = "landing connects the attic toy ramp flush to attic free roam"
+metadata/why_exists = "landing starts past the upper ramp endpoint so it receives racers at attic floor height without blocking the ramp exit"
 metadata/support_target = "authored floors, thresholds, or stair-adjacent ramp landing"
 metadata/contact_face = "bottom face to floor/ramp landing"
 metadata/span_axis = "xz navigation edge"

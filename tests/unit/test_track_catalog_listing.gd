@@ -731,6 +731,22 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
 			assert_true(lower_bounds.position.z >= 133.95, "%s integrated ramp lower landing should sit on the approach side of the lower endpoint instead of overlapping the ramp climb; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
+		var attic_lower_run := holder.get_node_or_null("UpperToAtticRampLowerRun") as MeshInstance3D
+		var attic_upper_run := holder.get_node_or_null("UpperToAtticRampUpperRun") as MeshInstance3D
+		var attic_lower_landing := holder.get_node_or_null("UpperToAtticRampLowerLanding") as MeshInstance3D
+		var attic_mid_landing := holder.get_node_or_null("UpperToAtticRampSwitchbackLanding") as MeshInstance3D
+		var attic_upper_landing := holder.get_node_or_null("UpperToAtticRampUpperLanding") as MeshInstance3D
+		if attic_lower_run != null and attic_upper_run != null and attic_lower_landing != null and attic_mid_landing != null and attic_upper_landing != null:
+			var lower_run_start := attic_lower_run.get_meta("support_surface_start", Vector3.ZERO) as Vector3
+			var lower_run_end := attic_lower_run.get_meta("support_surface_end", Vector3.ZERO) as Vector3
+			var upper_run_start := attic_upper_run.get_meta("support_surface_start", Vector3.ZERO) as Vector3
+			var upper_run_end := attic_upper_run.get_meta("support_surface_end", Vector3.ZERO) as Vector3
+			var attic_lower_landing_bounds := _mesh_instance_global_aabb(attic_lower_landing)
+			var attic_mid_landing_bounds := _mesh_instance_global_aabb(attic_mid_landing)
+			var attic_upper_landing_bounds := _mesh_instance_global_aabb(attic_upper_landing)
+			assert_true(attic_lower_landing_bounds.position.z >= lower_run_start.z - 0.05, "%s attic lower landing should touch the ramp start without overlapping the climb; landing=%s start=%s" % [track_id, str(attic_lower_landing_bounds), str(lower_run_start)])
+			assert_true(attic_mid_landing_bounds.position.z >= upper_run_start.z - 0.05 and attic_mid_landing_bounds.end.z <= lower_run_end.z + 0.05, "%s attic mid landing should sit between ramp runs without overlap; landing=%s lower_end=%s upper_start=%s" % [track_id, str(attic_mid_landing_bounds), str(lower_run_end), str(upper_run_start)])
+			assert_true(attic_upper_landing_bounds.end.z <= upper_run_end.z + 0.05, "%s attic upper landing should sit past the upper ramp endpoint instead of blocking attic entry; landing=%s end=%s" % [track_id, str(attic_upper_landing_bounds), str(upper_run_end)])
 		for seam_landing_data in [
 			{"node": "UpperToAtticRampSwitchbackLanding", "surface_y": 80.00},
 		]:

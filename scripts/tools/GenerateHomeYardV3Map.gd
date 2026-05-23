@@ -1337,9 +1337,9 @@ func _home_navigation_anchors() -> Array[Dictionary]:
 		{"id": "bedroom_center", "zone": "bedroom_suite", "floor": "upper", "position": Vector3(-98, 53.20, -12), "yaw_degrees": 0.0},
 		{"id": "glam_gate", "zone": "glam_dressing", "floor": "upper", "position": Vector3(12, 53.20, 96), "yaw_degrees": 180.0},
 		{"id": "glam_center", "zone": "glam_dressing", "floor": "upper", "position": Vector3(36, 53.20, -12), "yaw_degrees": 0.0},
-		{"id": "attic_ramp_lower", "zone": "upper_hall", "floor": "upper", "position": Vector3(ATTIC_STAIR_RAMP_X, 53.20, ATTIC_STAIR_LOWER_Z), "yaw_degrees": 180.0, "spawn_index": 6},
+		{"id": "attic_ramp_lower", "zone": "upper_hall", "floor": "upper", "position": Vector3(ATTIC_STAIR_RAMP_X, 53.20, 0.0), "yaw_degrees": 180.0, "spawn_index": 6},
 		{"id": "attic_ramp_mid", "zone": "upper_to_attic", "floor": "upper_to_attic", "position": Vector3(ATTIC_STAIR_RAMP_X, 80.0, ATTIC_STAIR_MID_Z), "yaw_degrees": 180.0},
-		{"id": "attic_hub", "zone": "attic_toy_course", "floor": "attic", "position": Vector3(ATTIC_STAIR_RAMP_X, 105.20, ATTIC_STAIR_UPPER_Z), "yaw_degrees": 180.0, "spawn_index": 7},
+		{"id": "attic_hub", "zone": "attic_toy_course", "floor": "attic", "position": Vector3(ATTIC_STAIR_RAMP_X, 105.20, -94.0), "yaw_degrees": 180.0, "spawn_index": 7},
 		{"id": "attic_center", "zone": "attic_toy_course", "floor": "attic", "position": Vector3(-50, 105.20, 12), "yaw_degrees": 0.0},
 	]
 
@@ -1471,11 +1471,11 @@ func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_UPPER_LANDING_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge")
 	var cardboard := Color(0.63, 0.43, 0.24)
 	var attic_switchback_y := 80.0
-	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(ATTIC_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, ATTIC_STAIR_LOWER_Z), Vector3(ATTIC_STAIR_RAMP_X, attic_switchback_y, ATTIC_STAIR_MID_Z), 14.0, cardboard, "UpperHallToAtticToyRamp")
-	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(ATTIC_STAIR_RAMP_X, attic_switchback_y, ATTIC_STAIR_MID_Z), Vector3(ATTIC_STAIR_RAMP_X, ATTIC_ROOM_FLOOR_TOP_Y, ATTIC_STAIR_UPPER_Z), 14.0, cardboard.lightened(0.08), "UpperHallToAtticToyRamp")
-	_add_navigation_landing(root, parent, "UpperToAtticRampLowerLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), ATTIC_STAIR_LOWER_Z), Vector3(18, 0.8, 22), cardboard.darkened(0.10), "attic_ramp_lower_landing", "landing gives racers a clear flush approach to the attic toy ramp")
-	_add_navigation_landing(root, parent, "UpperToAtticRampSwitchbackLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(attic_switchback_y, 0.8), ATTIC_STAIR_MID_Z), Vector3(18, 0.8, 22), cardboard.darkened(0.12), "attic_ramp_switchback_landing", "mid landing joins the two attic ramp runs so racers do not hit a disconnected seam")
-	_add_navigation_landing(root, parent, "UpperToAtticRampUpperLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(ATTIC_ROOM_FLOOR_TOP_Y, 0.8), ATTIC_STAIR_UPPER_Z), Vector3(18, 0.8, 22), cardboard.darkened(0.08), "attic_ramp_upper_landing", "landing connects the attic toy ramp flush to attic free roam")
+	_add_drivable_ramp(root, parent, "UpperToAtticRampLowerRun", Vector3(ATTIC_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, ATTIC_STAIR_LOWER_Z), Vector3(ATTIC_STAIR_RAMP_X, attic_switchback_y, ATTIC_STAIR_MID_Z + 5.0), 14.0, cardboard, "UpperHallToAtticToyRamp")
+	_add_drivable_ramp(root, parent, "UpperToAtticRampUpperRun", Vector3(ATTIC_STAIR_RAMP_X, attic_switchback_y, ATTIC_STAIR_MID_Z - 5.0), Vector3(ATTIC_STAIR_RAMP_X, ATTIC_ROOM_FLOOR_TOP_Y, ATTIC_STAIR_UPPER_Z - 1.0), 14.0, cardboard.lightened(0.08), "UpperHallToAtticToyRamp")
+	_add_navigation_landing(root, parent, "UpperToAtticRampLowerLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), 0.0), Vector3(18, 0.8, 12), cardboard.darkened(0.10), "attic_ramp_lower_landing", "landing ends at the attic ramp start so racers approach on a flat surface without overlapping the climb")
+	_add_navigation_landing(root, parent, "UpperToAtticRampSwitchbackLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(attic_switchback_y, 0.8), ATTIC_STAIR_MID_Z), Vector3(18, 0.8, 10), cardboard.darkened(0.12), "attic_ramp_switchback_landing", "mid landing sits between the two attic ramp runs so racers do not hit an overlapping collision seam")
+	_add_navigation_landing(root, parent, "UpperToAtticRampUpperLanding", Vector3(ATTIC_STAIR_RAMP_X, _landing_center_y(ATTIC_ROOM_FLOOR_TOP_Y, 0.8), -94.0), Vector3(18, 0.8, 14), cardboard.darkened(0.08), "attic_ramp_upper_landing", "landing starts past the upper ramp endpoint so it receives racers at attic floor height without blocking the ramp exit")
 
 func _landing_center_y(surface_top_y: float, thickness: float) -> float:
 	return surface_top_y - thickness * 0.5
