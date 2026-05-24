@@ -2728,10 +2728,10 @@ albedo_color = Color(0.62, 0.56, 0.47, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_087d7"]
-size = Vector3(36, 1.1, 35.8)
+size = Vector3(36, 1.1, 21.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fufbs"]
-size = Vector3(36, 1.1, 35.8)
+size = Vector3(36, 1.1, 21.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctbrr"]
 albedo_color = Color(0.62, 0.56, 0.47, 1)
@@ -20633,7 +20633,7 @@ metadata/support_face = "UpperFloorDeckUpperHallWest"
 shape = SubResource("BoxShape3D_3msto")
 
 [node name="UpperHallLandingFloorNorthOfStairOpening" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.05, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.05, -7.2)
 material_override = SubResource("StandardMaterial3D_o8ymq")
 mesh = SubResource("BoxMesh_087d7")
 metadata/generated_scene_provenance = {
@@ -20669,7 +20669,7 @@ metadata/end_anchor = "generated_transform_end"
 metadata/allowed_intersections = ["declared owner-volume contact", "small trim/foundation/fixture overlap"]
 metadata/forbidden_intersections = ["unowned helper geometry", "route corridor", "camera blocker", "unexplained exterior/interior clash"]
 metadata/deletion_rule = "delete when the node has no declared owner/support target or when a more specific assembly replaces it"
-metadata/validation_gate = "patches the visible upper stair/ramp exit without covering the MainStairEntryToUpperHall opening AABB"
+metadata/validation_gate = "patches the visible upper stair/ramp approach but stops before the integrated ramp upper landing so cars do not hit duplicate coplanar collision"
 metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperHallLandingFloor/UpperHallLandingFloorNorthOfStairOpening"
 metadata/support_face = "UpperHallLandingFloorNorthApproach"

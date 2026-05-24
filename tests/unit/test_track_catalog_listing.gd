@@ -1689,7 +1689,6 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			Vector3(-12, 52.6, 126),
 			Vector3(20, 52.6, 126),
 			Vector3(40, 52.6, 126),
-			Vector3(66, 52.6, 10),
 			Vector3(54, 52.6, -10),
 			Vector3(66, 52.6, -10),
 			Vector3(51, 52.6, 54),
@@ -1700,6 +1699,11 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 		var stair_ramp_swept_volume := AABB(Vector3(54.0, 50.0, 18.0), Vector3(24.0, 4.0, 70.0))
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_opening, track_id, "main stair upper-floor opening")
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_ramp_swept_volume, track_id, "main stair/ramp swept path")
+		var main_ramp_upper_landing := root.get_node_or_null("HomeNavigation/MainStairIntegratedRampUpperLanding") as MeshInstance3D
+		assert_true(main_ramp_upper_landing != null, "%s should include the main stair integrated ramp upper landing" % track_id)
+		if main_ramp_upper_landing != null:
+			var upper_landing_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
+			_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, upper_landing_bounds, track_id, "main ramp upper landing collision surface")
 	var attic_finishes := root.get_node_or_null("Attic/RoomFinishes")
 	assert_true(attic_finishes != null, "%s attic should include room finishes for shell-footprint deck audit" % track_id)
 	if attic_finishes != null:

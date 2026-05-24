@@ -2462,10 +2462,20 @@ func _clamp_home_free_roam_camera_position(car_position: Vector3, desired: Vecto
 	return toward_target
 
 func _update_racer_visual_lods() -> void:
+	if _should_force_intro_racer_lod0():
+		for car in cars.values():
+			if car is CarController:
+				var controller := car as CarController
+				if controller.get_racer_visual_lod() != RacerRoster.RACER_MODEL_LOD0:
+					controller.set_racer_visual_lod(controller.get_racer_visual_id(), RacerRoster.RACER_MODEL_LOD0)
+		return
 	var reference_position := _racer_lod_reference_position()
 	for car in cars.values():
 		if car is CarController:
 			(car as CarController).update_racer_visual_lod_for_camera(reference_position)
+
+func _should_force_intro_racer_lod0() -> bool:
+	return local_single_race and race_phase in [PHASE_INTRO, PHASE_GRID_ENTRY, PHASE_CAMERA_TRANSITION, PHASE_COUNTDOWN]
 
 func _racer_lod_reference_position() -> Vector3:
 	if camera != null:
