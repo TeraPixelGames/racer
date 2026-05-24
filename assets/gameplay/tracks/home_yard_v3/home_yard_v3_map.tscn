@@ -1959,14 +1959,14 @@ albedo_color = Color(0.704, 0.656, 0.536, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_5mpbi"]
-size = Vector3(28.8, 5, 2.4)
+size = Vector3(34.8, 5, 2.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnfq2"]
 albedo_color = Color(0.704, 0.656, 0.536, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_xcf55"]
-size = Vector3(28.8, 5, 2.4)
+size = Vector3(34.8, 5, 2.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vomq3"]
 albedo_color = Color(0.44, 0.35, 0.26, 1)
@@ -2841,28 +2841,28 @@ albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_pd8vo"]
-size = Vector3(242, 1.6, 275)
+size = Vector3(248, 1.6, 275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8b0h"]
 albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ylst"]
-size = Vector3(24, 1.6, 275)
+size = Vector3(12, 1.6, 275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyrot"]
 albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_txcu6"]
-size = Vector3(24, 1.6, 30)
+size = Vector3(30, 1.6, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ll35"]
 albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_ool6t"]
-size = Vector3(24, 1.6, 137)
+size = Vector3(30, 1.6, 137)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auj7n"]
 albedo_color = Color(0.57, 0.51, 0.43, 1)
@@ -2985,10 +2985,10 @@ albedo_color = Color(0.4, 0.29, 0.19, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_40oj8"]
-size = Vector3(25, 2, 35)
+size = Vector3(12, 2, 35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agqq3"]
-size = Vector3(25, 2, 35)
+size = Vector3(12, 2, 35)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wg3xo"]
 albedo_color = Color(0.4, 0.29, 0.19, 1)
@@ -3005,10 +3005,10 @@ albedo_color = Color(0.4, 0.29, 0.19, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_yu6vr"]
-size = Vector3(207, 2, 35)
+size = Vector3(213, 2, 35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhjhf"]
-size = Vector3(207, 2, 35)
+size = Vector3(213, 2, 35)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuraf"]
 albedo_color = Color(0.4, 0.29, 0.19, 1)
@@ -3025,10 +3025,10 @@ albedo_color = Color(0.45, 0.33, 0.22, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_yv52a"]
-size = Vector3(207, 2, 215)
+size = Vector3(213, 2, 215)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hm2al"]
-size = Vector3(207, 2, 215)
+size = Vector3(213, 2, 215)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fiv3"]
 albedo_color = Color(0.45, 0.33, 0.22, 1)
@@ -3052,10 +3052,10 @@ albedo_color = Color(0.55, 0.4, 0.25, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_rjj8t"]
-size = Vector3(24, 0.8, 67)
+size = Vector3(36, 0.8, 67)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dtd4v"]
-size = Vector3(24, 0.8, 67)
+size = Vector3(36, 0.8, 67)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp6y4"]
 albedo_color = Color(0.55, 0.4, 0.25, 1)
@@ -4866,18 +4866,18 @@ metadata/floor_plan_contract = {
 "continuity_gate": "one straight front-to-back stair and integrated toy ramp lane must share the same shaft, connect main and upper floor datums, and keep the garage service door outside the shaft",
 "from_floor": "main",
 "id": "MainStairEntryToUpperHall",
-"lower_landing_center": Vector3(70, 0.05, 134),
+"lower_landing_center": Vector3(63, 0.05, 134),
 "lower_zone": "entry_stair_hall",
 "opening_required": "straight_upper_floor_stairwell_opening",
 "path_segments": ["lower_landing", "straight_flight", "upper_landing", "integrated_toy_ramp_lane"],
 "source_asset": "generated_floor_plan_architect_straight_stair_v1",
 "stairwell_bounds": {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 },
 "to_floor": "upper",
 "type": "straight_residential_stair",
-"upper_landing_center": Vector3(70, 52.6, 24),
+"upper_landing_center": Vector3(63, 52.6, 24),
 "upper_zone": "upper_front_hall",
 "validation_gate": "must not intersect route corridors, exterior shell, garage service door, or camera views; no split U-shaped flight or detached switchback toy ramp may remain"
 }, {
@@ -4885,18 +4885,18 @@ metadata/floor_plan_contract = {
 "continuity_gate": "visible treads, risers, stringers, rails, and landings must span upper floor datum to attic floor datum along the same front-to-back stairwall band as the main stair and overlap the hatch opening",
 "from_floor": "upper",
 "id": "AtticRearStairUpperHallToAttic",
-"lower_landing_center": Vector3(70, 52.6, -6),
+"lower_landing_center": Vector3(63, 52.6, -6),
 "lower_zone": "upper_front_hall",
 "opening_required": "attic_stair_ceiling_opening",
 "path_segments": ["lower_landing", "stair_flight", "attic_hatch_landing"],
 "source_asset": "generated_floor_plan_architect_measured_stacked_attic_stair_v1",
 "stairwell_bounds": {
-"max": Vector3(84, 105, 8),
+"max": Vector3(78, 105, 8),
 "min": Vector3(48, 52, -100)
 },
 "to_floor": "attic",
 "type": "stacked_stairwall_attic_stair",
-"upper_landing_center": Vector3(70, 104.6, -86),
+"upper_landing_center": Vector3(63, 104.6, -86),
 "upper_zone": "attic_toy_course",
 "validation_gate": "must not intersect attic route corridor, roof planes, upper living walls, or third-person camera views"
 }],
@@ -5131,18 +5131,18 @@ metadata/vertical_circulation_contract = {
 "opening_node": "AtticStairCeilingOpening",
 "opening_overlap_required": true,
 "path_segments": [{
-"center": Vector3(70, 52.3, -6),
+"center": Vector3(63, 52.3, -6),
 "id": "lower_landing",
 "node": "AtticRearStairLowerLandingSurface",
 "size": Vector3(18, 0.6, 22)
 }, {
-"end": Vector3(70, 104.6, -86),
+"end": Vector3(63, 104.6, -86),
 "id": "stair_flight",
 "node_prefix": "AtticRearStairTread",
-"start": Vector3(70, 53.2, -6),
+"start": Vector3(63, 53.2, -6),
 "tread_count": 14
 }, {
-"center": Vector3(70, 104.3, -86),
+"center": Vector3(63, 104.3, -86),
 "id": "attic_hatch_landing",
 "node": "AtticRearStairUpperLandingSurface",
 "size": Vector3(18, 0.6, 22)
@@ -5161,40 +5161,40 @@ metadata/vertical_circulation_contract = {
 "continuous_path_verified": true,
 "floor_assembly_layers_cut": ["MainFloorTenFootCeilingPlane", "interstitial_gap", "UpperFloorDeck", "GlamDressing"],
 "floor_assembly_shaft_void_bounds": {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 },
 "id": "MainStairEntryToUpperHall",
 "lower_approach_clearance": {
-"center": Vector3(70, 6, 144),
+"center": Vector3(63, 6, 144),
 "size": Vector3(34, 12, 8)
 },
 "lower_floor_datum_y": 0.05,
 "opening_node": "MainStairUpperFloorOpening",
 "opening_overlap_required": true,
 "path_segments": [{
-"center": Vector3(70, -0.25, 134),
+"center": Vector3(63, -0.25, 134),
 "id": "lower_landing",
 "node": "MainStairLowerLandingSurface",
 "size": Vector3(34, 0.6, 18)
 }, {
-"end": Vector3(70, 52.6, 24),
+"end": Vector3(63, 52.6, 24),
 "id": "straight_flight",
 "node_prefix": "MainStairStraightFlightTread",
-"start": Vector3(70, 0.65, 134),
+"start": Vector3(63, 0.65, 134),
 "tread_count": 22
 }, {
-"center": Vector3(70, 52.3, 24),
+"center": Vector3(63, 52.3, 24),
 "id": "upper_landing",
 "node": "MainStairUpperLandingSurface",
 "size": Vector3(34, 0.6, 20)
 }, {
-"end": Vector3(70, 52.6, 24),
+"end": Vector3(63, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
-"lower_landing_center": Vector3(70, 0.05, 120),
+"lower_landing_center": Vector3(63, 0.05, 120),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(70, 0.05, 134),
-"upper_landing_center": Vector3(70, 52.6, 14)
+"start": Vector3(63, 0.05, 134),
+"upper_landing_center": Vector3(63, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -5202,7 +5202,7 @@ metadata/vertical_circulation_contract = {
 "tread_depth_units": 5.0,
 "type": "straight_residential_stair",
 "upper_approach_clearance": {
-"center": Vector3(70, 58.6, 18),
+"center": Vector3(63, 58.6, 18),
 "size": Vector3(34, 12, 8)
 },
 "upper_floor_datum_y": 52.6,
@@ -5313,14 +5313,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(70, 0.9, 120),
+"position": Vector3(63, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(70, 53.2, 14),
+"position": Vector3(63, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -5357,20 +5357,20 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, 0),
+"position": Vector3(63, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
 }, {
 "floor": "upper_to_attic",
 "id": "attic_ramp_mid",
-"position": Vector3(54, 80, -46),
+"position": Vector3(63, 80, -46),
 "yaw_degrees": 180.0,
 "zone": "upper_to_attic"
 }, {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -94),
+"position": Vector3(63, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -5404,12 +5404,12 @@ metadata/home_navigation_contract = {
 }]),
 "forbidden_aabbs": Array[Dictionary]([{
 "id": "main_stair_architectural_treads",
-"max": Vector3(84, 53.6, 146),
-"min": Vector3(62, 0, 18),
+"max": Vector3(78, 53.6, 146),
+"min": Vector3(55, 0, 18),
 "reason": "human stair treads are visual architecture underneath the integrated ramp lane; racers drive the smooth ramp over the stairs"
 }, {
 "id": "attic_architectural_stair",
-"max": Vector3(84, 105, 8),
+"max": Vector3(78, 105, 8),
 "min": Vector3(48, 52, -100),
 "reason": "attic stair remains architecture; racers use the adjacent toy ramp"
 }, {
@@ -15861,22 +15861,22 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "Openings/GarageHouseServiceDoor"
 
 [node name="AtticAccessHatchFrameWest" type="MeshInstance3D" parent="Openings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.8, 106, -67.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 106, -67.5)
 material_override = SubResource("StandardMaterial3D_ljge5")
 mesh = SubResource("BoxMesh_fbhsl")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["thin trim beside hatch opening"],
 "assembly": "attic_access_hatch_frame",
-"contact_face": "attic hatch perimeter x=42..66 z=-101..-34",
+"contact_face": "attic hatch perimeter x=48..78 z=-101..-34",
 "deletion_rule": "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
-"end_anchor": Vector3(66, 108.5, -34),
+"end_anchor": Vector3(78, 108.5, -34),
 "forbidden_intersections": ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
 "node_path": "Openings/AtticAccessHatchFrameWest",
 "owner_volume": "Openings",
 "role": "perimeter_trim",
 "source_of_truth": "PLAN_CONTRACT.vertical_circulation_contract",
 "span_axis": "x/z",
-"start_anchor": Vector3(42, 103.5, -101),
+"start_anchor": Vector3(48, 103.5, -101),
 "support_target": "AtticRampEntryBridge and UpperToAtticRampUpperLanding",
 "validation_camera": "ValidationCameras/AtticRampSideProfileCamera",
 "validation_gate": "test_home_yard_attic_hatch_drive_through_opening",
@@ -15890,10 +15890,10 @@ metadata/role = "perimeter_trim"
 metadata/source_of_truth = "PLAN_CONTRACT.vertical_circulation_contract"
 metadata/why_exists = "attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear"
 metadata/support_target = "AtticRampEntryBridge and UpperToAtticRampUpperLanding"
-metadata/contact_face = "attic hatch perimeter x=42..66 z=-101..-34"
+metadata/contact_face = "attic hatch perimeter x=48..78 z=-101..-34"
 metadata/span_axis = "x/z"
-metadata/start_anchor = Vector3(42, 103.5, -101)
-metadata/end_anchor = Vector3(66, 108.5, -34)
+metadata/start_anchor = Vector3(48, 103.5, -101)
+metadata/end_anchor = Vector3(78, 108.5, -34)
 metadata/allowed_intersections = ["thin trim beside hatch opening"]
 metadata/forbidden_intersections = ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"]
 metadata/deletion_rule = "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block"
@@ -15902,22 +15902,22 @@ metadata/validation_camera = "ValidationCameras/AtticRampSideProfileCamera"
 metadata/node_path = "Openings/AtticAccessHatchFrameWest"
 
 [node name="AtticAccessHatchFrameEast" type="MeshInstance3D" parent="Openings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2, 106, -67.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.2, 106, -67.5)
 material_override = SubResource("StandardMaterial3D_6n2xb")
 mesh = SubResource("BoxMesh_mx6qs")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["thin trim beside hatch opening"],
 "assembly": "attic_access_hatch_frame",
-"contact_face": "attic hatch perimeter x=42..66 z=-101..-34",
+"contact_face": "attic hatch perimeter x=48..78 z=-101..-34",
 "deletion_rule": "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
-"end_anchor": Vector3(66, 108.5, -34),
+"end_anchor": Vector3(78, 108.5, -34),
 "forbidden_intersections": ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
 "node_path": "Openings/AtticAccessHatchFrameEast",
 "owner_volume": "Openings",
 "role": "perimeter_trim",
 "source_of_truth": "PLAN_CONTRACT.vertical_circulation_contract",
 "span_axis": "x/z",
-"start_anchor": Vector3(42, 103.5, -101),
+"start_anchor": Vector3(48, 103.5, -101),
 "support_target": "AtticRampEntryBridge and UpperToAtticRampUpperLanding",
 "validation_camera": "ValidationCameras/AtticRampSideProfileCamera",
 "validation_gate": "test_home_yard_attic_hatch_drive_through_opening",
@@ -15931,10 +15931,10 @@ metadata/role = "perimeter_trim"
 metadata/source_of_truth = "PLAN_CONTRACT.vertical_circulation_contract"
 metadata/why_exists = "attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear"
 metadata/support_target = "AtticRampEntryBridge and UpperToAtticRampUpperLanding"
-metadata/contact_face = "attic hatch perimeter x=42..66 z=-101..-34"
+metadata/contact_face = "attic hatch perimeter x=48..78 z=-101..-34"
 metadata/span_axis = "x/z"
-metadata/start_anchor = Vector3(42, 103.5, -101)
-metadata/end_anchor = Vector3(66, 108.5, -34)
+metadata/start_anchor = Vector3(48, 103.5, -101)
+metadata/end_anchor = Vector3(78, 108.5, -34)
 metadata/allowed_intersections = ["thin trim beside hatch opening"]
 metadata/forbidden_intersections = ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"]
 metadata/deletion_rule = "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block"
@@ -15943,22 +15943,22 @@ metadata/validation_camera = "ValidationCameras/AtticRampSideProfileCamera"
 metadata/node_path = "Openings/AtticAccessHatchFrameEast"
 
 [node name="AtticAccessHatchFrameBack" type="MeshInstance3D" parent="Openings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 106, -102.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 106, -102.2)
 material_override = SubResource("StandardMaterial3D_ocrdf")
 mesh = SubResource("BoxMesh_5mpbi")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["thin trim beside hatch opening"],
 "assembly": "attic_access_hatch_frame",
-"contact_face": "attic hatch perimeter x=42..66 z=-101..-34",
+"contact_face": "attic hatch perimeter x=48..78 z=-101..-34",
 "deletion_rule": "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
-"end_anchor": Vector3(66, 108.5, -34),
+"end_anchor": Vector3(78, 108.5, -34),
 "forbidden_intersections": ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
 "node_path": "Openings/AtticAccessHatchFrameBack",
 "owner_volume": "Openings",
 "role": "perimeter_trim",
 "source_of_truth": "PLAN_CONTRACT.vertical_circulation_contract",
 "span_axis": "x/z",
-"start_anchor": Vector3(42, 103.5, -101),
+"start_anchor": Vector3(48, 103.5, -101),
 "support_target": "AtticRampEntryBridge and UpperToAtticRampUpperLanding",
 "validation_camera": "ValidationCameras/AtticRampSideProfileCamera",
 "validation_gate": "test_home_yard_attic_hatch_drive_through_opening",
@@ -15972,10 +15972,10 @@ metadata/role = "perimeter_trim"
 metadata/source_of_truth = "PLAN_CONTRACT.vertical_circulation_contract"
 metadata/why_exists = "attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear"
 metadata/support_target = "AtticRampEntryBridge and UpperToAtticRampUpperLanding"
-metadata/contact_face = "attic hatch perimeter x=42..66 z=-101..-34"
+metadata/contact_face = "attic hatch perimeter x=48..78 z=-101..-34"
 metadata/span_axis = "x/z"
-metadata/start_anchor = Vector3(42, 103.5, -101)
-metadata/end_anchor = Vector3(66, 108.5, -34)
+metadata/start_anchor = Vector3(48, 103.5, -101)
+metadata/end_anchor = Vector3(78, 108.5, -34)
 metadata/allowed_intersections = ["thin trim beside hatch opening"]
 metadata/forbidden_intersections = ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"]
 metadata/deletion_rule = "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block"
@@ -15984,22 +15984,22 @@ metadata/validation_camera = "ValidationCameras/AtticRampSideProfileCamera"
 metadata/node_path = "Openings/AtticAccessHatchFrameBack"
 
 [node name="AtticAccessHatchFrameFront" type="MeshInstance3D" parent="Openings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 106, -32.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 106, -32.8)
 material_override = SubResource("StandardMaterial3D_jnfq2")
 mesh = SubResource("BoxMesh_xcf55")
 metadata/generated_scene_provenance = {
 "allowed_intersections": ["thin trim beside hatch opening"],
 "assembly": "attic_access_hatch_frame",
-"contact_face": "attic hatch perimeter x=42..66 z=-101..-34",
+"contact_face": "attic hatch perimeter x=48..78 z=-101..-34",
 "deletion_rule": "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
-"end_anchor": Vector3(66, 108.5, -34),
+"end_anchor": Vector3(78, 108.5, -34),
 "forbidden_intersections": ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
 "node_path": "Openings/AtticAccessHatchFrameFront",
 "owner_volume": "Openings",
 "role": "perimeter_trim",
 "source_of_truth": "PLAN_CONTRACT.vertical_circulation_contract",
 "span_axis": "x/z",
-"start_anchor": Vector3(42, 103.5, -101),
+"start_anchor": Vector3(48, 103.5, -101),
 "support_target": "AtticRampEntryBridge and UpperToAtticRampUpperLanding",
 "validation_camera": "ValidationCameras/AtticRampSideProfileCamera",
 "validation_gate": "test_home_yard_attic_hatch_drive_through_opening",
@@ -16013,10 +16013,10 @@ metadata/role = "perimeter_trim"
 metadata/source_of_truth = "PLAN_CONTRACT.vertical_circulation_contract"
 metadata/why_exists = "attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear"
 metadata/support_target = "AtticRampEntryBridge and UpperToAtticRampUpperLanding"
-metadata/contact_face = "attic hatch perimeter x=42..66 z=-101..-34"
+metadata/contact_face = "attic hatch perimeter x=48..78 z=-101..-34"
 metadata/span_axis = "x/z"
-metadata/start_anchor = Vector3(42, 103.5, -101)
-metadata/end_anchor = Vector3(66, 108.5, -34)
+metadata/start_anchor = Vector3(48, 103.5, -101)
+metadata/end_anchor = Vector3(78, 108.5, -34)
 metadata/allowed_intersections = ["thin trim beside hatch opening"]
 metadata/forbidden_intersections = ["solid slab across hatch", "attic ramp drive corridor", "camera blocker"]
 metadata/deletion_rule = "resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block"
@@ -17770,7 +17770,7 @@ metadata/node_path = "MainFloor/RoomFinishes/PlayroomFamilyBaseboardEast"
 [node name="MainFloorTenFootCeilingPlane" type="Node3D" parent="MainFloor/RoomFinishes"]
 metadata/plan_role = "split first-floor ceiling plane; stairwell shaft remains clear through the interstitial floor assembly"
 metadata/stairwell_shaft_void_bounds = {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 }
 metadata/opening_required_for_vertical_link = "MainStairEntryToUpperHall"
@@ -17818,7 +17818,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane/MainCeilingWestOfStairShaft"
 
 [node name="MainCeilingNorthOfStairShaft" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 40.8, -56)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 40.8, -56)
 material_override = SubResource("StandardMaterial3D_3m587")
 mesh = SubResource("BoxMesh_e0l4y")
 metadata/generated_scene_provenance = {
@@ -17859,7 +17859,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane/MainCeilingNorthOfStairShaft"
 
 [node name="MainCeilingSouthOfStairShaft" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 40.8, 147.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 40.8, 147.5)
 material_override = SubResource("StandardMaterial3D_8u8gm")
 mesh = SubResource("BoxMesh_unvji")
 metadata/generated_scene_provenance = {
@@ -17900,7 +17900,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane/MainCeilingSouthOfStairShaft"
 
 [node name="MainStairShaftReturnNorth" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 46.4, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 46.4, 18)
 material_override = SubResource("StandardMaterial3D_gm16m")
 mesh = SubResource("BoxMesh_fm2nv")
 metadata/generated_scene_provenance = {
@@ -17947,7 +17947,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairShaftReturnSouth" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 46.4, 146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 46.4, 146)
 material_override = SubResource("StandardMaterial3D_bb23k")
 mesh = SubResource("BoxMesh_qe7w2")
 metadata/generated_scene_provenance = {
@@ -18041,7 +18041,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairShaftReturnEast" type="MeshInstance3D" parent="MainFloor/RoomFinishes/MainFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 46.4, 117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 46.4, 117)
 material_override = SubResource("StandardMaterial3D_j8gha")
 mesh = SubResource("BoxMesh_jndep")
 metadata/generated_scene_provenance = {
@@ -19920,7 +19920,7 @@ metadata/plan_role = "upper floor floors, baseboards, interior finishes, and cou
 [node name="UpperFloorDeck" type="Node3D" parent="UpperFloor/RoomFinishes"]
 metadata/plan_role = "split upper floor deck; the main stairwell opening is intentionally clear"
 metadata/stairwell_opening_bounds = {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 }
 metadata/shell_footprint_contract = "upper floor deck covers the main-house shell footprint x -200..90 z -130..145 except the straight stair/ramp swept path and the forward visible stairwell opening; side infill restores the old abandoned shaft void while the toy ramp runs over the stair centerline"
@@ -20581,7 +20581,7 @@ metadata/plan_role = "upper front-hall finish floor and stair-opening trim; rest
 metadata/owner_volume = "upper_front_hall"
 metadata/floor_coverage_contract = "visible finish floor covers the upper hall west of the forward stair opening, the north landing approach, and side infill around the old shaft; only the real stair/ramp swept path centered over the stairs and front stair opening remain clear"
 metadata/stairwell_opening_bounds = {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 }
 
@@ -20633,7 +20633,7 @@ metadata/support_face = "UpperFloorDeckUpperHallWest"
 shape = SubResource("BoxShape3D_3msto")
 
 [node name="UpperHallLandingFloorNorthOfStairOpening" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.05, -7.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.05, -7.2)
 material_override = SubResource("StandardMaterial3D_o8ymq")
 mesh = SubResource("BoxMesh_087d7")
 metadata/generated_scene_provenance = {
@@ -20727,7 +20727,7 @@ metadata/support_face = "restores abandoned west edge of old stair shaft after f
 shape = SubResource("BoxShape3D_orv2v")
 
 [node name="UpperHallLandingFloorStairwellSideInfillEast" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1, 52.05, 53)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1, 52.05, 53)
 material_override = SubResource("StandardMaterial3D_541sv")
 mesh = SubResource("BoxMesh_7yhtq")
 metadata/generated_scene_provenance = {
@@ -20817,7 +20817,7 @@ metadata/support_face = "UpperFloorDeckUpperHallWest"
 metadata/collision_policy = "visual_trim_no_gameplay_collision"
 
 [node name="UpperHallStairOpeningFloorTrimNorth" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.85, 87.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.85, 87.2)
 material_override = SubResource("StandardMaterial3D_54y7v")
 mesh = SubResource("BoxMesh_c6e43")
 metadata/generated_scene_provenance = {
@@ -20860,7 +20860,7 @@ metadata/support_face = "UpperFloorDeckUpperHallWest"
 metadata/collision_policy = "visual_trim_no_gameplay_collision"
 
 [node name="UpperHallStairOpeningFloorTrimSouth" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperHallLandingFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 52.85, 146.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.85, 146.8)
 material_override = SubResource("StandardMaterial3D_bc4ua")
 mesh = SubResource("BoxMesh_73njw")
 metadata/generated_scene_provenance = {
@@ -20905,7 +20905,7 @@ metadata/collision_policy = "visual_trim_no_gameplay_collision"
 [node name="GlamDressing" type="Node3D" parent="UpperFloor/RoomFinishes"]
 metadata/plan_role = "glam dressing finish floor split around the front-hall stairwell opening"
 metadata/stairwell_opening_bounds = {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 }
 
@@ -21002,7 +21002,7 @@ metadata/node_path = "UpperFloor/RoomFinishes/GlamDressing/GlamDressingFrontFloo
 shape = SubResource("BoxShape3D_tlnej")
 
 [node name="MainStairOpeningRailNorth" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 59.8, 88)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 59.8, 88)
 material_override = SubResource("StandardMaterial3D_lcs8f")
 mesh = SubResource("BoxMesh_fjwe2")
 metadata/generated_scene_provenance = {
@@ -21096,7 +21096,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailEast" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 59.8, 117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 59.8, 117)
 material_override = SubResource("StandardMaterial3D_2fk25")
 mesh = SubResource("BoxMesh_jm2ke")
 metadata/generated_scene_provenance = {
@@ -21190,7 +21190,7 @@ metadata/route_clearance = "outside_route_corridor"
 metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 
 [node name="MainStairOpeningRailPost01" type="MeshInstance3D" parent="UpperFloor/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 56.6, 88)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 56.6, 88)
 material_override = SubResource("StandardMaterial3D_wvi3e")
 mesh = SubResource("BoxMesh_jmtgu")
 metadata/generated_scene_provenance = {
@@ -21286,13 +21286,13 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 [node name="UpperFloorTenFootCeilingPlane" type="Node3D" parent="UpperFloor/RoomFinishes"]
 metadata/plan_role = "split upper-floor ceiling; attic hatch and stairwell circulation stay open while the upper hall remains covered to the exterior shell"
 metadata/attic_hatch_opening_bounds = {
-"max": Vector3(84, 95, 8),
-"min": Vector3(60, 91, -100)
+"max": Vector3(78, 95, -34),
+"min": Vector3(48, 91, -101)
 }
 metadata/ceiling_footprint_contract = "upper ceiling pieces cover bedroom, glam closet, and upper living hall to the exterior wall interior face; only the stacked stairwall attic hatch bay is intentionally open"
 
 [node name="UpperCeilingWestOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 92.8, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 92.8, 7.5)
 material_override = SubResource("StandardMaterial3D_rkyot")
 mesh = SubResource("BoxMesh_pd8vo")
 metadata/generated_scene_provenance = {
@@ -21333,7 +21333,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingWestOfAtticHatch"
 
 [node name="UpperCeilingEastOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 92.8, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 92.8, 7.5)
 material_override = SubResource("StandardMaterial3D_e8b0h")
 mesh = SubResource("BoxMesh_4ylst")
 metadata/generated_scene_provenance = {
@@ -21374,7 +21374,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingEastOfAtticHatch"
 
 [node name="UpperCeilingNorthOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 92.8, -115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 92.8, -115)
 material_override = SubResource("StandardMaterial3D_gyrot")
 mesh = SubResource("BoxMesh_txcu6")
 metadata/generated_scene_provenance = {
@@ -21415,7 +21415,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingNorthOfAtticHatch"
 
 [node name="UpperCeilingSouthOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 92.8, 76.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 92.8, 76.5)
 material_override = SubResource("StandardMaterial3D_7ll35")
 mesh = SubResource("BoxMesh_ool6t")
 metadata/generated_scene_provenance = {
@@ -22302,7 +22302,7 @@ metadata/plan_role = "Popper toy-built attic route inside measured Dutch gambrel
 
 [node name="RoomFinishes" type="Node3D" parent="Attic"]
 metadata/plan_role = "attic deck, high-ramp staging, rafters, and Popper storage dressing"
-metadata/shell_footprint_contract = "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real drive-through stair/ramp hatch opening at x 42..66 z -101..-34 so racers can enter the attic without hitting a floor or knee-wall lip"
+metadata/shell_footprint_contract = "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real drive-through stair/ramp hatch opening at x 48..78 z -101..-34 so racers can enter the attic without hitting a floor or knee-wall lip"
 
 [node name="AtticFloorDeckWestEaveShellStrip" type="MeshInstance3D" parent="Attic/RoomFinishes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.5, 103, 7.5)
@@ -22351,7 +22351,7 @@ metadata/node_path = "Attic/RoomFinishes/AtticFloorDeckWestEaveShellStrip"
 shape = SubResource("BoxShape3D_7f3ij")
 
 [node name="AtticFloorDeckEastEaveShellStripBackOfHatch" type="MeshInstance3D" parent="Attic/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.5, 103, -112.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 103, -112.5)
 material_override = SubResource("StandardMaterial3D_b1tsb")
 mesh = SubResource("BoxMesh_40oj8")
 metadata/generated_scene_provenance = {
@@ -22443,7 +22443,7 @@ metadata/node_path = "Attic/RoomFinishes/AtticFloorDeckEastEaveShellStripFrontOf
 shape = SubResource("BoxShape3D_hfn2t")
 
 [node name="AtticFloorDeckBackEaveShellStrip" type="MeshInstance3D" parent="Attic/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5, 103, -112.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 103, -112.5)
 material_override = SubResource("StandardMaterial3D_lhmjm")
 mesh = SubResource("BoxMesh_yu6vr")
 metadata/generated_scene_provenance = {
@@ -22537,12 +22537,12 @@ shape = SubResource("BoxShape3D_7u03c")
 [node name="AtticDeck" type="Node3D" parent="Attic/RoomFinishes"]
 metadata/plan_role = "split attic deck around the visible stair/ramp hatch opening; no broad slab covers the entry"
 metadata/attic_ramp_hatch_opening_bounds = {
-"max": Vector3(66, 105, -34),
-"min": Vector3(42, 102, -101)
+"max": Vector3(78, 105, -34),
+"min": Vector3(48, 102, -101)
 }
 
 [node name="AtticDeckWestOfRampHatch" type="MeshInstance3D" parent="Attic/RoomFinishes/AtticDeck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5, 103, 12.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 103, 12.5)
 material_override = SubResource("StandardMaterial3D_hu2mk")
 mesh = SubResource("BoxMesh_yv52a")
 metadata/generated_scene_provenance = {
@@ -22675,7 +22675,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "Attic/RoomFinishes/AtticStorageZone"
 
 [node name="AtticRampEntryBridge" type="MeshInstance3D" parent="Attic/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 104.2, -67.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 104.2, -67.5)
 material_override = SubResource("StandardMaterial3D_nuwa2")
 mesh = SubResource("BoxMesh_rjj8t")
 metadata/generated_scene_provenance = {
@@ -28326,18 +28326,18 @@ metadata/vertical_circulation_contract = {
 "opening_node": "AtticStairCeilingOpening",
 "opening_overlap_required": true,
 "path_segments": [{
-"center": Vector3(70, 52.3, -6),
+"center": Vector3(63, 52.3, -6),
 "id": "lower_landing",
 "node": "AtticRearStairLowerLandingSurface",
 "size": Vector3(18, 0.6, 22)
 }, {
-"end": Vector3(70, 104.6, -86),
+"end": Vector3(63, 104.6, -86),
 "id": "stair_flight",
 "node_prefix": "AtticRearStairTread",
-"start": Vector3(70, 53.2, -6),
+"start": Vector3(63, 53.2, -6),
 "tread_count": 14
 }, {
-"center": Vector3(70, 104.3, -86),
+"center": Vector3(63, 104.3, -86),
 "id": "attic_hatch_landing",
 "node": "AtticRearStairUpperLandingSurface",
 "size": Vector3(18, 0.6, 22)
@@ -28356,40 +28356,40 @@ metadata/vertical_circulation_contract = {
 "continuous_path_verified": true,
 "floor_assembly_layers_cut": ["MainFloorTenFootCeilingPlane", "interstitial_gap", "UpperFloorDeck", "GlamDressing"],
 "floor_assembly_shaft_void_bounds": {
-"max": Vector3(84, 53.6, 146),
+"max": Vector3(78, 53.6, 146),
 "min": Vector3(48, 39.5, 18)
 },
 "id": "MainStairEntryToUpperHall",
 "lower_approach_clearance": {
-"center": Vector3(70, 6, 144),
+"center": Vector3(63, 6, 144),
 "size": Vector3(34, 12, 8)
 },
 "lower_floor_datum_y": 0.05,
 "opening_node": "MainStairUpperFloorOpening",
 "opening_overlap_required": true,
 "path_segments": [{
-"center": Vector3(70, -0.25, 134),
+"center": Vector3(63, -0.25, 134),
 "id": "lower_landing",
 "node": "MainStairLowerLandingSurface",
 "size": Vector3(34, 0.6, 18)
 }, {
-"end": Vector3(70, 52.6, 24),
+"end": Vector3(63, 52.6, 24),
 "id": "straight_flight",
 "node_prefix": "MainStairStraightFlightTread",
-"start": Vector3(70, 0.65, 134),
+"start": Vector3(63, 0.65, 134),
 "tread_count": 22
 }, {
-"center": Vector3(70, 52.3, 24),
+"center": Vector3(63, 52.3, 24),
 "id": "upper_landing",
 "node": "MainStairUpperLandingSurface",
 "size": Vector3(34, 0.6, 20)
 }, {
-"end": Vector3(70, 52.6, 24),
+"end": Vector3(63, 52.6, 24),
 "id": "integrated_toy_ramp_lane",
-"lower_landing_center": Vector3(70, 0.05, 120),
+"lower_landing_center": Vector3(63, 0.05, 120),
 "node": "MainStairIntegratedToyRampLane",
-"start": Vector3(70, 0.05, 134),
-"upper_landing_center": Vector3(70, 52.6, 14)
+"start": Vector3(63, 0.05, 134),
+"upper_landing_center": Vector3(63, 52.6, 14)
 }],
 "riser_height_units": 2.3613636363636363,
 "route_exclusion": ["bedroom", "glam_closet"],
@@ -28397,7 +28397,7 @@ metadata/vertical_circulation_contract = {
 "tread_depth_units": 5.0,
 "type": "straight_residential_stair",
 "upper_approach_clearance": {
-"center": Vector3(70, 58.6, 18),
+"center": Vector3(63, 58.6, 18),
 "size": Vector3(34, 12, 8)
 },
 "upper_floor_datum_y": 52.6,
@@ -28409,7 +28409,7 @@ metadata/vertical_circulation_contract = {
 }
 
 [node name="MainStairLowerLandingSurface" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -0.25, 134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, -0.25, 134)
 material_override = SubResource("StandardMaterial3D_a7m8e")
 mesh = SubResource("BoxMesh_ujjg6")
 metadata/generated_scene_provenance = {
@@ -28468,7 +28468,7 @@ metadata/support_surface_top_y = 0.050000012
 metadata/target_dimensions_units = Vector3(34, 0.6, 18)
 
 [node name="MainStairStraightFlightTread00" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 2.6613636, 131.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 2.6613636, 131.5)
 material_override = SubResource("StandardMaterial3D_4bmrn")
 mesh = SubResource("BoxMesh_sjy7u")
 metadata/generated_scene_provenance = {
@@ -28530,7 +28530,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser00" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 1.8306818, 129)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 1.8306818, 129)
 material_override = SubResource("StandardMaterial3D_2cfo8")
 mesh = SubResource("BoxMesh_oy7lq")
 metadata/generated_scene_provenance = {
@@ -28590,7 +28590,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread01" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 5.022727, 126.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 5.022727, 126.5)
 material_override = SubResource("StandardMaterial3D_l67i4")
 mesh = SubResource("BoxMesh_ttxyt")
 metadata/generated_scene_provenance = {
@@ -28652,7 +28652,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser01" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 4.192045, 124)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 4.192045, 124)
 material_override = SubResource("StandardMaterial3D_lrcau")
 mesh = SubResource("BoxMesh_yvort")
 metadata/generated_scene_provenance = {
@@ -28712,7 +28712,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread02" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 7.384091, 121.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 7.384091, 121.5)
 material_override = SubResource("StandardMaterial3D_2wmh5")
 mesh = SubResource("BoxMesh_0456i")
 metadata/generated_scene_provenance = {
@@ -28774,7 +28774,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser02" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 6.553409, 119)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 6.553409, 119)
 material_override = SubResource("StandardMaterial3D_fr233")
 mesh = SubResource("BoxMesh_k55vf")
 metadata/generated_scene_provenance = {
@@ -28834,7 +28834,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread03" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 9.745454, 116.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 9.745454, 116.5)
 material_override = SubResource("StandardMaterial3D_wg0gf")
 mesh = SubResource("BoxMesh_ql70f")
 metadata/generated_scene_provenance = {
@@ -28896,7 +28896,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser03" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 8.914772, 114)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 8.914772, 114)
 material_override = SubResource("StandardMaterial3D_gmphl")
 mesh = SubResource("BoxMesh_yypqy")
 metadata/generated_scene_provenance = {
@@ -28956,7 +28956,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread04" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 12.106818, 111.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 12.106818, 111.5)
 material_override = SubResource("StandardMaterial3D_5ep63")
 mesh = SubResource("BoxMesh_5y8ii")
 metadata/generated_scene_provenance = {
@@ -29018,7 +29018,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser04" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 11.276136, 109)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 11.276136, 109)
 material_override = SubResource("StandardMaterial3D_y6p0w")
 mesh = SubResource("BoxMesh_0lh3q")
 metadata/generated_scene_provenance = {
@@ -29078,7 +29078,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread05" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 14.468182, 106.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 14.468182, 106.5)
 material_override = SubResource("StandardMaterial3D_t1wxm")
 mesh = SubResource("BoxMesh_rtu0p")
 metadata/generated_scene_provenance = {
@@ -29140,7 +29140,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser05" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 13.6375, 104)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 13.6375, 104)
 material_override = SubResource("StandardMaterial3D_kyti6")
 mesh = SubResource("BoxMesh_glliu")
 metadata/generated_scene_provenance = {
@@ -29200,7 +29200,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread06" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 16.829544, 101.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 16.829544, 101.5)
 material_override = SubResource("StandardMaterial3D_e5vtr")
 mesh = SubResource("BoxMesh_8etuw")
 metadata/generated_scene_provenance = {
@@ -29262,7 +29262,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser06" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 15.998863, 99)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 15.998863, 99)
 material_override = SubResource("StandardMaterial3D_sd8u3")
 mesh = SubResource("BoxMesh_4m7u6")
 metadata/generated_scene_provenance = {
@@ -29322,7 +29322,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread07" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 19.190908, 96.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 19.190908, 96.5)
 material_override = SubResource("StandardMaterial3D_d8p7w")
 mesh = SubResource("BoxMesh_5yero")
 metadata/generated_scene_provenance = {
@@ -29384,7 +29384,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser07" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 18.360228, 94)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 18.360228, 94)
 material_override = SubResource("StandardMaterial3D_gcjhh")
 mesh = SubResource("BoxMesh_y85kd")
 metadata/generated_scene_provenance = {
@@ -29444,7 +29444,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread08" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 21.552273, 91.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 21.552273, 91.5)
 material_override = SubResource("StandardMaterial3D_jyj34")
 mesh = SubResource("BoxMesh_uosxu")
 metadata/generated_scene_provenance = {
@@ -29506,7 +29506,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser08" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 20.72159, 89)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 20.72159, 89)
 material_override = SubResource("StandardMaterial3D_4aavj")
 mesh = SubResource("BoxMesh_l2abp")
 metadata/generated_scene_provenance = {
@@ -29566,7 +29566,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread09" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 23.913635, 86.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 23.913635, 86.5)
 material_override = SubResource("StandardMaterial3D_lmq7b")
 mesh = SubResource("BoxMesh_b1bla")
 metadata/generated_scene_provenance = {
@@ -29628,7 +29628,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser09" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 23.082954, 84)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 23.082954, 84)
 material_override = SubResource("StandardMaterial3D_32rus")
 mesh = SubResource("BoxMesh_kltoh")
 metadata/generated_scene_provenance = {
@@ -29688,7 +29688,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread10" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 26.275, 81.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 26.275, 81.5)
 material_override = SubResource("StandardMaterial3D_54u12")
 mesh = SubResource("BoxMesh_to3ox")
 metadata/generated_scene_provenance = {
@@ -29750,7 +29750,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser10" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 25.444317, 79)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 25.444317, 79)
 material_override = SubResource("StandardMaterial3D_evqi4")
 mesh = SubResource("BoxMesh_ci82m")
 metadata/generated_scene_provenance = {
@@ -29810,7 +29810,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread11" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 28.636362, 76.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 28.636362, 76.5)
 material_override = SubResource("StandardMaterial3D_j1tnh")
 mesh = SubResource("BoxMesh_q6bbw")
 metadata/generated_scene_provenance = {
@@ -29872,7 +29872,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser11" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 27.805681, 74)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 27.805681, 74)
 material_override = SubResource("StandardMaterial3D_t8sbk")
 mesh = SubResource("BoxMesh_y4gms")
 metadata/generated_scene_provenance = {
@@ -29932,7 +29932,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread12" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 30.997726, 71.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 30.997726, 71.5)
 material_override = SubResource("StandardMaterial3D_q14up")
 mesh = SubResource("BoxMesh_vsf0p")
 metadata/generated_scene_provenance = {
@@ -29994,7 +29994,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser12" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 30.167044, 69)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 30.167044, 69)
 material_override = SubResource("StandardMaterial3D_6nlfm")
 mesh = SubResource("BoxMesh_b5isk")
 metadata/generated_scene_provenance = {
@@ -30054,7 +30054,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread13" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 33.35909, 66.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 33.35909, 66.5)
 material_override = SubResource("StandardMaterial3D_mdpa2")
 mesh = SubResource("BoxMesh_5jall")
 metadata/generated_scene_provenance = {
@@ -30116,7 +30116,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser13" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 32.528408, 64)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 32.528408, 64)
 material_override = SubResource("StandardMaterial3D_2hrqw")
 mesh = SubResource("BoxMesh_5mfq0")
 metadata/generated_scene_provenance = {
@@ -30176,7 +30176,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread14" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 35.720455, 61.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 35.720455, 61.5)
 material_override = SubResource("StandardMaterial3D_ktv26")
 mesh = SubResource("BoxMesh_66x3f")
 metadata/generated_scene_provenance = {
@@ -30238,7 +30238,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser14" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 34.88977, 59)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 34.88977, 59)
 material_override = SubResource("StandardMaterial3D_lsk2m")
 mesh = SubResource("BoxMesh_vh1qu")
 metadata/generated_scene_provenance = {
@@ -30298,7 +30298,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread15" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 38.081818, 56.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 38.081818, 56.5)
 material_override = SubResource("StandardMaterial3D_aysgw")
 mesh = SubResource("BoxMesh_gbpfa")
 metadata/generated_scene_provenance = {
@@ -30360,7 +30360,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser15" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 37.251137, 54)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 37.251137, 54)
 material_override = SubResource("StandardMaterial3D_ifegh")
 mesh = SubResource("BoxMesh_1xnvj")
 metadata/generated_scene_provenance = {
@@ -30420,7 +30420,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread16" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 40.44318, 51.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 40.44318, 51.5)
 material_override = SubResource("StandardMaterial3D_fdx7q")
 mesh = SubResource("BoxMesh_eie32")
 metadata/generated_scene_provenance = {
@@ -30482,7 +30482,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser16" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 39.6125, 49)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 39.6125, 49)
 material_override = SubResource("StandardMaterial3D_mpahi")
 mesh = SubResource("BoxMesh_1emj3")
 metadata/generated_scene_provenance = {
@@ -30542,7 +30542,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread17" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 42.804543, 46.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 42.804543, 46.5)
 material_override = SubResource("StandardMaterial3D_h2eoe")
 mesh = SubResource("BoxMesh_r32u3")
 metadata/generated_scene_provenance = {
@@ -30604,7 +30604,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser17" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 41.97386, 44)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 41.97386, 44)
 material_override = SubResource("StandardMaterial3D_1uyng")
 mesh = SubResource("BoxMesh_6vgdt")
 metadata/generated_scene_provenance = {
@@ -30664,7 +30664,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread18" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 45.16591, 41.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 45.16591, 41.5)
 material_override = SubResource("StandardMaterial3D_a4mbr")
 mesh = SubResource("BoxMesh_morxy")
 metadata/generated_scene_provenance = {
@@ -30726,7 +30726,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser18" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 44.335224, 39)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 44.335224, 39)
 material_override = SubResource("StandardMaterial3D_jh6tf")
 mesh = SubResource("BoxMesh_l3u0g")
 metadata/generated_scene_provenance = {
@@ -30786,7 +30786,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread19" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 47.52727, 36.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 47.52727, 36.5)
 material_override = SubResource("StandardMaterial3D_fn2pe")
 mesh = SubResource("BoxMesh_3rqc7")
 metadata/generated_scene_provenance = {
@@ -30848,7 +30848,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser19" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 46.69659, 34)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 46.69659, 34)
 material_override = SubResource("StandardMaterial3D_87xpy")
 mesh = SubResource("BoxMesh_y2q8m")
 metadata/generated_scene_provenance = {
@@ -30908,7 +30908,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread20" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 49.888634, 31.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 49.888634, 31.5)
 material_override = SubResource("StandardMaterial3D_7h5ka")
 mesh = SubResource("BoxMesh_7lfle")
 metadata/generated_scene_provenance = {
@@ -30970,7 +30970,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser20" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 49.057953, 29)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 49.057953, 29)
 material_override = SubResource("StandardMaterial3D_7r5ik")
 mesh = SubResource("BoxMesh_1iq0i")
 metadata/generated_scene_provenance = {
@@ -31030,7 +31030,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairStraightFlightTread21" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 52.25, 26.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 52.25, 26.5)
 material_override = SubResource("StandardMaterial3D_ae5uv")
 mesh = SubResource("BoxMesh_28qt4")
 metadata/generated_scene_provenance = {
@@ -31092,7 +31092,7 @@ metadata/tread_depth_units = 5.0
 metadata/target_dimensions_units = Vector3(14, 0.7, 5.4)
 
 [node name="MainStairStraightFlightRiser21" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 51.419315, 24)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 51.419315, 24)
 material_override = SubResource("StandardMaterial3D_fi7mg")
 mesh = SubResource("BoxMesh_lyoon")
 metadata/generated_scene_provenance = {
@@ -31152,7 +31152,7 @@ metadata/riser_height_units = 2.361363568089225
 metadata/target_dimensions_units = Vector3(14, 2.1613636, 0.55)
 
 [node name="MainStairUpperLandingSurface" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 52.3, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.3, 24)
 material_override = SubResource("StandardMaterial3D_56sqg")
 mesh = SubResource("BoxMesh_7gq86")
 metadata/generated_scene_provenance = {
@@ -31211,7 +31211,7 @@ metadata/support_surface_top_y = 52.599999248981476
 metadata/target_dimensions_units = Vector3(34, 0.6, 20)
 
 [node name="MainStairStraightStringerLeft" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 3.733334e-08, -7.905039e-08, 0, 0.904231, 0.42704365, 8.742278e-08, 0.42704365, -0.904231, 77.8, 27.624998, 79)
+transform = Transform3D(-1, 3.733334e-08, -7.905039e-08, 0, 0.904231, 0.42704365, 8.742278e-08, 0.42704365, -0.904231, 70.8, 27.624998, 79)
 material_override = SubResource("StandardMaterial3D_cmrid")
 mesh = SubResource("BoxMesh_potr4")
 metadata/generated_scene_provenance = {
@@ -31259,11 +31259,11 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_stair"
 metadata/collision_policy = "visible_architectural_stair_collision"
 metadata/stair_flight_side = "Left"
-metadata/stair_flight_centerline_start = Vector3(70, 0.65, 134)
-metadata/stair_flight_centerline_end = Vector3(70, 52.6, 24)
+metadata/stair_flight_centerline_start = Vector3(63, 0.65, 134)
+metadata/stair_flight_centerline_end = Vector3(63, 52.6, 24)
 
 [node name="MainStairStraightStringerRight" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 3.733334e-08, -7.905039e-08, 0, 0.904231, 0.42704365, 8.742278e-08, 0.42704365, -0.904231, 62.2, 27.624998, 79)
+transform = Transform3D(-1, 3.733334e-08, -7.905039e-08, 0, 0.904231, 0.42704365, 8.742278e-08, 0.42704365, -0.904231, 55.2, 27.624998, 79)
 material_override = SubResource("StandardMaterial3D_5f42e")
 mesh = SubResource("BoxMesh_q36cd")
 metadata/generated_scene_provenance = {
@@ -31311,11 +31311,11 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_stair"
 metadata/collision_policy = "visible_architectural_stair_collision"
 metadata/stair_flight_side = "Right"
-metadata/stair_flight_centerline_start = Vector3(70, 0.65, 134)
-metadata/stair_flight_centerline_end = Vector3(70, 52.6, 24)
+metadata/stair_flight_centerline_start = Vector3(63, 0.65, 134)
+metadata/stair_flight_centerline_end = Vector3(63, 52.6, 24)
 
 [node name="MainStairStraightGuardrailRight" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 28, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 28, 82)
 material_override = SubResource("StandardMaterial3D_pmmqm")
 mesh = SubResource("BoxMesh_u1752")
 metadata/generated_scene_provenance = {
@@ -31364,7 +31364,7 @@ metadata/scale_validation_status = "floor_plan_architect_measured_visible_stair"
 metadata/collision_policy = "visible_architectural_stair_collision"
 
 [node name="MainStairUpperFloorOpening" type="Node3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 52.65, 82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.65, 82)
 metadata/vertical_link_id = "MainStairEntryToUpperHall"
 metadata/validation_only = true
 metadata/opening_marker = true
@@ -31372,7 +31372,7 @@ metadata/clearance_size = Vector3(36, 2, 128)
 metadata/validation_gate = "floor opening must align with sourced stair asset and remain clear of active route/camera corridors"
 
 [node name="AtticRearStairLowerLandingSurface" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 52.3, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.3, -6)
 material_override = SubResource("StandardMaterial3D_xd6xo")
 mesh = SubResource("BoxMesh_wfqql")
 metadata/generated_scene_provenance = {
@@ -31431,7 +31431,7 @@ metadata/support_surface_top_y = 52.599999248981476
 metadata/target_dimensions_units = Vector3(18, 0.6, 22)
 
 [node name="AtticRearStairTread00" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 56.52143, -8.857143)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 56.52143, -8.857143)
 material_override = SubResource("StandardMaterial3D_pcc5f")
 mesh = SubResource("BoxMesh_1y4aq")
 metadata/generated_scene_provenance = {
@@ -31493,7 +31493,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser00" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 55.035713, -11.714286)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 55.035713, -11.714286)
 material_override = SubResource("StandardMaterial3D_h1dj1")
 mesh = SubResource("BoxMesh_8mflc")
 metadata/generated_scene_provenance = {
@@ -31553,7 +31553,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread01" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 60.192856, -14.571428)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 60.192856, -14.571428)
 material_override = SubResource("StandardMaterial3D_wfd57")
 mesh = SubResource("BoxMesh_w7e7q")
 metadata/generated_scene_provenance = {
@@ -31615,7 +31615,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser01" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 58.70714, -17.428572)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 58.70714, -17.428572)
 material_override = SubResource("StandardMaterial3D_mfmti")
 mesh = SubResource("BoxMesh_cqm2c")
 metadata/generated_scene_provenance = {
@@ -31675,7 +31675,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread02" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 63.864285, -20.285715)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 63.864285, -20.285715)
 material_override = SubResource("StandardMaterial3D_5e1pj")
 mesh = SubResource("BoxMesh_8l1vp")
 metadata/generated_scene_provenance = {
@@ -31737,7 +31737,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser02" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 62.37857, -23.142857)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 62.37857, -23.142857)
 material_override = SubResource("StandardMaterial3D_x4dlp")
 mesh = SubResource("BoxMesh_0ardl")
 metadata/generated_scene_provenance = {
@@ -31797,7 +31797,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread03" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 67.53571, -26)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 67.53571, -26)
 material_override = SubResource("StandardMaterial3D_53a2b")
 mesh = SubResource("BoxMesh_8aaox")
 metadata/generated_scene_provenance = {
@@ -31859,7 +31859,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser03" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 66.05, -28.857143)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 66.05, -28.857143)
 material_override = SubResource("StandardMaterial3D_vj17e")
 mesh = SubResource("BoxMesh_y2qc1")
 metadata/generated_scene_provenance = {
@@ -31919,7 +31919,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread04" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 71.207146, -31.714285)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 71.207146, -31.714285)
 material_override = SubResource("StandardMaterial3D_f86c7")
 mesh = SubResource("BoxMesh_0nplb")
 metadata/generated_scene_provenance = {
@@ -31981,7 +31981,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser04" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 69.72143, -34.57143)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 69.72143, -34.57143)
 material_override = SubResource("StandardMaterial3D_fq1bj")
 mesh = SubResource("BoxMesh_sfen2")
 metadata/generated_scene_provenance = {
@@ -32041,7 +32041,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread05" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 74.87857, -37.42857)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 74.87857, -37.42857)
 material_override = SubResource("StandardMaterial3D_up2il")
 mesh = SubResource("BoxMesh_7vx3p")
 metadata/generated_scene_provenance = {
@@ -32103,7 +32103,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser05" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 73.39286, -40.285713)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 73.39286, -40.285713)
 material_override = SubResource("StandardMaterial3D_744ph")
 mesh = SubResource("BoxMesh_llvej")
 metadata/generated_scene_provenance = {
@@ -32163,7 +32163,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread06" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 78.55, -43.142857)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 78.55, -43.142857)
 material_override = SubResource("StandardMaterial3D_7d1l8")
 mesh = SubResource("BoxMesh_l5orc")
 metadata/generated_scene_provenance = {
@@ -32225,7 +32225,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser06" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 77.064285, -46)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 77.064285, -46)
 material_override = SubResource("StandardMaterial3D_cx0tu")
 mesh = SubResource("BoxMesh_u2sn1")
 metadata/generated_scene_provenance = {
@@ -32285,7 +32285,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread07" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 82.22143, -48.85714)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 82.22143, -48.85714)
 material_override = SubResource("StandardMaterial3D_ovrlj")
 mesh = SubResource("BoxMesh_ijvwc")
 metadata/generated_scene_provenance = {
@@ -32347,7 +32347,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser07" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 80.73571, -51.714287)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 80.73571, -51.714287)
 material_override = SubResource("StandardMaterial3D_6dgvw")
 mesh = SubResource("BoxMesh_dg5cd")
 metadata/generated_scene_provenance = {
@@ -32407,7 +32407,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread08" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 85.89285, -54.57143)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 85.89285, -54.57143)
 material_override = SubResource("StandardMaterial3D_1mi61")
 mesh = SubResource("BoxMesh_jbjqk")
 metadata/generated_scene_provenance = {
@@ -32469,7 +32469,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser08" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 84.40714, -57.42857)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 84.40714, -57.42857)
 material_override = SubResource("StandardMaterial3D_176or")
 mesh = SubResource("BoxMesh_7k221")
 metadata/generated_scene_provenance = {
@@ -32529,7 +32529,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread09" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 89.564285, -60.285713)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 89.564285, -60.285713)
 material_override = SubResource("StandardMaterial3D_b3lyn")
 mesh = SubResource("BoxMesh_xhegx")
 metadata/generated_scene_provenance = {
@@ -32591,7 +32591,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser09" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 88.07857, -63.14286)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 88.07857, -63.14286)
 material_override = SubResource("StandardMaterial3D_w06v5")
 mesh = SubResource("BoxMesh_lwajy")
 metadata/generated_scene_provenance = {
@@ -32651,7 +32651,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread10" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 93.23571, -66)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 93.23571, -66)
 material_override = SubResource("StandardMaterial3D_4on7m")
 mesh = SubResource("BoxMesh_e07df")
 metadata/generated_scene_provenance = {
@@ -32713,7 +32713,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser10" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 91.75, -68.85714)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 91.75, -68.85714)
 material_override = SubResource("StandardMaterial3D_cft5s")
 mesh = SubResource("BoxMesh_d1gf5")
 metadata/generated_scene_provenance = {
@@ -32773,7 +32773,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread11" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 96.90714, -71.71429)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 96.90714, -71.71429)
 material_override = SubResource("StandardMaterial3D_f2f26")
 mesh = SubResource("BoxMesh_wtm5p")
 metadata/generated_scene_provenance = {
@@ -32835,7 +32835,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser11" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 95.421425, -74.57143)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 95.421425, -74.57143)
 material_override = SubResource("StandardMaterial3D_3lhuw")
 mesh = SubResource("BoxMesh_4fjc3")
 metadata/generated_scene_provenance = {
@@ -32895,7 +32895,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread12" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 100.57857, -77.42857)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 100.57857, -77.42857)
 material_override = SubResource("StandardMaterial3D_75qjd")
 mesh = SubResource("BoxMesh_r2x4w")
 metadata/generated_scene_provenance = {
@@ -32957,7 +32957,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser12" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 99.09286, -80.28571)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 99.09286, -80.28571)
 material_override = SubResource("StandardMaterial3D_krn14")
 mesh = SubResource("BoxMesh_5r8cv")
 metadata/generated_scene_provenance = {
@@ -33017,7 +33017,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairTread13" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 104.25, -83.14286)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 104.25, -83.14286)
 material_override = SubResource("StandardMaterial3D_5yefi")
 mesh = SubResource("BoxMesh_0yflk")
 metadata/generated_scene_provenance = {
@@ -33079,7 +33079,7 @@ metadata/tread_depth_units = 5.714285714285714
 metadata/target_dimensions_units = Vector3(16, 0.7, 6.214286)
 
 [node name="AtticRearStairRiser13" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 102.76428, -86)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 102.76428, -86)
 material_override = SubResource("StandardMaterial3D_25nj0")
 mesh = SubResource("BoxMesh_ouqt0")
 metadata/generated_scene_provenance = {
@@ -33139,7 +33139,7 @@ metadata/riser_height_units = 3.6714284079415456
 metadata/target_dimensions_units = Vector3(16, 3.4714284, 0.55)
 
 [node name="AtticRearStairUpperLandingSurface" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 104.3, -86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 104.3, -86)
 material_override = SubResource("StandardMaterial3D_ocfa6")
 mesh = SubResource("BoxMesh_iyids")
 metadata/generated_scene_provenance = {
@@ -33198,7 +33198,7 @@ metadata/support_surface_top_y = 104.60000306367874
 metadata/target_dimensions_units = Vector3(18, 0.6, 22)
 
 [node name="AtticRearStairStringerLeft" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 4.7255945e-08, -7.3550105e-08, 0, 0.84131515, 0.540545, 8.742278e-08, 0.540545, -0.84131515, 78.8, 79.9, -46)
+transform = Transform3D(-1, 4.7255945e-08, -7.3550105e-08, 0, 0.84131515, 0.540545, 8.742278e-08, 0.540545, -0.84131515, 71.8, 79.9, -46)
 material_override = SubResource("StandardMaterial3D_fsyou")
 mesh = SubResource("BoxMesh_hw8k6")
 metadata/generated_scene_provenance = {
@@ -33254,7 +33254,7 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_attic_stair"
 
 [node name="AtticRearStairStringerRight" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(-1, 4.7255945e-08, -7.3550105e-08, 0, 0.84131515, 0.540545, 8.742278e-08, 0.540545, -0.84131515, 61.2, 79.9, -46)
+transform = Transform3D(-1, 4.7255945e-08, -7.3550105e-08, 0, 0.84131515, 0.540545, 8.742278e-08, 0.540545, -0.84131515, 54.2, 79.9, -46)
 material_override = SubResource("StandardMaterial3D_1nqkj")
 mesh = SubResource("BoxMesh_5rb1m")
 metadata/generated_scene_provenance = {
@@ -33310,7 +33310,7 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_attic_stair"
 
 [node name="AtticRearStairGuardrailLeft" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.2, 80, -46)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2, 80, -46)
 material_override = SubResource("StandardMaterial3D_viert")
 mesh = SubResource("BoxMesh_qlipx")
 metadata/generated_scene_provenance = {
@@ -33366,7 +33366,7 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_attic_stair"
 
 [node name="AtticRearStairGuardrailRight" type="MeshInstance3D" parent="VerticalConnectors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8, 80, -46)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.8, 80, -46)
 material_override = SubResource("StandardMaterial3D_tepj4")
 mesh = SubResource("BoxMesh_opbu5")
 metadata/generated_scene_provenance = {
@@ -33422,7 +33422,7 @@ metadata/scale_contract_id = "home_yard_v3_human_house_toy_racer_scale_v1"
 metadata/scale_validation_status = "floor_plan_architect_measured_visible_attic_stair"
 
 [node name="AtticRearStairKenneyStepsReference" type="Node3D" parent="VerticalConnectors" instance=ExtResource("25_i4a6c")]
-transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 70, 52.7, -6)
+transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 63, 52.7, -6)
 visible = false
 metadata/external_scene_instance = "res://assets/source/kenney/mini_skate/steps.glb"
 metadata/vertical_link_id = "AtticRearStairUpperHallToAttic"
@@ -33546,14 +33546,14 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(70, 0.9, 120),
+"position": Vector3(63, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
 }, {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(70, 53.2, 14),
+"position": Vector3(63, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -33590,20 +33590,20 @@ metadata/home_navigation_contract = {
 }, {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, 0),
+"position": Vector3(63, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
 }, {
 "floor": "upper_to_attic",
 "id": "attic_ramp_mid",
-"position": Vector3(54, 80, -46),
+"position": Vector3(63, 80, -46),
 "yaw_degrees": 180.0,
 "zone": "upper_to_attic"
 }, {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -94),
+"position": Vector3(63, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -33637,12 +33637,12 @@ metadata/home_navigation_contract = {
 }]),
 "forbidden_aabbs": Array[Dictionary]([{
 "id": "main_stair_architectural_treads",
-"max": Vector3(84, 53.6, 146),
-"min": Vector3(62, 0, 18),
+"max": Vector3(78, 53.6, 146),
+"min": Vector3(55, 0, 18),
 "reason": "human stair treads are visual architecture underneath the integrated ramp lane; racers drive the smooth ramp over the stairs"
 }, {
 "id": "attic_architectural_stair",
-"max": Vector3(84, 105, 8),
+"max": Vector3(78, 105, 8),
 "min": Vector3(48, 52, -100),
 "reason": "attic stair remains architecture; racers use the adjacent toy ramp"
 }, {
@@ -34200,11 +34200,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Main Ramp Lower" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 0.9, 120)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 0.9, 120)
 metadata/home_navigation_anchor = {
 "floor": "main",
 "id": "main_ramp_lower",
-"position": Vector3(70, 0.9, 120),
+"position": Vector3(63, 0.9, 120),
 "spawn_index": 4,
 "yaw_degrees": 180.0,
 "zone": "front_foyer"
@@ -34212,11 +34212,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = true
 
 [node name="Anchor_Upper Hall Landing" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 70, 53.2, 14)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 53.2, 14)
 metadata/home_navigation_anchor = {
 "floor": "upper",
 "id": "upper_hall_landing",
-"position": Vector3(70, 53.2, 14),
+"position": Vector3(63, 53.2, 14),
 "spawn_index": 5,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34279,11 +34279,11 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = false
 
 [node name="Anchor_Attic Ramp Lower" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 53.2, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 53.2, 0)
 metadata/home_navigation_anchor = {
 "floor": "upper",
 "id": "attic_ramp_lower",
-"position": Vector3(54, 53.2, 0),
+"position": Vector3(63, 53.2, 0),
 "spawn_index": 6,
 "yaw_degrees": 180.0,
 "zone": "upper_hall"
@@ -34291,22 +34291,22 @@ metadata/home_navigation_anchor = {
 metadata/spawn_anchor = true
 
 [node name="Anchor_Attic Ramp Mid" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 80, -46)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 80, -46)
 metadata/home_navigation_anchor = {
 "floor": "upper_to_attic",
 "id": "attic_ramp_mid",
-"position": Vector3(54, 80, -46),
+"position": Vector3(63, 80, -46),
 "yaw_degrees": 180.0,
 "zone": "upper_to_attic"
 }
 metadata/spawn_anchor = false
 
 [node name="Anchor_Attic Hub" type="Marker3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 54, 105.2, -94)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63, 105.2, -94)
 metadata/home_navigation_anchor = {
 "floor": "attic",
 "id": "attic_hub",
-"position": Vector3(54, 105.2, -94),
+"position": Vector3(63, 105.2, -94),
 "spawn_index": 7,
 "yaw_degrees": 180.0,
 "zone": "attic_toy_course"
@@ -34583,7 +34583,7 @@ metadata/route_clearance = "floor_collision_owns_traversal"
 metadata/finished_floor_top_y = 0.13000000268220901
 
 [node name="MainStairIntegratedToyRampLane" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 70, 26.121977, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 63, 26.121977, 79)
 material_override = SubResource("StandardMaterial3D_maifd")
 mesh = SubResource("BoxMesh_x4fnx")
 metadata/generated_scene_provenance = {
@@ -34626,8 +34626,8 @@ metadata/home_navigation_vertical_link_id = "MainFloorToUpperToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(70, 0.05, 134)
-metadata/support_surface_end = Vector3(70, 52.6, 24)
+metadata/support_surface_start = Vector3(63, 0.05, 134)
+metadata/support_surface_end = Vector3(63, 52.6, 24)
 metadata/finished_floor_top_y_start = 0.05
 metadata/finished_floor_top_y_end = 52.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -34638,7 +34638,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_ariwb")
 
 [node name="MainStairIntegratedToyRampLaneLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 73.35, 27.324999, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 66.35, 27.324999, 79)
 material_override = SubResource("StandardMaterial3D_fijjg")
 mesh = SubResource("BoxMesh_q8tsa")
 metadata/generated_scene_provenance = {
@@ -34681,7 +34681,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainStairIntegratedToyRampLaneRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 66.65, 27.324999, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 59.65, 27.324999, 79)
 material_override = SubResource("StandardMaterial3D_e2dex")
 mesh = SubResource("BoxMesh_rdf7p")
 metadata/generated_scene_provenance = {
@@ -34724,7 +34724,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="MainStairIntegratedToyRampLaneCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 70, 26.974998, 79)
+transform = Transform3D(-1, 3.7684778e-08, -7.888345e-08, 0, 0.9023215, 0.43106362, 8.742278e-08, 0.43106362, -0.9023215, 63, 26.974998, 79)
 material_override = SubResource("StandardMaterial3D_a8osg")
 mesh = SubResource("BoxMesh_xkif6")
 metadata/generated_scene_provenance = {
@@ -34766,7 +34766,7 @@ metadata/node_path = "HomeNavigation/MainStairIntegratedToyRampLaneCenterWearStr
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="MainStairIntegratedRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -0.35, 120)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, -0.35, 120)
 material_override = SubResource("StandardMaterial3D_qq8a7")
 mesh = SubResource("BoxMesh_gjw6m")
 metadata/generated_scene_provenance = {
@@ -34816,7 +34816,7 @@ metadata/finished_floor_top_y = 0.050000012
 shape = SubResource("BoxShape3D_jcmsv")
 
 [node name="MainStairIntegratedRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 52.2, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.2, 14)
 material_override = SubResource("StandardMaterial3D_tvowb")
 mesh = SubResource("BoxMesh_5dvna")
 metadata/generated_scene_provenance = {
@@ -34866,7 +34866,7 @@ metadata/finished_floor_top_y = 52.60000076889992
 shape = SubResource("BoxShape3D_xev5r")
 
 [node name="UpperToAtticRampLowerRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 54, 66.12283, -23.5)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 63, 66.12283, -23.5)
 material_override = SubResource("StandardMaterial3D_snfrg")
 mesh = SubResource("BoxMesh_3u00i")
 metadata/generated_scene_provenance = {
@@ -34909,8 +34909,8 @@ metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(54, 52.6, -6)
-metadata/support_surface_end = Vector3(54, 80, -41)
+metadata/support_surface_start = Vector3(63, 52.6, -6)
+metadata/support_surface_end = Vector3(63, 80, -41)
 metadata/finished_floor_top_y_start = 52.6
 metadata/finished_floor_top_y_end = 80.0
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -34921,7 +34921,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_an5uf")
 
 [node name="UpperToAtticRampLowerRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 60.35, 67.3, -23.5)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 69.35, 67.3, -23.5)
 material_override = SubResource("StandardMaterial3D_snxqh")
 mesh = SubResource("BoxMesh_ewt6v")
 metadata/generated_scene_provenance = {
@@ -34964,7 +34964,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 47.65, 67.3, -23.5)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 56.65, 67.3, -23.5)
 material_override = SubResource("StandardMaterial3D_hp4mn")
 mesh = SubResource("BoxMesh_00byf")
 metadata/generated_scene_provenance = {
@@ -35007,7 +35007,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampLowerRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 54, 66.950005, -23.5)
+transform = Transform3D(-1, 5.3889984e-08, -6.883757e-08, 0, 0.78741, 0.61642957, 8.742278e-08, 0.61642957, -0.78741, 63, 66.950005, -23.5)
 material_override = SubResource("StandardMaterial3D_acncn")
 mesh = SubResource("BoxMesh_mafik")
 metadata/generated_scene_provenance = {
@@ -35049,7 +35049,7 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampLowerRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampUpperRun" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 54, 92.114235, -69)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 63, 92.114235, -69)
 material_override = SubResource("StandardMaterial3D_i10lh")
 mesh = SubResource("BoxMesh_vsyda")
 metadata/generated_scene_provenance = {
@@ -35092,8 +35092,8 @@ metadata/home_navigation_vertical_link_id = "UpperHallToAtticToyRamp"
 metadata/collision_policy = "drivable_static_toy_ramp"
 metadata/route_clearance = "intentional_free_roam_surface"
 metadata/scale_class = "toy_scale_racing"
-metadata/support_surface_start = Vector3(54, 80, -51)
-metadata/support_surface_end = Vector3(54, 104.6, -87)
+metadata/support_surface_start = Vector3(63, 80, -51)
+metadata/support_surface_end = Vector3(63, 104.6, -87)
 metadata/finished_floor_top_y_start = 80.0
 metadata/finished_floor_top_y_end = 104.6
 metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not saturated placeholder blue"
@@ -35104,7 +35104,7 @@ metadata/visible_material_contract = "muted plywood/cardboard toy ramp, not satu
 shape = SubResource("BoxShape3D_v7x7e")
 
 [node name="UpperToAtticRampUpperRunLeftEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 60.35, 93.3, -69)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 69.35, 93.3, -69)
 material_override = SubResource("StandardMaterial3D_4qxxn")
 mesh = SubResource("BoxMesh_nedod")
 metadata/generated_scene_provenance = {
@@ -35147,7 +35147,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunRightEdgeRail" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 47.65, 93.3, -69)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 56.65, 93.3, -69)
 material_override = SubResource("StandardMaterial3D_q8pir")
 mesh = SubResource("BoxMesh_3ph3b")
 metadata/generated_scene_provenance = {
@@ -35190,7 +35190,7 @@ metadata/home_navigation_ramp_edge_rail = true
 metadata/collision_policy = "visual_edge_no_gameplay_collision"
 
 [node name="UpperToAtticRampUpperRunCenterWearStrip" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 54, 92.950005, -69)
+transform = Transform3D(-1, 4.9323095e-08, -7.218015e-08, 0, 0.8256447, 0.56419045, 8.742278e-08, 0.56419045, -0.8256447, 63, 92.950005, -69)
 material_override = SubResource("StandardMaterial3D_4m7xr")
 mesh = SubResource("BoxMesh_odxab")
 metadata/generated_scene_provenance = {
@@ -35232,7 +35232,7 @@ metadata/node_path = "HomeNavigation/UpperToAtticRampUpperRunCenterWearStrip"
 metadata/home_navigation_ramp_surface_detail = true
 
 [node name="UpperToAtticRampLowerLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 52.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 52.2, 0)
 material_override = SubResource("StandardMaterial3D_qp7e4")
 mesh = SubResource("BoxMesh_faxgg")
 metadata/generated_scene_provenance = {
@@ -35282,7 +35282,7 @@ metadata/finished_floor_top_y = 52.60000076889992
 shape = SubResource("BoxShape3D_rvglu")
 
 [node name="UpperToAtticRampSwitchbackLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 79.6, -46)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 79.6, -46)
 material_override = SubResource("StandardMaterial3D_4pohe")
 mesh = SubResource("BoxMesh_iju2q")
 metadata/generated_scene_provenance = {
@@ -35332,7 +35332,7 @@ metadata/finished_floor_top_y = 79.99999848008156
 shape = SubResource("BoxShape3D_1j8h6")
 
 [node name="UpperToAtticRampUpperLanding" type="MeshInstance3D" parent="HomeNavigation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 104.2, -94)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 104.2, -94)
 material_override = SubResource("StandardMaterial3D_oml0s")
 mesh = SubResource("BoxMesh_1jt8k")
 metadata/generated_scene_provenance = {

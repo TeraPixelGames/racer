@@ -731,10 +731,10 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
 			var ramp_bounds := _mesh_instance_global_aabb(main_ramp)
-			assert_true(lower_bounds.position.x >= 51.95, "%s integrated ramp lower landing should sit inward from the first-floor wall instead of hugging it; bounds=%s" % [track_id, str(lower_bounds)])
-			assert_true(absf((lower_bounds.position.x + lower_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated ramp lower landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(lower_bounds)])
-			assert_true(absf((upper_bounds.position.x + upper_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated ramp upper landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(upper_bounds)])
-			assert_true(absf((ramp_bounds.position.x + ramp_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated toy ramp lane should run over the stair centerline, not as a side ramp; bounds=%s" % [track_id, str(ramp_bounds)])
+			assert_true(lower_bounds.end.x <= 71.05, "%s integrated ramp lower landing should be pulled inward from the garage/service wall instead of hugging it; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(absf((lower_bounds.position.x + lower_bounds.size.x * 0.5) - 63.0) <= 0.1, "%s integrated ramp lower landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(absf((upper_bounds.position.x + upper_bounds.size.x * 0.5) - 63.0) <= 0.1, "%s integrated ramp upper landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(upper_bounds)])
+			assert_true(absf((ramp_bounds.position.x + ramp_bounds.size.x * 0.5) - 63.0) <= 0.1, "%s integrated toy ramp lane should run over the stair centerline, not as a side ramp; bounds=%s" % [track_id, str(ramp_bounds)])
 			assert_true(lower_bounds.end.z <= 134.05, "%s integrated ramp lower landing should sit inside the foyer approach, not against the front wall; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(lower_bounds.position.z >= 105.95, "%s integrated ramp lower landing should provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
@@ -1331,9 +1331,9 @@ func _assert_home_yard_vertical_circulation_continuity(root: Node, track_id: Str
 		"UpperFloor/RoomFinishes/GlamDressing/GlamDressingFrontFloorWestOfStair",
 	]:
 		assert_true(root.get_node_or_null(floor_path) != null, "%s should include split floor/ceiling assembly piece %s around the stairwell shaft" % [track_id, floor_path])
-	var opening_volume := AABB(Vector3(48.0, 50.0, 88.0), Vector3(36.0, 4.0, 58.0))
-	var stair_ramp_swept_volume := AABB(Vector3(54.0, 50.0, 18.0), Vector3(24.0, 4.0, 70.0))
-	var shaft_volume := AABB(Vector3(48.0, 39.5, 18.0), Vector3(36.0, 14.1, 128.0))
+	var opening_volume := AABB(Vector3(48.0, 50.0, 88.0), Vector3(30.0, 4.0, 58.0))
+	var stair_ramp_swept_volume := AABB(Vector3(55.0, 50.0, 18.0), Vector3(16.0, 4.0, 70.0))
+	var shaft_volume := AABB(Vector3(48.0, 39.5, 18.0), Vector3(30.0, 14.1, 128.0))
 	_assert_home_yard_main_stair_is_measured_and_visible(root, track_id)
 	_assert_home_yard_stair_route_exclusion(root, shaft_volume, track_id)
 	_assert_home_yard_stair_is_front_hall_not_garage(root, shaft_volume, track_id)
@@ -1674,7 +1674,7 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 		Vector3(78, 92.8, -120),
 	]:
 		assert_true(_visible_descendant_covers_xz_sample(ceiling, sample), "%s upper ceiling should cover shell-interior sample %s" % [track_id, str(sample)])
-	var hatch_void := AABB(Vector3(42, 91, -101), Vector3(24, 5, 67))
+	var hatch_void := AABB(Vector3(48, 91, -101), Vector3(30, 5, 67))
 	_assert_no_visible_descendant_intersects_aabb(ceiling, hatch_void, track_id, "upper attic hatch void")
 	var east_rail := root.get_node_or_null("UpperFloor/RoomFinishes/MainStairOpeningRailEast")
 	assert_true(east_rail is MeshInstance3D, "%s upper hall stair opening should have an east guardrail so the hallway reads enclosed and continuous" % track_id)
@@ -1698,11 +1698,11 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			Vector3(54, 52.6, -10),
 			Vector3(66, 52.6, -10),
 			Vector3(51, 52.6, 54),
-			Vector3(81, 52.6, 54),
+			Vector3(75, 52.6, 54),
 		]:
 			assert_true(_visible_descendant_covers_xz_sample(upper_hall_floor, sample), "%s upper hall landing floor should cover visible hall sample %s without looking missing" % [track_id, str(sample)])
-		var stair_opening := AABB(Vector3(48.0, 50.0, 88.0), Vector3(36.0, 4.0, 58.0))
-		var stair_ramp_swept_volume := AABB(Vector3(54.0, 50.0, 18.0), Vector3(24.0, 4.0, 70.0))
+		var stair_opening := AABB(Vector3(48.0, 50.0, 88.0), Vector3(30.0, 4.0, 58.0))
+		var stair_ramp_swept_volume := AABB(Vector3(55.0, 50.0, 18.0), Vector3(16.0, 4.0, 70.0))
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_opening, track_id, "main stair upper-floor opening")
 		_assert_no_visible_descendant_intersects_aabb(upper_hall_floor, stair_ramp_swept_volume, track_id, "main stair/ramp swept path")
 		var main_ramp_upper_landing := root.get_node_or_null("HomeNavigation/MainStairIntegratedRampUpperLanding") as MeshInstance3D
@@ -1722,7 +1722,7 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			"AtticDeck",
 		]:
 			assert_true(attic_finishes.get_node_or_null(node_name) != null, "%s attic shell deck should include measured piece %s" % [track_id, node_name])
-		var attic_ramp_hatch_opening := AABB(Vector3(42.0, 102.0, -101.0), Vector3(24.0, 3.0, 67.0))
+		var attic_ramp_hatch_opening := AABB(Vector3(48.0, 102.0, -101.0), Vector3(30.0, 3.0, 67.0))
 		for floor_owner_name in ["AtticDeck", "AtticFloorDeckEastEaveShellStripBackOfHatch", "AtticFloorDeckEastEaveShellStripFrontOfHatch"]:
 			var floor_owner := attic_finishes.get_node_or_null(floor_owner_name)
 			assert_true(floor_owner != null, "%s attic floor hatch gate should find floor owner %s" % [track_id, floor_owner_name])
@@ -1740,7 +1740,7 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 	assert_true(attic_partitions != null, "%s attic should include measured interior partitions" % track_id)
 	if attic_partitions != null:
 		assert_true(attic_partitions.get_node_or_null("AtticEastKneePartitionOpeningHeader") is MeshInstance3D, "%s attic east knee partition should include a cased opening at the ramp entry" % track_id)
-		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 65.0))
+		var attic_ramp_entry_corridor := AABB(Vector3(51.0, 104.0, -99.0), Vector3(24.0, 8.0, 65.0))
 		_assert_no_visible_descendant_intersects_aabb(attic_partitions, attic_ramp_entry_corridor, track_id, "attic ramp entry knee-wall opening")
 	var opening_holder := root.get_node_or_null("Openings")
 	assert_true(opening_holder != null, "%s should include opening assemblies" % track_id)
@@ -1748,14 +1748,14 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 		assert_true(opening_holder.get_node_or_null("AtticAccessHatchFrame") == null, "%s attic hatch frame should not be one solid slab across the drive-through opening" % track_id)
 		for node_name in ["AtticAccessHatchFrameWest", "AtticAccessHatchFrameEast", "AtticAccessHatchFrameBack", "AtticAccessHatchFrameFront"]:
 			assert_true(opening_holder.get_node_or_null(node_name) is MeshInstance3D, "%s attic hatch should include perimeter trim piece %s" % [track_id, node_name])
-		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 65.0))
+		var attic_ramp_entry_corridor := AABB(Vector3(51.0, 104.0, -99.0), Vector3(24.0, 8.0, 65.0))
 		_assert_no_visible_descendant_intersects_aabb(opening_holder, attic_ramp_entry_corridor, track_id, "attic hatch drive-through opening")
 
 func _assert_home_yard_interior_attic_check_it_out_loop(root: Node, track_id: String) -> void:
 	var audit_volumes := [
 		{
 			"name": "attic ramp upper run and hatch sweep",
-			"bounds": AABB(Vector3(42.0, 78.0, -101.0), Vector3(24.0, 32.0, 67.0)),
+			"bounds": AABB(Vector3(48.0, 78.0, -101.0), Vector3(30.0, 32.0, 67.0)),
 			"scope_paths": ["UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane", "Attic/RoomFinishes", "Attic/InteriorPartitions", "Openings", "HomeNavigation"],
 			"allowed_nodes": ["UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun", "UpperToAtticRampUpperRunLeftEdgeRail", "UpperToAtticRampUpperRunRightEdgeRail", "UpperToAtticRampUpperRunCenterWearStrip", "UpperToAtticRampLowerRunCenterWearStrip", "UpperToAtticRampSwitchbackLanding", "UpperToAtticRampUpperLanding", "AtticRearStair", "AtticRampEntryBridge", "AtticRampEntryCoursePad", "AtticAccessHatchFrame", "AtticEastKneePartitionOpeningHeader"],
 		},

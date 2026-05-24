@@ -29,7 +29,7 @@ const UPPER_ROOM_FLOOR_TOP_Y := 52.60
 const ATTIC_ROOM_FLOOR_TOP_Y := 104.60
 const HOME_NAV_THRESHOLD_VISUAL_THICKNESS := 0.08
 const HOME_NAV_RAMP_THICKNESS := 0.45
-const MAIN_STAIR_X := 70.0
+const MAIN_STAIR_X := 63.0
 const MAIN_STAIR_RAMP_X := MAIN_STAIR_X
 const MAIN_STAIR_FLIGHT_WIDTH := 14.0
 const MAIN_STAIR_RAMP_WIDTH := 8.0
@@ -41,20 +41,20 @@ const MAIN_STAIR_UPPER_Z := 24.0
 const MAIN_STAIR_RAMP_LOWER_LANDING_Z := 120.0
 const MAIN_STAIR_RAMP_UPPER_LANDING_Z := 14.0
 const MAIN_STAIR_SHAFT_MIN := Vector3(48, 39.5, 18)
-const MAIN_STAIR_SHAFT_MAX := Vector3(84, 53.6, 146)
+const MAIN_STAIR_SHAFT_MAX := Vector3(78, 53.6, 146)
 const MAIN_STAIR_FRONT_OPENING_MIN_Z := 88.0
 const MAIN_STAIR_FRONT_OPENING_MAX_Z := 146.0
 const MAIN_STAIR_FRONT_OPENING_CENTER_Z := (MAIN_STAIR_FRONT_OPENING_MIN_Z + MAIN_STAIR_FRONT_OPENING_MAX_Z) * 0.5
 const MAIN_STAIR_FRONT_OPENING_SIZE_Z := MAIN_STAIR_FRONT_OPENING_MAX_Z - MAIN_STAIR_FRONT_OPENING_MIN_Z
-const ATTIC_STAIR_X := 70.0
-const ATTIC_STAIR_RAMP_X := 54.0
+const ATTIC_STAIR_X := MAIN_STAIR_X
+const ATTIC_STAIR_RAMP_X := MAIN_STAIR_X
 const ATTIC_STAIR_LOWER_Z := -6.0
 const ATTIC_STAIR_UPPER_Z := -86.0
 const ATTIC_STAIR_MID_Z := -46.0
-const ATTIC_STAIR_HATCH_MIN := Vector3(60, 91, -100)
-const ATTIC_STAIR_HATCH_MAX := Vector3(84, 95, 8)
+const ATTIC_STAIR_HATCH_MIN := Vector3(48, 91, -101)
+const ATTIC_STAIR_HATCH_MAX := Vector3(78, 95, -34)
 const ATTIC_STAIR_BOUNDS_MIN := Vector3(48, 52, -100)
-const ATTIC_STAIR_BOUNDS_MAX := Vector3(84, 105, 8)
+const ATTIC_STAIR_BOUNDS_MAX := Vector3(78, 105, 8)
 const UNITS_PER_FOOT := 4.0
 const SCALE_CONTRACT_ID := "home_yard_v3_human_house_toy_racer_scale_v1"
 const HUMAN_APPLIANCE_SCALE := Vector3(18.0, 18.0, 18.0)
@@ -604,7 +604,7 @@ func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	floor.set_meta("owner_volume", "upper_front_hall")
 	floor.set_meta("support_face", "UpperFloorDeckUpperHallWest")
 	floor.set_meta("validation_gate", "sampled upper-hall floor coverage and no AABB overlap with MainStairEntryToUpperHall opening")
-	var north_landing_floor := _add_box(root, holder, "UpperHallLandingFloorNorthOfStairOpening", Vector3(66.0, 52.05, -7.2), Vector3(36.0, 1.1, 21.6), Color(0.62, 0.56, 0.47), true)
+	var north_landing_floor := _add_box(root, holder, "UpperHallLandingFloorNorthOfStairOpening", Vector3(MAIN_STAIR_X, 52.05, -7.2), Vector3(36.0, 1.1, 21.6), Color(0.62, 0.56, 0.47), true)
 	north_landing_floor.set_meta("owner_volume", "upper_front_hall")
 	north_landing_floor.set_meta("support_face", "UpperHallLandingFloorNorthApproach")
 	north_landing_floor.set_meta("validation_gate", "patches the visible upper stair/ramp approach but stops before the integrated ramp upper landing so cars do not hit duplicate coplanar collision")
@@ -612,14 +612,14 @@ func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	west_side_infill.set_meta("owner_volume", "upper_front_hall")
 	west_side_infill.set_meta("support_face", "restores abandoned west edge of old stair shaft after front-opening reflow")
 	west_side_infill.set_meta("validation_gate", "covers visible second-story floor gap without intersecting the integrated toy-ramp swept path")
-	var east_side_infill := _add_box(root, holder, "UpperHallLandingFloorStairwellSideInfillEast", Vector3(81.1, 52.05, 53.0), Vector3(5.8, 1.1, 70.0), Color(0.62, 0.56, 0.47), true)
+	var east_side_infill := _add_box(root, holder, "UpperHallLandingFloorStairwellSideInfillEast", Vector3(75.1, 52.05, 53.0), Vector3(5.8, 1.1, 70.0), Color(0.62, 0.56, 0.47), true)
 	east_side_infill.set_meta("owner_volume", "upper_front_hall")
 	east_side_infill.set_meta("support_face", "restores abandoned east edge of old stair shaft after front-opening reflow")
 	east_side_infill.set_meta("validation_gate", "covers visible second-story floor gap without intersecting the human stair swept path")
 	var trim_color := Color(0.39, 0.33, 0.26)
-	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(47.0, 52.85, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(1.8, 1.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), trim_color, false)
-	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(66.0, 52.85, MAIN_STAIR_FRONT_OPENING_MIN_Z - 0.8), Vector3(36, 1.2, 1.6), trim_color, false)
-	var south_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimSouth", Vector3(66.0, 52.85, 146.8), Vector3(36, 1.2, 1.6), trim_color, false)
+	var west_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimWest", Vector3(MAIN_STAIR_SHAFT_MIN.x - 1.0, 52.85, MAIN_STAIR_FRONT_OPENING_CENTER_Z), Vector3(1.8, 1.2, MAIN_STAIR_FRONT_OPENING_SIZE_Z), trim_color, false)
+	var north_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimNorth", Vector3(MAIN_STAIR_X, 52.85, MAIN_STAIR_FRONT_OPENING_MIN_Z - 0.8), Vector3(36, 1.2, 1.6), trim_color, false)
+	var south_edge := _add_box(root, holder, "UpperHallStairOpeningFloorTrimSouth", Vector3(MAIN_STAIR_X, 52.85, 146.8), Vector3(36, 1.2, 1.6), trim_color, false)
 	for trim in [west_edge, north_edge, south_edge]:
 		trim.set_meta("owner_volume", "upper_front_hall")
 		trim.set_meta("support_face", "UpperFloorDeckUpperHallWest")
@@ -631,10 +631,10 @@ func _add_upper_floor_ceiling_with_attic_hatch(root: Node3D, parent: Node3D) -> 
 	ceiling.set_meta("attic_hatch_opening_bounds", {"min": ATTIC_STAIR_HATCH_MIN, "max": ATTIC_STAIR_HATCH_MAX})
 	ceiling.set_meta("ceiling_footprint_contract", "upper ceiling pieces cover bedroom, glam closet, and upper living hall to the exterior wall interior face; only the stacked stairwall attic hatch bay is intentionally open")
 	var color := Color(0.73, 0.68, 0.62)
-	_add_box(root, ceiling, "UpperCeilingWestOfAtticHatch", Vector3(-79, 92.8, 7.5), Vector3(242, 1.6, 275), color, false)
-	_add_box(root, ceiling, "UpperCeilingEastOfAtticHatch", Vector3(78, 92.8, 7.5), Vector3(24, 1.6, 275), color, false)
-	_add_box(root, ceiling, "UpperCeilingNorthOfAtticHatch", Vector3(54, 92.8, -115), Vector3(24, 1.6, 30), color, false)
-	_add_box(root, ceiling, "UpperCeilingSouthOfAtticHatch", Vector3(54, 92.8, 76.5), Vector3(24, 1.6, 137), color, false)
+	_add_box(root, ceiling, "UpperCeilingWestOfAtticHatch", Vector3(-76, 92.8, 7.5), Vector3(248, 1.6, 275), color, false)
+	_add_box(root, ceiling, "UpperCeilingEastOfAtticHatch", Vector3(84, 92.8, 7.5), Vector3(12, 1.6, 275), color, false)
+	_add_box(root, ceiling, "UpperCeilingNorthOfAtticHatch", Vector3(63, 92.8, -115), Vector3(30, 1.6, 30), color, false)
+	_add_box(root, ceiling, "UpperCeilingSouthOfAtticHatch", Vector3(63, 92.8, 76.5), Vector3(30, 1.6, 137), color, false)
 
 func _add_stairwell_guardrail(root: Node3D, parent: Node3D) -> void:
 	var rail_color := Color(0.38, 0.30, 0.22)
@@ -668,18 +668,18 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	parent.set_meta("plan_role", "Popper toy-built attic route inside measured Dutch gambrel roof volume; exterior gables and roof are owned by Roof")
 	var finishes := _add_child_holder(root, parent, "RoomFinishes", "attic deck, high-ramp staging, rafters, and Popper storage dressing")
 	var walls := _add_child_holder(root, parent, "InteriorPartitions", "contract-generated attic knee/storage partitions only")
-	finishes.set_meta("shell_footprint_contract", "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real drive-through stair/ramp hatch opening at x 42..66 z -101..-34 so racers can enter the attic without hitting a floor or knee-wall lip")
+	finishes.set_meta("shell_footprint_contract", "attic deck/edge storage covers the main gambrel shell footprint x -200..90 z -130..145, with a real drive-through stair/ramp hatch opening at x 48..78 z -101..-34 so racers can enter the attic without hitting a floor or knee-wall lip")
 	_add_room_floor(root, finishes, "AtticFloorDeckWestEaveShellStrip", Vector3(-182.5, 103, 7.5), Vector3(35, 2, 275), Color(0.40, 0.29, 0.19), false)
-	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripBackOfHatch", Vector3(77.5, 103, -112.5), Vector3(25, 2, 35), Color(0.40, 0.29, 0.19), false)
+	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripBackOfHatch", Vector3(84.0, 103, -112.5), Vector3(12, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripFrontOfHatch", Vector3(79.0, 103, 55.5), Vector3(22, 2, 179), Color(0.40, 0.29, 0.19), false)
-	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-61.5, 103, -112.5), Vector3(207, 2, 35), Color(0.40, 0.29, 0.19), false)
+	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-58.5, 103, -112.5), Vector3(213, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckFrontEaveShellStrip", Vector3(-50, 103, 132.5), Vector3(230, 2, 25), Color(0.40, 0.29, 0.19), false)
 	var attic_deck_holder := _add_child_holder(root, finishes, "AtticDeck", "split attic deck around the visible stair/ramp hatch opening; no broad slab covers the entry")
-	attic_deck_holder.set_meta("attic_ramp_hatch_opening_bounds", {"min": Vector3(42.0, 102.0, -101.0), "max": Vector3(66.0, 105.0, -34.0)})
-	_add_room_floor(root, attic_deck_holder, "AtticDeckWestOfRampHatch", Vector3(-61.5, 103, 12.5), Vector3(207, 2, 215), Color(0.45, 0.33, 0.22), false)
+	attic_deck_holder.set_meta("attic_ramp_hatch_opening_bounds", {"min": Vector3(48.0, 102.0, -101.0), "max": Vector3(78.0, 105.0, -34.0)})
+	_add_room_floor(root, attic_deck_holder, "AtticDeckWestOfRampHatch", Vector3(-58.5, 103, 12.5), Vector3(213, 2, 215), Color(0.45, 0.33, 0.22), false)
 	_add_room_floor(root, attic_deck_holder, "AtticDeckFrontOfRampHatch", Vector3(53.5, 103, 43.0), Vector3(23, 2, 154), Color(0.45, 0.33, 0.22), false)
 	_add_box(root, finishes, "AtticStorageZone", Vector3(-55.5, 104, 43.0), Vector3(191, 1.2, 129), Color(0.48, 0.36, 0.24), false)
-	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(54.0, 104.2, -67.5), Vector3(24.0, 0.8, 67.0), Color(0.55, 0.40, 0.25), true)
+	var attic_entry_bridge := _add_box(root, finishes, "AtticRampEntryBridge", Vector3(60.0, 104.2, -67.5), Vector3(36.0, 0.8, 67.0), Color(0.55, 0.40, 0.25), true)
 	attic_entry_bridge.set_meta("owner_volume", "attic_toy_course")
 	attic_entry_bridge.set_meta("support_face", "UpperToAtticRampUpperLanding_to_AtticStorageZone")
 	attic_entry_bridge.set_meta("collision_policy", "flush_drivable_attic_entry_bridge_collision")
@@ -954,20 +954,20 @@ func _add_attic_access_hatch_frame(root: Node3D, parent: Node3D, color: Color) -
 		"PLAN_CONTRACT.vertical_circulation_contract",
 		"attic hatch frame is split into perimeter pieces so the drive-through ramp opening remains visually and physically clear",
 		"AtticRampEntryBridge and UpperToAtticRampUpperLanding",
-		"attic hatch perimeter x=42..66 z=-101..-34",
+		"attic hatch perimeter x=48..78 z=-101..-34",
 		"x/z",
-		Vector3(42, 103.5, -101),
-		Vector3(66, 108.5, -34),
+		Vector3(48, 103.5, -101),
+		Vector3(78, 108.5, -34),
 		["thin trim beside hatch opening"],
 		["solid slab across hatch", "attic ramp drive corridor", "camera blocker"],
 		"resize with ATTIC_STAIR hatch opening; never replace with one broad solid frame block",
 		"test_home_yard_attic_hatch_drive_through_opening",
 		"ValidationCameras/AtticRampSideProfileCamera"
 	)
-	_add_box(root, parent, "AtticAccessHatchFrameWest", Vector3(40.8, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
-	_add_box(root, parent, "AtticAccessHatchFrameEast", Vector3(67.2, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
-	_add_box(root, parent, "AtticAccessHatchFrameBack", Vector3(54.0, 106, -102.2), Vector3(28.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
-	_add_box(root, parent, "AtticAccessHatchFrameFront", Vector3(54.0, 106, -32.8), Vector3(28.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameWest", Vector3(46.8, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameEast", Vector3(79.2, 106, -67.5), Vector3(2.4, 5, 67), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameBack", Vector3(63.0, 106, -102.2), Vector3(34.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
+	_add_box(root, parent, "AtticAccessHatchFrameFront", Vector3(63.0, 106, -32.8), Vector3(34.8, 5, 2.4), color, false, 0.0, Vector3.ZERO, provenance)
 
 func _add_porch_deck_system(root: Node3D, parent: Node3D) -> void:
 	parent.set_meta("plan_role", "front porch and backyard deck threshold system")
@@ -1107,7 +1107,7 @@ func _add_main_stair_continuity_geometry(root: Node3D, parent: Node3D) -> void:
 	_add_stair_flight(root, parent, "MainStairStraightFlightTread", "MainStairEntryToUpperHall", stair_start, stair_end, MAIN_STAIR_FLIGHT_WIDTH, MAIN_STAIR_TREAD_COUNT, wood)
 	_add_stair_landing(root, parent, "MainStairUpperLandingSurface", "MainStairEntryToUpperHall", "upper_landing", "main", "upper", upper_landing_center, MAIN_STAIR_UPPER_LANDING_SIZE, wood.darkened(0.05))
 	_add_stair_stringer_pair(root, parent, "MainStairStraightStringer", stair_start, stair_end, MAIN_STAIR_FLIGHT_WIDTH, wood.darkened(0.26))
-	_add_stair_guardrail(root, parent, "MainStairStraightGuardrailRight", Vector3(MAIN_STAIR_SHAFT_MAX.x - 1.0, 28.0, 82), Vector3(1.5, 42.0, 124), wood.darkened(0.42))
+	_add_stair_guardrail(root, parent, "MainStairStraightGuardrailRight", Vector3(MAIN_STAIR_X + MAIN_STAIR_FLIGHT_WIDTH * 0.5 + 1.0, 28.0, 82), Vector3(1.5, 42.0, 124), wood.darkened(0.42))
 
 func _hide_visual_reference_stair(node: Node) -> void:
 	if node == null:
@@ -1211,8 +1211,8 @@ func _add_attic_stair_continuity_geometry(root: Node3D, parent: Node3D) -> void:
 	_add_attic_stair_flight(root, parent, "AtticRearStairTread", start, end, 16.0, 14, wood)
 	_add_attic_stair_landing(root, parent, "AtticRearStairUpperLandingSurface", "attic_hatch_landing", Vector3(ATTIC_STAIR_X, ATTIC_ROOM_FLOOR_TOP_Y - 0.30, ATTIC_STAIR_UPPER_Z), Vector3(18, 0.6, 22), wood.darkened(0.08))
 	_add_attic_stair_stringer_pair(root, parent, "AtticRearStairStringer", start, end, 16.0, wood.darkened(0.28))
-	_add_attic_stair_guardrail(root, parent, "AtticRearStairGuardrailLeft", Vector3(61.2, 80, -46), Vector3(1.4, 48, 86), wood.darkened(0.42))
-	_add_attic_stair_guardrail(root, parent, "AtticRearStairGuardrailRight", Vector3(78.8, 80, -46), Vector3(1.4, 48, 86), wood.darkened(0.42))
+	_add_attic_stair_guardrail(root, parent, "AtticRearStairGuardrailLeft", Vector3(ATTIC_STAIR_X - 8.8, 80, -46), Vector3(1.4, 48, 86), wood.darkened(0.42))
+	_add_attic_stair_guardrail(root, parent, "AtticRearStairGuardrailRight", Vector3(ATTIC_STAIR_X + 8.8, 80, -46), Vector3(1.4, 48, 86), wood.darkened(0.42))
 
 func _add_attic_stair_landing(root: Node3D, parent: Node3D, node_name: String, part: String, position: Vector3, size: Vector3, color: Color) -> void:
 	var landing := _add_box(root, parent, node_name, position, size, color, false)
@@ -1450,7 +1450,7 @@ func _home_navigation_ai_patrol_loops() -> Array[Dictionary]:
 
 func _home_navigation_forbidden_aabbs() -> Array[Dictionary]:
 	return [
-		{"id": "main_stair_architectural_treads", "reason": "human stair treads are visual architecture underneath the integrated ramp lane; racers drive the smooth ramp over the stairs", "min": Vector3(62, 0, 18), "max": MAIN_STAIR_SHAFT_MAX},
+		{"id": "main_stair_architectural_treads", "reason": "human stair treads are visual architecture underneath the integrated ramp lane; racers drive the smooth ramp over the stairs", "min": Vector3(MAIN_STAIR_X - MAIN_STAIR_RAMP_WIDTH, 0, 18), "max": MAIN_STAIR_SHAFT_MAX},
 		{"id": "attic_architectural_stair", "reason": "attic stair remains architecture; racers use the adjacent toy ramp", "min": ATTIC_STAIR_BOUNDS_MIN, "max": ATTIC_STAIR_BOUNDS_MAX},
 		{"id": "kitchen_appliance_wall", "reason": "human-scale fixtures are room landmarks, not drive-through space", "min": Vector3(-198, 0, -128), "max": Vector3(-166, 30, 10)},
 		{"id": "garden_raised_beds", "reason": "garden beds are Moko landmarks and route boundaries", "min": Vector3(-306, 0, -382), "max": Vector3(-194, 12, -234)},
