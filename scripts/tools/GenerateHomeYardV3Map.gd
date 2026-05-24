@@ -30,7 +30,7 @@ const ATTIC_ROOM_FLOOR_TOP_Y := 104.60
 const HOME_NAV_THRESHOLD_VISUAL_THICKNESS := 0.08
 const HOME_NAV_RAMP_THICKNESS := 0.45
 const MAIN_STAIR_X := 70.0
-const MAIN_STAIR_RAMP_X := 60.0
+const MAIN_STAIR_RAMP_X := MAIN_STAIR_X
 const MAIN_STAIR_FLIGHT_WIDTH := 14.0
 const MAIN_STAIR_RAMP_WIDTH := 8.0
 const MAIN_STAIR_TREAD_COUNT := 22
@@ -146,7 +146,7 @@ const PLAN_CONTRACT := {
 	"shell_ownership": "ExteriorShell/Roof/Foundation/Openings/PorchesDecks/GarageService own exterior assemblies; floor holders own interior partitions, room finishes, props, lighting, route aids, and localized collision only.",
 	"route_contract": "Each race is a plastic toy-track overlay with declared zone bounds, route bounds, road-surface elevation above finished floors, obstacle exclusions, and clear start/finish language.",
 	"roof_contract": "Dutch gambrel roof: lower steep roof planes spring from the attic floor plate, upper shallow planes meet at one ridge, central attic has 7.5 ft walkable clearance, and no rectangular attic story may be visible above the roof.",
-	"free_drive_contract": "Free-drive circulation uses real authored human-scale floors, garage slab, patio/deck, yard hardscape, doorway thresholds, oversized doggie door access, and named toy ramp links beside stairs; players and AI racers must not need the kitchen race loop or invisible floor proxies to navigate the house.",
+	"free_drive_contract": "Free-drive circulation uses real authored human-scale floors, garage slab, patio/deck, yard hardscape, doorway thresholds, oversized doggie door access, and named toy ramp links over stairs; players and AI racers must not need the kitchen race loop or invisible floor proxies to navigate the house.",
 	"vertical_circulation_contract": "The floor plan includes architectural vertical circulation: a single straight front-to-back main stair from the entry/stair hall to the upper hall, an integrated toy-racer ramp lane in the same stairwell, plus a visible attic stair/ramp aligned to that same stairwall band into the gambrel attic.",
 	"home_navigation_contract": "Home free roam is a whole-house navigation graph with named drive zones, anchors, threshold links, AI patrol loops, camera-clearance volumes, and integrated toy ramp links that share the same stairwell volume as the architectural stairs.",
 	"beta_visual_contract": "Whole-unit beta review requires clean runtime/cinematic screenshots without editor camera icons or selected-node overlays; front/back/side/elevated/roofline/underside/player-route views must identify out-of-place pieces before metadata is accepted. Generated route decks and ramps are allowed only as classified route_infrastructure with non-placeholder materials, edge treatment, route clearance, and validation cameras.",
@@ -577,7 +577,7 @@ func _add_upper_floor_interior(root: Node3D, parent: Node3D) -> void:
 	var wall := Color(0.57, 0.51, 0.43)
 	var upper_deck := _add_child_holder(root, finishes, "UpperFloorDeck", "split upper floor deck; the main stairwell opening is intentionally clear")
 	upper_deck.set_meta("stairwell_opening_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
-	upper_deck.set_meta("shell_footprint_contract", "upper floor deck covers the main-house shell footprint x -200..90 z -130..145 except the straight stair/ramp swept path and the forward visible stairwell opening; side infill restores the old abandoned shaft void")
+	upper_deck.set_meta("shell_footprint_contract", "upper floor deck covers the main-house shell footprint x -200..90 z -130..145 except the straight stair/ramp swept path and the forward visible stairwell opening; side infill restores the old abandoned shaft void while the toy ramp runs over the stair centerline")
 	upper_deck.set_meta("opening_required_for_vertical_link", "MainStairEntryToUpperHall")
 	_add_room_floor(root, upper_deck, "UpperFloorDeckWestShellStrip", Vector3(-190, 51, 7.5), Vector3(20, 2, 275), Color(0.46, 0.40, 0.34), false)
 	_add_room_floor(root, upper_deck, "UpperFloorDeckFrontBedroomHallShell", Vector3(-97, 51, 125.5), Vector3(166, 2, 39), Color(0.46, 0.40, 0.34), false)
@@ -598,7 +598,7 @@ func _add_upper_floor_interior(root: Node3D, parent: Node3D) -> void:
 func _add_upper_hall_landing_floor(root: Node3D, parent: Node3D) -> void:
 	var holder := _add_child_holder(root, parent, "UpperHallLandingFloor", "upper front-hall finish floor and stair-opening trim; restores side floor around the stair/ramp swept path so the second story does not read as a missing slab")
 	holder.set_meta("owner_volume", "upper_front_hall")
-	holder.set_meta("floor_coverage_contract", "visible finish floor covers the upper hall west of the forward stair opening, the north landing approach, and side infill around the old shaft; only the real stair/ramp swept path and front stair opening remain clear")
+	holder.set_meta("floor_coverage_contract", "visible finish floor covers the upper hall west of the forward stair opening, the north landing approach, and side infill around the old shaft; only the real stair/ramp swept path centered over the stairs and front stair opening remain clear")
 	holder.set_meta("stairwell_opening_bounds", {"min": MAIN_STAIR_SHAFT_MIN, "max": MAIN_STAIR_SHAFT_MAX})
 	var floor := _add_box(root, holder, "UpperHallLandingFloorWestOfStairOpening", Vector3(16.5, 52.05, 82), Vector3(63.0, 1.1, 128), Color(0.62, 0.56, 0.47), true)
 	floor.set_meta("owner_volume", "upper_front_hall")
@@ -1416,7 +1416,7 @@ func _home_navigation_vertical_links() -> Array[Dictionary]:
 		{
 			"id": "MainFloorToUpperToyRamp",
 			"architectural_link_id": "MainStairEntryToUpperHall",
-			"kind": "integrated_toy_ramp_lane_in_stairwell",
+			"kind": "integrated_toy_ramp_over_stair",
 			"from": "main_ramp_lower",
 			"to": "upper_hall_landing",
 			"ramp_nodes": ["HomeNavigation/MainStairIntegratedToyRampLane"],
@@ -1450,7 +1450,7 @@ func _home_navigation_ai_patrol_loops() -> Array[Dictionary]:
 
 func _home_navigation_forbidden_aabbs() -> Array[Dictionary]:
 	return [
-		{"id": "main_stair_architectural_treads", "reason": "human stair treads are visual architecture; racers use the integrated ramp lane inside the same shaft", "min": Vector3(62, 0, 18), "max": MAIN_STAIR_SHAFT_MAX},
+		{"id": "main_stair_architectural_treads", "reason": "human stair treads are visual architecture underneath the integrated ramp lane; racers drive the smooth ramp over the stairs", "min": Vector3(62, 0, 18), "max": MAIN_STAIR_SHAFT_MAX},
 		{"id": "attic_architectural_stair", "reason": "attic stair remains architecture; racers use the adjacent toy ramp", "min": ATTIC_STAIR_BOUNDS_MIN, "max": ATTIC_STAIR_BOUNDS_MAX},
 		{"id": "kitchen_appliance_wall", "reason": "human-scale fixtures are room landmarks, not drive-through space", "min": Vector3(-198, 0, -128), "max": Vector3(-166, 30, 10)},
 		{"id": "garden_raised_beds", "reason": "garden beds are Moko landmarks and route boundaries", "min": Vector3(-306, 0, -382), "max": Vector3(-194, 12, -234)},
@@ -1517,7 +1517,7 @@ func _add_navigation_threshold_overlay(root: Node3D, parent: Node3D, node_name: 
 func _add_home_navigation_ramps(root: Node3D, parent: Node3D) -> void:
 	var plywood := Color(0.58, 0.39, 0.22)
 	_add_drivable_ramp(root, parent, "MainStairIntegratedToyRampLane", Vector3(MAIN_STAIR_RAMP_X, MAIN_FLOOR_TOP_Y, MAIN_STAIR_LOWER_Z), Vector3(MAIN_STAIR_RAMP_X, UPPER_ROOM_FLOOR_TOP_Y, MAIN_STAIR_UPPER_Z), MAIN_STAIR_RAMP_WIDTH, plywood, "MainFloorToUpperToyRamp")
-	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_LOWER_LANDING_Z), Vector3(16, 0.8, 28), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing sits on the approach side of the integrated ramp endpoint with a broad foyer turn-in pocket so racers are not pinned against the wall")
+	_add_navigation_landing(root, parent, "MainStairIntegratedRampLowerLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(MAIN_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_LOWER_LANDING_Z), Vector3(16, 0.8, 28), plywood.darkened(0.10), "main_integrated_ramp_lower_landing", "landing sits on the approach side of the over-stair ramp endpoint with a broad foyer turn-in pocket so racers are not pinned against the wall")
 	_add_navigation_landing(root, parent, "MainStairIntegratedRampUpperLanding", Vector3(MAIN_STAIR_RAMP_X, _landing_center_y(UPPER_ROOM_FLOOR_TOP_Y, 0.8), MAIN_STAIR_RAMP_UPPER_LANDING_Z), Vector3(12, 0.8, 20), plywood.darkened(0.08), "main_integrated_ramp_upper_landing", "landing sits beyond the upper ramp endpoint so racers roll off the ramp onto a flat surface instead of hitting a slab edge")
 	var cardboard := Color(0.63, 0.43, 0.24)
 	var attic_switchback_y := 80.0
@@ -1548,7 +1548,7 @@ func _add_drivable_ramp(root: Node3D, parent: Node3D, node_name: String, start: 
 	var surface_center := start.lerp(end, 0.5)
 	var ramp_center := surface_center - Vector3.UP * (cos(deg_to_rad(pitch)) * HOME_NAV_RAMP_THICKNESS * 0.5)
 	var ramp_length := sqrt(run * run + rise * rise)
-	var ramp := _add_box(root, parent, node_name, ramp_center, Vector3(width, HOME_NAV_RAMP_THICKNESS, ramp_length), color, true, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance(vertical_link_id, "%s is a drivable toy ramp beside the architectural stair, with real collision and visible edge color" % node_name))
+	var ramp := _add_box(root, parent, node_name, ramp_center, Vector3(width, HOME_NAV_RAMP_THICKNESS, ramp_length), color, true, yaw, Vector3(pitch, 0, 0), _home_navigation_provenance(vertical_link_id, "%s is a drivable toy ramp over the architectural stair, with real collision and visible edge color" % node_name))
 	ramp.set_meta("home_navigation_vertical_link_id", vertical_link_id)
 	ramp.set_meta("collision_policy", "drivable_static_toy_ramp")
 	ramp.set_meta("route_clearance", "intentional_free_roam_surface")

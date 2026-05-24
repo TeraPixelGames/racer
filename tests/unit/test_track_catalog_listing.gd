@@ -726,10 +726,15 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 				assert_true(absf(landing_bounds.end.y - float(landing_data["floor_top_y"])) <= 0.05, "%s %s top should be flush with its finished floor datum" % [track_id, str(landing_data["node"])])
 		var main_ramp_lower_landing := holder.get_node_or_null("MainStairIntegratedRampLowerLanding") as MeshInstance3D
 		var main_ramp_upper_landing := holder.get_node_or_null("MainStairIntegratedRampUpperLanding") as MeshInstance3D
-		if main_ramp_lower_landing != null and main_ramp_upper_landing != null:
+		var main_ramp := holder.get_node_or_null("MainStairIntegratedToyRampLane") as MeshInstance3D
+		if main_ramp_lower_landing != null and main_ramp_upper_landing != null and main_ramp != null:
 			var lower_bounds := _mesh_instance_global_aabb(main_ramp_lower_landing)
 			var upper_bounds := _mesh_instance_global_aabb(main_ramp_upper_landing)
+			var ramp_bounds := _mesh_instance_global_aabb(main_ramp)
 			assert_true(lower_bounds.position.x >= 51.95, "%s integrated ramp lower landing should sit inward from the first-floor wall instead of hugging it; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(absf((lower_bounds.position.x + lower_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated ramp lower landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(lower_bounds)])
+			assert_true(absf((upper_bounds.position.x + upper_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated ramp upper landing should be centered over the stair, not beside it; bounds=%s" % [track_id, str(upper_bounds)])
+			assert_true(absf((ramp_bounds.position.x + ramp_bounds.size.x * 0.5) - 70.0) <= 0.1, "%s integrated toy ramp lane should run over the stair centerline, not as a side ramp; bounds=%s" % [track_id, str(ramp_bounds)])
 			assert_true(lower_bounds.end.z <= 134.05, "%s integrated ramp lower landing should sit inside the foyer approach, not against the front wall; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(lower_bounds.position.z >= 105.95, "%s integrated ramp lower landing should provide a broad turn-in pocket before the ramp start; bounds=%s" % [track_id, str(lower_bounds)])
 			assert_true(upper_bounds.end.z <= 24.05, "%s integrated ramp upper landing should sit beyond the upper endpoint instead of blocking the ramp exit; bounds=%s" % [track_id, str(upper_bounds)])
