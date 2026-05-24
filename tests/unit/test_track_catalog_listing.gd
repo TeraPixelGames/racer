@@ -1549,6 +1549,7 @@ func _assert_home_yard_shared_shell_ownership(root: Node, track_id: String) -> v
 	_assert_home_yard_interior_exterior_aabb_separation(root, track_id)
 	_assert_home_yard_site_props_stay_outside_interior(root, track_id)
 	_assert_home_yard_upper_hall_and_ceiling_complete(root, track_id)
+	_assert_home_yard_interior_attic_check_it_out_loop(root, track_id)
 
 func _assert_home_yard_interior_placeholder_replacements(root: Node, track_id: String) -> void:
 	for removed_path in [
@@ -1673,7 +1674,7 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 		Vector3(78, 92.8, -120),
 	]:
 		assert_true(_visible_descendant_covers_xz_sample(ceiling, sample), "%s upper ceiling should cover shell-interior sample %s" % [track_id, str(sample)])
-	var hatch_void := AABB(Vector3(60, 91, -100), Vector3(24, 5, 108))
+	var hatch_void := AABB(Vector3(42, 91, -101), Vector3(24, 5, 67))
 	_assert_no_visible_descendant_intersects_aabb(ceiling, hatch_void, track_id, "upper attic hatch void")
 	var east_rail := root.get_node_or_null("UpperFloor/RoomFinishes/MainStairOpeningRailEast")
 	assert_true(east_rail is MeshInstance3D, "%s upper hall stair opening should have an east guardrail so the hallway reads enclosed and continuous" % track_id)
@@ -1749,6 +1750,65 @@ func _assert_home_yard_upper_hall_and_ceiling_complete(root: Node, track_id: Str
 			assert_true(opening_holder.get_node_or_null(node_name) is MeshInstance3D, "%s attic hatch should include perimeter trim piece %s" % [track_id, node_name])
 		var attic_ramp_entry_corridor := AABB(Vector3(45.0, 104.0, -99.0), Vector3(18.0, 8.0, 65.0))
 		_assert_no_visible_descendant_intersects_aabb(opening_holder, attic_ramp_entry_corridor, track_id, "attic hatch drive-through opening")
+
+func _assert_home_yard_interior_attic_check_it_out_loop(root: Node, track_id: String) -> void:
+	var audit_volumes := [
+		{
+			"name": "attic ramp upper run and hatch sweep",
+			"bounds": AABB(Vector3(42.0, 78.0, -101.0), Vector3(24.0, 32.0, 67.0)),
+			"scope_paths": ["UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane", "Attic/RoomFinishes", "Attic/InteriorPartitions", "Openings", "HomeNavigation"],
+			"allowed_nodes": ["UpperToAtticRampLowerRun", "UpperToAtticRampUpperRun", "UpperToAtticRampUpperRunLeftEdgeRail", "UpperToAtticRampUpperRunRightEdgeRail", "UpperToAtticRampUpperRunCenterWearStrip", "UpperToAtticRampLowerRunCenterWearStrip", "UpperToAtticRampSwitchbackLanding", "UpperToAtticRampUpperLanding", "AtticRearStair", "AtticRampEntryBridge", "AtticRampEntryCoursePad", "AtticAccessHatchFrame", "AtticEastKneePartitionOpeningHeader"],
+		},
+	]
+	for audit in audit_volumes:
+		_assert_check_it_out_volume_has_evidence(root, audit as Dictionary, track_id)
+		_assert_no_unowned_blocker_intersects_check_it_out_volume(root, audit as Dictionary, track_id)
+
+func _assert_check_it_out_volume_has_evidence(root: Node, audit: Dictionary, track_id: String) -> void:
+	var bounds := audit.get("bounds", AABB()) as AABB
+	var allowed_nodes := audit.get("allowed_nodes", []) as Array
+	var found_allowed := false
+	for node_name in allowed_nodes:
+		var node := root.find_child(str(node_name), true, false)
+		if node is MeshInstance3D:
+			var node_bounds := _mesh_instance_global_aabb(node as MeshInstance3D)
+			if node_bounds.intersects(bounds):
+				found_allowed = true
+				break
+	assert_true(found_allowed, "%s check-it-out loop should find authored evidence inside %s; bounds=%s" % [track_id, str(audit.get("name", "")), str(bounds)])
+
+func _assert_no_unowned_blocker_intersects_check_it_out_volume(root: Node, audit: Dictionary, track_id: String) -> void:
+	var scope_paths := audit.get("scope_paths", []) as Array
+	for scope_path in scope_paths:
+		var scope := root.get_node_or_null(str(scope_path))
+		assert_true(scope != null, "%s check-it-out loop should find audit scope %s" % [track_id, str(scope_path)])
+		if scope != null:
+			_assert_no_unowned_blocker_intersects_check_it_out_volume_recursive(root, scope, audit, track_id)
+
+func _assert_no_unowned_blocker_intersects_check_it_out_volume_recursive(scene_root: Node, node: Node, audit: Dictionary, track_id: String) -> void:
+	if node is MeshInstance3D:
+		var mesh := node as MeshInstance3D
+		if mesh.visible:
+			var bounds := _mesh_instance_global_aabb(mesh)
+			var forbidden := audit.get("bounds", AABB()) as AABB
+			if bounds.intersects(forbidden) and _aabb_overlap_is_blocking(bounds, forbidden) and not _check_it_out_node_is_allowed(mesh, audit):
+				var path := str(scene_root.get_path_to(mesh))
+				assert_true(false, "%s check-it-out loop found blocker in %s: %s bounds=%s forbidden=%s" % [track_id, str(audit.get("name", "")), path, str(bounds), str(forbidden)])
+	for child in node.get_children():
+		_assert_no_unowned_blocker_intersects_check_it_out_volume_recursive(scene_root, child, audit, track_id)
+
+func _check_it_out_node_is_allowed(node: MeshInstance3D, audit: Dictionary) -> bool:
+	var allowed_nodes := audit.get("allowed_nodes", []) as Array
+	var node_name := str(node.name)
+	for allowed in allowed_nodes:
+		if node_name.begins_with(str(allowed)):
+			return true
+	var collision_policy := str(node.get_meta("collision_policy", ""))
+	if collision_policy == "visual_guardrail_no_gameplay_collision" or collision_policy == "visual_trim_no_gameplay_collision":
+		return true
+	if bool(node.get_meta("validation_only", false)):
+		return true
+	return false
 
 func _visible_descendant_covers_xz_sample(node: Node, sample: Vector3) -> bool:
 	if node is MeshInstance3D:

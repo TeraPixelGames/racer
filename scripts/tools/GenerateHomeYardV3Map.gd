@@ -631,10 +631,10 @@ func _add_upper_floor_ceiling_with_attic_hatch(root: Node3D, parent: Node3D) -> 
 	ceiling.set_meta("attic_hatch_opening_bounds", {"min": ATTIC_STAIR_HATCH_MIN, "max": ATTIC_STAIR_HATCH_MAX})
 	ceiling.set_meta("ceiling_footprint_contract", "upper ceiling pieces cover bedroom, glam closet, and upper living hall to the exterior wall interior face; only the stacked stairwall attic hatch bay is intentionally open")
 	var color := Color(0.73, 0.68, 0.62)
-	_add_box(root, ceiling, "UpperCeilingWestOfAtticHatch", Vector3(-70, 92.8, 7.5), Vector3(260, 1.6, 275), color, false)
-	_add_box(root, ceiling, "UpperCeilingEastOfAtticHatch", Vector3(87, 92.8, 7.5), Vector3(6, 1.6, 275), color, false)
-	_add_box(root, ceiling, "UpperCeilingNorthOfAtticHatch", Vector3(72, 92.8, -115), Vector3(24, 1.6, 30), color, false)
-	_add_box(root, ceiling, "UpperCeilingSouthOfAtticHatch", Vector3(72, 92.8, 76.5), Vector3(24, 1.6, 137), color, false)
+	_add_box(root, ceiling, "UpperCeilingWestOfAtticHatch", Vector3(-79, 92.8, 7.5), Vector3(242, 1.6, 275), color, false)
+	_add_box(root, ceiling, "UpperCeilingEastOfAtticHatch", Vector3(78, 92.8, 7.5), Vector3(24, 1.6, 275), color, false)
+	_add_box(root, ceiling, "UpperCeilingNorthOfAtticHatch", Vector3(54, 92.8, -115), Vector3(24, 1.6, 30), color, false)
+	_add_box(root, ceiling, "UpperCeilingSouthOfAtticHatch", Vector3(54, 92.8, 76.5), Vector3(24, 1.6, 137), color, false)
 
 func _add_stairwell_guardrail(root: Node3D, parent: Node3D) -> void:
 	var rail_color := Color(0.38, 0.30, 0.22)
@@ -672,7 +672,7 @@ func _add_attic_interior(root: Node3D, parent: Node3D) -> void:
 	_add_room_floor(root, finishes, "AtticFloorDeckWestEaveShellStrip", Vector3(-182.5, 103, 7.5), Vector3(35, 2, 275), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripBackOfHatch", Vector3(77.5, 103, -112.5), Vector3(25, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckEastEaveShellStripFrontOfHatch", Vector3(79.0, 103, 55.5), Vector3(22, 2, 179), Color(0.40, 0.29, 0.19), false)
-	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-50, 103, -112.5), Vector3(230, 2, 35), Color(0.40, 0.29, 0.19), false)
+	_add_room_floor(root, finishes, "AtticFloorDeckBackEaveShellStrip", Vector3(-61.5, 103, -112.5), Vector3(207, 2, 35), Color(0.40, 0.29, 0.19), false)
 	_add_room_floor(root, finishes, "AtticFloorDeckFrontEaveShellStrip", Vector3(-50, 103, 132.5), Vector3(230, 2, 25), Color(0.40, 0.29, 0.19), false)
 	var attic_deck_holder := _add_child_holder(root, finishes, "AtticDeck", "split attic deck around the visible stair/ramp hatch opening; no broad slab covers the entry")
 	attic_deck_holder.set_meta("attic_ramp_hatch_opening_bounds", {"min": Vector3(42.0, 102.0, -101.0), "max": Vector3(66.0, 105.0, -34.0)})

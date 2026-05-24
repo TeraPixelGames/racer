@@ -2841,14 +2841,14 @@ albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_pd8vo"]
-size = Vector3(260, 1.6, 275)
+size = Vector3(242, 1.6, 275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8b0h"]
 albedo_color = Color(0.73, 0.68, 0.62, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ylst"]
-size = Vector3(6, 1.6, 275)
+size = Vector3(24, 1.6, 275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyrot"]
 albedo_color = Color(0.73, 0.68, 0.62, 1)
@@ -3005,10 +3005,10 @@ albedo_color = Color(0.4, 0.29, 0.19, 1)
 roughness = 0.72
 
 [sub_resource type="BoxMesh" id="BoxMesh_yu6vr"]
-size = Vector3(230, 2, 35)
+size = Vector3(207, 2, 35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhjhf"]
-size = Vector3(230, 2, 35)
+size = Vector3(207, 2, 35)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuraf"]
 albedo_color = Color(0.4, 0.29, 0.19, 1)
@@ -21292,7 +21292,7 @@ metadata/attic_hatch_opening_bounds = {
 metadata/ceiling_footprint_contract = "upper ceiling pieces cover bedroom, glam closet, and upper living hall to the exterior wall interior face; only the stacked stairwall attic hatch bay is intentionally open"
 
 [node name="UpperCeilingWestOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 92.8, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 92.8, 7.5)
 material_override = SubResource("StandardMaterial3D_rkyot")
 mesh = SubResource("BoxMesh_pd8vo")
 metadata/generated_scene_provenance = {
@@ -21333,7 +21333,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingWestOfAtticHatch"
 
 [node name="UpperCeilingEastOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 92.8, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 92.8, 7.5)
 material_override = SubResource("StandardMaterial3D_e8b0h")
 mesh = SubResource("BoxMesh_4ylst")
 metadata/generated_scene_provenance = {
@@ -21374,7 +21374,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingEastOfAtticHatch"
 
 [node name="UpperCeilingNorthOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 92.8, -115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 92.8, -115)
 material_override = SubResource("StandardMaterial3D_gyrot")
 mesh = SubResource("BoxMesh_txcu6")
 metadata/generated_scene_provenance = {
@@ -21415,7 +21415,7 @@ metadata/validation_camera = "ValidationCameras/ExteriorRooflineCamera"
 metadata/node_path = "UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane/UpperCeilingNorthOfAtticHatch"
 
 [node name="UpperCeilingSouthOfAtticHatch" type="MeshInstance3D" parent="UpperFloor/RoomFinishes/UpperFloorTenFootCeilingPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 92.8, 76.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 92.8, 76.5)
 material_override = SubResource("StandardMaterial3D_7ll35")
 mesh = SubResource("BoxMesh_ool6t")
 metadata/generated_scene_provenance = {
@@ -22443,7 +22443,7 @@ metadata/node_path = "Attic/RoomFinishes/AtticFloorDeckEastEaveShellStripFrontOf
 shape = SubResource("BoxShape3D_hfn2t")
 
 [node name="AtticFloorDeckBackEaveShellStrip" type="MeshInstance3D" parent="Attic/RoomFinishes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 103, -112.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5, 103, -112.5)
 material_override = SubResource("StandardMaterial3D_lhmjm")
 mesh = SubResource("BoxMesh_yu6vr")
 metadata/generated_scene_provenance = {
