@@ -577,6 +577,7 @@ func _assert_home_yard_scene_holders(root: Node, track_id: String) -> void:
 	_assert_home_yard_floor_plan_contract(root, track_id)
 	_assert_home_yard_navigation_contract(root, track_id)
 	_assert_home_yard_generated_scene_provenance_contract(root, track_id)
+	_assert_home_yard_generated_material_contracts(root, track_id)
 	_assert_home_yard_whole_unit_visual_contract(root, track_id)
 	_assert_home_yard_route_infrastructure_is_classified_and_dressed(root, track_id)
 	_assert_home_yard_validation_camera_matrix(root, track_id)
@@ -777,6 +778,43 @@ func _assert_home_yard_navigation_contract(root: Node, track_id: String) -> void
 			if seam_landing != null:
 				var seam_bounds := _mesh_instance_global_aabb(seam_landing)
 				assert_true(absf(seam_bounds.end.y - float(seam_landing_data["surface_y"])) <= 0.05, "%s %s should bridge ramp run seams at the authored surface height" % [track_id, str(seam_landing_data["node"])])
+
+func _assert_home_yard_generated_material_contracts(root: Node, track_id: String) -> void:
+	var contract: Variant = root.get_meta("material_contract", {})
+	assert_true(contract is Dictionary, "%s shared home-yard scene should export a generated material contract" % track_id)
+	if not (contract is Dictionary):
+		return
+	var data := contract as Dictionary
+	assert_equal(str(data.get("id", "")), "home_yard_v3_material_contract_v1", "%s generated material contract should have a stable id" % track_id)
+	assert_true(data.get("materials", {}) is Dictionary and not (data.get("materials", {}) as Dictionary).is_empty(), "%s generated material contract should enumerate finish families" % track_id)
+	for sample in [
+		{"path": "Site/WholeSiteGround", "material": "lawn_grass"},
+		{"path": "Site/Driveway", "material": "brushed_concrete"},
+		{"path": "Foundation/HouseFoundationFrontPlinth", "material": "stone_foundation"},
+		{"path": "ExteriorShell/ExteriorFrontEntryUpperWall", "material": "modern_farmhouse_siding"},
+		{"path": "Roof/GarageCrossGableFrontPlane", "material": "asphalt_shingle_roof"},
+		{"path": "MainFloor/RoomFinishes/DiningLiving", "material": "hardwood_floor"},
+		{"path": "MainFloor/RoomFinishes/KitchenBreakfast", "material": "kitchen_tile"},
+		{"path": "MainFloor/RoomFinishes/GarageService", "material": "garage_slab"},
+		{"path": "UpperFloor/RoomFinishes/BedroomSuite", "material": "carpet"},
+		{"path": "Attic/RoomFinishes/AtticRampEntryBridge", "material": "toy_plywood_ramp"},
+		{"path": "HomeNavigation/MainStairIntegratedToyRampLane", "material": "toy_plywood_ramp"},
+	]:
+		var node := root.get_node_or_null(str(sample["path"])) as MeshInstance3D
+		assert_true(node != null, "%s material contract sample node should exist: %s" % [track_id, str(sample["path"])])
+		if node == null:
+			continue
+		var expected_id := "home_yard_v3_material_contract_v1:%s" % str(sample["material"])
+		assert_equal(str(node.get_meta("material_contract_id", "")), expected_id, "%s %s should declare material contract id" % [track_id, str(sample["path"])])
+		assert_true(str(node.get_meta("material_source", "")) != "", "%s %s should declare material source/origin" % [track_id, str(sample["path"])])
+		assert_true(str(node.get_meta("material_role", "")) != "", "%s %s should declare material role" % [track_id, str(sample["path"])])
+		assert_true(str(node.get_meta("material_scale_class", "")) != "", "%s %s should declare material scale class" % [track_id, str(sample["path"])])
+		assert_true(not bool(node.get_meta("placeholder_material", true)), "%s %s should not be marked as a placeholder material" % [track_id, str(sample["path"])])
+		assert_true(str(node.get_meta("visible_material_contract", "")) != "", "%s %s should include visible material intent" % [track_id, str(sample["path"])])
+		assert_true(node.material_override is StandardMaterial3D, "%s %s should use a generated StandardMaterial3D finish" % [track_id, str(sample["path"])])
+		if node.material_override is StandardMaterial3D:
+			var material := node.material_override as StandardMaterial3D
+			assert_true(str(material.resource_name).begins_with(expected_id), "%s %s material resource name should include contract id" % [track_id, str(sample["path"])])
 
 func _navigation_anchor_has_id(anchors: Array, anchor_id: String) -> bool:
 	for anchor in anchors:

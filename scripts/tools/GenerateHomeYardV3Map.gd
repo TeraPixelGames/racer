@@ -111,6 +111,34 @@ const SCALE_CONTRACT := {
 		"storage_height_units_min": 20.0,
 	},
 }
+const HOME_MATERIAL_CONTRACT_ID := "home_yard_v3_material_contract_v1"
+const HOME_MATERIAL_CONTRACT := {
+	"id": HOME_MATERIAL_CONTRACT_ID,
+	"intent": "First production texture pass for the generated shared home map. Broad visible generated geometry gets a named finish, source/origin note, scale class, and non-placeholder validation metadata.",
+	"source_policy": "Procedural Godot StandardMaterial3D finishes for generated shell/floor/site pieces; existing Kenney and Meshy imported assets retain their own source metadata.",
+	"validation_gate": "test_home_yard_generated_material_contracts",
+	"materials": {
+		"modern_farmhouse_siding": {"color": Color(0.78, 0.76, 0.68), "roughness": 0.86, "source": "generated procedural board-and-batten siding finish", "role": "painted modern farmhouse exterior siding", "scale_class": "human_scale_shell", "contract": "warm off-white siding, not raw gray placeholder"},
+		"farmhouse_trim": {"color": Color(0.92, 0.88, 0.78), "roughness": 0.72, "source": "generated procedural painted trim finish", "role": "fascia, soffit, rake, jamb, sill, column, and baseboard trim", "scale_class": "human_scale_shell", "contract": "painted trim separates edges from wall mass"},
+		"asphalt_shingle_roof": {"color": Color(0.12, 0.13, 0.13), "roughness": 0.92, "source": "generated procedural charcoal asphalt shingle finish", "role": "modern farmhouse roof planes and ridge caps", "scale_class": "human_scale_shell", "contract": "dark shingle roof, not flat black blockout"},
+		"stone_foundation": {"color": Color(0.42, 0.39, 0.34), "roughness": 0.88, "source": "generated procedural stacked-stone/concrete foundation finish", "role": "foundation, porch piers, plinths, and low masonry support", "scale_class": "human_scale_shell", "contract": "masonry support finish with provenance"},
+		"brushed_concrete": {"color": Color(0.58, 0.57, 0.52), "roughness": 0.84, "source": "generated procedural brushed concrete finish", "role": "driveway, garage apron, sidewalk, patio, curb, and walk surfaces", "scale_class": "yard_site", "contract": "matte concrete, not generic gray blockout"},
+		"lawn_grass": {"color": Color(0.30, 0.48, 0.25), "roughness": 0.95, "source": "generated procedural lawn/yard ground finish", "role": "residential lawn and grass route buffer", "scale_class": "yard_site", "contract": "green lawn finish with route-readable contrast"},
+		"garden_soil": {"color": Color(0.30, 0.22, 0.14), "roughness": 0.96, "source": "generated procedural garden soil/mulch finish", "role": "garden beds, planting strips, and mulch zones", "scale_class": "yard_site", "contract": "soil or mulch finish, not box placeholder"},
+		"sandbox_sand": {"color": Color(0.76, 0.63, 0.40), "roughness": 0.98, "source": "generated procedural sandbox sand finish", "role": "sandbox play-yard surface", "scale_class": "yard_site", "contract": "warm sand finish"},
+		"deck_wood": {"color": Color(0.52, 0.34, 0.20), "roughness": 0.78, "source": "generated procedural stained exterior wood finish", "role": "deck, porch boards, fences, rails, and outdoor wood route details", "scale_class": "human_scale_shell", "contract": "stained wood finish with edge readability"},
+		"hardwood_floor": {"color": Color(0.63, 0.46, 0.30), "roughness": 0.64, "source": "generated procedural oak hardwood finish", "role": "main shared living, foyer, upper hall, and landing finished floors", "scale_class": "human_scale_shell", "contract": "human-scale finished floor, not invisible floor workaround"},
+		"kitchen_tile": {"color": Color(0.72, 0.66, 0.55), "roughness": 0.70, "source": "generated procedural warm kitchen tile finish", "role": "kitchen/breakfast finished floor", "scale_class": "human_scale_shell", "contract": "tile floor finish with low contrast to route surfaces"},
+		"playroom_vinyl": {"color": Color(0.70, 0.50, 0.27), "roughness": 0.74, "source": "generated procedural playroom vinyl/rug-safe finish", "role": "playroom/family finished floor", "scale_class": "human_scale_shell", "contract": "warm playroom floor finish"},
+		"carpet": {"color": Color(0.55, 0.48, 0.38), "roughness": 0.98, "source": "generated procedural low-pile carpet finish", "role": "bedroom and soft upper-floor finish zones", "scale_class": "human_scale_shell", "contract": "soft carpet finish, not flat brown placeholder"},
+		"garage_slab": {"color": Color(0.43, 0.43, 0.40), "roughness": 0.88, "source": "generated procedural sealed garage concrete finish", "role": "garage service slab and utility surfaces", "scale_class": "human_scale_shell", "contract": "garage slab reads different from interior floors"},
+		"wall_paint_interior": {"color": Color(0.70, 0.65, 0.56), "roughness": 0.82, "source": "generated procedural matte interior paint finish", "role": "interior walls and ceilings", "scale_class": "human_scale_shell", "contract": "matte wall paint finish"},
+		"attic_plywood": {"color": Color(0.52, 0.36, 0.22), "roughness": 0.82, "source": "generated procedural unfinished attic plywood finish", "role": "attic deck, rafters, storage boards, and Popper route staging", "scale_class": "human_scale_shell", "contract": "unfinished attic wood/cardboard family"},
+		"toy_plywood_ramp": {"color": Color(0.66, 0.47, 0.29), "roughness": 0.78, "source": "generated procedural toy plywood ramp finish", "role": "drivable house navigation ramp surfaces and toy racing infrastructure", "scale_class": "toy_scale_racing", "contract": "muted toy-ramp surface, not saturated placeholder blue"},
+		"glass_clear": {"color": Color(0.55, 0.76, 0.88, 0.46), "roughness": 0.18, "source": "generated procedural transparent glass finish", "role": "window and glazed opening surfaces", "scale_class": "human_scale_shell", "contract": "transparent glass finish"},
+		"painted_door": {"color": Color(0.28, 0.21, 0.16), "roughness": 0.68, "source": "generated procedural painted/stained door finish", "role": "doors, panels, mailbox, and service-access details", "scale_class": "human_scale_shell", "contract": "door or service-detail finish"},
+	},
+}
 const GENERATED_PROVENANCE_REQUIRED_FIELDS := [
 	"node_path",
 	"visible_class",
@@ -250,6 +278,7 @@ func _save_map_scene() -> void:
 	root.name = "HomeYardMap"
 	root.set_meta("floor_plan_contract", PLAN_CONTRACT)
 	root.set_meta("scale_contract", SCALE_CONTRACT)
+	root.set_meta("material_contract", HOME_MATERIAL_CONTRACT)
 	root.set_meta("interior_wall_schedule", INTERIOR_WALL_SCHEDULE)
 	root.set_meta("vertical_circulation_contract", _vertical_circulation_contract())
 	root.set_meta("home_navigation_contract", _home_navigation_contract())
@@ -2413,6 +2442,7 @@ func _add_mesh(root: Node3D, parent: Node3D, node_name: String, vertices: Packed
 	material.albedo_color = color
 	material.roughness = 0.82
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_apply_home_material_contract(parent, mesh_instance, material)
 	mesh_instance.material_override = material
 	parent.add_child(mesh_instance)
 	mesh_instance.owner = root
@@ -2526,6 +2556,86 @@ func _apply_generated_provenance(root: Node3D, parent: Node3D, node: Node, prove
 	for key in data.keys():
 		node.set_meta(str(key), data[key])
 
+func _apply_home_material_contract(parent: Node3D, node: Node, material: StandardMaterial3D) -> void:
+	if node == null or material == null:
+		return
+	var material_id := _home_material_id_for_node(parent, str(node.name))
+	var contract_data := ((HOME_MATERIAL_CONTRACT["materials"] as Dictionary).get(material_id, {}) as Dictionary)
+	if contract_data.is_empty():
+		return
+	material.resource_name = "%s:%s" % [HOME_MATERIAL_CONTRACT_ID, material_id]
+	material.albedo_color = contract_data.get("color", material.albedo_color)
+	material.roughness = float(contract_data.get("roughness", material.roughness))
+	if material.albedo_color.a < 1.0:
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	node.set_meta("material_contract_id", "%s:%s" % [HOME_MATERIAL_CONTRACT_ID, material_id])
+	node.set_meta("material_id", material_id)
+	node.set_meta("material_source", str(contract_data.get("source", "")))
+	node.set_meta("material_role", str(contract_data.get("role", "")))
+	node.set_meta("material_scale_class", str(contract_data.get("scale_class", "")))
+	node.set_meta("visible_material_contract", str(contract_data.get("contract", "")))
+	node.set_meta("material_validation_gate", str(HOME_MATERIAL_CONTRACT.get("validation_gate", "")))
+	node.set_meta("placeholder_material", false)
+
+func _home_material_id_for_node(parent: Node3D, node_name: String) -> String:
+	var name := node_name.to_lower()
+	var path := "%s/%s" % [_local_node_path(parent).to_lower(), name]
+	if name.contains("glass") or name.contains("window"):
+		return "glass_clear"
+	if name.contains("door") or name.contains("mailbox") or name.contains("trashbin"):
+		return "painted_door"
+	if path.contains("exteriorshell") or name.contains("siding"):
+		return "modern_farmhouse_siding"
+	if name.contains("ramp") or path.contains("homenavigation") or name.contains("launch") or name.contains("banked") or name.contains("cardboard"):
+		return "toy_plywood_ramp"
+	if name.contains("roof") or name.contains("gable") or name.contains("ridgecap") or name.ends_with("ridge") or name.contains("ridgebeam"):
+		return "asphalt_shingle_roof"
+	if name.contains("fascia") or name.contains("soffit") or name.contains("rake") or name.contains("trim") or name.contains("jamb") or name.contains("sill") or name.contains("muntin") or name.contains("baseboard") or name.contains("column"):
+		return "farmhouse_trim"
+	if name.contains("foundation") or name.contains("plinth") or name.contains("pier") or name.contains("stone"):
+		return "stone_foundation"
+	if name.contains("driveway") or name.contains("apron") or name.contains("sidewalk") or name.contains("walk") or name.contains("curb") or name.contains("concrete") or name.contains("patio") or name.contains("slab"):
+		if path.contains("garage"):
+			return "garage_slab"
+		return "brushed_concrete"
+	if name.contains("sand"):
+		return "sandbox_sand"
+	if name.contains("garden") or name.contains("soil") or name.contains("mulch") or name.contains("planting") or name.contains("shrub"):
+		return "garden_soil"
+	if name.contains("grass") or name.contains("lawn") or name.contains("ground"):
+		return "lawn_grass"
+	if name.contains("deck") or name.contains("porch") or name.contains("fence") or name.contains("rail") or name.contains("wood"):
+		return "deck_wood"
+	if path.contains("attic"):
+		return "attic_plywood"
+	if path.contains("mainfloor/roomfinishes"):
+		if name.contains("kitchen"):
+			return "kitchen_tile"
+		if name.contains("playroom"):
+			return "playroom_vinyl"
+		if name.contains("garage"):
+			return "garage_slab"
+		if name.contains("ceiling") or name.contains("soffit") or name.contains("return"):
+			return "wall_paint_interior"
+		return "hardwood_floor"
+	if path.contains("upperfloor/roomfinishes"):
+		if name.contains("bedroom"):
+			return "carpet"
+		if name.contains("ceiling"):
+			return "wall_paint_interior"
+		return "hardwood_floor"
+	if path.contains("interiorwalls") or path.contains("interiorpartitions") or name.contains("wall") or name.contains("ceiling"):
+		return "wall_paint_interior"
+	return "wall_paint_interior"
+
+func _local_node_path(node: Node) -> String:
+	var parts: Array[String] = []
+	var cursor := node
+	while cursor != null:
+		parts.push_front(str(cursor.name))
+		cursor = cursor.get_parent()
+	return "/".join(parts)
+
 func _add_room_floor(root: Node3D, parent: Node3D, node_name: String, position: Vector3, size: Vector3, color: Color, include_baseboards := true) -> void:
 	_add_box(root, parent, node_name, position, size, color, true)
 	if not include_baseboards:
@@ -2635,6 +2745,7 @@ func _add_sphere_mesh(root: Node3D, parent: Node3D, node_name: String, position:
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	material.roughness = 0.78
+	_apply_home_material_contract(parent, mesh, material)
 	mesh.material_override = material
 	parent.add_child(mesh)
 	mesh.owner = root
@@ -2654,6 +2765,7 @@ func _add_cylinder_mesh(root: Node3D, parent: Node3D, node_name: String, positio
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	material.roughness = 0.78
+	_apply_home_material_contract(parent, mesh, material)
 	mesh.material_override = material
 	parent.add_child(mesh)
 	mesh.owner = root
@@ -2673,6 +2785,7 @@ func _add_box(root: Node3D, parent: Node3D, node_name: String, position: Vector3
 	material.roughness = 0.72
 	if color.a < 1.0:
 		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_apply_home_material_contract(parent, mesh, material)
 	mesh.material_override = material
 	parent.add_child(mesh)
 	mesh.owner = root
